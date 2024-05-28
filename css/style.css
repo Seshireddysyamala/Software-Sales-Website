@@ -26,10 +26,12 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
     nav ul li {
-        display: inline;
+        position: relative;
         margin: 0 1rem;
     }
 
@@ -39,23 +41,80 @@ nav ul {
             padding: 0.5rem;
         }
 
-            nav ul li a:hover {
+            nav ul li a:hover,
+            nav ul li a:focus {
                 color: #007bff;
                 background-color: #fff;
                 border-radius: 4px;
             }
 
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #007bff;
+            padding: 1rem;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            margin: 0;
+        }
+
 main {
     padding: 2rem;
-    background-color: #fff;
     margin: 5rem auto;
     max-width: 800px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section {
     margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#overview {
+    background: url('images/overview.webp') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+    #overview h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #overview p {
+        font-size: 1.2rem;
+    }
+
+#latest-software {
+    background-color: #e0f7fa;
+    color: #00796b;
+}
+
+#top-deals {
+    background-color: #fff59d;
+    color: #f57f17;
+}
+
+#customer-reviews {
+    background-color: #c8e6c9;
+    color: #388e3c;
+}
+
+#about-company {
+    background-color: #f8bbd0;
+    color: #c2185b;
 }
 
 footer {
@@ -83,21 +142,3 @@ h2 {
 p {
     margin: 0.5rem 0;
 }
-
-#overview {
-    background: url('images/overview.webp') no-repeat center center;
-    background-size: cover;
-    padding: 5rem 0;
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-}
-
-    #overview h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    #overview p {
-        font-size: 1.2rem;
-    }
