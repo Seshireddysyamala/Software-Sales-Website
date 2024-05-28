@@ -81,7 +81,7 @@ p {
 }
 
 #overview {
-    background: url('/Software-Sales-Website/images/overview.jpg') no-repeat center center/cover;
+    background: url('../images/overview.jpg') no-repeat center center/cover;
     padding: 5rem 0;
     color: #fff;
     text-align: center;
@@ -96,28 +96,3 @@ p {
     #overview p {
         font-size: 1.2rem;
     }
-/* Typography Enhancement */
-body {
-    font-family: 'Roboto', sans-serif;
-}
-
-h1, h2 {
-    font-family: 'Roboto Slab', serif;
-}
-
-/* Additional Styling */
-nav ul li a:hover {
-    color: #f4f4f4;
-    background-color: #555;
-    border-radius: 4px;
-    padding: 0.5rem;
-}
-
-main {
-    padding: 2rem;
-    background-color: #fff;
-    margin: 2rem auto;
-    max-width: 800px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
