@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const product = document.getElementById('product').value;
         const amount = document.getElementById('amount').value;
 
+        addSale(product, amount);
+
+        salesForm.reset();
+    });
+
+    function addSale(product, amount) {
         const li = document.createElement('li');
         li.textContent = `${product}: $${amount}`;
 
@@ -19,8 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         li.appendChild(deleteButton);
         salesList.appendChild(li);
+    }
 
-        salesForm.reset();
-    });
+    // Sample sales data
+    const sampleSales = [
+        { product: 'Software A', amount: 500 },
+        { product: 'Software B', amount: 1200 },
+        { product: 'Software C', amount: 700 },
+        // Add more sample data as needed
+    ];
+
+    sampleSales.forEach(sale => addSale(sale.product, sale.amount));
 });
-// JavaScript source code

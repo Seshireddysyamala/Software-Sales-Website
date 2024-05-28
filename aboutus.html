@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -19,40 +18,21 @@
         </nav>
     </header>
     <main>
-        <section id="about">
-            <h1>About Seshi Reddy Syamala</h1>
-            <p>An aspiring data analyst seeking opportunities to apply statistical analysis, data visualization, and problem-solving skills to extract insights from data, support informed decision-making, and contribute to data-driven solutions.</p>
-            <h2>Education</h2>
-            <p>Master of Science in Business Analytics and Information Systems, University of South Florida, Tampa, USA. Expected May 2025</p>
-            <p>Bachelor of Engineering in Electronics and Communication Engineering, Saveetha Institute of Technical and Medical Sciences, Aug 2018 - July 2022</p>
-            <h2>Skills</h2>
-            <ul>
-                <li>Languages: Python, R, C, MySQL</li>
-                <li>Data Analysis Tools: Pandas, NumPy, SciPy, Matplotlib, Scikit-Learn</li>
-                <li>Other Tools: Anaconda, Power BI, R Studio, Tableau, Excel, Oracle OSM, and WebLogic servers</li>
-                <li>Machine Learning: Regression Models, Decision Tree, Time Series Analysis, SVM, Random Forest, Boosting, KNN</li>
-                <li>Methodologies: Agile, Scrum</li>
-            </ul>
-            <h2>Experience</h2>
-            <h3>IT Deployment Engineer - Vodafone Intelligent Solutions (India)</h3>
-            <p>Aug 2022 – April 2023</p>
-            <ul>
-                <li>Followed Agile methodology with daily scrum meetings and provided user story updates.</li>
-                <li>Involved in various development life cycle phases by gathering requirements, analyzing, designing, and developing.</li>
-                <li>Providing solutions to customer requests in the Seibel application and solving data-related issues using SQL language.</li>
-            </ul>
-            <h3>Virtual Internship on Data Visualization – TATA(India)</h3>
-            <p>April 2022</p>
-            <ul>
-                <li>Developed practical skills in data analytics methodologies, including data cleaning, analysis, and visualization using industry-standard tools.</li>
-                <li>Created interactive dashboards and reports of health care and sales using Power BI.</li>
-             </ul>
-<p><a href="https://github.com/Seshireddysyamala/Software-Sales-Website">View my code on GitHub</a></p>
+        <h1>About Us</h1>
+        <section id="about-us">
+            <h2>Our Team</h2>
+            <form id="upload-image-form">
+                <label for="profile-image">Upload Your Image:</label>
+                <input type="file" id="profile-image" name="profile-image" accept="image/*">
+                <button type="submit">Upload</button>
+            </form>
+            <img id="uploaded-image" src="" alt="Profile Image" style="display:none; margin-top: 1rem; border-radius: 8px;">
+            <p>At Software Sales, we are dedicated to providing the best software solutions at the most competitive prices. Our mission is to make high-quality software accessible to everyone, whether for personal use, educational purposes, or business needs. With a commitment to customer satisfaction, we strive to offer exceptional service, knowledgeable support, and an extensive selection of software products. Join us in discovering the latest software trends and top deals, and experience the difference with Software Sales.</p>
         </section>
     </main>
-<footer>
-    <p>&copy; 2024 Software Sales. All rights reserved.</p>
-</footer>
-<script src="js/script.js"></script>
+    <footer>
+        <p>&copy; 2024 Software Sales. All rights reserved.</p>
+    </footer>
+    <script src="js/upload.js"></script>
 </body>
 </html>
