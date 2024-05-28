@@ -99,18 +99,22 @@ section {
 
 #latest-software {
     background-color: #e0f7fa;
+    color: #00796b;
 }
 
 #top-deals {
     background-color: #fff59d;
+    color: #f57f17;
 }
 
 #customer-reviews {
     background-color: #c8e6c9;
+    color: #388e3c;
 }
 
 #about-company {
     background-color: #f8bbd0;
+    color: #c2185b;
 }
 
 footer {
