@@ -17,28 +17,6 @@ header {
     color: #fff;
     padding: 1rem 0;
     text-align: center;
-    position ### Update CSS for a Professional Look **style.css**: ```css
-    /* Reset default browser styles */
-    *
-
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    background: #007bff;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
@@ -48,10 +26,12 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
     nav ul li {
-        display: inline;
+        position: relative;
         margin: 0 1rem;
     }
 
@@ -61,11 +41,31 @@ nav ul {
             padding: 0.5rem;
         }
 
-            nav ul li a:hover {
+            nav ul li a:hover,
+            nav ul li a:focus {
                 color: #007bff;
                 background-color: #fff;
                 border-radius: 4px;
             }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #007bff;
+            padding: 1rem;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            margin: 0;
+        }
 
 main {
     padding: 2rem;
@@ -107,7 +107,8 @@ p {
 }
 
 #overview {
-    background: url('images/overview.webp') no-repeat center center/cover;
+    background: url('images/overview.webp') no-repeat center center;
+    background-size: cover;
     padding: 5rem 0;
     color: #fff;
     text-align: center;
