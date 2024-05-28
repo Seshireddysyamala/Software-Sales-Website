@@ -69,15 +69,48 @@ nav ul {
 
 main {
     padding: 2rem;
-    background-color: #fff;
     margin: 5rem auto;
     max-width: 800px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section {
     margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#overview {
+    background: url('images/overview.webp') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+    #overview h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #overview p {
+        font-size: 1.2rem;
+    }
+
+#latest-software {
+    background-color: #e0f7fa;
+}
+
+#top-deals {
+    background-color: #ffeb3b;
+}
+
+#customer-reviews {
+    background-color: #c8e6c9;
+}
+
+#about-company {
+    background-color: #ffcdd2;
 }
 
 footer {
@@ -105,21 +138,3 @@ h2 {
 p {
     margin: 0.5rem 0;
 }
-
-#overview {
-    background: url('images/overview.webp') no-repeat center center;
-    background-size: cover;
-    padding: 5rem 0;
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-}
-
-    #overview h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    #overview p {
-        font-size: 1.2rem;
-    }
