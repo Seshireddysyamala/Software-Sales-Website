@@ -81,7 +81,7 @@ p {
 }
 
 #overview {
-    background: url('../images/overview.jpg') no-repeat center center/cover;
+    background: url('../images/overview.webp') no-repeat center center/cover;
     padding: 5rem 0;
     color: #fff;
     text-align: center;
@@ -95,4 +95,6 @@ p {
 
     #overview p {
         font-size: 1.2rem;
+    }
+
     }
