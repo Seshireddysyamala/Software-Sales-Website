@@ -6,6 +6,7 @@
     <title>Data Analytics</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -21,17 +22,28 @@
     <main>
         <section id="data-analytics">
             <h1>Data Analytics</h1>
+
+            <!-- Bar Chart -->
             <div class="chart-container">
-                <h2>Sales Data</h2>
+                <h2>Monthly Sales Data</h2>
                 <canvas id="salesChart"></canvas>
             </div>
+
+            <!-- Pie Chart -->
+            <div class="chart-container">
+                <h2>Sales Distribution</h2>
+                <canvas id="salesPieChart"></canvas>
+            </div>
+
+            <!-- Line Chart -->
             <div class="chart-container">
                 <h2>Sales Trend</h2>
-                <canvas id="trendChart"></canvas>
+                <canvas id="salesLineChart"></canvas>
             </div>
-            <div class="chart-container">
-                <h2>Sales Proportion</h2>
-                <canvas id="proportionChart"></canvas>
+
+            <!-- Data Table -->
+            <div class="table-container">
+                <h2>Sales Data Table</h2>
                 <table>
                     <thead>
                         <tr>
@@ -76,7 +88,6 @@
     <footer>
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/analytics.js"></script>
 </body>
 </html>
