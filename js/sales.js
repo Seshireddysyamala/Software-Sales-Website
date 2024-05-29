@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
             editSaleNameInput.value = row.cells[0].textContent;
             editSaleAmountInput.value = row.cells[1].textContent;
         } else if (event.target.classList.contains('delete-sale')) {
-            salesTable.deleteRow(event.target.closest('tr').rowIndex);
+            const row = event.target.closest('tr');
+            salesTable.deleteRow(row.rowIndex);
             if (editIndex !== -1) {
                 editIndex = -1;
                 editSaleNameInput.value = '';
                 editSaleAmountInput.value = '';
-                saveEditSaleBtn.textContent = 'Add Sale';
             }
         }
     });
