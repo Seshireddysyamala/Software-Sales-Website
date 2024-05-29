@@ -1,44 +1,58 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const salesList = document.getElementById('salesList');
-    const addSaleButton = document.getElementById('addSaleButton');
+    const salesTable = document.getElementById('sales-table');
+    const saleNameInput = document.getElementById('sale-name');
+    const saleAmountInput = document.getElementById('sale-amount');
+    const addSaleBtn = document.querySelector('.add-sale-btn');
+    const saveSaleBtn = document.querySelector('.save-sale-btn');
+    let editIndex = -1;
 
-    const createSaleRow = (name, amount) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${name}</td>
-            <td>${amount}</td>
-            <td>
-                <button class="btn btn-warning btn-sm edit-sale">Edit</button>
-                <button class="btn btn-danger btn-sm delete-sale">Delete</button>
-            </td>
-        `;
-        salesList.appendChild(row);
-    };
+    addSaleBtn.addEventListener('click', () => {
+        saleNameInput.value = '';
+        saleAmountInput.value = '';
+        editIndex = -1;
+        saveSaleBtn.textContent = 'Add Sale';
+    });
 
-    addSaleButton.addEventListener('click', () => {
-        const saleName = prompt('Enter sale name:');
-        const saleAmount = prompt('Enter sale amount:');
+    saveSaleBtn.addEventListener('click', () => {
+        const saleName = saleNameInput.value.trim();
+        const saleAmount = saleAmountInput.value.trim();
         if (saleName && saleAmount) {
-            createSaleRow(saleName, saleAmount);
+            if (editIndex === -1) {
+                const newRow = salesTable.insertRow();
+                newRow.innerHTML = `
+                    <td>${saleName}</td>
+                    <td>${saleAmount}</td>
+                    <td>
+                        <button class="btn btn-warning edit-sale">Edit</button>
+                        <button class="btn btn-danger delete-sale">Delete</button>
+                    </td>
+                `;
+            } else {
+                salesTable.rows[editIndex].cells[0].textContent = saleName;
+                salesTable.rows[editIndex].cells[1].textContent = saleAmount;
+            }
+            saleNameInput.value = '';
+            saleAmountInput.value = '';
+            saveSaleBtn.textContent = 'Add Sale';
+            editIndex = -1;
         }
     });
 
-    salesList.addEventListener('click', (event) => {
+    salesTable.addEventListener('click', (event) => {
         if (event.target.classList.contains('edit-sale')) {
-            const row = event.target.closest('tr');
-            const saleName = row.cells[0].textContent;
-            const saleAmount = row.cells[1].textContent;
-            const newSaleName = prompt('Edit sale name:', saleName);
-            const newSaleAmount = prompt('Edit sale amount:', saleAmount);
-            if (newSaleName && newSaleAmount) {
-                row.cells[0].textContent = newSaleName;
-                row.cells[1].textContent = newSaleAmount;
+            editIndex = event.target.closest('tr').rowIndex - 1;
+            saleNameInput.value = salesTable.rows[editIndex].cells[0].textContent;
+            saleAmountInput.value = salesTable.rows[editIndex].cells[1].textContent;
+            saveSaleBtn.textContent = 'Save Sale';
+        } else if (event.target.classList.contains('delete-sale')) {
+            salesTable.deleteRow(event.target.closest('tr').rowIndex);
+            if (editIndex !== -1) {
+                editIndex = -1;
+                saleNameInput.value = '';
+                saleAmountInput.value = '';
+                saveSaleBtn.textContent = 'Add Sale';
             }
-        }
-
-        if (event.target.classList.contains('delete-sale')) {
-            const row = event.target.closest('tr');
-            salesList.removeChild(row);
         }
     });
 });
+

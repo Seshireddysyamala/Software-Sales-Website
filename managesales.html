@@ -25,15 +25,18 @@
             </div>
         </nav>
     </header>
-    <main class="container mt-5">
-        <section id="managesales" class="bg-dark text-white p-4 rounded">
+    <main class="container mt-5 text-white">
+        <section id="managesales" class="bg-dark p-4 rounded mb-4">
             <h1>Manage Sales</h1>
-            <div class="text-center my-4">
-                <button id="addSaleButton" class="btn btn-primary">Add Sale</button>
+            <button class="btn btn-primary add-sale-btn">Add Sale</button>
+            <div class="sales-form">
+                <input type="text" id="sale-name" placeholder="Sale Name" class="form-control mb-2">
+                <input type="number" id="sale-amount" placeholder="Sale Amount" class="form-control mb-2">
+                <button class="btn btn-success save-sale-btn">Save Sale</button>
             </div>
-            <div class="table-container bg-secondary p-4 rounded">
-                <h2>Sales List</h2>
-                <table class="table table-dark table-bordered">
+            <div class="sales-list">
+                <h2 class="text-center">Sales List</h2>
+                <table class="table table-dark">
                     <thead>
                         <tr>
                             <th>Sale Name</th>
@@ -41,29 +44,29 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="salesList">
+                    <tbody id="sales-table">
                         <tr>
-                            <td>Software A - $100</td>
+                            <td>Software A</td>
                             <td>$100</td>
                             <td>
-                                <button class="btn btn-warning btn-sm edit-sale">Edit</button>
-                                <button class="btn btn-danger btn-sm delete-sale">Delete</button>
+                                <button class="btn btn-warning">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
                             </td>
                         </tr>
                         <tr>
-                            <td>Software B - $200</td>
+                            <td>Software B</td>
                             <td>$200</td>
                             <td>
-                                <button class="btn btn-warning btn-sm edit-sale">Edit</button>
-                                <button class="btn btn-danger btn-sm delete-sale">Delete</button>
+                                <button class="btn btn-warning">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
                             </td>
                         </tr>
                         <tr>
-                            <td>Software C - $300</td>
+                            <td>Software C</td>
                             <td>$300</td>
                             <td>
-                                <button class="btn btn-warning btn-sm edit-sale">Edit</button>
-                                <button class="btn btn-danger btn-sm delete-sale">Delete</button>
+                                <button class="btn btn-warning">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
                             </td>
                         </tr>
                     </tbody>
@@ -75,7 +78,7 @@
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/sales.js"></script>
 </body>

@@ -192,3 +192,25 @@ table {
     table td {
         background-color: #2c2c2c;
     }
+
+.add-sale-btn, .save-sale-btn {
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+
+.sales-form, .sales-list {
+    margin-bottom: 2rem;
+}
+
+.bg-secondary p, .bg-secondary h2 {
+    margin-bottom: 1rem;
+}
+
+/* Add spacing between sections */
+section {
+    margin-bottom: 2rem;
+}
+
+#about .text-left h2 {
+    margin-top: 2rem;
+}
