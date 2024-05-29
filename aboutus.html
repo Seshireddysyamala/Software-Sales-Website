@@ -6,23 +6,30 @@
     <title>About Us</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="managesales.html">Manage Sales</a></li>
-                <li><a href="analytics.html">Data Analytics</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Software Sales</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="managesales.html">Manage Sales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
-    <main>
+    <main class="container mt-5">
         <section id="about">
             <h1>About Seshi Reddy Syamala</h1>
-            <div class="profile-image">
-                <img src="images/passport.JPG" alt="Seshi Reddy Syamala">
+            <div class="profile-image text-center">
+                <img src="images/passport.JPG" alt="Seshi Reddy Syamala" class="img-fluid">
             </div>
             <div class="text-left">
                 <p>An aspiring data analyst seeking opportunities to apply statistical analysis, data visualization, and problem-solving skills to extract insights from data, support informed decision-making, and contribute to data-driven solutions.</p>
@@ -56,8 +63,11 @@
             </div>
         </section>
     </main>
-    <footer>
+    <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
