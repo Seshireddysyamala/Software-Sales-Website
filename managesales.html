@@ -25,33 +25,36 @@
         </nav>
     </header>
     <main class="container mt-5">
-        <section id="managesales" class="section-box text-center">
+        <section id="managesales" class="section-box">
             <h1>Manage Sales</h1>
-            <button id="addSaleButton" class="btn btn-primary my-3">Add Sale</button>
-            <div id="addSaleForm" class="mb-3" style="display: none;">
-                <input type="text" id="saleNameInput" class="form-control mb-2" placeholder="Sale Name">
-                <input type="number" id="saleAmountInput" class="form-control mb-2" placeholder="Sale Amount">
-                <button id="saveSaleButton" class="btn btn-primary">Save Sale</button>
+            <button id="addSaleButton" class="btn btn-primary">Add Sale</button>
+            <div id="addSaleForm" style="display: none;">
+                <h3>Add New Sale</h3>
+                <input type="text" id="saleName" placeholder="Sale Name" class="form-control mb-2">
+                <input type="number" id="saleAmount" placeholder="Sale Amount" class="form-control mb-2">
+                <button id="saveSaleButton" class="btn btn-success">Save Sale</button>
             </div>
-            <h2>Sales List</h2>
-            <div class="table-container">
-                <table class="table table-dark">
+            <div class="table-container mt-4">
+                <table class="table table-dark table-striped">
                     <thead>
                         <tr>
-                            <th>Sale Name</th>
-                            <th>Sale Amount</th>
+                            <th>Name</th>
+                            <th>Amount</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody id="salesList">
-                        <!-- Sales will be rendered here -->
+                        <!-- Sales will be dynamically added here -->
                     </tbody>
                 </table>
             </div>
         </section>
     </main>
+    <footer>
+        <p>&copy; 2024 Software Sales. All rights reserved.</p>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/sales.js"></script>
 </body>

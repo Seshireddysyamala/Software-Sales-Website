@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const addSaleButton = document.getElementById('addSaleButton');
     const addSaleForm = document.getElementById('addSaleForm');
+    const saleNameInput = document.getElementById('saleName');
+    const saleAmountInput = document.getElementById('saleAmount');
     const saveSaleButton = document.getElementById('saveSaleButton');
-    const saleNameInput = document.getElementById('saleNameInput');
-    const saleAmountInput = document.getElementById('saleAmountInput');
     const salesList = document.getElementById('salesList');
 
     let sales = [
-        { name: 'Software A', amount: 100 },
-        { name: 'Software B', amount: 200 },
-        { name: 'Software C', amount: 300 }
+        { name: "Software A", amount: 100 },
+        { name: "Software B", amount: 200 },
+        { name: "Software C", amount: 300 }
     ];
 
     const renderSales = () => {
@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         sales.forEach((sale, index) => {
             const saleRow = document.createElement('tr');
             saleRow.innerHTML = `
-                <td style="color: black;">${sale.name}</td>
-                <td style="color: black;">$${sale.amount}</td>
+                <td>${sale.name}</td>
+                <td>$${sale.amount}</td>
                 <td>
                     <button class="btn btn-warning btn-sm" onclick="editSale(${index})">Edit</button>
-                                        <button class="btn btn-danger btn-sm" onclick="deleteSale(${index})">Delete</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteSale(${index})">Delete</button>
                 </td>
             `;
             salesList.appendChild(saleRow);
@@ -67,4 +67,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderSales();
 });
-
