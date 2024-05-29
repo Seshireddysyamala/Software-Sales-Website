@@ -74,6 +74,7 @@ section {
     #overview h1 {
         font-size: 2.5rem;
         margin-bottom: 1rem;
+        color: #fff;
     }
 
     #overview p {
@@ -83,7 +84,7 @@ section {
 
 #latest-software {
     background-color: #37474f;
-    color: #80deea;
+    color: #ffffff;
 }
 
     #latest-software img, #top-deals img, #about-company img {
@@ -94,31 +95,21 @@ section {
 
 #top-deals {
     background-color: #fbc02d;
-    color: #e65100;
+    color: #ffffff;
 }
 
 #customer-reviews {
     background-color: #388e3c;
-    color: #c8e6c9;
+    color: #ffffff;
 }
 
 #about-company {
     background-color: #d81b60;
-    color: #f8bbd0;
-}
-
-footer {
-    background: #1f1f1f;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    color: #ffffff;
 }
 
 h1, h2 {
-    color: #007bff;
+    color: #ffffff; /* Update heading colors to white */
 }
 
 h1 {
@@ -131,4 +122,26 @@ h2 {
 
 p {
     margin: 0.5rem 0;
+}
+
+#managesales {
+    color: #ffffff;
+}
+
+#aboutus {
+    color: #ffffff;
+}
+
+#data-analytics {
+    color: #ffffff;
+}
+
+footer {
+    background: #1f1f1f;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
