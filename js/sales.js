@@ -35,13 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
     salesTable.addEventListener('click', (event) => {
         if (event.target.classList.contains('edit-sale')) {
             const row = event.target.closest('tr');
-            editIndex = row.rowIndex - 1;
+            editIndex = row.rowIndex;
             editSaleNameInput.value = row.cells[0].textContent;
             editSaleAmountInput.value = row.cells[1].textContent;
         } else if (event.target.classList.contains('delete-sale')) {
             const row = event.target.closest('tr');
-            salesTable.deleteRow(row.rowIndex);
-            if (editIndex !== -1) {
+            salesTable.deleteRow(row.rowIndex - 1);
+            if (editIndex === row.rowIndex) {
                 editIndex = -1;
                 editSaleNameInput.value = '';
                 editSaleAmountInput.value = '';
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const saleName = editSaleNameInput.value.trim();
         const saleAmount = editSaleAmountInput.value.trim();
         if (saleName && saleAmount && editIndex !== -1) {
-            const row = salesTable.rows[editIndex];
+            const row = salesTable.rows[editIndex - 1];
             row.cells[0].textContent = saleName;
             row.cells[1].textContent = saleAmount;
             $('#editSaleModal').modal('hide');
