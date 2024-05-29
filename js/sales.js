@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${amount}</td>
             <td>
                 <button class="btn btn-warning edit-sale" data-toggle="modal" data-target="#editSaleModal">Edit</button>
-                <button class="btn btn-danger delete-sale">Delete</button>
+                <button class="btn btn-danger delete-sale" data-toggle="modal" data-target="#confirmDeleteModal">Delete</button>
             </td>
         `;
         salesTable.appendChild(row);
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    let deleteRowIndex = -1;
     salesTable.addEventListener('click', (event) => {
         if (event.target.classList.contains('edit-sale')) {
             const row = event.target.closest('tr');
@@ -39,14 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
             editSaleNameInput.value = row.cells[0].textContent;
             editSaleAmountInput.value = row.cells[1].textContent;
         } else if (event.target.classList.contains('delete-sale')) {
-            const row = event.target.closest('tr');
-            salesTable.deleteRow(row.rowIndex - 1);
-            if (editIndex === row.rowIndex) {
-                editIndex = -1;
-                editSaleNameInput.value = '';
-                editSaleAmountInput.value = '';
-            }
+            deleteRowIndex = event.target.closest('tr').rowIndex;
         }
+    });
+
+    document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+        if (deleteRowIndex !== -1) {
+            salesTable.deleteRow(deleteRowIndex - 1);
+            deleteRowIndex = -1;
+        }
+        $('#confirmDeleteModal').modal('hide');
     });
 
     saveEditSaleBtn.addEventListener('click', () => {
@@ -57,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             row.cells[0].textContent = saleName;
             row.cells[1].textContent = saleAmount;
             $('#editSaleModal').modal('hide');
+            editIndex = -1;
         }
     });
 });
