@@ -79,11 +79,11 @@ section {
         color: #fff;
     }
 
-#overview p {
-    font-size: 1.2rem;
-    color: #ff9800;
-    text-align: center; /* Center the text within the overview section */
-}
+    #overview p.center-text {
+        font-size: 1.2rem;
+        color: #ff9800;
+        text-align: center; /* Center the text within the overview section */
+    }
 
 #latest-software {
     background-color: #37474f;
@@ -109,7 +109,7 @@ section {
 #about-company {
     background-color: #d81b60;
     color: #ffffff;
-    text-align: left;
+    text-align: left; /* Left-align text within the about-company section */
 }
 
 .profile-image {
@@ -139,7 +139,11 @@ h2 {
 
 p {
     margin: 0.5rem 0;
-    text-align: left; /* Left align the text */
+}
+
+ul.text-left,
+.text-left {
+    text-align: left; /* Left-align the text */
 }
 
 #managesales, #aboutus, #data-analytics {
@@ -189,3 +193,4 @@ table {
     table td {
         background-color: #2c2c2c;
     }
+
