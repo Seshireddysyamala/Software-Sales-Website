@@ -1,39 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const salesForm = document.getElementById('add-sale-form');
-    const salesList = document.getElementById('sales-ul');
+    const salesForm = document.getElementById('salesForm');
+    const salesList = document.getElementById('salesList');
 
     salesForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const product = document.getElementById('product').value;
-        const amount = document.getElementById('amount').value;
+        const productName = document.getElementById('productName').value;
+        const productPrice = document.getElementById('productPrice').value;
 
-        addSale(product, amount);
+        addSale(productName, productPrice);
 
         salesForm.reset();
     });
 
-    function addSale(product, amount) {
-        const li = document.createElement('li');
-        li.textContent = `${product}: $${amount}`;
+    function addSale(name, price) {
+        const saleItem = document.createElement('li');
+        saleItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+        saleItem.innerHTML = `
+            <span>${name} - $${price}</span>
+            <div>
+                <button class="btn btn-warning btn-sm mr-2 edit-btn">Edit</button>
+                <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+            </div>
+        `;
 
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', () => {
-            salesList.removeChild(li);
-        });
+        salesList.appendChild(saleItem);
 
-        li.appendChild(deleteButton);
-        salesList.appendChild(li);
+        const editBtn = saleItem.querySelector('.edit-btn');
+        const deleteBtn = saleItem.querySelector('.delete-btn');
+
+        editBtn.addEventListener('click', () => editSale(saleItem, name, price));
+        deleteBtn.addEventListener('click', () => deleteSale(saleItem));
     }
 
-    // Sample sales data
-    const sampleSales = [
-        { product: 'Software A', amount: 500 },
-        { product: 'Software B', amount: 1200 },
-        { product: 'Software C', amount: 700 },
-        // Add more sample data as needed
-    ];
+    function editSale(saleItem, name, price) {
+        const newName = prompt('Enter new product name', name);
+        const newPrice = prompt('Enter new product price', price);
 
-    sampleSales.forEach(sale => addSale(sale.product, sale.amount));
+        if (newName && newPrice) {
+            saleItem.querySelector('span').textContent = `${newName} - $${newPrice}`;
+        }
+    }
+
+    function deleteSale(saleItem) {
+        if (confirm('Are you sure you want to delete this sale?')) {
+            salesList.removeChild(saleItem);
+        }
+    }
 });
