@@ -82,7 +82,7 @@ section {
     #overview p.center-text {
         font-size: 1.2rem;
         color: #ff9800;
-        text-align: center; /* Center the text within the overview section */
+        text-align: center;
     }
 
 #latest-software {
@@ -109,7 +109,7 @@ section {
 #about-company {
     background-color: #d81b60;
     color: #ffffff;
-    text-align: left; /* Left-align text within the about-company section */
+    text-align: left;
 }
 
 .profile-image {
@@ -121,12 +121,12 @@ section {
     .profile-image img {
         border-radius: 8px;
         width: 200px;
-        border: 2px solid #ffffff; /* Add a white border around the image */
+        border: 2px solid #ffffff;
     }
 
 h1, h2 {
-    color: #ffffff; /* Update heading colors to white */
-    text-align: center; /* Center the headings */
+    color: #ffffff;
+    text-align: center;
 }
 
 h1 {
@@ -141,9 +141,8 @@ p {
     margin: 0.5rem 0;
 }
 
-ul.text-left,
-.text-left {
-    text-align: left; /* Left-align the text */
+ul.text-left, .text-left {
+    text-align: left;
 }
 
 #managesales, #aboutus, #data-analytics {
@@ -193,4 +192,3 @@ table {
     table td {
         background-color: #2c2c2c;
     }
-
