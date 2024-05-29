@@ -108,6 +108,14 @@ section {
     color: #ffffff;
 }
 
+.profile-image img {
+    display: block;
+    margin: 1rem auto;
+    border-radius: 8px;
+    width: 200px;
+    border: 2px solid #ffffff; /* Add a white border around the image */
+}
+
 h1, h2 {
     color: #ffffff; /* Update heading colors to white */
 }
