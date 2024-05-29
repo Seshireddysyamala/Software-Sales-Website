@@ -108,11 +108,8 @@ section {
 #about-company {
     background-color: #d81b60;
     color: #ffffff;
+    text-align: left;
 }
-
-    #about-company p {
-        text-align: left; /* Left-align text within the about-company section */
-    }
 
 .profile-image {
     display: flex;
@@ -125,10 +122,6 @@ section {
         width: 200px;
         border: 2px solid #ffffff; /* Add a white border around the image */
     }
-
-.text-left {
-    text-align: left; /* Left-align the text */
-}
 
 h1, h2 {
     color: #ffffff; /* Update heading colors to white */
@@ -145,6 +138,7 @@ h2 {
 
 p {
     margin: 0.5rem 0;
+    text-align: left; /* Left align the text */
 }
 
 #managesales, #aboutus, #data-analytics {
@@ -163,20 +157,15 @@ footer {
 }
 
 .chart-container {
-    margin: 2rem 0;
-    padding: 1rem;
-    background-color: #2c2c2c;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
 }
 
 .table-container {
-    margin: 2rem 0;
-    padding: 1rem;
-    background-color: #2c2c2c;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
 }
 
 table {
@@ -185,18 +174,17 @@ table {
     margin: 1rem 0;
 }
 
-th, td {
-    padding: 0.5rem;
-    border: 1px solid #ffffff;
-    text-align: center;
-}
+    table th, table td {
+        border: 1px solid #ffffff;
+        padding: 0.5rem;
+        text-align: center;
+        color: #ffffff;
+    }
 
-th {
-    background-color: #37474f;
-    color: #ffffff;
-}
+    table th {
+        background-color: #37474f;
+    }
 
-td {
-    background-color: #2c2c2c;
-    color: #ffffff;
-}
+    table td {
+        background-color: #2c2c2c;
+    }
