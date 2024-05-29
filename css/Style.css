@@ -8,12 +8,12 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 header {
-    background: #007bff;
+    background: #1f1f1f;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
@@ -44,41 +44,24 @@ nav ul {
             nav ul li a:hover,
             nav ul li a:focus {
                 color: #007bff;
-                background-color: #fff;
+                background-color: #1f1f1f;
                 border-radius: 4px;
             }
-
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #007bff;
-            padding: 1rem;
-            border-radius: 4px;
-            z-index: 1000;
-        }
-
-        nav ul li:hover ul {
-            display: block;
-        }
-
-        nav ul li ul li {
-            margin: 0;
-        }
 
 main {
     padding: 2rem;
     margin: 5rem auto;
     max-width: 800px;
     border-radius: 8px;
+    background-color: #1f1f1f;
 }
 
 section {
     margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    background-color: #2c2c2c;
 }
 
 #overview {
@@ -91,34 +74,54 @@ section {
     #overview h1 {
         font-size: 2.5rem;
         margin-bottom: 1rem;
+        color: #fff;
     }
 
     #overview p {
         font-size: 1.2rem;
+        color: #ff9800;
     }
 
 #latest-software {
-    background-color: #e0f7fa;
-    color: #00796b;
+    background-color: #37474f;
+    color: #ffffff;
 }
 
+    #latest-software img, #top-deals img, #about-company img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
 #top-deals {
-    background-color: #fff59d;
-    color: #f57f17;
+    background-color: #fbc02d;
+    color: #ffffff;
 }
 
 #customer-reviews {
-    background-color: #c8e6c9;
-    color: #388e3c;
+    background-color: #388e3c;
+    color: #ffffff;
 }
 
 #about-company {
-    background-color: #f8bbd0;
-    color: #c2185b;
+    background-color: #d81b60;
+    color: #ffffff;
+}
+
+#managesales {
+    color: #ffffff;
+}
+
+#aboutus {
+    color: #ffffff;
+}
+
+#data-analytics {
+    color: #ffffff;
 }
 
 footer {
-    background: #333;
+    background: #1f1f1f;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
