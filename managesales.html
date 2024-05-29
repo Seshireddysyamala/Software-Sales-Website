@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Sales</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -25,31 +25,34 @@
         </nav>
     </header>
     <main class="container mt-5">
-        <h1>Manage Sales</h1>
-        <button class="btn btn-primary mb-3" id="addSaleButton">Add Sale</button>
-        <div id="addSaleForm" class="mb-3" style="display: none;">
-            <div class="form-group">
-                <input type="text" class="form-control" id="saleNameInput" placeholder="Sale Name">
+        <section id="managesales" class="text-center">
+            <h1>Manage Sales</h1>
+            <button id="addSaleButton" class="btn btn-primary my-3">Add Sale</button>
+            <div id="addSaleForm" class="mb-3" style="display: none;">
+                <input type="text" id="saleNameInput" class="form-control mb-2" placeholder="Sale Name">
+                <input type="number" id="saleAmountInput" class="form-control mb-2" placeholder="Sale Amount">
+                <button id="saveSaleButton" class="btn btn-primary">Save Sale</button>
             </div>
-            <div class="form-group">
-                <input type="number" class="form-control" id="saleAmountInput" placeholder="Sale Amount">
+            <h2>Sales List</h2>
+            <div class="table-container">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Sale Name</th>
+                            <th>Sale Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salesList">
+                        <!-- Sales will be rendered here -->
+                    </tbody>
+                </table>
             </div>
-            <button class="btn btn-success" id="saveSaleButton">Save Sale</button>
-        </div>
-        <h2>Sales List</h2>
-        <table class="table table-dark">
-            <thead>
-                <tr>
-                    <th>Sale Name</th>
-                    <th>Sale Amount</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="salesList">
-                <!-- Sales will be dynamically inserted here -->
-            </tbody>
-        </table>
+        </section>
     </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/sales.js"></script>
 </body>
 </html>

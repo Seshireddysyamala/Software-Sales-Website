@@ -31,6 +31,7 @@ nav ul {
 }
 
     nav ul li {
+        position: relative;
         margin: 0 1rem;
     }
 
@@ -53,7 +54,6 @@ main {
     max-width: 800px;
     border-radius: 8px;
     background-color: #1f1f1f;
-    text-align: center;
 }
 
 section {
@@ -62,12 +62,14 @@ section {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     background-color: #2c2c2c;
+    text-align: center;
 }
 
 #overview {
     background: url('images/overview.webp') no-repeat center center;
     background-size: cover;
     color: #fff;
+    text-align: center;
 }
 
     #overview h1 {
@@ -76,13 +78,13 @@ section {
         color: #fff;
     }
 
-    #overview p {
+    #overview p.center-text {
         font-size: 1.2rem;
         color: #ff9800;
         text-align: center;
     }
 
-#latest-software, #top-deals, #customer-reviews, #about-company {
+#latest-software {
     background-color: #37474f;
     color: #ffffff;
 }
@@ -157,11 +159,38 @@ footer {
     width: 100%;
 }
 
-.table th, .table td {
-    color: black;
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
 }
 
-/* Additional styling for sales table and buttons */
-#salesList td {
-    color: black;
+.table-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    color: #ffffff; /* Make text in table white */
+    border: 1px solid #ffffff; /* Make border lines in table white */
+}
+
+    table th, table td {
+        border: 1px solid #ffffff;
+        padding: 0.5rem;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    table th {
+        background-color: #37474f;
+    }
+
+    table td {
+        background-color: #2c2c2c;
+    }
+

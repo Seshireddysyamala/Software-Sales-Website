@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
         sales.forEach((sale, index) => {
             const saleRow = document.createElement('tr');
             saleRow.innerHTML = `
-                <td class="text-dark">${sale.name}</td>
-                <td class="text-dark">$${sale.amount}</td>
+                <td>${sale.name}</td>
+                <td>$${sale.amount}</td>
                 <td>
                     <button class="btn btn-warning btn-sm" onclick="editSale(${index})">Edit</button>
                     <button class="btn btn-danger btn-sm" onclick="deleteSale(${index})">Delete</button>
