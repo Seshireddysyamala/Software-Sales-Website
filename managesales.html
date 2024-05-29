@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Sales</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -25,26 +26,46 @@
         </nav>
     </header>
     <main class="container mt-5">
-        <section id="managesales" class="section-box">
+        <section id="managesales" class="bg-dark text-white p-4 rounded">
             <h1>Manage Sales</h1>
-            <button id="addSaleButton" class="btn btn-primary">Add Sale</button>
-            <div id="addSaleForm" style="display: none;">
-                <h3>Add New Sale</h3>
-                <input type="text" id="saleName" placeholder="Sale Name" class="form-control mb-2">
-                <input type="number" id="saleAmount" placeholder="Sale Amount" class="form-control mb-2">
-                <button id="saveSaleButton" class="btn btn-success">Save Sale</button>
+            <div class="text-center my-4">
+                <button id="addSaleButton" class="btn btn-primary">Add Sale</button>
             </div>
-            <div class="table-container mt-4">
-                <table class="table table-dark table-striped">
+            <div class="table-container bg-secondary p-4 rounded">
+                <h2>Sales List</h2>
+                <table class="table table-dark table-bordered">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Amount</th>
+                            <th>Sale Name</th>
+                            <th>Sale Amount</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody id="salesList">
-                        <!-- Sales will be dynamically added here -->
+                        <tr>
+                            <td>Software A - $100</td>
+                            <td>$100</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm edit-sale">Edit</button>
+                                <button class="btn btn-danger btn-sm delete-sale">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Software B - $200</td>
+                            <td>$200</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm edit-sale">Edit</button>
+                                <button class="btn btn-danger btn-sm delete-sale">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Software C - $300</td>
+                            <td>$300</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm edit-sale">Edit</button>
+                                <button class="btn btn-danger btn-sm delete-sale">Delete</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -54,7 +75,7 @@
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/sales.js"></script>
 </body>

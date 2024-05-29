@@ -10,6 +10,7 @@ body {
     line-height: 1.6;
     background-color: #121212;
     color: #e0e0e0;
+    text-align: center;
 }
 
 header {
@@ -57,13 +58,12 @@ main {
     text-align: center;
 }
 
-.section-box {
+section {
     margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     background-color: #2c2c2c;
-    text-align: center;
 }
 
 #overview {
@@ -90,9 +90,7 @@ main {
     color: #ffffff;
 }
 
-    #latest-software img,
-    #top-deals img,
-    #about-company img {
+    #latest-software img, #top-deals img, #about-company img {
         max-width: 100%;
         height: auto;
         border-radius: 8px;
@@ -126,8 +124,7 @@ main {
         border: 2px solid #ffffff;
     }
 
-h1,
-h2 {
+h1, h2 {
     color: #ffffff;
     text-align: center;
 }
@@ -144,14 +141,11 @@ p {
     margin: 0.5rem 0;
 }
 
-ul.text-left,
-.text-left {
+ul.text-left, .text-left {
     text-align: left;
 }
 
-#managesales,
-#aboutus,
-#data-analytics {
+#managesales, #aboutus, #data-analytics {
     color: #ffffff;
     text-align: center;
 }
@@ -184,8 +178,7 @@ table {
     margin: 1rem 0;
 }
 
-    table th,
-    table td {
+    table th, table td {
         border: 1px solid #ffffff;
         padding: 0.5rem;
         text-align: center;
@@ -199,8 +192,3 @@ table {
     table td {
         background-color: #2c2c2c;
     }
-
-/* Added for spacing between sections */
-.section-gap {
-    margin-bottom: 2rem;
-}

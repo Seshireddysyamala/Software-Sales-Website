@@ -1,69 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const addSaleButton = document.getElementById('addSaleButton');
-    const addSaleForm = document.getElementById('addSaleForm');
-    const saleNameInput = document.getElementById('saleName');
-    const saleAmountInput = document.getElementById('saleAmount');
-    const saveSaleButton = document.getElementById('saveSaleButton');
     const salesList = document.getElementById('salesList');
+    const addSaleButton = document.getElementById('addSaleButton');
 
-    let sales = [
-        { name: "Software A", amount: 100 },
-        { name: "Software B", amount: 200 },
-        { name: "Software C", amount: 300 }
-    ];
-
-    const renderSales = () => {
-        salesList.innerHTML = '';
-        sales.forEach((sale, index) => {
-            const saleRow = document.createElement('tr');
-            saleRow.innerHTML = `
-                <td>${sale.name}</td>
-                <td>$${sale.amount}</td>
-                <td>
-                    <button class="btn btn-warning btn-sm" onclick="editSale(${index})">Edit</button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteSale(${index})">Delete</button>
-                </td>
-            `;
-            salesList.appendChild(saleRow);
-        });
+    const createSaleRow = (name, amount) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${name}</td>
+            <td>${amount}</td>
+            <td>
+                <button class="btn btn-warning btn-sm edit-sale">Edit</button>
+                <button class="btn btn-danger btn-sm delete-sale">Delete</button>
+            </td>
+        `;
+        salesList.appendChild(row);
     };
 
     addSaleButton.addEventListener('click', () => {
-        addSaleForm.style.display = 'block';
-    });
-
-    saveSaleButton.addEventListener('click', () => {
-        const saleName = saleNameInput.value;
-        const saleAmount = saleAmountInput.value;
-
+        const saleName = prompt('Enter sale name:');
+        const saleAmount = prompt('Enter sale amount:');
         if (saleName && saleAmount) {
-            sales.push({ name: saleName, amount: Number(saleAmount) });
-            renderSales();
-            saleNameInput.value = '';
-            saleAmountInput.value = '';
-            addSaleForm.style.display = 'none';
+            createSaleRow(saleName, saleAmount);
         }
     });
 
-    window.editSale = (index) => {
-        const sale = sales[index];
-        saleNameInput.value = sale.name;
-        saleAmountInput.value = sale.amount;
-        addSaleForm.style.display = 'block';
+    salesList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('edit-sale')) {
+            const row = event.target.closest('tr');
+            const saleName = row.cells[0].textContent;
+            const saleAmount = row.cells[1].textContent;
+            const newSaleName = prompt('Edit sale name:', saleName);
+            const newSaleAmount = prompt('Edit sale amount:', saleAmount);
+            if (newSaleName && newSaleAmount) {
+                row.cells[0].textContent = newSaleName;
+                row.cells[1].textContent = newSaleAmount;
+            }
+        }
 
-        saveSaleButton.onclick = () => {
-            sales[index] = { name: saleNameInput.value, amount: Number(saleAmountInput.value) };
-            renderSales();
-            saleNameInput.value = '';
-            saleAmountInput.value = '';
-            addSaleForm.style.display = 'none';
-        };
-    };
-
-    window.deleteSale = (index) => {
-        sales.splice(index, 1);
-        renderSales();
-    };
-
-    renderSales();
+        if (event.target.classList.contains('delete-sale')) {
+            const row = event.target.closest('tr');
+            salesList.removeChild(row);
+        }
+    });
 });
