@@ -5,38 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Sales</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="managesales.html">Manage Sales</a></li>
-                <li><a href="analytics.html">Data Analytics</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Software Sales</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="managesales.html">Manage Sales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
-    <main>
-        <h1>Manage Sales</h1>
-        <section id="sales-form">
-            <h2>Add New Sale</h2>
-            <form id="add-sale-form">
-                <label for="product">Product:</label>
-                <input type="text" id="product" name="product" required>
-                <label for="amount">Amount:</label>
-                <input type="number" id="amount" name="amount" required>
-                <button type="submit">Add Sale</button>
-            </form>
-        </section>
-        <section id="sales-list">
-            <h2>Sales List</h2>
-            <ul id="sales-ul"></ul>
-        </section>
+    <main class="container mt-5">
+        <!-- Content for Manage Sales -->
     </main>
-    <footer>
+    <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
-    <script src="js/sales.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

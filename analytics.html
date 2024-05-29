@@ -6,88 +6,33 @@
     <title>Data Analytics</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="managesales.html">Manage Sales</a></li>
-                <li><a href="analytics.html">Data Analytics</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Software Sales</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="managesales.html">Manage Sales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
-    <main>
-        <section id="data-analytics">
-            <h1>Data Analytics</h1>
-
-            <!-- Bar Chart -->
-            <div class="chart-container">
-                <h2>Monthly Sales Data</h2>
-                <canvas id="salesChart"></canvas>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="chart-container">
-                <h2>Sales Distribution</h2>
-                <canvas id="salesPieChart"></canvas>
-            </div>
-
-            <!-- Line Chart -->
-            <div class="chart-container">
-                <h2>Sales Trend</h2>
-                <canvas id="salesLineChart"></canvas>
-            </div>
-
-            <!-- Data Table -->
-            <div class="table-container">
-                <h2>Sales Data Table</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Month</th>
-                            <th>Sales</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>January</td>
-                            <td>1200</td>
-                        </tr>
-                        <tr>
-                            <td>February</td>
-                            <td>1900</td>
-                        </tr>
-                        <tr>
-                            <td>March</td>
-                            <td>3000</td>
-                        </tr>
-                        <tr>
-                            <td>April</td>
-                            <td>5000</td>
-                        </tr>
-                        <tr>
-                            <td>May</td>
-                            <td>2000</td>
-                        </tr>
-                        <tr>
-                            <td>June</td>
-                            <td>3000</td>
-                        </tr>
-                        <tr>
-                            <td>July</td>
-                            <td>4500</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <main class="container mt-5">
+        <!-- Content for Data Analytics -->
     </main>
-    <footer>
+    <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
-    <script src="js/analytics.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
