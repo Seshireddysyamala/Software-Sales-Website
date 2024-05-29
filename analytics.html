@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Analytics</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -19,10 +20,55 @@
         </nav>
     </header>
     <main>
-        <h1>Data Analytics</h1>
-        <section id="sales-chart">
-            <h2>Sales Data</h2>
-            <canvas id="salesChart"></canvas>
+        <section id="analytics">
+            <h1>Data Analytics</h1>
+            <div class="chart-container">
+                <canvas id="salesChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="trendChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="proportionChart"></canvas>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Sales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>January</td>
+                        <td>1200</td>
+                    </tr>
+                    <tr>
+                        <td>February</td>
+                        <td>1900</td>
+                    </tr>
+                    <tr>
+                        <td>March</td>
+                        <td>3000</td>
+                    </tr>
+                    <tr>
+                        <td>April</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr>
+                        <td>May</td>
+                        <td>2000</td>
+                    </tr>
+                    <tr>
+                        <td>June</td>
+                        <td>3000</td>
+                    </tr>
+                    <tr>
+                        <td>July</td>
+                        <td>4500</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </main>
     <footer>
