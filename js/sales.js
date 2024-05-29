@@ -2,6 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const salesForm = document.getElementById('salesForm');
     const salesList = document.getElementById('salesList');
 
+    const sampleSales = [
+        { name: 'Software A', price: 100 },
+        { name: 'Software B', price: 200 },
+        { name: 'Software C', price: 300 }
+    ];
+
+    sampleSales.forEach(sale => addSale(sale.name, sale.price));
+
     salesForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
