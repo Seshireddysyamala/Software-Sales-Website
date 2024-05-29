@@ -1,66 +1,77 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const salesTable = document.getElementById('sales-table');
-    const saleNameInput = document.getElementById('sale-name');
-    const saleAmountInput = document.getElementById('sale-amount');
-    const saveSaleBtn = document.querySelector('.save-sale-btn');
-    const editSaleModal = document.getElementById('editSaleModal');
-    const editSaleNameInput = document.getElementById('edit-sale-name');
-    const editSaleAmountInput = document.getElementById('edit-sale-amount');
-    const saveEditSaleBtn = document.querySelector('.save-edit-sale-btn');
-    let editIndex = -1;
+    const salesList = document.getElementById('salesList');
+    const saleNameInput = document.getElementById('saleName');
+    const saleAmountInput = document.getElementById('saleAmount');
+    const addSaleButton = document.getElementById('addSale');
 
-    const createRow = (name, amount) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${name}</td>
-            <td>${amount}</td>
-            <td>
-                <button class="btn btn-warning edit-sale" data-toggle="modal" data-target="#editSaleModal">Edit</button>
-                <button class="btn btn-danger delete-sale" data-toggle="modal" data-target="#confirmDeleteModal">Delete</button>
-            </td>
-        `;
-        salesTable.appendChild(row);
-    };
+    let sales = [
+        { name: 'Software A', amount: 100 },
+        { name: 'Software B', amount: 200 },
+        { name: 'Software C', amount: 300 }
+    ];
 
-    saveSaleBtn.addEventListener('click', () => {
+    function renderSales() {
+        salesList.innerHTML = '';
+        sales.forEach((sale, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${sale.name}</td>
+                <td>$${sale.amount}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" onclick="editSale(${index})">Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="confirmDelete(${index})">Delete</button>
+                </td>
+            `;
+            salesList.appendChild(row);
+        });
+    }
+
+    function addSale() {
         const saleName = saleNameInput.value.trim();
-        const saleAmount = saleAmountInput.value.trim();
-        if (saleName && saleAmount) {
-            createRow(saleName, saleAmount);
+        const saleAmount = parseFloat(saleAmountInput.value);
+        if (saleName && !isNaN(saleAmount)) {
+            sales.push({ name: saleName, amount: saleAmount });
+            renderSales();
             saleNameInput.value = '';
             saleAmountInput.value = '';
         }
-    });
+    }
 
-    let deleteRowIndex = -1;
-    salesTable.addEventListener('click', (event) => {
-        if (event.target.classList.contains('edit-sale')) {
-            const row = event.target.closest('tr');
-            editIndex = row.rowIndex;
-            editSaleNameInput.value = row.cells[0].textContent;
-            editSaleAmountInput.value = row.cells[1].textContent;
-        } else if (event.target.classList.contains('delete-sale')) {
-            deleteRowIndex = event.target.closest('tr').rowIndex;
-        }
-    });
+    addSaleButton.addEventListener('click', addSale);
 
-    document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
-        if (deleteRowIndex !== -1) {
-            salesTable.deleteRow(deleteRowIndex - 1);
-            deleteRowIndex = -1;
-        }
-        $('#confirmDeleteModal').modal('hide');
-    });
+    window.editSale = function (index) {
+        const sale = sales[index];
+        saleNameInput.value = sale.name;
+        saleAmountInput.value = sale.amount;
+        addSaleButton.textContent = 'Save Sale';
+        addSaleButton.onclick = function () {
+            saveSale(index);
+        };
+    };
 
-    saveEditSaleBtn.addEventListener('click', () => {
-        const saleName = editSaleNameInput.value.trim();
-        const saleAmount = editSaleAmountInput.value.trim();
-        if (saleName && saleAmount && editIndex !== -1) {
-            const row = salesTable.rows[editIndex - 1];
-            row.cells[0].textContent = saleName;
-            row.cells[1].textContent = saleAmount;
-            $('#editSaleModal').modal('hide');
-            editIndex = -1;
+    function saveSale(index) {
+        const saleName = saleNameInput.value.trim();
+        const saleAmount = parseFloat(saleAmountInput.value);
+        if (saleName && !isNaN(saleAmount)) {
+            sales[index] = { name: saleName, amount: saleAmount };
+            renderSales();
+            saleNameInput.value = '';
+            saleAmountInput.value = '';
+            addSaleButton.textContent = 'Add Sale';
+            addSaleButton.onclick = addSale;
         }
-    });
+    }
+
+    window.confirmDelete = function (index) {
+        if (confirm('Are you sure you want to delete this sale?')) {
+            deleteSale(index);
+        }
+    };
+
+    function deleteSale(index) {
+        sales.splice(index, 1);
+        renderSales();
+    }
+
+    renderSales();
 });
