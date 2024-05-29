@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         sales.forEach((sale, index) => {
             const saleRow = document.createElement('tr');
             saleRow.innerHTML = `
-                <td>${sale.name}</td>
-                <td>$${sale.amount}</td>
+                <td style="color: black;">${sale.name}</td>
+                <td style="color: black;">$${sale.amount}</td>
                 <td>
                     <button class="btn btn-warning btn-sm" onclick="editSale(${index})">Edit</button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteSale(${index})">Delete</button>
+                                        <button class="btn btn-danger btn-sm" onclick="deleteSale(${index})">Delete</button>
                 </td>
             `;
             salesList.appendChild(saleRow);
@@ -67,3 +67,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderSales();
 });
+
