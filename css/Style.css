@@ -10,7 +10,6 @@ body {
     line-height: 1.6;
     background-color: #121212;
     color: #e0e0e0;
-    text-align: center;
 }
 
 header {
@@ -32,7 +31,6 @@ nav ul {
 }
 
     nav ul li {
-        position: relative;
         margin: 0 1rem;
     }
 
@@ -70,7 +68,6 @@ section {
     background: url('images/overview.webp') no-repeat center center;
     background-size: cover;
     color: #fff;
-    text-align: center;
 }
 
     #overview h1 {
@@ -79,13 +76,13 @@ section {
         color: #fff;
     }
 
-    #overview p.center-text {
+    #overview p {
         font-size: 1.2rem;
         color: #ff9800;
         text-align: center;
     }
 
-#latest-software {
+#latest-software, #top-deals, #customer-reviews, #about-company {
     background-color: #37474f;
     color: #ffffff;
 }
@@ -137,12 +134,11 @@ h2 {
     margin-top: 1.5rem;
 }
 
-p, .text-left {
+p {
     margin: 0.5rem 0;
-    text-align: left;
 }
 
-ul.text-left {
+ul.text-left, .text-left {
     text-align: left;
 }
 
@@ -161,35 +157,11 @@ footer {
     width: 100%;
 }
 
-.chart-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 2rem auto;
+.table th, .table td {
+    color: black;
 }
 
-.table-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 2rem auto;
+/* Additional styling for sales table and buttons */
+#salesList td {
+    color: black;
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-}
-
-    table th, table td {
-        border: 1px solid #ffffff;
-        padding: 0.5rem;
-        text-align: center;
-        color: #ffffff;
-    }
-
-    table th {
-        background-color: #37474f;
-    }
-
-    table td {
-        background-color: #2c2c2c;
-    }
