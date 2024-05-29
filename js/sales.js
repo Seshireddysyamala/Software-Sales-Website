@@ -2,16 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const salesTable = document.getElementById('sales-table');
     const saleNameInput = document.getElementById('sale-name');
     const saleAmountInput = document.getElementById('sale-amount');
-    const addSaleBtn = document.querySelector('.add-sale-btn');
     const saveSaleBtn = document.querySelector('.save-sale-btn');
     let editIndex = -1;
-
-    addSaleBtn.addEventListener('click', () => {
-        saleNameInput.value = '';
-        saleAmountInput.value = '';
-        editIndex = -1;
-        saveSaleBtn.textContent = 'Add Sale';
-    });
 
     saveSaleBtn.addEventListener('click', () => {
         const saleName = saleNameInput.value.trim();
@@ -55,4 +47,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-

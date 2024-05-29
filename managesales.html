@@ -28,18 +28,18 @@
     <main class="container mt-5 text-white">
         <section id="managesales" class="bg-dark p-4 rounded mb-4">
             <h1>Manage Sales</h1>
-            <button class="btn btn-primary add-sale-btn">Add Sale</button>
-            <div class="sales-form">
-                <input type="text" id="sale-name" placeholder="Sale Name" class="form-control mb-2">
+            <h2 class="mt-4">Add Sale</h2>
+            <div class="sales-form mt-4">
+                <input type="text" id="sale-name" placeholder="Software Name" class="form-control mb-2">
                 <input type="number" id="sale-amount" placeholder="Sale Amount" class="form-control mb-2">
                 <button class="btn btn-success save-sale-btn">Save Sale</button>
             </div>
-            <div class="sales-list">
+            <div class="sales-list mt-4">
                 <h2 class="text-center">Sales List</h2>
                 <table class="table table-dark">
                     <thead>
                         <tr>
-                            <th>Sale Name</th>
+                            <th>Software Name</th>
                             <th>Sale Amount</th>
                             <th>Actions</th>
                         </tr>
@@ -49,24 +49,24 @@
                             <td>Software A</td>
                             <td>$100</td>
                             <td>
-                                <button class="btn btn-warning">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-warning edit-sale">Edit</button>
+                                <button class="btn btn-danger delete-sale">Delete</button>
                             </td>
                         </tr>
                         <tr>
                             <td>Software B</td>
                             <td>$200</td>
                             <td>
-                                <button class="btn btn-warning">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-warning edit-sale">Edit</button>
+                                <button class="btn btn-danger delete-sale">Delete</button>
                             </td>
                         </tr>
                         <tr>
                             <td>Software C</td>
                             <td>$300</td>
                             <td>
-                                <button class="btn btn-warning">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-warning edit-sale">Edit</button>
+                                <button class="btn btn-danger delete-sale">Delete</button>
                             </td>
                         </tr>
                     </tbody>
