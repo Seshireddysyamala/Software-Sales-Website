@@ -79,9 +79,10 @@ section {
         color: #fff;
     }
 
-    #overview p {
+    #overview p.center-text {
         font-size: 1.2rem;
         color: #ff9800;
+        text-align: center;
     }
 
 #latest-software {
@@ -120,12 +121,12 @@ section {
     .profile-image img {
         border-radius: 8px;
         width: 200px;
-        border: 2px solid #ffffff; /* Add a white border around the image */
+        border: 2px solid #ffffff;
     }
 
 h1, h2 {
-    color: #ffffff; /* Update heading colors to white */
-    text-align: center; /* Center the headings */
+    color: #ffffff;
+    text-align: center;
 }
 
 h1 {
@@ -138,7 +139,10 @@ h2 {
 
 p {
     margin: 0.5rem 0;
-    text-align: left; /* Left align the text */
+}
+
+ul.text-left, .text-left {
+    text-align: left;
 }
 
 #managesales, #aboutus, #data-analytics {
