@@ -26,31 +26,45 @@
         </nav>
     </header>
     <main class="container mt-5">
-        <section id="managesales">
+        <section id="manage-sales">
             <h1>Manage Sales</h1>
-            <form id="salesForm">
+            <div class="text-center">
+                <button id="addSaleBtn" class="btn btn-primary">Add Sale</button>
+            </div>
+            <form id="salesForm" class="mt-4 d-none">
                 <div class="form-group">
-                    <label for="productName">Product Name</label>
-                    <input type="text" class="form-control" id="productName" placeholder="Enter product name" required>
+                    <label for="saleName">Sale Name</label>
+                    <input type="text" id="saleName" class="form-control" placeholder="Enter sale name">
                 </div>
                 <div class="form-group">
-                    <label for="productPrice">Product Price</label>
-                    <input type="number" class="form-control" id="productPrice" placeholder="Enter product price" required>
+                    <label for="saleAmount">Sale Amount</label>
+                    <input type="number" id="saleAmount" class="form-control" placeholder="Enter sale amount">
                 </div>
-                <button type="submit" class="btn btn-primary">Add Sale</button>
+                <button type="submit" class="btn btn-success">Save Sale</button>
+                <button type="button" id="cancelBtn" class="btn btn-secondary">Cancel</button>
             </form>
             <h2 class="mt-5">Sales List</h2>
-            <ul id="salesList" class="list-group">
-                <!-- Sales items will be added here dynamically -->
-            </ul>
+            <div id="salesList" class="table-responsive">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sale Name</th>
+                            <th>Sale Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salesTableBody">
+                        <!-- Sales data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
-    <footer class="bg-dark text-white text-center py-3">
+    <footer>
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/sales.js"></script>
 </body>
 </html>

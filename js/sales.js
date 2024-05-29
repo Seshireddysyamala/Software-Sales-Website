@@ -1,58 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
     const salesForm = document.getElementById('salesForm');
-    const salesList = document.getElementById('salesList');
+    const addSaleBtn = document.getElementById('addSaleBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const salesTableBody = document.getElementById('salesTableBody');
 
-    const sampleSales = [
-        { name: 'Software A', price: 100 },
-        { name: 'Software B', price: 200 },
-        { name: 'Software C', price: 300 }
+    let sales = [
+        { name: 'Sale 1', amount: 100 },
+        { name: 'Sale 2', amount: 200 },
+        { name: 'Sale 3', amount: 300 }
     ];
 
-    sampleSales.forEach(sale => addSale(sale.name, sale.price));
+    let editIndex = -1;
 
-    salesForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    function renderSales() {
+        salesTableBody.innerHTML = '';
+        sales.forEach((sale, index) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${sale.name}</td>
+                <td>${sale.amount}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm edit-btn" data-index="${index}">Edit</button>
+                    <button class="btn btn-danger btn-sm delete-btn" data-index="${index}">Delete</button>
+                </td>
+            `;
+            salesTableBody.appendChild(tr);
+        });
+    }
 
-        const productName = document.getElementById('productName').value;
-        const productPrice = document.getElementById('productPrice').value;
-
-        addSale(productName, productPrice);
-
+    function resetForm() {
         salesForm.reset();
+        editIndex = -1;
+        salesForm.classList.add('d-none');
+        addSaleBtn.classList.remove('d-none');
+    }
+
+    addSaleBtn.addEventListener('click', () => {
+        salesForm.classList.remove('d-none');
+        addSaleBtn.classList.add('d-none');
     });
 
-    function addSale(name, price) {
-        const saleItem = document.createElement('li');
-        saleItem.className = 'list-group-item d-flex justify-content-between align-items-center';
-        saleItem.innerHTML = `
-            <span>${name} - $${price}</span>
-            <div>
-                <button class="btn btn-warning btn-sm mr-2 edit-btn">Edit</button>
-                <button class="btn btn-danger btn-sm delete-btn">Delete</button>
-            </div>
-        `;
+    cancelBtn.addEventListener('click', () => {
+        resetForm();
+    });
 
-        salesList.appendChild(saleItem);
+    salesForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const saleName = document.getElementById('saleName').value;
+        const saleAmount = document.getElementById('saleAmount').value;
 
-        const editBtn = saleItem.querySelector('.edit-btn');
-        const deleteBtn = saleItem.querySelector('.delete-btn');
-
-        editBtn.addEventListener('click', () => editSale(saleItem, name, price));
-        deleteBtn.addEventListener('click', () => deleteSale(saleItem));
-    }
-
-    function editSale(saleItem, name, price) {
-        const newName = prompt('Enter new product name', name);
-        const newPrice = prompt('Enter new product price', price);
-
-        if (newName && newPrice) {
-            saleItem.querySelector('span').textContent = `${newName} - $${newPrice}`;
+        if (editIndex === -1) {
+            sales.push({ name: saleName, amount: saleAmount });
+        } else {
+            sales[editIndex] = { name: saleName, amount: saleAmount };
         }
-    }
 
-    function deleteSale(saleItem) {
-        if (confirm('Are you sure you want to delete this sale?')) {
-            salesList.removeChild(saleItem);
+        renderSales();
+        resetForm();
+    });
+
+    salesTableBody.addEventListener('click', (event) => {
+        if (event.target.classList.contains('edit-btn')) {
+            editIndex = event.target.dataset.index;
+            const sale = sales[editIndex];
+            document.getElementById('saleName').value = sale.name;
+            document.getElementById('saleAmount').value = sale.amount;
+            salesForm.classList.remove('d-none');
+            addSaleBtn.classList.add('d-none');
+        } else if (event.target.classList.contains('delete-btn')) {
+            const deleteIndex = event.target.dataset.index;
+            sales.splice(deleteIndex, 1);
+            renderSales();
         }
-    }
+    });
+
+    renderSales();
 });
