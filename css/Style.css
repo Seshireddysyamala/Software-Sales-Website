@@ -108,8 +108,11 @@ section {
 #about-company {
     background-color: #d81b60;
     color: #ffffff;
-    text-align: right; /* Right-align text within the section */
 }
+
+    #about-company p {
+        text-align: right; /* Right-align text within the about-company section */
+    }
 
 .profile-image {
     display: flex;
