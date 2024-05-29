@@ -10,6 +10,7 @@ body {
     line-height: 1.6;
     background-color: #121212;
     color: #e0e0e0;
+    text-align: center;
 }
 
 header {
@@ -132,16 +133,9 @@ p {
     margin: 0.5rem 0;
 }
 
-#managesales {
+#managesales, #aboutus, #data-analytics {
     color: #ffffff;
-}
-
-#aboutus {
-    color: #ffffff;
-}
-
-#data-analytics {
-    color: #ffffff;
+    text-align: center;
 }
 
 footer {
