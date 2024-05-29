@@ -108,6 +108,22 @@ section {
     color: #ffffff;
 }
 
+h1, h2 {
+    color: #ffffff; /* Update heading colors to white */
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+h2 {
+    margin-top: 1.5rem;
+}
+
+p {
+    margin: 0.5rem 0;
+}
+
 #managesales {
     color: #ffffff;
 }
@@ -128,20 +144,4 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
-
-h1, h2 {
-    color: #007bff;
-}
-
-h1 {
-    margin-bottom: 1rem;
-}
-
-h2 {
-    margin-top: 1.5rem;
-}
-
-p {
-    margin: 0.5rem 0;
 }
