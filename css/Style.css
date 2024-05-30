@@ -39,15 +39,11 @@ header {
             border-radius: 0.25rem;
         }
 
-            .navbar-nav .nav-item .nav-link.active {
-                color: #ffffff; /* White text for the active link */
-                background-color: #1f1f1f; /* Match the background color on active */
-            }
-
+            .navbar-nav .nav-item .nav-link.active,
             .navbar-nav .nav-item .nav-link:hover,
             .navbar-nav .nav-item .nav-link:focus {
-                color: #ffffff; /* White text on hover and focus */
-                background-color: #1f1f1f; /* Black background on hover and focus */
+                color: #ffffff; /* White text */
+                background-color: #000000; /* Black background */
             }
 
 main {
@@ -241,4 +237,3 @@ table {
                 padding: 0.5rem 1rem;
             }
 }
-    
