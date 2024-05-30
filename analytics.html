@@ -25,24 +25,24 @@
             </div>
         </nav>
     </header>
-    <main class="container mt-5">
-        <section id="analytics" class="box">
+    <main class="container mt-5 text-white">
+        <section id="data-analytics" class="bg-dark p-4 rounded mb-4">
             <h1>Data Analytics</h1>
-            <div class="chart-container box">
-                <h2>Sales Bar Chart</h2>
+            <div class="chart-container p-4 mb-4">
+                <h2>Sales Data (Bar Chart)</h2>
                 <canvas id="salesChart"></canvas>
             </div>
-            <div class="chart-container box">
-                <h2>Sales Pie Chart</h2>
+            <div class="chart-container p-4 mb-4">
+                <h2>Sales Distribution (Pie Chart)</h2>
                 <canvas id="salesPieChart"></canvas>
             </div>
-            <div class="chart-container box">
-                <h2>Sales Line Chart</h2>
+            <div class="chart-container p-4 mb-4">
+                <h2>Sales Trend (Line Chart)</h2>
                 <canvas id="salesLineChart"></canvas>
             </div>
-            <div class="table-container box">
+            <div class="table-container p-4 mb-4">
                 <h2>Sales Data Table</h2>
-                <table>
+                <table class="table table-dark">
                     <thead>
                         <tr>
                             <th>Month</th>
@@ -50,34 +50,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>January</td>
-                            <td>1200</td>
-                        </tr>
-                        <tr>
-                            <td>February</td>
-                            <td>1900</td>
-                        </tr>
-                        <tr>
-                            <td>March</td>
-                            <td>3000</td>
-                        </tr>
-                        <tr>
-                            <td>April</td>
-                            <td>5000</td>
-                        </tr>
-                        <tr>
-                            <td>May</td>
-                            <td>2000</td>
-                        </tr>
-                        <tr>
-                            <td>June</td>
-                            <td>3000</td>
-                        </tr>
-                        <tr>
-                            <td>July</td>
-                            <td>4500</td>
-                        </tr>
+                        <tr><td>January</td><td>$1200</td></tr>
+                        <tr><td>February</td><td>$1900</td></tr>
+                        <tr><td>March</td><td>$3000</td></tr>
+                        <tr><td>April</td><td>$5000</td></tr>
+                        <tr><td>May</td><td>$2000</td></tr>
+                        <tr><td>June</td><td>$3000</td></tr>
+                        <tr><td>July</td><td>$4500</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -86,6 +65,9 @@
     <footer>
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/analytics.js"></script>
 </body>
