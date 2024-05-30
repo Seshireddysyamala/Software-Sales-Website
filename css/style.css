@@ -10,7 +10,7 @@ body {
     line-height: 1.6;
     background-color: #121212;
     color: #e0e0e0;
-    text-align: center;
+    margin: 0; /* Remove extra white space around the website */
 }
 
 header {
@@ -24,22 +24,26 @@ header {
     z-index: 1000;
 }
 
+.navbar-nav .nav-item {
+    margin: 0 1rem; /* Increase space between menu items */
+}
+
 .navbar-nav .nav-item .nav-link {
     color: #e0e0e0; /* Light grey text for links */
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
 }
 
-    .navbar-nav .nav-item .nav-link.active {
-        color: #ffffff; /* White text for the active link */
-        background-color: #1f1f1f; /* Active link background color */
-    }
+.navbar-nav .nav-item .nav-link.active {
+    color: #ffffff; /* White text for the active link */
+    background-color: #1f1f1f; /* Match the background color on active */
+}
 
-    .navbar-nav .nav-item .nav-link:hover,
-    .navbar-nav .nav-item .nav-link:focus {
-        color: #ffffff; /* White text on hover and focus */
-        background-color: #1f1f1f; /* Black background on hover and focus */
-    }
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus {
+    color: #ffffff; /* White text on hover and focus */
+    background-color: #1f1f1f; /* Black background on hover and focus */
+}
 
 main {
     padding: 2rem;
@@ -65,30 +69,29 @@ main {
     margin-bottom: 1rem;
 }
 
-    .profile-image img {
-        border-radius: 50%; /* Restore the circular image */
-        width: 150px; /* Ensure consistent size */
-        height: 150px;
-        object-fit: cover; /* Ensure the image is properly scaled */
-        border: 2px solid #ffffff;
-    }
+.profile-image img {
+    border-radius: 8px; /* Remove circular border */
+    width: 200px;
+    border: none; /* Remove the border */
+    object-fit: cover; /* Ensure the image is properly scaled */
+}
 
 #personal-info,
 .development-experience {
     text-align: left; /* Left align the personal info section and development experience */
 }
 
-    #personal-info p,
-    #personal-info ul,
-    .development-experience p,
-    .development-experience ul {
-        margin-left: 1rem; /* Add some margin for better readability */
-    }
+#personal-info p,
+#personal-info ul,
+.development-experience p,
+.development-experience ul {
+    margin-left: 1rem; /* Add some margin for better readability */
+}
 
-    #personal-info h2,
-    .development-experience h2 {
-        margin-top: 1.5rem;
-    }
+#personal-info h2,
+.development-experience h2 {
+    margin-top: 1.5rem;
+}
 
 h1, h2, h3 {
     color: #ffffff;
@@ -120,49 +123,37 @@ a {
     text-align: center;
 }
 
-    #overview h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #fff;
-    }
-
-#latest-software {
-    background-color: #37474f;
-    color: #ffffff;
+#overview h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
 }
 
-    #latest-software img, #top-deals img, #about-company img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
+#latest-software {
+    background-color: #ffffff; /* Change background color to white */
+    color: #000000; /* Change text color to black for better readability */
+}
+
+#latest-software img, #top-deals img, #about-company img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 
 #top-deals {
-    background-color: #fbc02d;
-    color: #ffffff;
+    background-color: #f0f0f0; /* Change background color */
+    color: #000000; /* Change text color to black */
 }
 
 #customer-reviews {
-    background-color: #388e3c;
-    color: #ffffff;
+    background-color: #e0e0e0; /* Change background color */
+    color: #000000; /* Change text color to black */
 }
 
 #about-company {
-    background-color: #d81b60;
-    color: #ffffff;
+    background-color: #d0d0d0; /* Change background color */
+    color: #000000; /* Change text color to black */
 }
-
-.profile-image {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-    .profile-image img {
-        border-radius: 8px;
-        width: 200px;
-        border: 2px solid #ffffff;
-    }
 
 h1, h2 {
     color: #ffffff;
@@ -216,17 +207,30 @@ table {
     margin: 1rem 0;
 }
 
-    table th, table td {
-        border: 1px solid #ffffff;
-        padding: 0.5rem;
+table th, table td {
+    border: 1px solid #ffffff;
+    padding: 0.5rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+table th {
+    background-color: #37474f;
+}
+
+table td {
+    background-color: #2c2c2c;
+}
+
+/* Responsive Navbar */
+@media (max-width: 992px) {
+    .navbar-nav {
         text-align: center;
-        color: #ffffff;
     }
-
-    table th {
-        background-color: #37474f;
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0;
     }
-
-    table td {
-        background-color: #2c2c2c;
+    .navbar-nav .nav-item .nav-link {
+        padding: 0.5rem 1rem;
     }
+}
