@@ -91,9 +91,10 @@ footer {
 }
 
 .profile-img {
-    width: 150px; /* Set a fixed width for profile image */
-    height: 150px; /* Set a fixed height for profile image */
-    object-fit: cover; /* Ensure the image is properly scaled */
+    width: 200px; /* Set a fixed width for profile image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Remove circular border */
+    border: 2px solid #ffffff; /* White border */
 }
 
 a {
@@ -150,12 +151,6 @@ a {
     justify-content: center;
     margin-bottom: 1rem;
 }
-
-    .profile-image img {
-        border-radius: 8px;
-        width: 200px;
-        border: 2px solid #ffffff;
-    }
 
 h1, h2 {
     color: #ffffff;
