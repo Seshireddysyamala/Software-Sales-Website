@@ -65,11 +65,38 @@ section {
     text-align: center;
 }
 
+#latest-software {
+    background-color: #37474f;
+}
+
+#top-deals {
+    background-color: #fbc02d;
+}
+
+#customer-reviews {
+    background-color: #388e3c;
+}
+
+#about-company {
+    background-color: #d81b60;
+}
+
+section h2, section p {
+    color: #ffffff;
+}
+
+section img {
+    display: block;
+    margin: 0 auto 1rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
 #overview {
     background: url('images/overview.webp') no-repeat center center;
     background-size: cover;
     color: #fff;
-    text-align: center;
 }
 
 .profile-image img {
@@ -107,6 +134,7 @@ section {
     padding: 1rem 0;
     background: #1f1f1f;
     color: #fff;
+    text-align: center;
 }
 
     .footer p {
@@ -154,7 +182,7 @@ ul.nav-pills.nav-fill {
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .navbar-collapse {
@@ -165,25 +193,6 @@ ul.nav-pills.nav-fill {
     .navbar-collapse {
         justify-content: center;
     }
-}
-
-#latest-software img,
-#top-deals img,
-#about-company img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-#overview h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #fff;
-}
-
-#overview p {
-    font-size: 1.2rem;
-    color: #ff9800;
 }
 
 h1, h2 {
@@ -201,6 +210,7 @@ h2 {
 
 p {
     margin: 0.5rem 0;
+    color: #ffffff; /* Ensure all text is white */
 }
 
 ul.text-left, .text-left {
