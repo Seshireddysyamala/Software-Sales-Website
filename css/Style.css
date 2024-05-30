@@ -24,26 +24,28 @@ header {
     z-index: 1000;
 }
 
-.navbar-nav .nav-item {
-    margin: 0 1rem; /* Increase space between menu items */
+.navbar-nav {
+    display: flex;
+    justify-content: center;
 }
 
-    .navbar-nav .nav-item .nav-link {
-        color: #e0e0e0; /* Light grey text for links */
-        padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
+    .navbar-nav .nav-item {
+        margin: 0 1rem; /* Increase space between menu items */
     }
 
-        .navbar-nav .nav-item .nav-link.active {
-            color: #ffffff; /* White text for the active link */
-            background-color: #1f1f1f; /* Match the background color on active */
+        .navbar-nav .nav-item .nav-link {
+            color: #e0e0e0; /* Light grey text for links */
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
         }
 
-        .navbar-nav .nav-item .nav-link:hover,
-        .navbar-nav .nav-item .nav-link:focus {
-            color: #ffffff; /* White text on hover and focus */
-            background-color: #1f1f1f; /* Black background on hover and focus */
-        }
+            .navbar-nav .nav-item .nav-link.active,
+            .navbar-nav .nav-item .nav-link:hover,
+            .navbar-nav .nav-item .nav-link:focus {
+                color: #ffffff; /* White text on hover and focus */
+                background-color: #1f1f1f; /* Black background on hover and focus */
+            }
 
 main {
     padding: 2rem;
@@ -130,8 +132,8 @@ a {
     }
 
 #latest-software {
-    background-color: #ffffff; /* Change background color to white */
-    color: #000000; /* Change text color to black for better readability */
+    background-color: #37474f; /* Change background color for better readability */
+    color: #ffffff; /* Ensure text color is white */
 }
 
     #latest-software img, #top-deals img, #about-company img {
@@ -141,18 +143,18 @@ a {
     }
 
 #top-deals {
-    background-color: #f0f0f0; /* Change background color */
+    background-color: #fbc02d; /* Change background color */
     color: #000000; /* Change text color to black */
 }
 
 #customer-reviews {
-    background-color: #e0e0e0; /* Change background color */
-    color: #000000; /* Change text color to black */
+    background-color: #388e3c; /* Change background color */
+    color: #ffffff; /* Change text color to white */
 }
 
 #about-company {
-    background-color: #d0d0d0; /* Change background color */
-    color: #000000; /* Change text color to black */
+    background-color: #d81b60; /* Change background color */
+    color: #ffffff; /* Change text color to white */
 }
 
 h1, h2 {
