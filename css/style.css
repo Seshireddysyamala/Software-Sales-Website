@@ -250,4 +250,103 @@ th, td {
 th {
     background-color: #37474f; /* Slightly different background for headers */
 }
+.table-container {
+    background-color: #2c2c2c; /* Dark background for contrast */
+    color: #ffffff; /* White text color */
+    padding: 20px; /* Padding around the content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 20px; /* Space between the table and other elements */
+}
+
+table {
+    width: 100%; /* Ensures the table expands to the container width */
+    border-collapse: collapse; /* Collapses border to avoid double lines */
+}
+
+th, td {
+    padding: 12px; /* Adds space around text in cells */
+    border-bottom: 1px solid #ffffff; /* White border for rows */
+    text-align: left; /* Aligns text to the left */
+}
+
+th {
+    background-color: #37474f; /* Darker background for header cells */
+}
+.table-container {
+    overflow-x: auto; /* Allows horizontal scrolling on small devices */
+}
+/* General styles for all boxes */
+.box {
+    background-color: #2c2c2c; /* Dark background for contrast */
+    color: #ffffff; /* White text for readability */
+    padding: 20px; /* Padding inside the containers */
+    margin-bottom: 20px; /* Space between each chart/table */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
+}
+
+/* Specific styles for tables */
+.table-container {
+    overflow-x: auto; /* Ensures table is scrollable on small devices */
+}
+
+table {
+    width: 100%; /* Full width of its container */
+    border-collapse: collapse; /* Collapses border to avoid double lines */
+    margin-top: 20px; /* Space above the table for visual separation */
+}
+
+th, td {
+    padding: 12px; /* Padding around text in cells */
+    border-bottom: 1px solid #ffffff; /* White border for row separation */
+    text-align: left; /* Text alignment */
+}
+
+th {
+    background-color: #37474f; /* Darker background for header cells */
+}
+/* Reduce padding and margins in the navbar and its items */
+.navbar {
+    padding: 0.5rem 1rem; /* Reduce padding to decrease height */
+}
+
+nav ul li a {
+    padding: 0.5rem; /* Reduce padding around links */
+}
+
+/* Decrease margin in the main content area if necessary */
+main {
+    margin-top: 3rem; /* Adjust according to your design */
+    padding: 1rem; /* Reduce padding around the main content */
+}
+/* Example media query to adjust menu styles on smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.25rem 0.5rem; /* Even smaller padding on small screens */
+    }
+
+    .navbar-nav {
+        margin-top: 10px; /* Add or reduce margin for better spacing */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Smaller font size for smaller screens */
+    }
+}
+/* Tighten up the container that wraps the content */
+.container {
+    padding: 15px; /* Less padding inside the container */
+    max-width: 1200px; /* Or adjust based on your layout needs */
+}
+.personal-details, .development-experience {
+    background-color: #333; /* Differentiate sections with color */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+ul, p, h2, h3 {
+    text-align: left; /* Ensures left alignment of text within the sections */
+}
 
