@@ -24,30 +24,18 @@ header {
     z-index: 1000;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+.navbar-nav .nav-item .nav-link {
+    color: #e0e0e0; /* Light grey text for links */
 }
 
-    nav ul li {
-        position: relative;
-        margin: 0 1rem;
+    .navbar-nav .nav-item .nav-link.active {
+        color: #ffffff; /* White text for the active link */
     }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5rem;
-        }
-
-            nav ul li a:hover,
-            nav ul li a:focus {
-                color: #007bff;
-                background-color: #1f1f1f;
-                border-radius: 4px;
-            }
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .nav-link:focus {
+        color: #ffffff; /* White text on hover and focus */
+    }
 
 main {
     padding: 2rem;
@@ -63,25 +51,72 @@ section {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     background-color: #2c2c2c;
-    text-align: left; /* Ensure content is left-aligned */
+    text-align: center;
 }
 
-    section#about-section {
-        background-color: #2c2c2c;
-        text-align: center; /* Center align the main about content */
-    }
+#overview {
+    background: url('images/overview.webp') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
 
-    section#experience-section {
-        background-color: #2c2c2c;
-    }
-
-h1, h2, h3 {
+#latest-software {
+    background-color: #37474f;
     color: #ffffff;
 }
 
+#top-deals {
+    background-color: #fbc02d;
+    color: #ffffff;
+}
+
+#customer-reviews {
+    background-color: #388e3c;
+    color: #ffffff;
+}
+
+#about-company {
+    background-color: #d81b60;
+    color: #ffffff;
+}
+
+.profile-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+    .profile-image img {
+        border-radius: 8px;
+        width: 200px;
+        border: 2px solid #ffffff;
+    }
+
+h1, h2 {
+    color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+h2 {
+    margin-top: 1.5rem;
+}
+
 p {
-    color: #ffffff; /* Ensure text color is white */
     margin: 0.5rem 0;
+}
+
+ul.text-left, .text-left {
+    text-align: left;
+}
+
+#managesales, #aboutus, #data-analytics {
+    color: #ffffff;
+    text-align: center;
 }
 
 footer {
@@ -93,3 +128,44 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    background-color: #2c2c2c;
+}
+
+.table-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    background-color: #2c2c2c;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+    table th, table td {
+        border: 1px solid #ffffff;
+        padding: 0.5rem;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    table th {
+        background-color: #37474f;
+    }
+
+    table td {
+        background-color: #2c2c2c;
+    }
