@@ -65,17 +65,33 @@ section {
     text-align: center;
 }
 
-    section h2, section p {
-        color: #ffffff;
-    }
+#latest-software {
+    background-color: #37474f;
+}
 
-    section img {
-        display: block;
-        margin: 0 auto 1rem;
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
+#top-deals {
+    background-color: #fbc02d;
+}
+
+#customer-reviews {
+    background-color: #388e3c;
+}
+
+#about-company {
+    background-color: #d81b60;
+}
+
+section h2, section p {
+    color: #ffffff;
+}
+
+section img {
+    display: block;
+    margin: 0 auto 1rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 
 #overview {
     background: url('images/overview.webp') no-repeat center center;
