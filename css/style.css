@@ -37,14 +37,17 @@ header {
             color: #e0e0e0; /* Light grey text for links */
             padding: 0.5rem 1rem;
             border-radius: 0.25rem;
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover and active states */
         }
 
-            .navbar-nav .nav-item .nav-link.active,
+            .navbar-nav .nav-item .nav-link.active {
+                color: #ffffff; /* White text for the active link */
+                background-color: #1f1f1f; /* Match the background color on active */
+            }
+
             .navbar-nav .nav-item .nav-link:hover,
             .navbar-nav .nav-item .nav-link:focus {
-                color: #ffffff; /* White text on hover, focus, and active */
-                background-color: #007bff; /* Blue background on hover, focus, and active */
+                color: #ffffff; /* White text on hover and focus */
+                background-color: #1f1f1f; /* Black background on hover and focus */
             }
 
 main {
