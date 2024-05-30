@@ -32,7 +32,7 @@ header {
 
     .navbar-nav .nav-item .nav-link.active {
         color: #ffffff; /* White text for the active link */
-        background-color: #007bff; /* Active link background color */
+        background-color: #1f1f1f; /* Match the background color on active */
     }
 
     .navbar-nav .nav-item .nav-link:hover,
