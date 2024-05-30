@@ -306,4 +306,37 @@ th, td {
 th {
     background-color: #37474f; /* Darker background for header cells */
 }
+/* Reduce padding and margins in the navbar and its items */
+.navbar {
+    padding: 0.5rem 1rem; /* Reduce padding to decrease height */
+}
+
+nav ul li a {
+    padding: 0.5rem; /* Reduce padding around links */
+}
+
+/* Decrease margin in the main content area if necessary */
+main {
+    margin-top: 3rem; /* Adjust according to your design */
+    padding: 1rem; /* Reduce padding around the main content */
+}
+/* Example media query to adjust menu styles on smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.25rem 0.5rem; /* Even smaller padding on small screens */
+    }
+
+    .navbar-nav {
+        margin-top: 10px; /* Add or reduce margin for better spacing */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Smaller font size for smaller screens */
+    }
+}
+/* Tighten up the container that wraps the content */
+.container {
+    padding: 15px; /* Less padding inside the container */
+    max-width: 1200px; /* Or adjust based on your layout needs */
+}
 
