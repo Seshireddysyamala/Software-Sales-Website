@@ -339,4 +339,14 @@ main {
     padding: 15px; /* Less padding inside the container */
     max-width: 1200px; /* Or adjust based on your layout needs */
 }
+.personal-details, .development-experience {
+    background-color: #333; /* Differentiate sections with color */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+ul, p, h2, h3 {
+    text-align: left; /* Ensures left alignment of text within the sections */
+}
 
