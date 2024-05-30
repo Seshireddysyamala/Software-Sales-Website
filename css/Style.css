@@ -26,15 +26,19 @@ header {
 
 .navbar-nav .nav-item .nav-link {
     color: #e0e0e0; /* Light grey text for links */
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
 }
 
     .navbar-nav .nav-item .nav-link.active {
         color: #ffffff; /* White text for the active link */
+        background-color: #007bff; /* Active link background color */
     }
 
     .navbar-nav .nav-item .nav-link:hover,
     .navbar-nav .nav-item .nav-link:focus {
         color: #ffffff; /* White text on hover and focus */
+        background-color: #0056b3; /* Hover and focus background color */
     }
 
 main {
@@ -43,64 +47,17 @@ main {
     max-width: 800px;
     border-radius: 8px;
     background-color: #1f1f1f;
-    color: #ffffff; /* Ensure text color is white */
 }
 
-.box {
+section {
     margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     background-color: #2c2c2c;
-    color: #ffffff; /* Ensure text color is white */
-}
-
-#personal-info,
-.development-experience {
-    text-align: left; /* Left align the personal info section and development experience */
-}
-
-    #personal-info p,
-    #personal-info ul,
-    .development-experience p,
-    .development-experience ul {
-        margin-left: 1rem; /* Add some margin for better readability */
-    }
-
-    #personal-info h2,
-    .development-experience h2 {
-        margin-top: 1.5rem;
-    }
-
-h1, h2, h3 {
-    color: #ffffff;
-}
-
-p, ul, li {
-    color: #ffffff; /* Ensure all text is white for visibility */
-}
-
-footer {
-    background: #1f1f1f;
-    color: #fff;
     text-align: center;
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
-.profile-img {
-    width: 150px; /* Set a fixed width for profile image */
-    height: 150px; /* Set a fixed height for profile image */
-    object-fit: cover; /* Ensure the image is properly scaled */
-}
-
-a {
-    color: #007bff;
-}
-
-/* Home Page Specific Styles */
 #overview {
     background: url('images/overview.webp') no-repeat center center;
     background-size: cover;
@@ -108,27 +65,10 @@ a {
     text-align: center;
 }
 
-    #overview h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #fff;
-    }
-
-    #overview p {
-        font-size: 1.2rem;
-        color: #ff9800;
-    }
-
 #latest-software {
     background-color: #37474f;
     color: #ffffff;
 }
-
-    #latest-software img, #top-deals img, #about-company img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
 
 #top-deals {
     background-color: #fbc02d;
@@ -181,6 +121,16 @@ ul.text-left, .text-left {
 #managesales, #aboutus, #data-analytics {
     color: #ffffff;
     text-align: center;
+}
+
+footer {
+    background: #1f1f1f;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .chart-container {
