@@ -40,13 +40,10 @@ nav ul {
             color: #fff;
             text-decoration: none;
             padding: 0.5rem;
-            border-radius: 4px;
-            transition: background-color 0.3s, color 0.3s;
         }
 
             nav ul li a:hover,
-            nav ul li a:focus,
-            .nav-link.active {
+            nav ul li a:focus {
                 color: #007bff;
                 background-color: #1f1f1f;
                 border-radius: 4px;
@@ -76,29 +73,10 @@ section {
     text-align: center;
 }
 
-    #overview h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #fff;
-    }
-
-    #overview p {
-        font-size: 1.2rem;
-        color: #ff9800;
-    }
-
 #latest-software {
     background-color: #37474f;
     color: #ffffff;
 }
-
-    #latest-software img,
-    #top-deals img,
-    #about-company img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
 
 #top-deals {
     background-color: #fbc02d;
@@ -163,7 +141,17 @@ footer {
     width: 100%;
 }
 
-.chart-container, .table-container {
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    background-color: #2c2c2c;
+}
+
+.table-container {
     width: 100%;
     max-width: 800px;
     margin: 2rem auto;
