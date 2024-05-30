@@ -140,7 +140,7 @@ a {
     }
 
 #latest-software {
-    background-color: #37474f;
+    background-color: #1b3a4b; /* Professional blue shade */
     color: #ffffff;
 }
 
@@ -151,17 +151,17 @@ a {
     }
 
 #top-deals {
-    background-color: #fbc02d;
-    color: #000000;
+    background-color: #4a6572; /* Elegant grey-blue */
+    color: #ffffff;
 }
 
 #customer-reviews {
-    background-color: #388e3c;
+    background-color: #344955; /* Muted blue-grey */
     color: #ffffff;
 }
 
 #about-company {
-    background-color: #d81b60;
+    background-color: #232f34; /* Darker shade for contrast */
     color: #ffffff;
 }
 
