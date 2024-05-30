@@ -24,26 +24,31 @@ header {
     z-index: 1000;
 }
 
-.navbar-nav .nav-item {
-    margin: 0 1rem; /* Increase space between menu items */
+.navbar-nav {
+    display: flex;
+    justify-content: center;
 }
 
-    .navbar-nav .nav-item .nav-link {
-        color: #e0e0e0; /* Light grey text for links */
-        padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
+    .navbar-nav .nav-item {
+        margin: 0 1rem; /* Increase space between menu items */
     }
 
-        .navbar-nav .nav-item .nav-link.active {
-            color: #ffffff; /* White text for the active link */
-            background-color: #1f1f1f; /* Match the background color on active */
+        .navbar-nav .nav-item .nav-link {
+            color: #e0e0e0; /* Light grey text for links */
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
         }
 
-        .navbar-nav .nav-item .nav-link:hover,
-        .navbar-nav .nav-item .nav-link:focus {
-            color: #ffffff; /* White text on hover and focus */
-            background-color: #1f1f1f; /* Black background on hover and focus */
-        }
+            .navbar-nav .nav-item .nav-link.active {
+                color: #ffffff; /* White text for the active link */
+                background-color: #1f1f1f; /* Match the background color on active */
+            }
+
+            .navbar-nav .nav-item .nav-link:hover,
+            .navbar-nav .nav-item .nav-link:focus {
+                color: #ffffff; /* White text on hover and focus */
+                background-color: #1f1f1f; /* Black background on hover and focus */
+            }
 
 main {
     padding: 2rem;
@@ -236,3 +241,4 @@ table {
                 padding: 0.5rem 1rem;
             }
 }
+
