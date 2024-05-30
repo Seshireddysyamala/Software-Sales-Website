@@ -178,3 +178,51 @@ ul.nav-pills.nav-fill {
         justify-content: center;
     }
 }
+/* Styles specific for Manage Sales page */
+.sales-form, .sales-list {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    background-color: #2c2c2c; /* Consistent dark background for both sections */
+    color: #ffffff; /* White text for better readability */
+}
+
+.sales-form {
+    background-color: #556677; /* Differentiated color for Add Sale form */
+}
+
+.sales-list {
+    background-color: #778899; /* Differentiated color for Sales List */
+}
+/* Improved styles for the About Us page */
+#about .profile-image {
+    margin-top: 2rem; /* Space between title and photo */
+    border: 5px solid #ffffff; /* White border around the photo */
+    padding: 5px; /* Padding to create visual space around the image inside the border */
+}
+
+    #about .profile-image img {
+        border-radius: 8px; /* Rounded corners for the image */
+    }
+
+#about #personal-info {
+    margin-top: 2rem; /* Space below the image */
+    background-color: #334455; /* Distinctive background color */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#about #development-experience {
+    background-color: #445566; /* Slightly different background to differentiate from personal info */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    margin-top: 2rem; /* Space between sections */
+}
+
+/* Ensures text is white in these sections */
+#about #personal-info, #about #development-experience {
+    color: #ffffff;
+}
