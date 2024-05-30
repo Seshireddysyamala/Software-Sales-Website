@@ -24,31 +24,18 @@ header {
     z-index: 1000;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+.navbar-nav .nav-item .nav-link {
+    color: #e0e0e0; /* Light grey text for links */
 }
 
-    nav ul li {
-        position: relative;
-        margin: 0 1rem;
+    .navbar-nav .nav-item .nav-link.active {
+        color: #ffffff; /* White text for the active link */
     }
 
-        nav ul li a {
-            color: #e0e0e0; /* Ensure links are light grey */
-            text-decoration: none;
-            padding: 0.5rem;
-        }
-
-            nav ul li a:hover,
-            nav ul li a:focus,
-            nav ul li a.active {
-                color: #ffffff; /* White text on hover, focus, and active */
-                background-color: #1f1f1f;
-                border-radius: 4px;
-            }
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .nav-link:focus {
+        color: #ffffff; /* White text on hover and focus */
+    }
 
 main {
     padding: 2rem;
@@ -58,7 +45,7 @@ main {
     background-color: #1f1f1f;
 }
 
-section {
+.box {
     margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 8px;
@@ -67,11 +54,17 @@ section {
     text-align: center;
 }
 
+    .box img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+
 #overview {
     background: url('images/overview.webp') no-repeat center center;
     background-size: cover;
     color: #fff;
-    text-align: center;
 }
 
 #latest-software {
