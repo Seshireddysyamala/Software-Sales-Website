@@ -63,26 +63,23 @@ section {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     background-color: #2c2c2c;
     text-align: center;
+    color: #ffffff; /* Ensure text is white */
 }
 
 #latest-software {
-    background-color: #37474f;
+    background-color: #556677; /* New color */
 }
 
 #top-deals {
-    background-color: #fbc02d;
+    background-color: #7799AA; /* New color */
 }
 
 #customer-reviews {
-    background-color: #388e3c;
+    background-color: #99AABB; /* New color */
 }
 
 #about-company {
-    background-color: #d81b60;
-}
-
-section h2, section p {
-    color: #ffffff;
+    background-color: #BBCCDD; /* New color */
 }
 
 section img {
@@ -108,10 +105,6 @@ section img {
 
 .text-left {
     text-align: left;
-}
-
-.text-white {
-    color: #fff;
 }
 
 .box {
@@ -194,66 +187,3 @@ ul.nav-pills.nav-fill {
         justify-content: center;
     }
 }
-
-h1, h2 {
-    color: #ffffff;
-    text-align: center;
-}
-
-h1 {
-    margin-bottom: 1rem;
-}
-
-h2 {
-    margin-top: 1.5rem;
-}
-
-p {
-    margin: 0.5rem 0;
-    color: #ffffff; /* Ensure all text is white */
-}
-
-ul.text-left, .text-left {
-    text-align: left;
-}
-
-.chart-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: #2c2c2c;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-.table-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: #2c2c2c;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-}
-
-    table th, table td {
-        border: 1px solid #ffffff;
-        padding: 0.5rem;
-        text-align: center;
-        color: #ffffff;
-    }
-
-    table th {
-        background-color: #37474f;
-    }
-
-    table td {
-        background-color: #2c2c2c;
-    }
