@@ -45,78 +45,43 @@ main {
     background-color: #1f1f1f;
 }
 
-section {
+.box {
     margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     background-color: #2c2c2c;
-    text-align: center;
+    color: #ffffff; /* Ensure text color is white */
 }
 
-#overview {
-    background: url('images/overview.webp') no-repeat center center;
-    background-size: cover;
-    color: #fff;
-    text-align: center;
+#personal-info {
+    text-align: left; /* Left align the personal info section */
 }
 
-#latest-software {
-    background-color: #37474f;
-    color: #ffffff;
-}
-
-#top-deals {
-    background-color: #fbc02d;
-    color: #ffffff;
-}
-
-#customer-reviews {
-    background-color: #388e3c;
-    color: #ffffff;
-}
-
-#about-company {
-    background-color: #d81b60;
-    color: #ffffff;
-}
-
-.profile-image {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-    .profile-image img {
-        border-radius: 8px;
-        width: 200px;
-        border: 2px solid #ffffff;
+    #personal-info p,
+    #personal-info ul {
+        margin-left: 1rem; /* Add some margin for better readability */
     }
 
-h1, h2 {
+    #personal-info h2 {
+        margin-top: 1.5rem;
+    }
+
+.development-experience {
+    text-align: left; /* Left align the development experience section */
+}
+
+    .development-experience p,
+    .development-experience ul {
+        margin-left: 1rem; /* Add some margin for better readability */
+    }
+
+h1, h2, h3 {
     color: #ffffff;
-    text-align: center;
 }
 
-h1 {
-    margin-bottom: 1rem;
-}
-
-h2 {
-    margin-top: 1.5rem;
-}
-
-p {
-    margin: 0.5rem 0;
-}
-
-ul.text-left, .text-left {
-    text-align: left;
-}
-
-#managesales, #aboutus, #data-analytics {
-    color: #ffffff;
-    text-align: center;
+p, ul {
+    color: #ffffff; /* Ensure all text is white for visibility */
 }
 
 footer {
@@ -129,43 +94,12 @@ footer {
     width: 100%;
 }
 
-.chart-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    background-color: #2c2c2c;
+.rounded-circle {
+    width: 150px; /* Set a fixed width for profile image */
+    height: 150px; /* Set a fixed height for profile image */
+    object-fit: cover; /* Ensure the image is properly scaled */
 }
 
-.table-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    background-color: #2c2c2c;
+a {
+    color: #007bff;
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-}
-
-    table th, table td {
-        border: 1px solid #ffffff;
-        padding: 0.5rem;
-        text-align: center;
-        color: #ffffff;
-    }
-
-    table th {
-        background-color: #37474f;
-    }
-
-    table td {
-        background-color: #2c2c2c;
-    }
