@@ -118,6 +118,7 @@ section {
     padding: 1rem 0;
     background: #1f1f1f;
     color: #fff;
+    text-align: center;
 }
 
     .footer p {
@@ -193,6 +194,7 @@ h2 {
 
 p {
     margin: 0.5rem 0;
+    color: #ffffff; /* Ensure all text is white */
 }
 
 ul.text-left, .text-left {
