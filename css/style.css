@@ -195,3 +195,34 @@ ul.nav-pills.nav-fill {
 .sales-list {
     background-color: #778899; /* Differentiated color for Sales List */
 }
+/* Additional styles for About Us page */
+.profile-image {
+    margin-top: 2rem; /* Adds space between title and photo */
+    border: 5px solid #ffffff; /* Adds a white border to the photo */
+}
+
+    .profile-image img {
+        border-radius: 8px; /* Ensures the photo has rounded corners */
+    }
+
+#about {
+    padding-bottom: 3rem; /* Adds more padding at the bottom for spacing */
+}
+
+/* Styling for sections in About Us to differentiate personal info and development experience */
+#personal-info, #development-experience {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    background-color: #334455; /* A different shade for differentiation */
+    color: #ffffff;
+}
+
+#personal-info {
+    margin-top: 2rem; /* Additional top margin for spacing from the photo */
+}
+
+#development-experience {
+    background-color: #445566; /* Slightly different background to differentiate from personal info */
+}
