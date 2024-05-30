@@ -37,15 +37,28 @@ header {
             color: #e0e0e0; /* Light grey text for links */
             padding: 0.5rem 1rem;
             border-radius: 0.25rem;
+            position: relative;
         }
 
             .navbar-nav .nav-item .nav-link.active,
             .navbar-nav .nav-item .nav-link:hover,
             .navbar-nav .nav-item .nav-link:focus {
-                color: #ffffff; /* White text on active, hover and focus */
-                background-color: #000000; /* Black background on active, hover and focus */
-                border-radius: 0.25rem;
+                color: #ffffff; /* White text */
+                background-color: #000000; /* Black background */
             }
+
+                .navbar-nav .nav-item .nav-link:hover::before,
+                .navbar-nav .nav-item .nav-link.active::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #000000;
+                    z-index: -1;
+                    border-radius: 0.25rem;
+                }
 
 main {
     padding: 2rem;
