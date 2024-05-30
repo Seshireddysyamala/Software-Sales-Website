@@ -37,14 +37,15 @@ nav ul {
     }
 
         nav ul li a {
-            color: #fff;
+            color: #e0e0e0; /* Ensure links are light grey */
             text-decoration: none;
             padding: 0.5rem;
         }
 
             nav ul li a:hover,
-            nav ul li a:focus {
-                color: #007bff;
+            nav ul li a:focus,
+            nav ul li a.active {
+                color: #ffffff; /* White text on hover, focus, and active */
                 background-color: #1f1f1f;
                 border-radius: 4px;
             }
