@@ -11,6 +11,7 @@ body {
     background-color: #121212;
     color: #e0e0e0;
     margin: 0;
+    text-align: center; /* Center all text */
 }
 
 header {
@@ -57,7 +58,6 @@ main {
     border-radius: 8px;
     background-color: #1f1f1f;
     color: #ffffff;
-    text-align: left;
 }
 
 .box {
@@ -119,6 +119,11 @@ footer {
 a {
     color: #007bff;
 }
+
+    a:hover, a:focus {
+        color: #0056b3;
+        text-decoration: none;
+    }
 
 /* Home Page Specific Styles */
 #overview {
@@ -254,6 +259,13 @@ table {
 /* Analytics Specific Styles */
 .analytics .box-heading {
     background-color: #8d6e63; /* Muted brown for analytics sub-section headings */
+}
+
+/* Center buttons */
+.btn {
+    display: inline-block;
+    margin: 10px auto;
+    text-align: center;
 }
 
 /* Responsive Navbar */

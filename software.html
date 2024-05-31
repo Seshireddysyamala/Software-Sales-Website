@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Details</title>
+    <title>Software Sales Home</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -17,8 +17,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="software.html">Software</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="software.html">Software</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
@@ -28,15 +28,40 @@
         </nav>
     </header>
     <main class="container mt-5">
-        <div id="software-details"></div>
-        <button id="addToCartBtn" class="btn btn-primary">Add to Cart</button>
+        <section id="overview" class="center-text box">
+            <h1>Software Sales</h1>
+            <p>Discover the best software deals and latest releases.</p>
+        </section>
+        <section id="latest-software" class="box text-center">
+            <h2><a href="software.html?category=latest">Latest Software</a></h2>
+            <a href="software.html?category=latest">
+                <img src="images/software-company-technology.png" alt="Latest Software" class="img-fluid rounded">
+            </a>
+            <p>Explore the newest software available on the market.</p>
+        </section>
+        <section id="top-deals" class="box text-center">
+            <h2><a href="software.html?category=deals">Top Deals</a></h2>
+            <a href="software.html?category=deals">
+                <img src="images/654a478f1b2ac3a4f32c9fb6_BFCM Deals Blog 2023.png" alt="Top Deals" class="img-fluid rounded">
+            </a>
+            <p>Check out the best deals on software to save money.</p>
+        </section>
+        <section id="customer-reviews" class="box text-center">
+            <h2>Customer Reviews</h2>
+            <p>“Great selection of software and amazing deals! Highly recommend.” - John Doe</p>
+            <p>“The customer service is excellent, and the prices are unbeatable.” - Jane Smith</p>
+            <p>“A one-stop shop for all software needs. Very satisfied with my purchases.” - Mark Johnson</p>
+        </section>
+        <section id="about-company" class="box text-center">
+            <h2>About Our Company</h2>
+            <p>At Software Sales, we are dedicated to providing the best software solutions at the most competitive prices. Our mission is to make high-quality software accessible to everyone, whether for personal use, educational purposes, or business needs. With a commitment to customer satisfaction, we strive to offer exceptional service, knowledgeable support, and an extensive selection of software products. Join us in discovering the latest software trends and top deals, and experience the difference with Software Sales.</p>
+        </section>
     </main>
-    <footer class="footer">
+    <footer>
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/software.js"></script>
 </body>
 </html>
