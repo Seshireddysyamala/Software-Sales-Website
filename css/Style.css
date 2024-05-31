@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'SF Pro Text', 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     background-color: #121212;
     color: #e0e0e0;
@@ -77,8 +77,7 @@ main {
     .profile-image img {
         border-radius: 8px;
         width: 200px;
-        border: 5px solid #ffffff; /* White border */
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Cool white box effect */
+        border: 2px solid #ffffff; /* Add white border back to the image */
         object-fit: cover;
     }
 
@@ -235,18 +234,16 @@ table {
 
 /* Box Styles for Headings */
 .box-heading {
-    background-color: #455a64; /* Similar background color for Manage Sales, Data Analytics, About Us */
+    background-color: #8d6e63; /* Brown color for headings */
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
 }
 
-/* Subsection Styles for Manage Sales */
-#add-sale, #sales-list {
-    background-color: #37474f; /* Same background color as Sales Data Table */
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
+/* Specific styles for the add-sale and sales-list boxes */
+.add-sale,
+.sales-list {
+    background-color: #2c2c2c; /* Dark background color for the boxes */
 }
 
 /* Responsive Navbar */
