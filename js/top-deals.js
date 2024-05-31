@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const topDealsList = document.getElementById('top-deals-list');
-    const cart = [];
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const topDeals = [
         { id: 1, name: 'Deal A', price: 79.99 },
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const renderTopDeals = () => {
+        topDealsList.innerHTML = '';
         topDeals.forEach(deal => {
             const dealItem = document.createElement('div');
             dealItem.className = 'deal-item';
@@ -25,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const deal = topDeals.find(d => d.id === parseInt(dealId, 10));
         if (deal) {
             cart.push(deal);
-            alert(`${deal.name} has been added to your cart.`);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('${ deal.name } has been added to your cart.');
             updateCartCount();
         }
     };
@@ -43,4 +45,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderTopDeals();
+    updateCartCount();
 });

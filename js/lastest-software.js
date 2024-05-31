@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const latestSoftwareList = document.getElementById('latest-software-list');
-    const cart = [];
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const latestSoftware = [
         { id: 1, name: 'Software A', price: 99.99 },
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const renderLatestSoftware = () => {
+        latestSoftwareList.innerHTML = '';
         latestSoftware.forEach(software => {
             const softwareItem = document.createElement('div');
             softwareItem.className = 'software-item';
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const software = latestSoftware.find(s => s.id === parseInt(softwareId, 10));
         if (software) {
             cart.push(software);
+            localStorage.setItem('cart', JSON.stringify(cart));
             alert(`${software.name} has been added to your cart.`);
             updateCartCount();
         }
@@ -43,4 +45,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderLatestSoftware();
+    updateCartCount();
 });
