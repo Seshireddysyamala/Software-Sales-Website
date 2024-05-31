@@ -18,48 +18,45 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="analytics.html">Data Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="software.html">Software</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    <main class="container mt-5">
-        <section id="data-analytics" class="box">
-            <h1 class="box-heading">Data Analytics</h1>
+    <main class="container mt-5 text-white">
+        <section id="data-analytics" class="bg-dark p-4 rounded mb-4">
+            <h1>Data Analytics</h1>
             <div class="chart-container p-4 mb-4">
-                <h2 class="box-heading">Sales Data (Bar Chart)</h2>
+                <h2>Sales Data (Bar Chart)</h2>
                 <canvas id="salesChart"></canvas>
             </div>
             <div class="chart-container p-4 mb-4">
-                <h2 class="box-heading">Sales Distribution (Pie Chart)</h2>
+                <h2>Sales Distribution (Pie Chart)</h2>
                 <canvas id="salesPieChart"></canvas>
             </div>
             <div class="chart-container p-4 mb-4">
-                <h2 class="box-heading">Sales Trend (Line Chart)</h2>
+                <h2>Sales Trend (Line Chart)</h2>
                 <canvas id="salesLineChart"></canvas>
             </div>
             <div class="table-container p-4 mb-4">
-                <h2 class="box-heading">Sales Data Table</h2>
+                <h2>Sales Data Table</h2>
                 <table class="table table-dark">
                     <thead>
                         <tr>
                             <th>Month</th>
-                            <th>Sales</th>
+                            <th>Software 1 Sales</th>
+                            <th>Software 2 Sales</th>
+                            <th>Deal 1 Sales</th>
+                            <th>Deal 2 Sales</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr><td>January</td><td>$1200</td></tr>
-                        <tr><td>February</td><td>$1900</td></tr>
-                        <tr><td>March</td><td>$3000</td></tr>
-                        <tr><td>April</td><td>$5000</td></tr>
-                        <tr><td>May</td><td>$2000</td></tr>
-                        <tr><td>June</td><td>$3000</td></tr>
-                        <tr><td>July</td><td>$4500</td></tr>
+                    <tbody id="salesTableBody">
+                        <!-- Data will be inserted here dynamically -->
                     </tbody>
                 </table>
             </div>
@@ -69,4 +66,9 @@
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src=" https: //cdn.jsdelivr.net
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/analytics.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software</title>
+    <title>Software Details</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -18,27 +18,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
-                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="software.html">Software</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main class="container mt-5">
-        <section id="software-list" class="box">
-            <h1 class="box-heading">Available Software</h1>
-            <div class="row" id="softwareItems">
-                <!-- Software items will be dynamically loaded here -->
-            </div>
-        </section>
+        <div id="software-details"></div>
+        <button id="addToCartBtn" class="btn btn-primary">Add to Cart</button>
     </main>
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/software.js"></script>
 </body>
 </html>

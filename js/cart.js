@@ -1,59 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const cartTableBody = document.querySelector('#cartTable tbody');
-    const cartTotalDiv = document.getElementById('cartTotal');
-    const checkoutBtn = document.getElementById('checkoutBtn');
+    const cartItemsDiv = document.getElementById('cartItems');
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const loadCartItems = () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cartItemsDiv.innerHTML = '';
 
-    const updateCart = () => {
-        cartTableBody.innerHTML = '';
-        let total = 0;
+        if (cart.length === 0) {
+            cartItemsDiv.innerHTML = '<p>Your cart is empty</p>';
+            return;
+        }
 
-        cart.forEach((item, index) => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.name}</td>
-                <td>$${item.price.toFixed(2)}</td>
-                <td>
-                    <input type="number" class="form-control quantity-input" value="${item.quantity}" min="1" data-index="${index}">
-                </td>
-                <td>$${(item.price * item.quantity).toFixed(2)}</td>
-                <td>
-                    <button class="btn btn-danger delete-item-btn" data-index="${index}">Remove</button>
-                </td>
+        cart.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('cart-item', 'mb-3', 'p-3', 'border', 'rounded');
+            itemDiv.innerHTML = `
+                <h5>${item.name}</h5>
+                <p>Price: $${item.price.toFixed(2)}</p>
+                <p>Quantity: ${item.quantity}</p>
+                <button class="btn btn-danger remove-from-cart-btn" data-id="${item.id}">Remove</button>
             `;
-            cartTableBody.appendChild(row);
-            total += item.price * item.quantity;
+            cartItemsDiv.appendChild(itemDiv);
         });
-
-        cartTotalDiv.innerHTML = <h3>Total: $${total.toFixed(2)}</h3>;
     };
 
-    cartTableBody.addEventListener('click', (event) => {
-        if (event.target.classList.contains('delete-item-btn')) {
-            const index = event.target.getAttribute('data-index');
-            cart.splice(index, 1);
+    cartItemsDiv.addEventListener('click', (event) => {
+        if (event.target.classList.contains('remove-from-cart-btn')) {
+            const itemId = event.target.getAttribute('data-id');
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.id != itemId);
             localStorage.setItem('cart', JSON.stringify(cart));
-            updateCart();
+            loadCartItems();
         }
     });
 
-    cartTableBody.addEventListener('input', (event) => {
-        if (event.target.classList.contains('quantity-input')) {
-            const index = event.target.getAttribute('data-index');
-            const newQuantity = parseInt(event.target.value);
-            if (newQuantity > 0) {
-                cart[index].quantity = newQuantity;
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCart();
-            }
-        }
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+        alert('Proceeding to checkout...');
+        // Implement checkout logic here
     });
 
-    checkoutBtn.addEventListener('click', () => {
-        alert('Proceeding to checkout!');
-        // Add checkout logic here
-    });
-
-    updateCart();
+    loadCartItems();
 });
