@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${name}</td>
-            <td>$${amount}</td>
+            <td>${amount}</td>
             <td>
                 <button class="btn btn-warning edit-sale" data-toggle="modal" data-target="#editSaleModal">Edit</button>
                 <button class="btn btn-danger delete-sale" data-toggle="modal" data-target="#confirmDeleteModal">Delete</button>
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const row = event.target.closest('tr');
             editIndex = row.rowIndex;
             editSaleNameInput.value = row.cells[0].textContent;
-            editSaleAmountInput.value = row.cells[1].textContent.replace('$', '');
+            editSaleAmountInput.value = row.cells[1].textContent;
         } else if (event.target.classList.contains('delete-sale')) {
             deleteRowIndex = event.target.closest('tr').rowIndex;
         }
@@ -58,19 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (saleName && saleAmount && editIndex !== -1) {
             const row = salesTable.rows[editIndex - 1];
             row.cells[0].textContent = saleName;
-            row.cells[1].textContent = $${ saleAmount };
+            row.cells[1].textContent = saleAmount;
             $('#editSaleModal').modal('hide');
             editIndex = -1;
         }
-    });
-
-    saleAmountInput.addEventListener('input', function () {
-        const value = this.value.replace(/[^0-9.]/g, ''); // Remove non-numeric characters
-        this.value = value ? $${ value } : '';
-    });
-
-    editSaleAmountInput.addEventListener('input', function () {
-        const value = this.value.replace(/[^0-9.]/g, ''); // Remove non-numeric characters
-        this.value = value ? $${ value } : '';
     });
 });
