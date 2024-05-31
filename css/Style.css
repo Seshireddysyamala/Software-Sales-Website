@@ -29,26 +29,26 @@ header {
     justify-content: center;
 }
 
-    .navbar-nav .nav-item {
-        margin: 0 1rem;
-    }
+.navbar-nav .nav-item {
+    margin: 0 1rem;
+}
 
-        .navbar-nav .nav-item .nav-link {
-            color: #e0e0e0;
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
-        }
+.navbar-nav .nav-item .nav-link {
+    color: #e0e0e0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}
 
-            .navbar-nav .nav-item .nav-link.active {
-                color: #ffffff;
-                background-color: #1f1f1f;
-            }
+.navbar-nav .nav-item .nav-link.active {
+    color: #ffffff;
+    background-color: #1f1f1f;
+}
 
-            .navbar-nav .nav-item .nav-link:hover,
-            .navbar-nav .nav-item .nav-link:focus {
-                color: #ffffff;
-                background-color: #1f1f1f;
-            }
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus {
+    color: #ffffff;
+    background-color: #1f1f1f;
+}
 
 main {
     padding: 2rem;
@@ -74,29 +74,29 @@ main {
     margin-bottom: 1rem;
 }
 
-    .profile-image img {
-        border-radius: 8px;
-        width: 200px;
-        border: 2px solid #ffffff;
-        object-fit: cover;
-    }
+.profile-image img {
+    border-radius: 8px;
+    width: 200px;
+    border: 2px solid #ffffff;
+    object-fit: cover;
+}
 
 #personal-info,
 .development-experience {
     text-align: left;
 }
 
-    #personal-info p,
-    #personal-info ul,
-    .development-experience p,
-    .development-experience ul {
-        margin-left: 1rem;
-    }
+#personal-info p,
+#personal-info ul,
+.development-experience p,
+.development-experience ul {
+    margin-left: 1rem;
+}
 
-    #personal-info h2,
-    .development-experience h2 {
-        margin-top: 1.5rem;
-    }
+#personal-info h2,
+.development-experience h2 {
+    margin-top: 1.5rem;
+}
 
 h1, h2, h3 {
     color: #ffffff;
@@ -128,27 +128,27 @@ a {
     text-align: center;
 }
 
-    #overview h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #fff;
-    }
+#overview h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
 
-    #overview p {
-        font-size: 1.2rem;
-        color: #ffde22; /* Gold color */
-    }
+#overview p {
+    font-size: 1.2rem;
+    color: #ffde22; /* Gold color */
+}
 
 #latest-software {
     background-color: #455a64; /* Professional grey-blue */
     color: #ffffff;
 }
 
-    #latest-software img, #top-deals img, #about-company img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
+#latest-software img, #top-deals img, #about-company img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 
 #top-deals {
     background-color: #fbc02d; /* Gold color */
@@ -217,20 +217,20 @@ table {
     margin: 1rem 0;
 }
 
-    table th, table td {
-        border: 1px solid #ffffff;
-        padding: 0.5rem;
-        text-align: center;
-        color: #ffffff;
-    }
+table th, table td {
+    border: 1px solid #ffffff;
+    padding: 0.5rem;
+    text-align: center;
+    color: #ffffff;
+}
 
-    table th {
-        background-color: #37474f;
-    }
+table th {
+    background-color: #37474f;
+}
 
-    table td {
-        background-color: #2c2c2c;
-    }
+table td {
+    background-color: #2c2c2c;
+}
 
 /* Box Styles for Headings */
 .box-heading {
@@ -251,22 +251,19 @@ table {
     background-color: #2c2c2c; /* Normal blackish background for boxes */
 }
 
-/* Analytics Specific Styles */
-.analytics .box-heading {
-    background-color: #8d6e63; /* Muted brown for analytics sub-section headings */
-}
-
 /* Responsive Navbar */
 @media (max-width: 992px) {
     .navbar-nav {
         text-align: center;
     }
 
-        .navbar-nav .nav-item {
-            margin: 0.5rem 0;
-        }
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0;
+    }
 
-            .navbar-nav .nav-item .nav-link {
-                padding: 0.5rem 1rem;
+    .navbar-nav .nav-item .nav-link {
+        padding: 0.5rem 1rem;
             }
 }
+
+

@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Deals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Software Sales</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="latest-software.html">Latest Software</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="top-deals.html">Top Deals</a></li>
+                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container mt-5">
+        <section id="top-deals-list" class="box">
+            <h1>Top Deals</h1>
+            <div class="row">
+                <!-- Example Product -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="images/deal1.jpg" class="card-img-top" alt="Deal 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Deal 1</h5>
+                            <p class="card-text">$19.99</p>
+                            <button class="btn btn-primary add-to-cart" data-id="2">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more products similarly -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Software Sales. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/software.js"></script>
+</body>
+</html>

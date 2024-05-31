@@ -1,48 +1,56 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
-    const softwareList = document.getElementById('software-list');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    const addToCart = (softwareId) => {
-        const softwareItem = softwareList.querySelector([data - id='${softwareId}']);
-        const softwareName = softwareItem.querySelector('.software-name').textContent;
-        const softwarePrice = softwareItem.querySelector('.software-price').textContent;
-
-        const cartItem = cart.find(item => item.id === softwareId);
-        if (cartItem) {
-            cartItem.quantity += 1;
-        } else {
-            cart.push({
-                id: softwareId,
-                name: softwareName,
-                price: softwarePrice,
-                quantity: 1
-            });
-        }
+    const updateCart = () => {
         localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartUI();
+        renderCartItems();
     };
 
-    const updateCartUI = () => {
-        const cartContainer = document.getElementById('cart-items');
-        cartContainer.innerHTML = '';
-        cart.forEach(item => {
-            const cartItem = document.createElement('div');
-            cartItem.classList.add('cart-item');
-            cartItem.innerHTML = `
-                <div>${item.name}</div>
-                <div>${item.price}</div>
-                <div>${item.quantity}</div>
-            `;
-            cartContainer.appendChild(cartItem);
+    const renderCartItems = () => {
+        const cartTable = document.getElementById('cart-table');
+        if (cartTable) {
+            cartTable.innerHTML = cart.map((item, index) => `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.price}</td>
+                    <td>${item.quantity}</td>
+                    <td>
+                        <button class="btn btn-danger remove-from-cart" data-index="${index}">Remove</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+    };
+
+    const addToCart = (product) => {
+        const existingProductIndex = cart.findIndex(item => item.id === product.id);
+        if (existingProductIndex > -1) {
+            cart[existingProductIndex].quantity += 1;
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+        updateCart();
+    };
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = button.getAttribute('data-id');
+            const product = {
+                id: productId,
+                name: button.closest('.card-body').querySelector('.card-title').textContent,
+                price: button.closest('.card-body').querySelector('.card-text').textContent,
+            };
+            addToCart(product);
         });
-    };
+    });
 
-    softwareList.addEventListener('click', (event) => {
-        if (event.target.classList.contains('add-to-cart')) {
-            const softwareId = event.target.closest('.software-item').dataset.id;
-            addToCart(softwareId);
+    document.getElementById('cart-table').addEventListener('click', (event) => {
+        if (event.target.classList.contains('remove-from-cart')) {
+            const index = event.target.getAttribute('data-index');
+            cart.splice(index, 1);
+            updateCart();
         }
     });
 
-    updateCartUI();
+    renderCartItems();
 });
