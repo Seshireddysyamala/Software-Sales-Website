@@ -243,7 +243,7 @@ table {
 
 /* Subsection Styles for Manage Sales */
 #add-sale, #sales-list {
-    background-color: #37474f; /* Same background color as Sales Data Table */
+    background-color: #8d6e63; /* Muted brown */
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 2rem;
