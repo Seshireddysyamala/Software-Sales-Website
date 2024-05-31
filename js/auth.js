@@ -5,12 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            // Perform login operation here
-            // For simplicity, let's assume the login is successful
-            alert('Login successful!');
+            // Perform login validation and redirect
+            localStorage.setItem('user', JSON.stringify({ email: e.target.email.value }));
             window.location.href = 'index.html';
         });
     }
@@ -18,19 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (signupForm) {
         signupForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('signup-email').value;
-            const password = document.getElementById('signup-password').value;
-            const confirmPassword = document.getElementById('signup-confirm-password').value;
-
-            if (password !== confirmPassword) {
-                alert('Passwords do not match!');
-                return;
-            }
-
-            // Perform signup operation here
-            // For simplicity, let's assume the signup is successful
-            alert('Signup successful!');
-            window.location.href = 'login.html';
+            // Perform signup and redirect
+            localStorage.setItem('user', JSON.stringify({ email: e.target.email.value }));
+            window.location.href = 'index.html';
         });
+    }
+
+    // Redirect to login if not authenticated
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
+        window.location.href = 'login.html';
     }
 });
