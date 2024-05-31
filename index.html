@@ -1,7 +1,4 @@
-﻿### Final HTML for index.html
-
-```html
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,13 +17,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="softwares.html">Softwares</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="softwares.html">Softwares</a></li>
                     <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login/Signup</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
                 </ul>
             </div>
         </nav>
@@ -34,15 +29,15 @@
     <main class="container mt-5">
         <section id="overview" class="center-text box">
             <h1>Software Sales</h1>
-            <p>"Discover the best software deals and latest releases."</p>
+            <p>Discover the best software deals and latest releases.</p>
         </section>
         <section id="latest-software" class="box text-center">
-            <h2><a href="latest-software.html">Latest Software</a></h2>
+            <h2>Latest Software</h2>
             <img src="images/software-company-technology.png" alt="Latest Software" class="img-fluid rounded">
             <p>Explore the newest software available on the market.</p>
         </section>
         <section id="top-deals" class="box text-center">
-            <h2><a href="top-deals.html">Top Deals</a></h2>
+            <h2>Top Deals</h2>
             <img src="images/654a478f1b2ac3a4f32c9fb6_BFCM Deals Blog 2023.png" alt="Top Deals" class="img-fluid rounded">
             <p>Check out the best deals on software to save money.</p>
         </section>
@@ -57,11 +52,18 @@
             <p>At Software Sales, we are dedicated to providing the best software solutions at the most competitive prices. Our mission is to make high-quality software accessible to everyone, whether for personal use, educational purposes, or business needs. With a commitment to customer satisfaction, we strive to offer exceptional service, knowledgeable support, and an extensive selection of software products. Join us in discovering the latest software trends and top deals, and experience the difference with Software Sales.</p>
         </section>
     </main>
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Redirect to login if not logged in
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
+            window.location.href = 'login.html';
+        }
+    </script>
 </body>
 </html>

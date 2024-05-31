@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,22 +18,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="softwares.html">Softwares</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login/Signup</a></li>
+                    <li class="nav-item"><a class="nav-link" href="softwares.html">Softwares</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main class="container mt-5">
         <h2>Your Cart</h2>
-        <div id="cart-items" class="software-list"></div>
-        <div id="cart-summary">
-            <h3>Total: $<span id="cart-total">0.00</span></h3>
-            <button class="btn btn-primary" id="checkout-btn">Proceed to Checkout</button>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="text-center mt-4">
+            <button id="proceed-to-checkout" class="btn btn-success">Proceed to Checkout</button>
         </div>
     </main>
     <footer class="footer">
