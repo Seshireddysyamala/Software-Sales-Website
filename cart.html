@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="latest-software.html">Latest Software</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="latest-software.html">Latest Software</a></li>
                     <li class="nav-item"><a class="nav-link" href="top-deals.html">Top Deals</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
@@ -30,9 +30,13 @@
         </nav>
     </header>
     <main class="container mt-5">
-        <h1 class="text-center">Your Cart</h1>
-        <div id="cart-items" class="text-center"></div>
-        <button class="btn btn-primary d-block mx-auto mt-3" id="proceed-to-checkout">Proceed to Checkout</button>
+        <section id="cart" class="box text-center">
+            <h2>Cart</h2>
+            <div id="cart-items" class="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <button id="checkout-btn" class="btn btn-success mt-3">Proceed to Checkout</button>
+        </section>
     </main>
     <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>

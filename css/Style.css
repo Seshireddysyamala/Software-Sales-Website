@@ -128,35 +128,51 @@ a {
     text-align: center;
 }
 
-#latest-software {
-    background-color: #455a64;
+    #overview h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #fff;
+    }
+
+    #overview p {
+        font-size: 1.2rem;
+        color: #ffde22; /* Gold color */
+    }
+
+#latest-software,
+#top-deals {
+    background-color: #1f1f1f; /* Black background for visibility */
     color: #ffffff;
 }
 
-    #latest-software .card {
+    #latest-software .software-item,
+    #top-deals .deal-item {
         background-color: #2c2c2c;
-        border: none;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-radius: 8px;
     }
 
-    #latest-software .card-title,
-    #latest-software .card-text {
-        color: #ffffff;
+    #latest-software img, #top-deals img, #about-company img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
     }
 
 #top-deals {
-    background-color: #fbc02d;
+    background-color: #fbc02d; /* Gold color */
     color: #000000;
 }
 
-    #top-deals .card {
-        background-color: #2c2c2c;
-        border: none;
-    }
+#customer-reviews {
+    background-color: #ff7043; /* Coral color */
+    color: #ffffff;
+}
 
-    #top-deals .card-title,
-    #top-deals .card-text {
-        color: #ffffff;
-    }
+#about-company {
+    background-color: #8d6e63; /* Muted brown */
+    color: #ffffff;
+}
 
 h1, h2 {
     color: #ffffff;
@@ -227,7 +243,7 @@ table {
 
 /* Box Styles for Headings */
 .box-heading {
-    background-color: #455a64;
+    background-color: #455a64; /* Professional grey-blue */
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
@@ -236,12 +252,12 @@ table {
 /* Manage Sales Specific Styles */
 .add-sale .box-heading,
 .sales-list .box-heading {
-    background-color: #8d6e63;
+    background-color: #8d6e63; /* Muted brown for sub-section headings */
 }
 
 .add-sale,
 .sales-list {
-    background-color: #2c2c2c;
+    background-color: #2c2c2c; /* Normal blackish background for boxes */
 }
 
 /* Responsive Navbar */
@@ -258,4 +274,3 @@ table {
                 padding: 0.5rem 1rem;
             }
 }
-
