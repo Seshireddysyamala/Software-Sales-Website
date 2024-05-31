@@ -52,6 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
         $('#confirmDeleteModal').modal('hide');
     });
 
+    document.getElementById('sale-amount').addEventListener('input', function () {
+        const value = this.value.replace(/\D/g, ''); // Remove non-digit characters
+        this.value = value ? $${ value } : '';
+    });
+
+    document.getElementById('edit-sale-amount').addEventListener('input', function () {
+        const value = this.value.replace(/\D/g, ''); // Remove non-digit characters
+        this.value = value ? $${ value } : '';
+    });
+
     saveEditSaleBtn.addEventListener('click', () => {
         const saleName = editSaleNameInput.value.trim();
         const saleAmount = editSaleAmountInput.value.trim();

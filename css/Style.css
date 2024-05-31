@@ -77,7 +77,7 @@ main {
     .profile-image img {
         border-radius: 8px;
         width: 200px;
-        border: 2px solid #ffffff; /* Add white border back to the image */
+        border: 2px solid #ffffff;
         object-fit: cover;
     }
 
@@ -234,16 +234,21 @@ table {
 
 /* Box Styles for Headings */
 .box-heading {
-    background-color: #8d6e63; /* Brown color for headings */
+    background-color: #455a64; /* Professional grey-blue */
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
 }
 
-/* Specific styles for the add-sale and sales-list boxes */
+/* Manage Sales Specific Styles */
+.add-sale .box-heading,
+.sales-list .box-heading {
+    background-color: #8d6e63; /* Muted brown for sub-section headings */
+}
+
 .add-sale,
 .sales-list {
-    background-color: #2c2c2c; /* Dark background color for the boxes */
+    background-color: #2c2c2c; /* Normal blackish background for boxes */
 }
 
 /* Responsive Navbar */
