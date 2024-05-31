@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Softwares</title>
+    <title>Software and Deals</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,23 +18,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="softwares.html">Softwares</a></li>
-                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart <span id="cart-count">0</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main class="container mt-5">
-        <section id="top-deals">
-            <h2>Top Deals</h2>
-            <div id="top-deals-list" class="software-list"></div>
-        </section>
-        <section id="latest-software">
-            <h2>Latest Software</h2>
-            <div id="latest-software-list" class="software-list"></div>
+        <section id="software" class="box">
+            <h2>Latest Software and Top Deals</h2>
+            <div id="software-list" class="software-list"></div>
         </section>
     </main>
     <footer class="footer">
@@ -41,6 +36,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/softwares.js"></script>
+    <script src="js/software.js"></script>
 </body>
 </html>
