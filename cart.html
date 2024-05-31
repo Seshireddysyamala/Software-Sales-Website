@@ -1,13 +1,12 @@
-﻿### Updated cart.html
-
-```html
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -21,19 +20,19 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="latest-software.html">Latest Software</a></li>
                     <li class="nav-item"><a class="nav-link" href="top-deals.html">Top Deals</a></li>
-                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
                     <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart <span id="cart-count">0</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login/Signup</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main class="container mt-5">
-        <h1>Cart</h1>
-        <div id="cart-items"></div>
-        <button id="checkout-button" class="btn btn-success">Proceed to Checkout</button>
+        <h1 class="text-center">Your Cart</h1>
+        <div id="cart-items" class="text-center"></div>
+        <button class="btn btn-primary d-block mx-auto mt-3" id="proceed-to-checkout">Proceed to Checkout</button>
     </main>
     <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>

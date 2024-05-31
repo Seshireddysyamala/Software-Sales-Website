@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
         latestSoftwareList.innerHTML = '';
         latestSoftware.forEach(software => {
             const softwareItem = document.createElement('div');
-            softwareItem.className = 'software-item';
+            softwareItem.className = 'software-item card mb-3';
             softwareItem.innerHTML = `
-                <h3>${software.name}</h3>
-                <p>Price: $${software.price.toFixed(2)}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${software.id}">Add to Cart</button>
+                <div class="card-body">
+                    <h3 class="card-title">${software.name}</h3>
+                    <p class="card-text">Price: $${software.price.toFixed(2)}</p>
+                    <button class="btn btn-primary add-to-cart" data-id="${software.id}">Add to Cart</button>
+                </div>
             `;
             latestSoftwareList.appendChild(softwareItem);
         });
@@ -27,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (software) {
             cart.push(software);
             localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${software.name} has been added to your cart.`);
+            alert('${ software.name } has been added to your cart.');
             updateCartCount();
         }
     };

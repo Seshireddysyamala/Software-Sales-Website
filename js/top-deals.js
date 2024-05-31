@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
         topDealsList.innerHTML = '';
         topDeals.forEach(deal => {
             const dealItem = document.createElement('div');
-            dealItem.className = 'deal-item';
+            dealItem.className = 'deal-item card mb-3';
             dealItem.innerHTML = `
-                <h3>${deal.name}</h3>
-                <p>Price: $${deal.price.toFixed(2)}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${deal.id}">Add to Cart</button>
+                <div class="card-body">
+                    <h3 class="card-title">${deal.name}</h3>
+                    <p class="card-text">Price: $${deal.price.toFixed(2)}</p>
+                    <button class="btn btn-primary add-to-cart" data-id="${deal.id}">Add to Cart</button>
+                </div>
             `;
             topDealsList.appendChild(dealItem);
         });
