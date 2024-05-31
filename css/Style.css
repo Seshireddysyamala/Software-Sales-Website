@@ -242,17 +242,18 @@ table {
 
 /* Manage Sales Specific Styles */
 .add-sale .box-heading,
-.sales-list .box-heading,
-.development-experience .box-heading,
-#data-analytics .box-heading {
+.sales-list .box-heading {
     background-color: #8d6e63; /* Muted brown for sub-section headings */
 }
 
 .add-sale,
-.sales-list,
-.development-experience,
-#data-analytics {
+.sales-list {
     background-color: #2c2c2c; /* Normal blackish background for boxes */
+}
+
+/* Analytics Specific Styles */
+.analytics .box-heading {
+    background-color: #8d6e63; /* Muted brown for analytics sub-section headings */
 }
 
 /* Responsive Navbar */
