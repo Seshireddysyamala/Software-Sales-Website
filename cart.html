@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -29,8 +30,8 @@
     </header>
     <main class="container mt-5">
         <section id="cart" class="box">
-            <h1 class="box-heading">Cart</h1>
-            <table id="cart-table" class="table table-dark">
+            <h1 class="box-heading">Your Cart</h1>
+            <table id="cartTable" class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -44,6 +45,12 @@
                     <!-- Cart items will be dynamically inserted here -->
                 </tbody>
             </table>
+            <div id="cartTotal" class="text-right">
+                <!-- Cart total will be dynamically inserted here -->
+            </div>
+            <div class="text-right">
+                <button class="btn btn-success" id="checkoutBtn">Proceed to Checkout</button>
+            </div>
         </section>
     </main>
     <footer>

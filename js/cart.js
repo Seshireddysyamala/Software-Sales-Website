@@ -1,62 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const cartTableBody = document.querySelector('#cart-table tbody');
+    const cartTableBody = document.querySelector('#cartTable tbody');
+    const cartTotalDiv = document.getElementById('cartTotal');
+    const checkoutBtn = document.getElementById('checkoutBtn');
 
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    const renderCart = () => {
+    const updateCart = () => {
         cartTableBody.innerHTML = '';
+        let total = 0;
+
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.name}</td>
-                <td>$${item.price}</td>
+                <td>$${item.price.toFixed(2)}</td>
                 <td>
-                    <input type="number" value="${item.quantity}" min="1" data-index="${index}" class="cart-quantity">
+                    <input type="number" class="form-control quantity-input" value="${item.quantity}" min="1" data-index="${index}">
                 </td>
                 <td>$${(item.price * item.quantity).toFixed(2)}</td>
                 <td>
-                    <button class="btn btn-danger remove-item" data-index="${index}">Remove</button>
+                    <button class="btn btn-danger delete-item-btn" data-index="${index}">Remove</button>
                 </td>
             `;
             cartTableBody.appendChild(row);
+            total += item.price * item.quantity;
         });
-    };
 
-    const updateCart = () => {
-        localStorage.setItem('cart', JSON.stringify(cart));
-        renderCart();
+        cartTotalDiv.innerHTML = <h3>Total: $${total.toFixed(2)}</h3>;
     };
-
-    cartTableBody.addEventListener('change', (event) => {
-        if (event.target.classList.contains('cart-quantity')) {
-            const index = event.target.dataset.index;
-            cart[index].quantity = parseInt(event.target.value);
-            updateCart();
-        }
-    });
 
     cartTableBody.addEventListener('click', (event) => {
-        if (event.target.classList.contains('remove-item')) {
-            const index = event.target.dataset.index;
+        if (event.target.classList.contains('delete-item-btn')) {
+            const index = event.target.getAttribute('data-index');
             cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
             updateCart();
         }
     });
 
-    renderCart();
-
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', () => {
-            const id = button.dataset.id;
-            const name = button.parentElement.querySelector('h3').textContent;
-            const price = parseFloat(button.parentElement.querySelector('p').textContent.replace('$', ''));
-            const existingItem = cart.find(item => item.id === id);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ id, name, price, quantity: 1 });
+    cartTableBody.addEventListener('input', (event) => {
+        if (event.target.classList.contains('quantity-input')) {
+            const index = event.target.getAttribute('data-index');
+            const newQuantity = parseInt(event.target.value);
+            if (newQuantity > 0) {
+                cart[index].quantity = newQuantity;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
             }
-            updateCart();
-        });
+        }
     });
+
+    checkoutBtn.addEventListener('click', () => {
+        alert('Proceeding to checkout!');
+        // Add checkout logic here
+    });
+
+    updateCart();
 });

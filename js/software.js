@@ -1,36 +1,44 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
-    const softwareId = new URLSearchParams(window.location.search).get('id');
-    const softwareInfo = document.getElementById('software-info');
-    const addToCartButton = document.getElementById('add-to-cart');
+    const softwareItemsDiv = document.getElementById('softwareItems');
+    const softwareList = [
+        { id: 1, name: 'Software A', price: 99.99 },
+        { id: 2, name: 'Software B', price: 149.99 },
+        { id: 3, name: 'Software C', price: 199.99 }
+    ];
 
-    const softwareDetails = {
-        1: { name: 'Software 1', price: 49.99, description: 'Description of Software 1' },
-        2: { name: 'Software 2', price: 69.99, description: 'Description of Software 2' },
-        3: { name: 'Deal 1', price: 39.99, description: 'Description of Deal 1' },
-        4: { name: 'Deal 2', price: 29.99, description: 'Description of Deal 2' }
+    const createSoftwareCard = (software) => {
+        const card = document.createElement('div');
+        card.classList.add('col-md-4');
+        card.innerHTML = `
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">${software.name}</h5>
+                    <p class="card-text">Price: $${software.price.toFixed(2)}</p>
+                    <button class="btn btn-primary add-to-cart-btn" data-id="${software.id}">Add to Cart</button>
+                </div>
+            </div>
+        `;
+        softwareItemsDiv.appendChild(card);
     };
 
-    const software = softwareDetails[softwareId];
-    if (software) {
-        softwareInfo.innerHTML = `
-            <h2>${software.name}</h2>
-            <p>${software.description}</p>
-            <p>Price: $${software.price}</p>
-        `;
+    softwareList.forEach(software => createSoftwareCard(software));
 
-        addToCartButton.addEventListener('click', () => {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingItem = cart.find(item => item.id === softwareId);
+    softwareItemsDiv.addEventListener('click', (event) => {
+        if (event.target.classList.contains('add-to-cart-btn')) {
+            const softwareId = event.target.getAttribute('data-id');
+            const software = softwareList.find(s => s.id == softwareId);
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const existingItem = cart.find(item => item.id == softwareId);
             if (existingItem) {
                 existingItem.quantity++;
             } else {
-                cart.push({ id: softwareId, name: software.name, price: software.price, quantity: 1 });
+                cart.push({ ...software, quantity: 1 });
             }
+
             localStorage.setItem('cart', JSON.stringify(cart));
             alert('Added to cart!');
-        });
-    } else {
-        softwareInfo.innerHTML = '<p>Software not found.</p>';
-        addToCartButton.style.display = 'none';
-    }
+        }
+    });
 });
