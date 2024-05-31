@@ -1,40 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const latestSoftwareItems = [
-        { id: 1, name: 'Software 1', price: '$50' },
-        { id: 2, name: 'Software 2', price: '$70' }
+    const latestSoftwareList = document.getElementById('latest-software-list');
+    const cart = [];
+
+    const latestSoftware = [
+        { id: 1, name: 'Software A', price: 99.99 },
+        { id: 2, name: 'Software B', price: 149.99 },
+        { id: 3, name: 'Software C', price: 199.99 }
     ];
 
-    const latestSoftwareContainer = document.getElementById('latest-software-container');
-
-    latestSoftwareItems.forEach(item => {
-        const softwareCard = document.createElement('div');
-        softwareCard.className = 'card mb-3';
-        softwareCard.innerHTML = `
-            <div class="card-body">
-                <h5 class="card-title">${item.name}</h5>
-                <p class="card-text">${item.price}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${item.id}">Add to Cart</button>
-            </div>
-        `;
-        latestSoftwareContainer.appendChild(softwareCard);
-    });
-
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', (event) => {
-            const productId = event.target.getAttribute('data-id');
-            const product = latestSoftwareItems.find(item => item.id == productId);
-            addToCart(product);
+    const renderLatestSoftware = () => {
+        latestSoftware.forEach(software => {
+            const softwareItem = document.createElement('div');
+            softwareItem.className = 'software-item';
+            softwareItem.innerHTML = `
+                <h3>${software.name}</h3>
+                <p>Price: $${software.price.toFixed(2)}</p>
+                <button class="btn btn-primary add-to-cart" data-id="${software.id}">Add to Cart</button>
+            `;
+            latestSoftwareList.appendChild(softwareItem);
         });
+    };
+
+    const addToCart = (softwareId) => {
+        const software = latestSoftware.find(s => s.id === parseInt(softwareId, 10));
+        if (software) {
+            cart.push(software);
+            alert(`${software.name} has been added to your cart.`);
+            updateCartCount();
+        }
+    };
+
+    const updateCartCount = () => {
+        const cartCount = document.getElementById('cart-count');
+        cartCount.textContent = cart.length;
+    };
+
+    latestSoftwareList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('add-to-cart')) {
+            const softwareId = event.target.getAttribute('data-id');
+            addToCart(softwareId);
+        }
     });
 
-    const addToCart = (product) => {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const existingProductIndex = cart.findIndex(item => item.id === product.id);
-        if (existingProductIndex > -1) {
-            cart[existingProductIndex].quantity += 1;
-        } else {
-            cart.push({ ...product, quantity: 1 });
-        }
-        localStorage.setItem('cart', JSON.stringify(cart));
-    };
+    renderLatestSoftware();
 });

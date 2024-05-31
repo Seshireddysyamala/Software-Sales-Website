@@ -1,40 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const topDealsItems = [
-        { id: 1, name: 'Deal 1', price: '$30' },
-        { id: 2, name: 'Deal 2', price: '$45' }
+    const topDealsList = document.getElementById('top-deals-list');
+    const cart = [];
+
+    const topDeals = [
+        { id: 1, name: 'Deal A', price: 79.99 },
+        { id: 2, name: 'Deal B', price: 129.99 },
+        { id: 3, name: 'Deal C', price: 179.99 }
     ];
 
-    const topDealsContainer = document.getElementById('top-deals-container');
-
-    topDealsItems.forEach(item => {
-        const dealCard = document.createElement('div');
-        dealCard.className = 'card mb-3';
-        dealCard.innerHTML = `
-            <div class="card-body">
-                <h5 class="card-title">${item.name}</h5>
-                <p class="card-text">${item.price}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${item.id}">Add to Cart</button>
-            </div>
-        `;
-        topDealsContainer.appendChild(dealCard);
-    });
-
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', (event) => {
-            const productId = event.target.getAttribute('data-id');
-            const product = topDealsItems.find(item => item.id == productId);
-            addToCart(product);
+    const renderTopDeals = () => {
+        topDeals.forEach(deal => {
+            const dealItem = document.createElement('div');
+            dealItem.className = 'deal-item';
+            dealItem.innerHTML = `
+                <h3>${deal.name}</h3>
+                <p>Price: $${deal.price.toFixed(2)}</p>
+                <button class="btn btn-primary add-to-cart" data-id="${deal.id}">Add to Cart</button>
+            `;
+            topDealsList.appendChild(dealItem);
         });
+    };
+
+    const addToCart = (dealId) => {
+        const deal = topDeals.find(d => d.id === parseInt(dealId, 10));
+        if (deal) {
+            cart.push(deal);
+            alert(`${deal.name} has been added to your cart.`);
+            updateCartCount();
+        }
+    };
+
+    const updateCartCount = () => {
+        const cartCount = document.getElementById('cart-count');
+        cartCount.textContent = cart.length;
+    };
+
+    topDealsList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('add-to-cart')) {
+            const dealId = event.target.getAttribute('data-id');
+            addToCart(dealId);
+        }
     });
 
-    const addToCart = (product) => {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const existingProductIndex = cart.findIndex(item => item.id === product.id);
-        if (existingProductIndex > -1) {
-            cart[existingProductIndex].quantity += 1;
-        } else {
-            cart.push({ ...product, quantity: 1 });
-        }
-        localStorage.setItem('cart', JSON.stringify(cart));
-    };
+    renderTopDeals();
 });
