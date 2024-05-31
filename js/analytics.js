@@ -1,131 +1,79 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Bar Chart
-    const salesCtx = document.getElementById('salesChart').getContext('2d');
-    new Chart(salesCtx, {
+    const salesChart = document.getElementById('salesChart').getContext('2d');
+    const salesPieChart = document.getElementById('salesPieChart').getContext('2d');
+    const salesLineChart = document.getElementById('salesLineChart').getContext('2d');
+
+    const salesData = {
+        labels: ['January', 'February', 'March', 'April', 'May'],
+        datasets: [{
+            label: 'Sales Data',
+            data: [500, 700, 400, 600, 800],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    };
+
+    const salesChartConfig = new Chart(salesChart, {
         type: 'bar',
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: 'Sales Data',
-                data: [1200, 1900, 3000, 5000, 2000, 3000, 4500],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        },
+        data: salesData,
         options: {
             scales: {
                 y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: '#ffffff'  // Y-axis tick labels color
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.2)'  // Y-axis grid lines color
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#ffffff'  // X-axis tick labels color
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.2)'  // X-axis grid lines color
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#ffffff'  // Legend text color
-                    }
+                    beginAtZero: true
                 }
             }
         }
     });
 
-    // Pie Chart
-    const pieCtx = document.getElementById('salesPieChart').getContext('2d');
-    new Chart(pieCtx, {
+    const salesPieChartConfig = new Chart(salesPieChart, {
         type: 'pie',
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: ['Software 1', 'Software 2', 'Software 3'],
             datasets: [{
-                label: 'Sales Distribution',
-                data: [1200, 1900, 3000, 5000, 2000, 3000, 4500],
+                data: [300, 200, 500],
                 backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
+                    'rgba(255, 206, 86, 0.2)'
                 ],
                 borderColor: [
-                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(54, 162, 235, 1)'
+                    'rgba(255, 206, 86, 1)'
                 ],
                 borderWidth: 1
             }]
-        },
+        }
+    });
+
+    const salesLineChartConfig = new Chart(salesLineChart, {
+        type: 'line',
+        data: salesData,
         options: {
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#ffffff'  // Legend text color
-                    }
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
         }
     });
 
-    // Line Chart
-    const lineCtx = document.getElementById('salesLineChart').getContext('2d');
-    new Chart(lineCtx, {
-        type: 'line',
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: 'Sales Trend',
-                data: [1200, 1900, 3000, 5000, 2000, 3000, 4500],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1,
-                fill: false
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: '#ffffff'  // Y-axis tick labels color
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.2)'  // Y-axis grid lines color
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#ffffff'  // X-axis tick labels color
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.2)'  // X-axis grid lines color
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#ffffff'  // Legend text color
-                    }
-                }
-            }
-        }
+    const salesTableBody = document.querySelector('#salesTable tbody');
+    const salesTableData = [
+        { product: 'Software 1', price: 50, quantity: 10 },
+        { product: 'Software 2', price: 70, quantity: 5 },
+        { product: 'Software 3', price: 30, quantity: 8 },
+    ];
+
+    salesTableData.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.product}</td>
+            <td>$${item.price}</td>
+            <td>${item.quantity}</td>
+            <td>$${item.price * item.quantity}</td>
+        `;
+        salesTableBody.appendChild(row);
     });
 });

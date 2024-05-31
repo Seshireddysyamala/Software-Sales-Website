@@ -242,9 +242,7 @@ table {
 
 /* Manage Sales Specific Styles */
 .add-sale .box-heading,
-.sales-list .box-heading,
-#data-analytics .box-heading,
-#aboutus .development-experience .box-heading {
+.sales-list .box-heading {
     background-color: #8d6e63; /* Muted brown for sub-section headings */
 }
 
