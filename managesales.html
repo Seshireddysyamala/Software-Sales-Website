@@ -26,16 +26,22 @@
         </nav>
     </header>
     <main class="container mt-5">
-        <h1 class="box-heading">Manage Sales</h1>
         <section id="managesales" class="box">
-            <h2 class="box-heading" style="background-color: #8d6e63;">Add Sale</h2>
-            <div class="sales-form box" style="background-color: #2c2c2c;">
+            <div class="box-heading">
+                <h1>Manage Sales</h1>
+            </div>
+            <div class="sales-form box">
+                <div class="box-heading" style="background-color: #8d6e63;">
+                    <h2>Add Sale</h2>
+                </div>
                 <input type="text" id="sale-name" placeholder="Software Name" class="form-control mb-2">
                 <input type="text" id="sale-amount" placeholder="Sale Amount" class="form-control mb-2">
                 <button class="btn btn-success save-sale-btn">Save Sale</button>
             </div>
-            <h2 class="box-heading" style="background-color: #8d6e63;">Sales List</h2>
-            <div class="sales-list box" style="background-color: #2c2c2c;">
+            <div class="sales-list box">
+                <div class="box-heading" style="background-color: #8d6e63;">
+                    <h2>Sales List</h2>
+                </div>
                 <table class="table table-dark">
                     <thead>
                         <tr>
@@ -44,39 +50,13 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="sales-table">
-                        <tr>
-                            <td>Software A</td>
-                            <td>$100</td>
-                            <td>
-                                <button class="btn btn-warning edit-sale" data-toggle="modal" data-target="#editSaleModal">Edit</button>
-                                <button class="btn btn-danger delete-sale" data-toggle="modal" data-target="#confirmDeleteModal">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Software B</td>
-                            <td>$200</td>
-                            <td>
-                                <button class="btn btn-warning edit-sale" data-toggle="modal" data-target="#editSaleModal">Edit</button>
-                                <button class="btn btn-danger delete-sale" data-toggle="modal" data-target="#confirmDeleteModal">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Software C</td>
-                            <td>$300</td>
-                            <td>
-                                <button class="btn btn-warning edit-sale" data-toggle="modal" data-target="#editSaleModal">Edit</button>
-                                <button class="btn btn-danger delete-sale" data-toggle="modal" data-target="#confirmDeleteModal">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody id="sales-table"></tbody>
                 </table>
             </div>
         </section>
     </main>
 
     <!-- Modals for editing and deleting sales -->
-    <!-- Edit Sale Modal -->
     <div class="modal fade" id="editSaleModal" tabindex="-1" role="dialog" aria-labelledby="editSaleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content bg-dark text-white">
@@ -104,7 +84,6 @@
         </div>
     </div>
 
-    <!-- Confirm Delete Modal -->
     <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content bg-dark text-white">
