@@ -11,10 +11,9 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     margin: 0;
-    padding-top: 60px; /* Adjust based on the height of your navbar */
 }
 
-/* Header and Navbar Styles */
+/* Header Styles */
 header, .navbar {
     background: #1F2833; /* Match the footer color */
     color: #66FCF1;
@@ -51,8 +50,8 @@ header, .navbar {
 
 /* Main Styles */
 main {
-    padding: 2rem;
-    margin: 5rem auto;
+    padding: 2rem 0; /* Adjust padding to avoid white space */
+    margin: 5rem auto 2rem auto; /* Adjust margin to avoid white space */
     max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
@@ -85,18 +84,18 @@ h1, h2, h3 {
     width: 100%;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .cart-container, .analytics-box, .table-container {
-        padding: 1rem;
-        width: 100%;
-        overflow-x: auto;
+/* Responsive Navbar */
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
     }
 
-    .table {
-        width: 100%;
-        display: block;
-        overflow-x: auto;
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -262,4 +261,21 @@ h1, h2, h3 {
 .navbar-nav .nav-item .nav-link:focus {
     color: #66FCF1;
     background-color: transparent;
+}
+
+.container {
+    padding: 0;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .cart-container, .analytics-box {
+        padding: 1rem;
+    }
+
+    .table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
 }
