@@ -48,6 +48,13 @@ header, .navbar {
                 background-color: transparent;
             }
 
+/* Change Software Sales to blue when hovered */
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #66FCF1 !important; /* Ensure it changes color */
+}
+
 /* Main Styles */
 main {
     padding: 2rem; /* Adjust padding to avoid white space */
@@ -205,6 +212,12 @@ h1, h2, h3 {
 .btn-logout {
     background-color: #dc3545;
     border-color: #dc3545;
+}
+
+/* Centering the Proceed to Checkout button */
+.text-right .btn-success {
+    display: block;
+    margin: 0 auto;
 }
 
 /* Analytics Section Styles */
