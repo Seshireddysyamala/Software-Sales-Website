@@ -13,18 +13,10 @@ body {
     margin: 0;
 }
 
-/* Container Fix */
-.container {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /* Header Styles */
 header {
     background: #1F2833;
-    color: #66FCF1;
+    color: #C5C6C7;
     padding: 1rem 0;
     text-align: center;
     position: fixed;
@@ -44,7 +36,7 @@ header {
 
         .navbar-nav .nav-item .nav-link {
             font-weight: bold;
-            color: #66FCF1;
+            color: #C5C6C7;
             padding: 0.5rem 1rem;
             border-radius: 0.25rem;
         }
@@ -163,7 +155,7 @@ h1, h2, h3 {
 
 .software-grid {
     display: flex;
-    flex-direction: column; /* Stack items in a column */
+    flex-direction: column;
     align-items: center;
     gap: 20px;
 }
@@ -235,6 +227,7 @@ h1, h2, h3 {
         .analytics-box table th, .analytics-box table td {
             padding: 0.5rem;
             text-align: center;
+            border: 1px solid #C5C6C7; /* Add border to table cells */
         }
 
 /* Table Styles */
@@ -271,37 +264,15 @@ h1, h2, h3 {
         background-color: transparent;
     }
 
-/* About Us Image Styles */
-.profile-image img {
-    border: 2px solid #66FCF1;
-    border-radius: 8px;
+/* Remove white spaces */
+.container {
+    margin-top: 0;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    main {
-        padding: 1rem;
-        margin: 4rem auto;
-    }
+main {
+    padding-top: 7rem; /* Adjust padding to avoid content overlap with fixed header */
+}
 
-    .box {
-        padding: 1rem;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-    }
-
-        .navbar-nav .nav-item {
-            margin: 0.5rem 0;
-        }
-
-    .banner {
-        padding: 1rem;
-    }
-
-    .software-item {
-        max-width: 100%;
-        padding: 1rem;
-    }
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
