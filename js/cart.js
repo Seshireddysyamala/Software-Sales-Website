@@ -17,18 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             cartTable.appendChild(row);
         });
-        calculateTotal();
     };
 
     const updateCart = () => {
         localStorage.setItem('cart', JSON.stringify(cart));
         renderCartItems();
         updateCartCount();
+        calculateTotal();
     };
 
     const updateCartCount = () => {
         const cartCount = document.getElementById('cart-count');
-        cartCount.textContent = cart.length;
+        cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
     };
 
     const calculateTotal = () => {
@@ -55,25 +55,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCartItems();
     updateCartCount();
+    calculateTotal();
 });
-
-function addToCart(software) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existingItemIndex = cart.findIndex(item => item.name === software.name);
-
-    if (existingItemIndex > -1) {
-        cart[existingItemIndex].quantity += software.quantity;
-    } else {
-        cart.push(software);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${software.name} added to cart!`);
-    updateCartCount();
-}
-
-function updateCartCount() {
-    const cartCount = document.getElementById('cart-count');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cartCount.textContent = cart.length;
-}
