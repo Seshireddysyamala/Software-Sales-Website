@@ -32,6 +32,27 @@
             border-color: #dc3545;
         }
     </style>
+    <script>
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
+                window.location.href = 'login.html';
+            } else {
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (user) {
+                    document.getElementById('user-email').textContent = user.email;
+                }
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('user');
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', checkLoginState);
+    </script>
 </head>
 <body>
     <div id="menu"></div>
@@ -58,26 +79,6 @@
             })
             .catch(error => console.error('Error loading menu:', error));
     </script>
-    <script>
-        function checkLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
-                window.location.href = 'login.html';
-            } else {
-                const user = JSON.parse(localStorage.getItem('user'));
-                if (user) {
-                    document.getElementById('user-email').textContent = user.email;
-                }
-            }
-        }
-
-        function logout() {
-            localStorage.removeItem('user');
-            localStorage.removeItem('isLoggedIn');
-            window.location.href = 'login.html';
-        }
-
-        document.addEventListener('DOMContentLoaded', checkLoginState);
-    </script>
 </body>
 </html>
+    
