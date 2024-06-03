@@ -1,15 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<<head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Sales Home</title>
+    <title>Data Analytics</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-dO+GklMzZe+VsRbuZX1KQo1KBRPQJoINoU5x5GfOlDxr+FEnn5Gc5v5vn5/ft6M5kZfBQv6vFXj2vnFOVkfn6Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dO+GklMzZe+VsRbuZX1KQo1KBRPQJoINoU5x5GfOlDxr+FEnn5Gc5v5vn5/ft6M5kZfBQv6vFXj2vnFOVkfn6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         function checkLoginState() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -19,51 +17,28 @@
         }
         document.addEventListener('DOMContentLoaded', checkLoginState);
     </script>
-    <style>
-        .chart-container, .table-container {
-            margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 8px;
-            background-color: #1F2833;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            color: #C5C6C7;
-        }
-
-        .box-heading {
-            color: #66FCF1;
-            margin-bottom: 1rem;
-        }
-
-        .chart-container h2, .table-container h2 {
-            margin-bottom: 1rem;
-        }
-
-        .chart-container p, .table-container p {
-            margin-top: 1rem;
-        }
-    </style>
 </head>
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
         <section id="data-analytics" class="box">
             <h1 class="box-heading">Data Analytics</h1>
-            <div class="chart-container">
+            <div class="analytics-box">
                 <h2 class="box-heading">Sales Data (Bar Chart)</h2>
                 <canvas id="salesChart"></canvas>
                 <p><strong>Description:</strong> This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
             </div>
-            <div class="chart-container">
+            <div class="analytics-box">
                 <h2 class="box-heading">Sales Distribution (Pie Chart)</h2>
                 <canvas id="salesPieChart"></canvas>
                 <p><strong>Description:</strong> The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
             </div>
-            <div class="chart-container">
+            <div class="analytics-box">
                 <h2 class="box-heading">Sales Trend (Line Chart)</h2>
                 <canvas id="salesLineChart"></canvas>
                 <p><strong>Description:</strong> This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
             </div>
-            <div class="table-container">
+            <div class="analytics-box">
                 <h2 class="box-heading">Sales Data Table</h2>
                 <table class="table table-dark">
                     <thead>
@@ -104,4 +79,3 @@
     </script>
 </body>
 </html>
-

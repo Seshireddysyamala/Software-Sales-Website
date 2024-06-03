@@ -48,6 +48,13 @@ header, .navbar {
                 background-color: transparent;
             }
 
+/* Change Software Sales to blue when hovered */
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #66FCF1 !important; /* Ensure it changes color */
+}
+
 /* Main Styles */
 main {
     padding: 2rem; /* Adjust padding to avoid white space */
@@ -58,10 +65,10 @@ main {
     color: #C5C6C7;
     text-align: center;
     margin: 0 auto; /* Center content */
-    border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
+    border: 2px solid #66FCF1; /* Make the main section border more visible */
 }
 
-.box {
+.box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
     margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 8px;
@@ -207,6 +214,12 @@ h1, h2, h3 {
     border-color: #dc3545;
 }
 
+/* Centering the Proceed to Checkout button */
+.text-right .btn-success {
+    display: block;
+    margin: 0 auto;
+}
+
 /* Analytics Section Styles */
 .analytics-box {
     background-color: #1F2833;
@@ -287,3 +300,20 @@ h1, h2, h3 {
         overflow-x: auto;
     }
 }
+
+/* User Profile Styles */
+.user-profile-box {
+    background-color: #1F2833;
+    color: #C5C6C7;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+    border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
+}
+
+    .user-profile-box h1 {
+        color: #66FCF1;
+        margin-bottom: 2rem;
+    }
