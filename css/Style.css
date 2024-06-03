@@ -11,31 +11,18 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     margin: 0;
-    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
-/* Header and Footer Styles */
-header, .footer {
-    background: #1F2833;
+/* Header Styles */
+header, .navbar {
+    background: #1F2833; /* Match the footer color */
     color: #66FCF1;
     padding: 1rem 0;
     text-align: center;
     position: fixed;
     width: 100%;
-    z-index: 1000;
-}
-
-header {
     top: 0;
-}
-
-.footer {
-    bottom: 0;
-}
-
-/* Navbar Styles */
-.navbar {
-    background-color: #1F2833; /* Change this to match the footer color */
+    z-index: 1000;
 }
 
 .navbar-nav {
@@ -73,7 +60,7 @@ main {
 }
 
 .box {
-    margin: 2rem 0;
+    margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
@@ -86,35 +73,18 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
-/* Cart and Analytics Section Styles */
-.cart-container, .analytics-box {
-    background-color: #1F2833;
+/* Footer Styles */
+.footer {
+    background: #1F2833;
     color: #C5C6C7;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    margin: 2rem auto;
-    max-width: 800px;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
-    .cart-container h1, .analytics-box h2 {
-        color: #66FCF1;
-    }
-
-.table {
-    color: #C5C6C7;
-}
-
-.text-right {
-    text-align: center; /* Center the checkout button */
-    margin-top: 2rem;
-}
-
-.btn-logout {
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-
+/* Responsive Navbar */
 @media (max-width: 992px) {
     .navbar-nav {
         text-align: center;
@@ -129,6 +99,7 @@ h1, h2, h3 {
             }
 }
 
+/* Banner Styles */
 .banner {
     background: #1F2833;
     padding: 2rem;
@@ -146,6 +117,117 @@ h1, h2, h3 {
         color: #C5C6C7;
         font-size: 1.2rem;
     }
+
+/* Software Section Styles */
+.software-item {
+    background-color: #1F2833;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    max-width: 1000px;
+    margin: auto;
+}
+
+    .software-item img {
+        max-width: 300px;
+        margin-bottom: 10px;
+    }
+
+    .software-item h3 {
+        margin-bottom: 10px;
+        color: #66FCF1;
+    }
+
+    .software-item p {
+        margin-bottom: 10px;
+        color: #C5C6C7;
+    }
+
+    .software-item .price,
+    .software-item .discounted-price {
+        font-weight: bold;
+    }
+
+    .software-item .discounted-price {
+        color: red;
+    }
+
+.software-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Cart Section Styles */
+.cart-container {
+    background-color: #1F2833;
+    color: #C5C6C7;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+    .cart-container h1 {
+        color: #66FCF1;
+        margin-bottom: 2rem;
+    }
+
+.table {
+    color: #C5C6C7;
+}
+
+.btn-success {
+    background-color: #45A29E;
+    border-color: #45A29E;
+}
+
+.btn-danger {
+    background-color: #DC3545;
+    border-color: #DC3545;
+}
+
+.text-right {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-logout {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Analytics Section Styles */
+.analytics-box {
+    background-color: #1F2833;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    color: #C5C6C7;
+}
+
+    .analytics-box h2 {
+        color: #66FCF1;
+    }
+
+    .analytics-box canvas {
+        margin-bottom: 1rem;
+    }
+
+    .analytics-box table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #C5C6C7;
+    }
+
+        .analytics-box table th, .analytics-box table td {
+            padding: 0.5rem;
+            text-align: center;
+        }
 
 /* Table Styles */
 .table-dark {
@@ -166,24 +248,32 @@ h1, h2, h3 {
         background-color: #0B0C10;
     }
 
-/* Ensure images fit well within their containers */
-.software-item img {
-    max-width: 100%;
-    margin-bottom: 10px;
+/* Menu Styles */
+.navbar-nav .nav-item .nav-link {
+    color: #C5C6C7;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
 }
 
-/* White Space Removal */
-section {
-    padding: 2rem 0; /* Adjust as needed */
-}
-
+    .navbar-nav .nav-item .nav-link.active,
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .nav-link:focus {
+        color: #66FCF1;
+        background-color: transparent;
+    }
 .container {
-    max-width: 100%;
-    padding: 0 15px;
+    padding: 0;
+    margin: 0 auto;
 }
+@media (max-width: 768px) {
+    .cart-container, .analytics-box {
+        padding: 1rem;
+    }
 
-/* For cart and analytics sections to ensure they fit well in mobile view */
-.cart-container, .analytics-box {
-    width: 100%;
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    .table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
 }

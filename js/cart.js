@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartTable = document.getElementById('cart-table-body');
-    const cartCount = document.getElementById('cart-count');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const renderCartItems = () => {
@@ -12,9 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>$${item.price.toFixed(2)}</td>
                 <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
                 <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                <td>
-                    <button class="btn btn-danger remove-item" data-index="${index}">Remove</button>
-                </td>
+                <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
             `;
             cartTable.appendChild(row);
         });
@@ -28,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateCartCount = () => {
-        cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+        const cartCount = document.getElementById('cart-count');
+        cartCount.textContent = cart.reduce((count, item) => count + item.quantity, 0);
     };
 
     const calculateTotal = () => {
@@ -48,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartTable.addEventListener('input', (event) => {
         if (event.target.classList.contains('item-quantity')) {
             const index = event.target.getAttribute('data-index');
-            cart[index].quantity = parseInt(event.target.value, 10); // Ensure quantity is an integer
+            cart[index].quantity = parseInt(event.target.value, 10) || 1;
             updateCart();
         }
     });
