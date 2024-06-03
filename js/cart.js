@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartTable = document.getElementById('cart-table-body');
+    const cartTotal = document.getElementById('cart-total');
+    const cartCount = document.getElementById('cart-count');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const renderCartItems = () => {
@@ -27,14 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateCartCount = () => {
-        const cartCount = document.getElementById('cart-count');
         cartCount.textContent = cart.length;
     };
 
     const calculateTotal = () => {
         let total = 0;
         cart.forEach(item => total += item.price * item.quantity);
-        document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+        cartTotal.textContent = `$${total.toFixed(2)}`;
     };
 
     cartTable.addEventListener('click', (event) => {
