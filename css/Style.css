@@ -11,7 +11,7 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     margin: 0;
-    padding-top: 4rem; /* Adjust to match the height of your header */
+    padding-top: 5rem; /* Adjust to match the height of your header */
 }
 
 /* Header Styles */
@@ -37,7 +37,7 @@ header, .navbar {
 
         .navbar-nav .nav-item .nav-link {
             font-weight: bold;
-            color: #66FCF1;
+            color: #C5C6C7;
             padding: 0.5rem 1rem;
             border-radius: 0.25rem;
         }
@@ -58,9 +58,10 @@ main {
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
+    margin-top: 4rem; /* Ensure the main content starts below the fixed header */
+    border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
 }
 
-/* Box Styling */
 .box {
     margin-bottom: 2rem;
     padding: 2rem;
@@ -69,7 +70,6 @@ main {
     background-color: #1F2833;
 }
 
-/* Heading Styling */
 h1, h2, h3 {
     color: #66FCF1;
     text-align: center;
