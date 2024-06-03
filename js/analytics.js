@@ -41,12 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
             scales: {
                 x: {
                     beginAtZero: true,
+                    grid: {
+                        color: '#C5C6C7'
+                    },
                     ticks: {
                         color: '#C5C6C7'
                     }
                 },
                 y: {
                     beginAtZero: true,
+                    grid: {
+                        color: '#C5C6C7'
+                    },
                     ticks: {
                         color: '#C5C6C7'
                     }
@@ -64,19 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
             datasets: [{
                 data: [45000, 57000, 51000, 63000],
                 backgroundColor: ['#66FCF1', '#45A29E', '#C5C6C7', '#0B0C10'],
-                borderColor: ['#66FCF1', '#45A29E', '#C5C6C7', '#0B0C10'],
+                borderColor: '#1F2833',
                 borderWidth: 2
             }]
         },
         options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#C5C6C7'
-                    }
-                }
-            }
+            responsive: true
         }
     });
 
@@ -91,25 +90,33 @@ document.addEventListener('DOMContentLoaded', () => {
                     label: 'Windows 11',
                     data: [5000, 6000, 7000, 8000, 9000, 10000],
                     borderColor: '#66FCF1',
-                    fill: false
+                    backgroundColor: 'rgba(102, 252, 241, 0.2)',
+                    fill: true,
+                    borderWidth: 2
                 },
                 {
                     label: 'Zoom',
                     data: [7000, 8000, 9000, 10000, 11000, 12000],
                     borderColor: '#45A29E',
-                    fill: false
+                    backgroundColor: 'rgba(69, 162, 158, 0.2)',
+                    fill: true,
+                    borderWidth: 2
                 },
                 {
                     label: 'GTA 6',
                     data: [6000, 7000, 8000, 9000, 10000, 11000],
                     borderColor: '#C5C6C7',
-                    fill: false
+                    backgroundColor: 'rgba(197, 198, 199, 0.2)',
+                    fill: true,
+                    borderWidth: 2
                 },
                 {
                     label: 'Microsoft Office',
                     data: [8000, 9000, 10000, 11000, 12000, 13000],
                     borderColor: '#0B0C10',
-                    fill: false
+                    backgroundColor: 'rgba(11, 12, 16, 0.2)',
+                    fill: true,
+                    borderWidth: 2
                 }
             ]
         },
@@ -118,12 +125,18 @@ document.addEventListener('DOMContentLoaded', () => {
             scales: {
                 x: {
                     beginAtZero: true,
+                    grid: {
+                        color: '#C5C6C7'
+                    },
                     ticks: {
                         color: '#C5C6C7'
                     }
                 },
                 y: {
                     beginAtZero: true,
+                    grid: {
+                        color: '#C5C6C7'
+                    },
                     ticks: {
                         color: '#C5C6C7'
                     }
