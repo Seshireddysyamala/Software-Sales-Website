@@ -11,21 +11,19 @@
             <li class="nav-item"><a class="nav-link" href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
             <li class="nav-item"><a class="nav-link" href="analytics.html"><i class="fas fa-chart-line"></i> Data Analytics</a></li>
             <li class="nav-item"><a class="nav-link" href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
-            <li class="nav-item" id="login-link"><a class="nav-link" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+            <li class="nav-item" id="profile-link"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li class="nav-item" id="login-link"><a class="nav-link" href="login.html"><i class="fas fa-sign-in-alt"></i> Login/Signup</a></li>
         </ul>
     </div>
 </nav>
 
 <script>
     function checkLoginState() {
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user) {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (isLoggedIn) {
             document.getElementById('login-link').style.display = 'none';
         } else {
-            document.querySelectorAll('.nav-item:not(#login-link)').forEach(item => {
-                item.style.display = 'none';
-            });
+            document.getElementById('profile-link').style.display = 'none';
         }
     }
     checkLoginState();

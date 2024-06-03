@@ -5,24 +5,14 @@
 
 function fetchSoftware() {
     fetch('latest-software.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => displaySoftware(data))
         .catch(error => console.error('Error fetching latest software:', error));
 }
 
 function fetchTopDeals() {
     fetch('top-deals.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => displayTopDeals(data))
         .catch(error => console.error('Error fetching top deals:', error));
 }
@@ -31,7 +21,8 @@ function displaySoftware(softwareList) {
     const latestSoftwareSection = document.getElementById('latest-software');
     let html = '<h2>Latest Software</h2>';
     softwareList.forEach(software => {
-        html += `<div class="software-item">
+        html += `<div class="software-item text-center">
+                    <img src="${software.image}" alt="${software.name}" class="img-fluid" style="max-width: 200px;">
                     <h3>${software.name}</h3>
                     <p>${software.description}</p>
                     <p>Price: $${software.price}</p>
@@ -45,7 +36,8 @@ function displayTopDeals(dealsList) {
     const topDealsSection = document.getElementById('top-deals');
     let html = '<h2>Top Deals</h2>';
     dealsList.forEach(deal => {
-        html += `<div class="deal-item">
+        html += `<div class="deal-item text-center">
+                    <img src="${deal.image}" alt="${deal.name}" class="img-fluid" style="max-width: 200px;">
                     <h3>${deal.name}</h3>
                     <p>${deal.description}</p>
                     <p>Original Price: $${deal.originalPrice}</p>

@@ -3,12 +3,14 @@
     "id": 1,
     "name": "Software 1",
     "description": "Description for software 1",
-    "price": 49.99
+    "price": 49.99,
+    "image": "path/to/software1.jpg"
   },
   {
     "id": 2,
     "name": "Software 2",
     "description": "Description for software 2",
-    "price": 99.99
+    "price": 99.99,
+    "image": "path/to/software2.jpg"
   }
 ]
