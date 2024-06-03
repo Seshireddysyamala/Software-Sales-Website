@@ -11,12 +11,13 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     margin: 0;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 /* Header and Footer Styles */
 header, .footer {
     background: #1F2833;
-    color: #C5C6C7;
+    color: #66FCF1;
     padding: 1rem 0;
     text-align: center;
     position: fixed;
@@ -24,15 +25,15 @@ header, .footer {
     z-index: 1000;
 }
 
+header {
+    top: 0;
+}
+
 .footer {
     bottom: 0;
 }
 
 /* Navbar Styles */
-.navbar-dark {
-    background: #1F2833;
-}
-
 .navbar-nav {
     display: flex;
     justify-content: center;
@@ -44,7 +45,7 @@ header, .footer {
 
         .navbar-nav .nav-item .nav-link {
             font-weight: bold;
-            color: #C5C6C7;
+            color: #66FCF1;
             padding: 0.5rem 1rem;
             border-radius: 0.25rem;
         }
@@ -68,7 +69,7 @@ main {
 }
 
 .box {
-    margin-bottom: 2rem;
+    margin: 2rem 0;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
@@ -81,7 +82,35 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
-/* Responsive Navbar */
+/* Cart and Analytics Section Styles */
+.cart-container, .analytics-box {
+    background-color: #1F2833;
+    color: #C5C6C7;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+    .cart-container h1, .analytics-box h2 {
+        color: #66FCF1;
+    }
+
+.table {
+    color: #C5C6C7;
+}
+
+.text-right {
+    text-align: center; /* Center the checkout button */
+    margin-top: 2rem;
+}
+
+.btn-logout {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
 @media (max-width: 992px) {
     .navbar-nav {
         text-align: center;
@@ -96,7 +125,6 @@ h1, h2, h3 {
             }
 }
 
-/* Banner Styles */
 .banner {
     background: #1F2833;
     padding: 2rem;
@@ -115,125 +143,11 @@ h1, h2, h3 {
         font-size: 1.2rem;
     }
 
-/* Software Section Styles */
-.software-item {
-    background-color: #1F2833;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    max-width: 1000px;
-    margin: auto;
-}
-
-    .software-item img {
-        max-width: 300px;
-        margin-bottom: 10px;
-    }
-
-    .software-item h3 {
-        margin-bottom: 10px;
-        color: #66FCF1;
-    }
-
-    .software-item p {
-        margin-bottom: 10px;
-        color: #C5C6C7;
-    }
-
-    .software-item .price,
-    .software-item .discounted-price {
-        font-weight: bold;
-    }
-
-    .software-item .discounted-price {
-        color: red;
-    }
-
-.software-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Cart Section Styles */
-.cart-container {
-    background-color: #1F2833;
-    color: #C5C6C7;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    margin: 2rem auto;
-    max-width: 800px;
-}
-
-    .cart-container h1 {
-        color: #66FCF1;
-        margin-bottom: 2rem;
-    }
-
-.table {
-    color: #C5C6C7;
-    overflow-x: auto; /* Ensure table fits within mobile view */
-}
-
-.btn-success {
-    background-color: #45A29E;
-    border-color: #45A29E;
-}
-
-.btn-danger {
-    background-color: #DC3545;
-    border-color: #DC3545;
-}
-
-.text-right {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.btn-logout {
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-
-/* Analytics Section Styles */
-.analytics-box {
-    background-color: #1F2833;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    color: #C5C6C7;
-}
-
-    .analytics-box h2 {
-        color: #66FCF1;
-    }
-
-    .analytics-box canvas {
-        margin-bottom: 1rem;
-    }
-
-    .analytics-box table {
-        width: 100%;
-        margin-bottom: 1rem;
-        color: #C5C6C7;
-        overflow-x: auto; /* Ensure table fits within mobile view */
-    }
-
-        .analytics-box table th, .analytics-box table td {
-            padding: 0.5rem;
-            text-align: center;
-            border: 1px solid #C5C6C7;
-        }
-
+/* Table Styles */
 .table-dark {
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    overflow-x: auto; /* Ensure table fits within mobile view */
 }
 
     .table-dark th, .table-dark td {
@@ -248,20 +162,8 @@ h1, h2, h3 {
         background-color: #0B0C10;
     }
 
-/* Remove white spaces */
-.container {
-    margin-top: 0;
-}
-
-main {
-    padding-top: 7rem; /* Adjust padding to avoid content overlap with fixed header */
-}
-
-body {
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Additional Style for White Space Issue */
-.silex-runtime .website-min-width {
-    min-width: 0;
+/* Ensure images fit well within their containers */
+.software-item img {
+    max-width: 100%;
+    margin-bottom: 10px;
 }
