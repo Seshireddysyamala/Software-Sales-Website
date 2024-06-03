@@ -34,6 +34,10 @@ header {
 }
 
 /* Navbar Styles */
+.navbar {
+    background-color: #1F2833; /* Change this to match the footer color */
+}
+
 .navbar-nav {
     display: flex;
     justify-content: center;
@@ -166,4 +170,20 @@ h1, h2, h3 {
 .software-item img {
     max-width: 100%;
     margin-bottom: 10px;
+}
+
+/* White Space Removal */
+section {
+    padding: 2rem 0; /* Adjust as needed */
+}
+
+.container {
+    max-width: 100%;
+    padding: 0 15px;
+}
+
+/* For cart and analytics sections to ensure they fit well in mobile view */
+.cart-container, .analytics-box {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
 }
