@@ -50,8 +50,8 @@ header, .navbar {
 
 /* Main Styles */
 main {
-    padding: 2rem;
-    margin: 5rem auto;
+    padding: 2rem 1rem;
+    margin: 6rem auto 0; /* Adjusted margin-top to ensure no white space */
     max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
