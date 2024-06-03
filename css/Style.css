@@ -58,7 +58,7 @@ main {
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    padding-top: 5rem; /* Ensure the main content doesn't overlap the fixed header */
+    margin-top: 6rem; /* Ensure the main content doesn't overlap the fixed header */
 }
 
 .box {
