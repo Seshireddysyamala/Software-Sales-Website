@@ -4,14 +4,14 @@
 });
 
 function fetchSoftware() {
-    fetch('path/to/latest-software.json')
+    fetch('latest-software.json')
         .then(response => response.json())
         .then(data => displaySoftware(data))
         .catch(error => console.error('Error fetching latest software:', error));
 }
 
 function fetchTopDeals() {
-    fetch('path/to/top-deals.json')
+    fetch('top-deals.json')
         .then(response => response.json())
         .then(data => displayTopDeals(data))
         .catch(error => console.error('Error fetching top deals:', error));
