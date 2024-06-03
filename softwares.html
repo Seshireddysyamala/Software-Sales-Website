@@ -8,20 +8,17 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .software-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
             background-color: #1F2833;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            width: 100%;
-            max-width: 500px;
+            max-width: 1000px; /* Adjust max-width for bigger boxes */
+            margin: auto;
         }
 
             .software-item img {
-                max-width: 200px;
+                max-width: 300px;
                 margin-bottom: 10px;
             }
 
@@ -46,15 +43,9 @@
 
         .software-grid {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column; /* Stack items in a column */
+            align-items: center;
             gap: 20px;
-        }
-
-        .section-heading {
-            margin: 20px 0;
-            text-align: center;
-            color: #66FCF1;
         }
     </style>
     <script>
@@ -69,12 +60,14 @@
 
         function addToCart(name, price) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let item = cart.find(item => item.name === name);
-            if (item) {
-                item.quantity += 1;
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
             } else {
                 cart.push({ name, price, quantity: 1 });
             }
+
             localStorage.setItem('cart', JSON.stringify(cart));
             alert(`${name} added to cart!`);
         }
@@ -83,8 +76,8 @@
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
-        <section class="box text-center">
-            <h2 class="section-heading">Latest Software</h2>
+        <section id="latest-software" class="box text-center">
+            <h2>Latest Software</h2>
             <div class="software-grid">
                 <div class="software-item">
                     <img src="images/win-11-logo-small.jpg" alt="Windows 11">
@@ -94,7 +87,7 @@
                     <button class="btn btn-primary" onclick="addToCart('Windows 11', 49.99)">Add to Cart</button>
                 </div>
                 <div class="software-item">
-                    <img src="images/zoom.png" alt="Zoom">
+                    <img src="images/zoom-logo.png" alt="Zoom">
                     <h3>Zoom</h3>
                     <p>Zoom is a popular video conferencing platform that allows users to conduct virtual meetings, webinars, and online classes. It offers features like screen sharing, breakout rooms, and virtual backgrounds, making it a versatile tool for both personal and professional use.</p>
                     <p class="price">Price: $99.99</p>
@@ -102,11 +95,11 @@
                 </div>
             </div>
         </section>
-        <section class="box text-center">
-            <h2 class="section-heading">Top Deals</h2>
+        <section id="top-deals" class="box text-center">
+            <h2>Top Deals</h2>
             <div class="software-grid">
                 <div class="software-item">
-                    <img src="images/gta.jpeg" alt="GTA 6">
+                    <img src="images/gta-logo.jpeg" alt="GTA 6">
                     <h3>GTA 6</h3>
                     <p>Grand Theft Auto VI (GTA 6) is an anticipated open-world action-adventure game developed by Rockstar Games. It is expected to continue the franchise's tradition of offering a vast, immersive environment, engaging storylines, and a variety of missions and activities.</p>
                     <p class="price">Original Price: $79.99</p>
