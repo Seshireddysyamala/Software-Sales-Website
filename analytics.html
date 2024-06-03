@@ -3,77 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analytics</title>
+    <title>Software Sales - Data Analytics</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .chart-container, .table-container {
-            margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 8px;
-            background-color: #1F2833;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            color: #C5C6C7;
-        }
-
-        .box-heading {
-            color: #66FCF1;
-            margin-bottom: 1rem;
-        }
-
-        .chart-container h2, .table-container h2 {
-            margin-bottom: 1rem;
-        }
-
-        .chart-container p, .table-container p {
-            margin-top: 1rem;
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div id="menu"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Software Sales</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="softwares.html">Softwares</a></li>
+                <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
     <main class="container mt-5">
-        <section id="data-analytics" class="box">
-            <h1 class="box-heading">Data Analytics</h1>
-            <div class="chart-container">
-                <h2 class="box-heading">Sales Data (Bar Chart)</h2>
-                <canvas id="salesChart"></canvas>
-                <p><strong>Description:</strong> This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
-            </div>
-            <div class="chart-container">
-                <h2 class="box-heading">Sales Distribution (Pie Chart)</h2>
-                <canvas id="salesPieChart"></canvas>
-                <p><strong>Description:</strong> The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
-            </div>
-            <div class="chart-container">
-                <h2 class="box-heading">Sales Trend (Line Chart)</h2>
-                <canvas id="salesLineChart"></canvas>
-                <p><strong>Description:</strong> This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
-            </div>
-            <div class="table-container">
-                <h2 class="box-heading">Sales Data Table</h2>
-                <table class="table table-dark">
-                    <thead>
-                        <tr>
-                            <th>Month</th>
-                            <th>Windows 11</th>
-                            <th>Zoom</th>
-                            <th>GTA 6</th>
-                            <th>Microsoft Office</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>January</td><td>$5000</td><td>$7000</td><td>$6000</td><td>$8000</td></tr>
-                        <tr><td>February</td><td>$6000</td><td>$8000</td><td>$7000</td><td>$9000</td></tr>
-                        <tr><td>March</td><td>$7000</td><td>$9000</td><td>$8000</td><td>$10000</td></tr>
-                        <tr><td>April</td><td>$8000</td><td>$10000</td><td>$9000</td><td>$11000</td></tr>
-                        <tr><td>May</td><td>$9000</td><td>$11000</td><td>$10000</td><td>$12000</td></tr>
-                        <tr><td>June</td><td>$10000</td><td>$12000</td><td>$11000</td><td>$13000</td></tr>
-                    </tbody>
-                </table>
-                <p><strong>Description:</strong> This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
-            </div>
-        </section>
+        <div class="analytics-box box text-center">
+            <h2>Sales Data Analytics</h2>
+            <canvas id="salesChart"></canvas>
+            <table class="table table-dark mt-4">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Windows 11</th>
+                        <th>Zoom</th>
+                        <th>GTA 6</th>
+                        <th>Microsoft Office</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>January</td>
+                        <td>$5000</td>
+                        <td>$7000</td>
+                        <td>$6000</td>
+                        <td>$8000</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
     </main>
     <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
@@ -81,14 +59,29 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/analytics.js"></script>
     <script>
-        fetch('menu.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('menu').innerHTML = data)
-            .catch(error => console.error('Error loading menu:', error));
+        var ctx = document.getElementById('salesChart').getContext('2d');
+        var salesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Windows 11',
+                    data: [5000, 6000, 7000, 8000, 9000, 10000],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                },
+                    // Add more datasets as needed
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     </script>
 </body>
 </html>
-
