@@ -29,6 +29,10 @@ header, .footer {
 }
 
 /* Navbar Styles */
+.navbar-dark {
+    background: #1F2833;
+}
+
 .navbar-nav {
     display: flex;
     justify-content: center;
@@ -75,17 +79,6 @@ h1, h2, h3 {
     color: #66FCF1;
     text-align: center;
     margin-bottom: 1rem;
-}
-
-/* Footer Styles */
-.footer {
-    background: #1F2833;
-    color: #C5C6C7;
-    text-align: center;
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 /* Responsive Navbar */
@@ -266,4 +259,9 @@ main {
 
 body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Additional Style for White Space Issue */
+.silex-runtime .website-min-width {
+    min-width: 0;
 }
