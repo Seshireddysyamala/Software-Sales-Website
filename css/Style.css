@@ -13,18 +13,10 @@ body {
     margin: 0;
 }
 
-/* Container Fix */
-.container {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Header Styles */
-header {
+/* Header and Footer Styles */
+header, .footer {
     background: #1F2833;
-    color: #66FCF1;
+    color: #C5C6C7;
     padding: 1rem 0;
     text-align: center;
     position: fixed;
@@ -33,6 +25,11 @@ header {
     z-index: 1000;
 }
 
+.footer {
+    bottom: 0;
+}
+
+/* Navbar Styles */
 .navbar-nav {
     display: flex;
     justify-content: center;
@@ -44,7 +41,7 @@ header {
 
         .navbar-nav .nav-item .nav-link {
             font-weight: bold;
-            color: #66FCF1;
+            color: #C5C6C7;
             padding: 0.5rem 1rem;
             border-radius: 0.25rem;
         }
@@ -79,17 +76,6 @@ h1, h2, h3 {
     color: #66FCF1;
     text-align: center;
     margin-bottom: 1rem;
-}
-
-/* Footer Styles */
-.footer {
-    background: #1F2833;
-    color: #C5C6C7;
-    text-align: center;
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 /* Responsive Navbar */
@@ -133,7 +119,7 @@ h1, h2, h3 {
     border-radius: 8px;
     margin-bottom: 1rem;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    max-width: 1000px; /* Adjust max-width for bigger boxes */
+    max-width: 1000px;
     margin: auto;
 }
 
@@ -163,7 +149,7 @@ h1, h2, h3 {
 
 .software-grid {
     display: flex;
-    flex-direction: column; /* Stack items in a column */
+    flex-direction: column;
     align-items: center;
     gap: 20px;
 }
@@ -199,7 +185,7 @@ h1, h2, h3 {
 }
 
 .text-right {
-    text-align: center; /* Center the checkout button */
+    text-align: center;
     margin-top: 2rem;
 }
 
@@ -235,9 +221,9 @@ h1, h2, h3 {
         .analytics-box table th, .analytics-box table td {
             padding: 0.5rem;
             text-align: center;
+            border: 1px solid #C5C6C7;
         }
 
-/* Table Styles */
 .table-dark {
     background-color: #1F2833;
     color: #C5C6C7;
@@ -256,52 +242,15 @@ h1, h2, h3 {
         background-color: #0B0C10;
     }
 
-/* Menu Styles */
-.navbar-nav .nav-item .nav-link {
-    color: #C5C6C7;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    font-weight: bold;
+/* Remove white spaces */
+.container {
+    margin-top: 0;
 }
 
-    .navbar-nav .nav-item .nav-link.active,
-    .navbar-nav .nav-item .nav-link:hover,
-    .navbar-nav .nav-item .nav-link:focus {
-        color: #66FCF1;
-        background-color: transparent;
-    }
-
-/* About Us Image Styles */
-.profile-image img {
-    border: 2px solid #66FCF1;
-    border-radius: 8px;
+main {
+    padding-top: 7rem; /* Adjust padding to avoid content overlap with fixed header */
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    main {
-        padding: 1rem;
-        margin: 4rem auto;
-    }
-
-    .box {
-        padding: 1rem;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-    }
-
-        .navbar-nav .nav-item {
-            margin: 0.5rem 0;
-        }
-
-    .banner {
-        padding: 1rem;
-    }
-
-    .software-item {
-        max-width: 100%;
-        padding: 1rem;
-    }
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
