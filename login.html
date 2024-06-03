@@ -24,6 +24,7 @@
             border-radius: 8px;
             background-color: #1f1f1f;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
         }
 
         .form-group label {
@@ -34,13 +35,32 @@
             background-color: #007bff;
             border-color: #007bff;
         }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
     </style>
+    <script>
+        function checkLoginState() {
+            if (localStorage.getItem('isLoggedIn')) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', checkLoginState);
+    </script>
 </head>
 <body>
     <div class="container">
-        <div class="text-center mb-4">
-            <h1>Login</h1>
-        </div>
+        <img src="images/softwarelogo.jpg" alt="Software Sales Logo" class="logo">
+        <div class="title">Software Sales</div>
         <form id="login-form">
             <div class="form-group">
                 <label for="username">Email</label>
@@ -64,11 +84,6 @@
             localStorage.setItem('user', JSON.stringify({ email: document.getElementById('username').value }));
             window.location.href = 'index.html';
         });
-
-        // Redirect to index if already logged in
-        if (localStorage.getItem('isLoggedIn')) {
-            window.location.href = 'index.html';
-        }
     </script>
 </body>
 </html>
