@@ -11,7 +11,6 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     margin: 0;
-    padding-top: 4rem; /* Adjust to match the height of your header */
 }
 
 /* Header Styles */
@@ -58,7 +57,9 @@ main {
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    margin-top: 6rem; /* Ensure the main content doesn't overlap the fixed header */
+    padding-top: 5rem; /* Ensure the main content doesn't overlap the fixed header */
+    position: relative;
+    top: 4rem; /* Adjust to match the height of your header */
 }
 
 .box {
