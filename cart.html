@@ -6,6 +6,17 @@
     <title>Cart</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
+                window.location.href = 'login.html';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', checkLoginState);
+    </script>
+
 </head>
 <body>
     <div id="menu"></div>
@@ -16,6 +27,9 @@
                 <thead>
                     <tr>
                         <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -23,6 +37,10 @@
                     <!-- Cart items will be dynamically inserted here -->
                 </tbody>
             </table>
+            <div class="text-right">
+                <h3>Total: <span id="cart-total">$0.00</span></h3>
+                <button class="btn btn-success">Proceed to Checkout</button>
+            </div>
         </div>
     </main>
     <footer class="footer">

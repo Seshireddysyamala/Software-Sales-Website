@@ -17,10 +17,11 @@
             background-color: #1F2833;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
             max-width: 500px; /* Increase the width of the boxes */
+            width: 100%;
         }
 
             .software-item img {
-                max-width: 150px; /* Increase the size of the images */
+                max-width: 200px; /* Increase the size of the images */
                 margin-bottom: 10px;
             }
 
@@ -57,11 +58,17 @@
                 window.location.href = 'login.html';
             }
         }
+
         document.addEventListener('DOMContentLoaded', checkLoginState);
 
         function addToCart(software) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push(software);
+            const softwareItem = {
+                name: software,
+                price: software === 'Windows 11' ? 49.99 : software === 'Zoom' ? 99.99 : software === 'GTA 6' ? 59.99 : 99.99,
+                quantity: 1
+            };
+            cart.push(softwareItem);
             localStorage.setItem('cart', JSON.stringify(cart));
             alert(`${software} added to cart!`);
         }
@@ -70,7 +77,7 @@
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
-        <section id="latest-software" class="box text-center">
+        <section class="box text-center">
             <h2>Latest Software</h2>
             <div class="software-grid">
                 <div class="software-item">
@@ -89,7 +96,7 @@
                 </div>
             </div>
         </section>
-        <section id="top-deals" class="box text-center">
+        <section class="box text-center">
             <h2>Top Deals</h2>
             <div class="software-grid">
                 <div class="software-item">
