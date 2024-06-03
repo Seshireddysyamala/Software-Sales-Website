@@ -9,22 +9,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'Windows 11',
                     data: [5000, 6000, 7000, 8000, 9000, 10000],
-                    backgroundColor: '#66FCF1'
+                    backgroundColor: '#66FCF1',
+                    borderColor: '#66FCF1',
+                    borderWidth: 2
                 },
                 {
                     label: 'Zoom',
                     data: [7000, 8000, 9000, 10000, 11000, 12000],
-                    backgroundColor: '#45A29E'
+                    backgroundColor: '#45A29E',
+                    borderColor: '#45A29E',
+                    borderWidth: 2
                 },
                 {
                     label: 'GTA 6',
                     data: [6000, 7000, 8000, 9000, 10000, 11000],
-                    backgroundColor: '#C5C6C7'
+                    backgroundColor: '#C5C6C7',
+                    borderColor: '#C5C6C7',
+                    borderWidth: 2
                 },
                 {
                     label: 'Microsoft Office',
                     data: [8000, 9000, 10000, 11000, 12000, 13000],
-                    backgroundColor: '#0B0C10'
+                    backgroundColor: '#0B0C10',
+                    borderColor: '#0B0C10',
+                    borderWidth: 2
                 }
             ]
         },
@@ -32,10 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
             responsive: true,
             scales: {
                 x: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#C5C6C7'
+                    }
                 },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#C5C6C7'
+                    }
                 }
             }
         }
@@ -49,11 +63,20 @@ document.addEventListener('DOMContentLoaded', () => {
             labels: ['Windows 11', 'Zoom', 'GTA 6', 'Microsoft Office'],
             datasets: [{
                 data: [45000, 57000, 51000, 63000],
-                backgroundColor: ['#66FCF1', '#45A29E', '#C5C6C7', '#0B0C10']
+                backgroundColor: ['#66FCF1', '#45A29E', '#C5C6C7', '#0B0C10'],
+                borderColor: ['#66FCF1', '#45A29E', '#C5C6C7', '#0B0C10'],
+                borderWidth: 2
             }]
         },
         options: {
-            responsive: true
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#C5C6C7'
+                    }
+                }
+            }
         }
     });
 
@@ -94,10 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
             responsive: true,
             scales: {
                 x: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#C5C6C7'
+                    }
                 },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#C5C6C7'
+                    }
                 }
             }
         }
