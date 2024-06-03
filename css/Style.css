@@ -108,6 +108,7 @@ h1, h2, h3 {
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 2rem;
+    text-align: center;
 }
 
     .banner h1 {
@@ -117,6 +118,7 @@ h1, h2, h3 {
 
     .banner p {
         color: #C5C6C7;
+        font-size: 1.2rem;
     }
 
 /* Software Section Styles */
@@ -151,3 +153,9 @@ h1, h2, h3 {
     .software-item .discounted-price {
         color: red;
     }
+
+.software-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}

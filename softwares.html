@@ -36,12 +36,15 @@
             .software-item .price,
             .software-item .discounted-price {
                 font-weight: bold;
-            color: red;
-        }
+            }
+
+            .software-item .discounted-price {
+                color: red;
+            }
 
         .software-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
     </style>
@@ -58,27 +61,35 @@
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
-        <section id="softwares" class="box text-center">
-            <h2>Softwares</h2>
+        <section id="latest-software" class="box text-center">
+            <h2>Latest Software</h2>
             <div class="software-grid">
                 <div class="software-item">
                     <img src="images/win-11-logo-small.jpg" alt="Windows 11">
                     <h3>Windows 11</h3>
                     <p>Windows 11 is the latest operating system from Microsoft, released in October 2021. It features a redesigned interface with a centered Start menu and taskbar, improved virtual desktops, and enhanced performance and security.</p>
                     <p class="price">Price: $49.99</p>
+                    <button class="btn btn-primary">Add to Cart</button>
                 </div>
                 <div class="software-item">
                     <img src="images/zoom-logo.png" alt="Zoom">
                     <h3>Zoom</h3>
                     <p>Zoom is a popular video conferencing platform that allows users to conduct virtual meetings, webinars, and online classes. It offers features like screen sharing, breakout rooms, and virtual backgrounds, making it a versatile tool for both personal and professional use.</p>
                     <p class="price">Price: $99.99</p>
+                    <button class="btn btn-primary">Add to Cart</button>
                 </div>
+            </div>
+        </section>
+        <section id="top-deals" class="box text-center">
+            <h2>Top Deals</h2>
+            <div class="software-grid">
                 <div class="software-item">
                     <img src="images/gta-logo.jpeg" alt="GTA 6">
                     <h3>GTA 6</h3>
                     <p>Grand Theft Auto VI (GTA 6) is an anticipated open-world action-adventure game developed by Rockstar Games. It is expected to continue the franchise's tradition of offering a vast, immersive environment, engaging storylines, and a variety of missions and activities.</p>
                     <p class="price">Original Price: $79.99</p>
                     <p class="discounted-price">Discounted Price: $59.99</p>
+                    <button class="btn btn-primary">Add to Cart</button>
                 </div>
                 <div class="software-item">
                     <img src="images/microsoft-office-logo.png" alt="Microsoft Office">
@@ -86,6 +97,7 @@
                     <p>Microsoft Office is a suite of productivity software that includes applications like Word, Excel, PowerPoint, and Outlook. It is widely used for creating documents, spreadsheets, presentations, and managing emails.</p>
                     <p class="price">Original Price: $129.99</p>
                     <p class="discounted-price">Discounted Price: $99.99</p>
+                    <button class="btn btn-primary">Add to Cart</button>
                 </div>
             </div>
         </section>
