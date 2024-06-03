@@ -5,70 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Analytics</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Software Sales</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="softwares.html">Softwares</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="analytics.html">Data Analytics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login/Signup</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main class="container mt-5 text-white">
-        <section id="data-analytics" class="bg-dark p-4 rounded mb-4">
-            <h1>Data Analytics</h1>
-            <div class="chart-container p-4 mb-4">
-                <h2>Sales Data (Bar Chart)</h2>
+    <div id="menu"></div>
+    <main class="container mt-5">
+        <section id="data-analytics" class="box">
+            <h1 class="box-heading">Data Analytics</h1>
+            <div class="chart-container">
+                <h2 class="box-heading">Sales Data (Bar Chart)</h2>
                 <canvas id="salesChart"></canvas>
+                <p>This bar chart represents the monthly sales data for the year.</p>
             </div>
-            <div class="chart-container p-4 mb-4">
-                <h2>Sales Distribution (Pie Chart)</h2>
+            <div class="chart-container">
+                <h2 class="box-heading">Sales Distribution (Pie Chart)</h2>
                 <canvas id="salesPieChart"></canvas>
+                <p>This pie chart shows the distribution of sales across different product categories.</p>
             </div>
-            <div class="chart-container p-4 mb-4">
-                <h2>Sales Trend (Line Chart)</h2>
+            <div class="chart-container">
+                <h2 class="box-heading">Sales Trend (Line Chart)</h2>
                 <canvas id="salesLineChart"></canvas>
+                <p>The line chart illustrates the sales trend over the past year.</p>
             </div>
-            <div class="table-container p-4 mb-4">
-                <h2>Sales Data Table</h2>
+            <div class="table-container">
+                <h2 class="box-heading">Sales Data Table</h2>
                 <table class="table table-dark">
                     <thead>
                         <tr>
                             <th>Month</th>
-                            <th>Software 1 Sales</th>
-                            <th>Software 2 Sales</th>
-                            <th>Deal 1 Sales</th>
-                            <th>Deal 2 Sales</th>
+                            <th>Sales</th>
                         </tr>
                     </thead>
-                    <tbody id="salesTableBody">
-                        <!-- Data will be inserted here dynamically -->
+                    <tbody>
+                        <tr><td>January</td><td>$1200</td></tr>
+                        <tr><td>February</td><td>$1900</td></tr>
+                        <tr><td>March</td><td>$3000</td></tr>
+                        <tr><td>April</td><td>$5000</td></tr>
+                        <tr><td>May</td><td>$2000</td></tr>
+                        <tr><td>June</td><td>$3000</td></tr>
+                        <tr><td>July</td><td>$4500</td></tr>
                     </tbody>
                 </table>
+                <p>This table provides a detailed breakdown of the monthly sales figures for the year.</p>
             </div>
         </section>
     </main>
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/analytics.js"></script>
+    <script>
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('menu').innerHTML = data)
+            .catch(error => console.error('Error loading menu:', error));
+    </script>
 </body>
 </html>

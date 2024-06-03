@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Software A",
+    "description": "Description of Software A",
+    "price": 49.99
+  },
+  {
+    "id": 2,
+    "name": "Software B",
+    "description": "Description of Software B",
+    "price": 79.99
+  },
+  {
+    "id": 3,
+    "name": "Software C",
+    "description": "Description of Software C",
+    "price": 99.99
+  }
+]{
+
+}

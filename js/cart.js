@@ -1,39 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const cartItems = document.getElementById('cart-items');
+    const cartTable = document.getElementById('cart-table-body');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const renderCartItems = () => {
-        cartItems.innerHTML = '';
-        if (cart.length === 0) {
-            cartItems.innerHTML = '<p>Your cart is empty.</p>';
-        } else {
-            cart.forEach((item, index) => {
-                const cartItem = document.createElement('div');
-                cartItem.className = 'cart-item';
-                cartItem.innerHTML = `
-                    <h3>${item.name}</h3>
-                    <p>Price: $${item.price.toFixed(2)}</p>
-                    <label for="quantity-${index}">Quantity:</label>
-                    <input type="number" id="quantity-${index}" class="quantity" value="${item.quantity}" min="1" data-index="${index}">
+        cartTable.innerHTML = '';
+        cart.forEach((item, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
+                <td>
                     <button class="btn btn-danger remove-item" data-index="${index}">Remove</button>
-                `;
-                cartItems.appendChild(cartItem);
-            });
-        }
+                </td>
+            `;
+            cartTable.appendChild(row);
+        });
     };
 
     const updateCart = () => {
         localStorage.setItem('cart', JSON.stringify(cart));
         renderCartItems();
         updateCartCount();
+        calculateTotal();
     };
 
     const updateCartCount = () => {
         const cartCount = document.getElementById('cart-count');
-        cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+        cartCount.textContent = cart.length;
     };
 
-    cartItems.addEventListener('click', (event) => {
+    const calculateTotal = () => {
+        let total = 0;
+        cart.forEach(item => total += item.price * item.quantity);
+        document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+    };
+
+    cartTable.addEventListener('click', (event) => {
         if (event.target.classList.contains('remove-item')) {
             const index = event.target.getAttribute('data-index');
             cart.splice(index, 1);
@@ -41,21 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    cartItems.addEventListener('change', (event) => {
-        if (event.target.classList.contains('quantity')) {
+    cartTable.addEventListener('input', (event) => {
+        if (event.target.classList.contains('item-quantity')) {
             const index = event.target.getAttribute('data-index');
-            const quantity = parseInt(event.target.value, 10);
-            if (quantity > 0) {
-                cart[index].quantity = quantity;
-                updateCart();
-            }
+            cart[index].quantity = parseInt(event.target.value, 10); // Ensure quantity is an integer
+            updateCart();
         }
-    });
-
-    document.getElementById('proceed-to-checkout').addEventListener('click', () => {
-        window.location.href = 'checkout.html';
     });
 
     renderCartItems();
     updateCartCount();
+    calculateTotal();
 });

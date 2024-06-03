@@ -1,59 +1,64 @@
-﻿
-document.addEventListener('DOMContentLoaded', () => {
-    const softwareList = document.getElementById('software-list');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    const software = [
-        { id: 1, name: 'Software A', price: 99.99 },
-        { id: 2, name: 'Software B', price: 149.99 },
-        { id: 3, name: 'Software C', price: 199.99 },
-        { id: 4, name: 'Deal A', price: 79.99 },
-        { id: 5, name: 'Deal B', price: 129.99 },
-        { id: 6, name: 'Deal C', price: 179.99 }
-    ];
-
-    const renderSoftware = () => {
-        softwareList.innerHTML = '';
-        software.forEach(item => {
-            const softwareItem = document.createElement('div');
-            softwareItem.className = 'software-item';
-            softwareItem.innerHTML = `
-    < h3 > ${ item.name }</h3 >
-                <p>Price: $${item.price.toFixed(2)}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${item.id}">Add to Cart</button>
-`;
-            softwareList.appendChild(softwareItem);
-        });
-    };
-
-    const addToCart = (softwareId) => {
-        const item = software.find(s => s.id === parseInt(softwareId, 10));
-        if (item) {
-            const cartItem = cart.find(c => c.id === item.id);
-            if (cartItem) {
-                cartItem.quantity += 1;
-            } else {
-                item.quantity = 1;
-                cart.push(item);
-            }
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert('${item.name} has been added to your cart.');
-            updateCartCount();
-        }
-    };
-
-    const updateCartCount = () => {
-        const cartCount = document.getElementById('cart-count');
-        cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
-    };
-
-    softwareList.addEventListener('click', (event) => {
-        if (event.target.classList.contains('add-to-cart')) {
-            const softwareId = event.target.getAttribute('data-id');
-            addToCart(softwareId);
-        }
-    });
-
-    renderSoftware();
-    updateCartCount();
+﻿document.addEventListener('DOMContentLoaded', function () {
+    fetchSoftware();
+    fetchTopDeals();
 });
+
+function fetchSoftware() {
+    fetch('latest-software.json')
+        .then(response => response.json())
+        .then(data => displaySoftware(data))
+        .catch(error => console.error('Error fetching latest software:', error));
+}
+
+function fetchTopDeals() {
+    fetch('top-deals.json')
+        .then(response => response.json())
+        .then(data => displayTopDeals(data))
+        .catch(error => console.error('Error fetching top deals:', error));
+}
+
+function displaySoftware(softwareList) {
+    const latestSoftwareSection = document.getElementById('latest-software');
+    let html = '<h2>Latest Software</h2>';
+    softwareList.forEach(software => {
+        html += `<div class="software-item">
+                    <h3>${software.name}</h3>
+                    <p>${software.description}</p>
+                    <p>Price: $${software.price}</p>
+                    <button class="btn btn-primary" onclick="addToCart(${software.id}, '${software.name}', ${software.price})">Add to Cart</button>
+                 </div>`;
+    });
+    latestSoftwareSection.innerHTML += html;
+}
+
+function displayTopDeals(dealsList) {
+    const topDealsSection = document.getElementById('top-deals');
+    let html = '<h2>Top Deals</h2>';
+    dealsList.forEach(deal => {
+        html += `<div class="deal-item">
+                    <h3>${deal.name}</h3>
+                    <p>${deal.description}</p>
+                    <p>Original Price: $${deal.originalPrice}</p>
+                    <p>Discounted Price: $${deal.discountedPrice}</p>
+                    <button class="btn btn-primary" onclick="addToCart(${deal.id}, '${deal.name}', ${deal.discountedPrice})">Add to Cart</button>
+                 </div>`;
+    });
+    topDealsSection.innerHTML += html;
+}
+
+function addToCart(id, name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let item = cart.find(item => item.id === id);
+    if (item) {
+        item.quantity += 1;
+    } else {
+        cart.push({ id, name, price, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-count').textContent = cart.length;
+}

@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Softwares</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
-        <section id="latest-software" class="box">
-            <!-- Latest software items will be dynamically inserted here -->
-        </section>
-        <section id="top-deals" class="box">
-            <!-- Top deals will be dynamically inserted here -->
-        </section>
+        <div class="profile-container box">
+            <h1>Profile</h1>
+            <button class="btn btn-danger" id="logout">Logout</button>
+        </div>
     </main>
     <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
@@ -23,12 +21,14 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/softwares.js"></script>
-    <script>
-        fetch('menu.html')
+    <script>fetch('menu.html')
             .then(response => response.text())
             .then(data => document.getElementById('menu').innerHTML = data)
             .catch(error => console.error('Error loading menu:', error));
-    </script>
+
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        });</script>
 </body>
 </html>
