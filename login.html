@@ -35,18 +35,22 @@
             border-color: #007bff;
         }
 
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            padding: 1rem;
-            background-color: #1f1f1f;
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
+
+            .logo img {
+                max-width: 150px;
+            }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="logo">
+            <img src="images/softwarelogo.png" alt="Software Sales Logo">
+        </div>
         <div class="text-center mb-4">
             <h1>Login</h1>
         </div>
@@ -63,9 +67,6 @@
         </form>
         <p class="mt-3 text-center">Don't have an account? <a href="signup.html">Sign Up</a></p>
     </div>
-    <footer class="footer">
-        <p>&copy; 2024 Software Sales. All rights reserved.</p>
-    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
