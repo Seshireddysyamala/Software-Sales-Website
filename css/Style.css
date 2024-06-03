@@ -21,7 +21,6 @@ header, .footer {
     text-align: center;
     position: fixed;
     width: 100%;
-    top: 0;
     z-index: 1000;
 }
 
@@ -76,6 +75,17 @@ h1, h2, h3 {
     color: #66FCF1;
     text-align: center;
     margin-bottom: 1rem;
+}
+
+/* Footer Styles */
+.footer {
+    background: #1F2833;
+    color: #C5C6C7;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Responsive Navbar */
@@ -172,6 +182,7 @@ h1, h2, h3 {
 
 .table {
     color: #C5C6C7;
+    overflow-x: auto; /* Ensure table fits within mobile view */
 }
 
 .btn-success {
@@ -216,6 +227,7 @@ h1, h2, h3 {
         width: 100%;
         margin-bottom: 1rem;
         color: #C5C6C7;
+        overflow-x: auto; /* Ensure table fits within mobile view */
     }
 
         .analytics-box table th, .analytics-box table td {
@@ -228,6 +240,7 @@ h1, h2, h3 {
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
+    overflow-x: auto; /* Ensure table fits within mobile view */
 }
 
     .table-dark th, .table-dark td {
