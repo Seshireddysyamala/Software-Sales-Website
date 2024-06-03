@@ -40,22 +40,18 @@ header {
             border-radius: 0.25rem;
         }
 
-            .navbar-nav .nav-item .nav-link.active {
-                color: #66FCF1;
-                background-color: #1F2833;
-            }
-
+            .navbar-nav .nav-item .nav-link.active,
             .navbar-nav .nav-item .nav-link:hover,
             .navbar-nav .nav-item .nav-link:focus {
                 color: #66FCF1;
-                background-color: #1F2833;
+                background-color: transparent; /* Remove constant background color */
             }
 
 /* Main Styles */
 main {
     padding: 2rem;
     margin: 5rem auto;
-    max-width: 800px;
+    max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
     color: #C5C6C7;
@@ -128,10 +124,12 @@ h1, h2, h3 {
     border-radius: 8px;
     margin-bottom: 1rem;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    max-width: 700px; /* Adjust max-width for bigger boxes */
+    margin: auto;
 }
 
     .software-item img {
-        max-width: 100px;
+        max-width: 300px;
         margin-bottom: 10px;
     }
 
@@ -155,7 +153,8 @@ h1, h2, h3 {
     }
 
 .software-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }

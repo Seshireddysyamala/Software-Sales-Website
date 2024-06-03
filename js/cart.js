@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartTable.addEventListener('input', (event) => {
         if (event.target.classList.contains('item-quantity')) {
             const index = event.target.getAttribute('data-index');
-            cart[index].quantity = parseInt(event.target.value, 10); // Ensure quantity is an integer
+            cart[index].quantity = parseInt(event.target.value, 10);
             updateCart();
         }
     });
