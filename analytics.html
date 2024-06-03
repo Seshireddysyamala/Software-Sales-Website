@@ -6,66 +6,50 @@
     <title>Data Analytics</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        .analytics-box {
-            background-color: #1F2833;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            color: #C5C6C7;
-        }
-
-            .analytics-box h2 {
-                color: #66FCF1;
-            }
-
-            .analytics-box canvas {
-                margin-bottom: 1rem;
-            }
-
-            .analytics-box table {
-                width: 100%;
-                margin-bottom: 1rem;
-                color: #C5C6C7;
-            }
-
-                .analytics-box table th, .analytics-box table td {
-                    padding: 0.5rem;
-                    text-align: center;
-                }
-    </style>
 </head>
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
-        <section class="analytics-box">
-            <h2>Windows 11 Sales</h2>
-            <canvas id="windows11Chart"></canvas>
-            <h3>Sales Data</h3>
-            <p>This chart shows the sales trend for Windows 11 over the past year. The data indicates a steady increase in sales, particularly after the initial release period, reflecting strong market adoption.</p>
-        </section>
-
-        <section class="analytics-box">
-            <h2>Zoom Sales</h2>
-            <canvas id="zoomChart"></canvas>
-            <h3>Sales Data</h3>
-            <p>This chart illustrates the sales trend for Zoom. The peak sales period corresponds with the rise of remote work and virtual meetings during the global pandemic, highlighting Zoom's critical role in this shift.</p>
-        </section>
-
-        <section class="analytics-box">
-            <h2>GTA 6 Sales</h2>
-            <canvas id="gta6Chart"></canvas>
-            <h3>Sales Data</h3>
-            <p>This chart displays the sales trend for GTA 6. The data shows significant sales spikes around major updates and promotional events, indicating strong engagement from the gaming community.</p>
-        </section>
-
-        <section class="analytics-box">
-            <h2>Microsoft Office Sales</h2>
-            <canvas id="officeChart"></canvas>
-            <h3>Sales Data</h3>
-            <p>This chart represents the sales trend for Microsoft Office. The steady sales trend reflects the ongoing demand for productivity tools in both professional and personal settings.</p>
+        <section id="data-analytics" class="box">
+            <h1 class="box-heading">Data Analytics</h1>
+            <div class="chart-container">
+                <h2 class="box-heading">Sales Data (Bar Chart)</h2>
+                <canvas id="salesChart"></canvas>
+                <p>This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
+            </div>
+            <div class="chart-container">
+                <h2 class="box-heading">Sales Distribution (Pie Chart)</h2>
+                <canvas id="salesPieChart"></canvas>
+                <p>The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
+            </div>
+            <div class="chart-container">
+                <h2 class="box-heading">Sales Trend (Line Chart)</h2>
+                <canvas id="salesLineChart"></canvas>
+                <p>This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
+            </div>
+            <div class="table-container">
+                <h2 class="box-heading">Sales Data Table</h2>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Windows 11</th>
+                            <th>Zoom</th>
+                            <th>GTA 6</th>
+                            <th>Microsoft Office</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>January</td><td>$5000</td><td>$7000</td><td>$6000</td><td>$8000</td></tr>
+                        <tr><td>February</td><td>$6000</td><td>$8000</td><td>$7000</td><td>$9000</td></tr>
+                        <tr><td>March</td><td>$7000</td><td>$9000</td><td>$8000</td><td>$10000</td></tr>
+                        <tr><td>April</td><td>$8000</td><td>$10000</td><td>$9000</td><td>$11000</td></tr>
+                        <tr><td>May</td><td>$9000</td><td>$11000</td><td>$10000</td><td>$12000</td></tr>
+                        <tr><td>June</td><td>$10000</td><td>$12000</td><td>$11000</td><td>$13000</td></tr>
+                    </tbody>
+                </table>
+                <p>This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
+            </div>
         </section>
     </main>
     <footer class="footer">
@@ -74,80 +58,13 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/analytics.js"></script>
     <script>
         fetch('menu.html')
             .then(response => response.text())
             .then(data => document.getElementById('menu').innerHTML = data)
             .catch(error => console.error('Error loading menu:', error));
-    </script>
-    <script>
-        const salesData = {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            windows11: [120, 130, 150, 170, 200, 220, 250, 270, 300, 320, 350, 370],
-            zoom: [200, 220, 240, 260, 280, 300, 350, 370, 400, 420, 450, 470],
-            gta6: [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320],
-            office: [150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260]
-        };
-
-        const ctxWindows11 = document.getElementById('windows11Chart').getContext('2d');
-        const windows11Chart = new Chart(ctxWindows11, {
-            type: 'line',
-            data: {
-                labels: salesData.labels,
-                datasets: [{
-                    label: 'Windows 11 Sales',
-                    data: salesData.windows11,
-                    borderColor: '#66FCF1',
-                    borderWidth: 2,
-                    fill: false
-                }]
-            }
-        });
-
-        const ctxZoom = document.getElementById('zoomChart').getContext('2d');
-        const zoomChart = new Chart(ctxZoom, {
-            type: 'line',
-            data: {
-                labels: salesData.labels,
-                datasets: [{
-                    label: 'Zoom Sales',
-                    data: salesData.zoom,
-                    borderColor: '#66FCF1',
-                    borderWidth: 2,
-                    fill: false
-                }]
-            }
-        });
-
-        const ctxGta6 = document.getElementById('gta6Chart').getContext('2d');
-        const gta6Chart = new Chart(ctxGta6, {
-            type: 'line',
-            data: {
-                labels: salesData.labels,
-                datasets: [{
-                    label: 'GTA 6 Sales',
-                    data: salesData.gta6,
-                    borderColor: '#66FCF1',
-                    borderWidth: 2,
-                    fill: false
-                }]
-            }
-        });
-
-        const ctxOffice = document.getElementById('officeChart').getContext('2d');
-        const officeChart = new Chart(ctxOffice, {
-            type: 'line',
-            data: {
-                labels: salesData.labels,
-                datasets: [{
-                    label: 'Microsoft Office Sales',
-                    data: salesData.office,
-                    borderColor: '#66FCF1',
-                    borderWidth: 2,
-                    fill: false
-                }]
-            }
-        });
     </script>
 </body>
 </html>

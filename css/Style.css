@@ -120,9 +120,9 @@ h1, h2, h3 {
 /* Software Section Styles */
 .software-item {
     background-color: #1F2833;
-    padding: 1rem;
+    padding: 2rem; /* Increase padding for bigger boxes */
     border-radius: 8px;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     max-width: 700px; /* Adjust max-width for bigger boxes */
     margin: auto;
@@ -158,3 +158,73 @@ h1, h2, h3 {
     justify-content: center;
     gap: 20px;
 }
+
+/* Cart Section Styles */
+.cart-container {
+    background-color: #1F2833;
+    color: #C5C6C7;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+    .cart-container h1 {
+        color: #66FCF1;
+        margin-bottom: 2rem;
+    }
+
+.table {
+    color: #C5C6C7;
+}
+
+.btn-success {
+    background-color: #45A29E;
+    border-color: #45A29E;
+}
+
+.btn-danger {
+    background-color: #DC3545;
+    border-color: #DC3545;
+}
+
+.text-right {
+    text-align: center; /* Center the checkout button */
+    margin-top: 2rem;
+}
+
+.btn-logout {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Analytics Section Styles */
+.analytics-box {
+    background-color: #1F2833;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    color: #C5C6C7;
+}
+
+    .analytics-box h2 {
+        color: #66FCF1;
+    }
+
+    .analytics-box canvas {
+        margin-bottom: 1rem;
+    }
+
+    .analytics-box table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #C5C6C7;
+    }
+
+        .analytics-box table th, .analytics-box table td {
+            padding: 0.5rem;
+            text-align: center;
+        }
+
