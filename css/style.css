@@ -58,8 +58,12 @@ main {
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    margin-top: 4rem; /* Ensure the main content starts below the fixed header */
     border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
+}
+
+/* Ensure the main content starts just below the fixed header */
+.main-content {
+    margin-top: 5rem; /* Adjust this to ensure it clears the header */
 }
 
 .box {
