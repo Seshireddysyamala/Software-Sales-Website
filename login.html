@@ -24,7 +24,6 @@
             border-radius: 8px;
             background-color: #1f1f1f;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            text-align: center;
         }
 
         .form-group label {
@@ -36,31 +35,21 @@
             border-color: #007bff;
         }
 
-        .logo {
-            width: 100px;
-            margin-bottom: 20px;
-        }
-
-        .title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: white;
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            background-color: #1f1f1f;
         }
     </style>
-    <script>
-        function checkLoginState() {
-            if (localStorage.getItem('isLoggedIn')) {
-                window.location.href = 'index.html';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', checkLoginState);
-    </script>
 </head>
 <body>
     <div class="container">
-        <img src="images/softwarelogo.jpg" alt="Software Sales Logo" class="logo">
-        <div class="title">Software Sales</div>
+        <div class="text-center mb-4">
+            <h1>Login</h1>
+        </div>
         <form id="login-form">
             <div class="form-group">
                 <label for="username">Email</label>
@@ -74,6 +63,9 @@
         </form>
         <p class="mt-3 text-center">Don't have an account? <a href="signup.html">Sign Up</a></p>
     </div>
+    <footer class="footer">
+        <p>&copy; 2024 Software Sales. All rights reserved.</p>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -84,6 +76,11 @@
             localStorage.setItem('user', JSON.stringify({ email: document.getElementById('username').value }));
             window.location.href = 'index.html';
         });
+
+        // Redirect to index if already logged in
+        if (localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'index.html';
+        }
     </script>
 </body>
 </html>
