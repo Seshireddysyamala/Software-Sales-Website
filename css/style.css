@@ -24,8 +24,6 @@ header, .navbar {
     width: 100%;
     top: 0;
     z-index: 1000;
-    height: 3.5rem; /* Adjusted height to match the original size */
-    line-height: 1.5rem;
 }
 
 .navbar-nav {

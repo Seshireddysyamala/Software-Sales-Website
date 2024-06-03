@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-          integrity="sha512-dO+GklMzZe+VsRbuZX1KQo1KBRPQJoINoU5x5GfOlDxr+FEnn5Gc5v5vn5/ft6M5kZfBQv6vFXj2vnFOVkfn6Q=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dO+GklMzZe+VsRbuZX1KQo1KBRPQJoINoU5x5GfOlDxr+FEnn5Gc5v5vn5/ft6M5kZfBQv6vFXj2vnFOVkfn6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         function checkLoginState() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -21,11 +18,13 @@
         document.addEventListener('DOMContentLoaded', checkLoginState);
     </script>
 </head>
-
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <a class="navbar-brand" href="#">Software Sales</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -128,5 +127,4 @@
             .catch(error => console.error('Error loading menu:', error));
     </script>
 </body>
-
 </html>
