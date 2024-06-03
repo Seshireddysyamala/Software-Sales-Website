@@ -1,18 +1,18 @@
 [
   {
     "id": 3,
-    "name": "Software 3",
-    "description": "Description for software 3",
+    "name": "GTA 6",
+    "description": "Grand Theft Auto VI (GTA 6) is an anticipated open-world action-adventure game developed by Rockstar Games. It is expected to continue the franchise's tradition of offering a vast, immersive environment, engaging storylines, and a variety of missions and activities. Details about its release date and features are highly anticipated by fans.",
     "originalPrice": 79.99,
     "discountedPrice": 59.99,
-    "image": "path/to/software3.jpg"
+    "image": "images/gta-logo-1.jpeg"
   },
   {
     "id": 4,
-    "name": "Software 4",
-    "description": "Description for software 4",
+    "name": "Microsoft Office",
+    "description": "Microsoft Office is a suite of productivity software that includes applications like Word, Excel, PowerPoint, and Outlook. It is widely used for creating documents, spreadsheets, presentations, and managing emails. The suite offers robust tools and features that enhance productivity and collaboration in both personal and professional settings.",
     "originalPrice": 129.99,
     "discountedPrice": 99.99,
-    "image": "path/to/software4.jpg"
+    "image": "images/Microsoft-Office-logo.png"
   }
 ]

@@ -1,16 +1,16 @@
 [
   {
     "id": 1,
-    "name": "Software 1",
-    "description": "Description for software 1",
+    "name": "Windows 11",
+    "description": "Windows 11 is the latest operating system from Microsoft, released in October 2021. It features a redesigned interface with a centered Start menu and taskbar, improved virtual desktops, and enhanced performance and security. Windows 11 also includes better integration with Microsoft Teams, new gaming technologies like DirectStorage, and support for Android apps through the Microsoft Store. It's designed to provide a modern, streamlined user experience while maintaining compatibility with a wide range of hardware and software.",
     "price": 49.99,
-    "image": "path/to/software1.jpg"
+    "image": "images/win-11-logo-small.jpg"
   },
   {
     "id": 2,
-    "name": "Software 2",
-    "description": "Description for software 2",
+    "name": "Zoom",
+    "description": "Zoom is a popular video conferencing platform that allows users to conduct virtual meetings, webinars, and online classes. It offers features like screen sharing, breakout rooms, and virtual backgrounds, making it a versatile tool for both personal and professional use.",
     "price": 99.99,
-    "image": "path/to/software2.jpg"
+    "image": "images/zoom-logo.png"
   }
 ]
