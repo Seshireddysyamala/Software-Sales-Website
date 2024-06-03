@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartTable = document.getElementById('cart-table-body');
-    const cartTotal = document.getElementById('cart-total');
-    const cartCount = document.getElementById('cart-count');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const renderCartItems = () => {
@@ -19,23 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             cartTable.appendChild(row);
         });
+        calculateTotal();
     };
 
     const updateCart = () => {
         localStorage.setItem('cart', JSON.stringify(cart));
         renderCartItems();
         updateCartCount();
-        calculateTotal();
     };
 
     const updateCartCount = () => {
+        const cartCount = document.getElementById('cart-count');
         cartCount.textContent = cart.length;
     };
 
     const calculateTotal = () => {
         let total = 0;
         cart.forEach(item => total += item.price * item.quantity);
-        cartTotal.textContent = `$${total.toFixed(2)}`;
+        document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
     };
 
     cartTable.addEventListener('click', (event) => {
@@ -49,12 +48,32 @@ document.addEventListener('DOMContentLoaded', () => {
     cartTable.addEventListener('input', (event) => {
         if (event.target.classList.contains('item-quantity')) {
             const index = event.target.getAttribute('data-index');
-            cart[index].quantity = parseInt(event.target.value, 10);
+            cart[index].quantity = parseInt(event.target.value, 10); // Ensure quantity is an integer
             updateCart();
         }
     });
 
     renderCartItems();
     updateCartCount();
-    calculateTotal();
 });
+
+function addToCart(software) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItemIndex = cart.findIndex(item => item.name === software.name);
+
+    if (existingItemIndex > -1) {
+        cart[existingItemIndex].quantity += software.quantity;
+    } else {
+        cart.push(software);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${software.name} added to cart!`);
+    updateCartCount();
+}
+
+function updateCartCount() {
+    const cartCount = document.getElementById('cart-count');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cartCount.textContent = cart.length;
+}

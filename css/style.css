@@ -44,14 +44,14 @@ header {
             .navbar-nav .nav-item .nav-link:hover,
             .navbar-nav .nav-item .nav-link:focus {
                 color: #66FCF1;
-                background-color: #1F2833;
+                background-color: transparent; /* Remove constant background color */
             }
 
 /* Main Styles */
 main {
     padding: 2rem;
     margin: 5rem auto;
-    max-width: 1000px; /* Adjusted max-width for larger content area */
+    max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
     color: #C5C6C7;
@@ -124,12 +124,12 @@ h1, h2, h3 {
     border-radius: 8px;
     margin-bottom: 1rem;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    max-width: 600px; /* Increased max-width for bigger boxes */
-    margin: auto; /* Center the software items */
+    max-width: 700px; /* Adjust max-width for bigger boxes */
+    margin: auto;
 }
 
     .software-item img {
-        max-width: 300px; /* Adjust the size of the images */
+        max-width: 300px;
         margin-bottom: 10px;
     }
 

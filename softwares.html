@@ -13,12 +13,10 @@
             border-radius: 8px;
             margin-bottom: 1rem;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            max-width: 1000px; /* Adjust max-width for bigger boxes */
-            margin: auto;
         }
 
             .software-item img {
-                max-width: 300px;
+                max-width: 100px;
                 margin-bottom: 10px;
             }
 
@@ -42,9 +40,8 @@
             }
 
         .software-grid {
-            display: flex;
-            flex-direction: column; /* Stack items in a column */
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
         }
     </style>
@@ -55,21 +52,27 @@
                 window.location.href = 'login.html';
             }
         }
-
         document.addEventListener('DOMContentLoaded', checkLoginState);
 
         function addToCart(name, price) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingItem = cart.find(item => item.name === name);
+            const existingItemIndex = cart.findIndex(item => item.name === name);
 
-            if (existingItem) {
-                existingItem.quantity += 1;
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity += 1;
             } else {
-                cart.push({ name, price, quantity: 1 });
+                cart.push({ name: name, price: price, quantity: 1 });
             }
 
             localStorage.setItem('cart', JSON.stringify(cart));
             alert(`${name} added to cart!`);
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartCount.textContent = cart.length;
         }
     </script>
 </head>
@@ -87,7 +90,7 @@
                     <button class="btn btn-primary" onclick="addToCart('Windows 11', 49.99)">Add to Cart</button>
                 </div>
                 <div class="software-item">
-                    <img src="images/zoom-logo.png" alt="Zoom">
+                    <img src="images/zoom.png" alt="Zoom">
                     <h3>Zoom</h3>
                     <p>Zoom is a popular video conferencing platform that allows users to conduct virtual meetings, webinars, and online classes. It offers features like screen sharing, breakout rooms, and virtual backgrounds, making it a versatile tool for both personal and professional use.</p>
                     <p class="price">Price: $99.99</p>
@@ -99,7 +102,7 @@
             <h2>Top Deals</h2>
             <div class="software-grid">
                 <div class="software-item">
-                    <img src="images/gta-logo.jpeg" alt="GTA 6">
+                    <img src="images/gta.jpeg" alt="GTA 6">
                     <h3>GTA 6</h3>
                     <p>Grand Theft Auto VI (GTA 6) is an anticipated open-world action-adventure game developed by Rockstar Games. It is expected to continue the franchise's tradition of offering a vast, immersive environment, engaging storylines, and a variety of missions and activities.</p>
                     <p class="price">Original Price: $79.99</p>
