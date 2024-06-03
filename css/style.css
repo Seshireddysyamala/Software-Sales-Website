@@ -92,6 +92,7 @@ h1, h2, h3 {
     position: fixed;
     bottom: 0;
     width: 100%;
+    border-top: 2px solid #66FCF1; /* Add border to the footer */
 }
 
 /* Responsive Navbar */
@@ -316,4 +317,13 @@ h1, h2, h3 {
     .user-profile-box h1 {
         color: #66FCF1;
         margin-bottom: 2rem;
+    }
+
+    .user-profile-box .profile-details {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .user-profile-box p {
+        color: #C5C6C7;
     }
