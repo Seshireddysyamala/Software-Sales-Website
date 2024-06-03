@@ -11,22 +11,23 @@
             margin-bottom: 2rem;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
             background-color: #1F2833;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            color: #C5C6C7;
         }
 
-            .chart-container h2, .table-container h2 {
-                color: #66FCF1;
-            }
+        .box-heading {
+            color: #66FCF1;
+            margin-bottom: 1rem;
+        }
 
-            .chart-container p, .table-container p {
-                color: #C5C6C7;
-            }
+        .chart-container h2, .table-container h2 {
+            margin-bottom: 1rem;
+        }
 
-            .chart-container h3, .table-container h3 {
-                color: #66FCF1;
-                margin-top: 1rem;
-            }
+        .chart-container p, .table-container p {
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -34,28 +35,21 @@
     <main class="container mt-5">
         <section id="data-analytics" class="box">
             <h1 class="box-heading">Data Analytics</h1>
-
             <div class="chart-container">
                 <h2 class="box-heading">Sales Data (Bar Chart)</h2>
                 <canvas id="salesChart"></canvas>
-                <h3>Description:</h3>
-                <p>This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
+                <p><strong>Description:</strong> This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
             </div>
-
             <div class="chart-container">
                 <h2 class="box-heading">Sales Distribution (Pie Chart)</h2>
                 <canvas id="salesPieChart"></canvas>
-                <h3>Description:</h3>
-                <p>The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
+                <p><strong>Description:</strong> The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
             </div>
-
             <div class="chart-container">
                 <h2 class="box-heading">Sales Trend (Line Chart)</h2>
                 <canvas id="salesLineChart"></canvas>
-                <h3>Description:</h3>
-                <p>This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
+                <p><strong>Description:</strong> This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
             </div>
-
             <div class="table-container">
                 <h2 class="box-heading">Sales Data Table</h2>
                 <table class="table table-dark">
@@ -77,8 +71,7 @@
                         <tr><td>June</td><td>$10000</td><td>$12000</td><td>$11000</td><td>$13000</td></tr>
                     </tbody>
                 </table>
-                <h3>Description:</h3>
-                <p>This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
+                <p><strong>Description:</strong> This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
             </div>
         </section>
     </main>
@@ -98,3 +91,4 @@
     </script>
 </body>
 </html>
+
