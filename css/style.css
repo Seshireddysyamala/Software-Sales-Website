@@ -11,14 +11,14 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     margin: 0;
-    padding-top: 4rem; /* Adjust to match the height of your header */
+    padding-top: 3.5rem; /* Adjust to match the height of your header */
 }
 
 /* Header Styles */
 header, .navbar {
     background: #1F2833; /* Match the footer color */
     color: #66FCF1;
-    padding: 0.5rem 0; /* Restore original size */
+    padding: 1rem 0; /* Restore original size */
     text-align: center;
     position: fixed;
     width: 100%;
@@ -51,7 +51,7 @@ header, .navbar {
 
 /* Main Styles */
 main {
-    padding: 2rem; /* Adjust padding to avoid white space */
+    padding: 2rem 0; /* Adjust padding to avoid white space */
     margin: 0 auto; /* Center content */
     max-width: 1000px;
     border-radius: 8px;
