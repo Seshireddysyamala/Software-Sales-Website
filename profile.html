@@ -7,31 +7,39 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-          integrity="sha512-dO+GklMzZe+VsRbuZX1KQo1KBRPQJoINoU5x5GfOlDxr+FEnn5Gc5v5vn5/ft6M5kZfBQv6vFXj2vnFOVkfn6Q=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dO+GklMzZe+VsRbuZX1KQo1KBRPQJoINoU5x5GfOlDxr+FEnn5Gc5v5vn5/ft6M5kZfBQv6vFXj2vnFOVkfn6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         function checkLoginState() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
             if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
                 window.location.href = 'login.html';
+            } else {
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (user) {
+                    document.getElementById('user-email').textContent = user.email;
+                }
             }
         }
+
+        function logout() {
+            localStorage.removeItem('user');
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        }
+
         document.addEventListener('DOMContentLoaded', checkLoginState);
     </script>
 </head>
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
-        <section id="profile" class="box">
-            <div class="profile-container user-profile-box">
-                <h1>User Profile</h1>
-                <div class="profile-details">
-                    <p><strong>Email:</strong> <span id="user-email"></span></p>
-                </div>
-                <button class="btn btn-logout" onclick="logout()">Logout</button>
+        <div class="user-profile-box">
+            <h1>User Profile</h1>
+            <div class="profile-details">
+                <p><strong>Email:</strong> <span id="user-email"></span></p>
             </div>
-        </section>
+            <button class="btn btn-logout" onclick="logout()">Logout</button>
+        </div>
     </main>
     <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
@@ -42,19 +50,8 @@
     <script>
         fetch('menu.html')
             .then(response => response.text())
-            .then(data => {
-                document.getElementById('menu').innerHTML = data;
-            })
+            .then(data => document.getElementById('menu').innerHTML = data)
             .catch(error => console.error('Error loading menu:', error));
-    </script>
-    <script>
-        function logout() {
-            localStorage.removeItem('user');
-            localStorage.removeItem('isLoggedIn');
-            window.location.href = 'login.html';
-        }
     </script>
 </body>
 </html>
-
-

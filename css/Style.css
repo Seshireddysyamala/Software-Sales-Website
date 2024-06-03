@@ -17,12 +17,13 @@ body {
 header, .navbar {
     background: #1F2833; /* Match the footer color */
     color: #66FCF1;
-    padding: 1rem 0;
+    padding: 0.5rem 0; /* Reduce padding */
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    border-bottom: 2px solid #66FCF1; /* Add border to the header */
 }
 
 .navbar-nav {
@@ -58,7 +59,7 @@ header, .navbar {
 /* Main Styles */
 main {
     padding: 2rem; /* Adjust padding to avoid white space */
-    margin-top: 5rem; /* Ensure the main content starts below the fixed header */
+    margin-top: 3rem; /* Ensure the main content starts below the fixed header */
     max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
@@ -88,10 +89,11 @@ h1, h2, h3 {
     background: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0; /* Reduce padding */
     position: fixed;
     bottom: 0;
     width: 100%;
+    border-top: 2px solid #66FCF1; /* Add border to the footer */
 }
 
 /* Responsive Navbar */
@@ -316,4 +318,13 @@ h1, h2, h3 {
     .user-profile-box h1 {
         color: #66FCF1;
         margin-bottom: 2rem;
+    }
+
+    .user-profile-box .profile-details {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .user-profile-box p {
+        color: #C5C6C7;
     }
