@@ -9,14 +9,16 @@
     <style>
         .software-item {
             background-color: #1F2833;
-            padding: 1rem;
+            padding: 2rem; /* Increase padding for bigger boxes */
             border-radius: 8px;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            max-width: 1000px; /* Ensure boxes are wide enough */
+            margin: auto;
         }
 
             .software-item img {
-                max-width: 100px;
+                max-width: 200px; /* Ensure images fit well */
                 margin-bottom: 10px;
             }
 
@@ -41,8 +43,9 @@
 
         .software-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: 1fr; /* Single column layout */
             gap: 20px;
+            justify-items: center; /* Center align grid items */
         }
     </style>
     <script>
@@ -52,16 +55,17 @@
                 window.location.href = 'login.html';
             }
         }
+
         document.addEventListener('DOMContentLoaded', checkLoginState);
 
         function addToCart(name, price) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingItemIndex = cart.findIndex(item => item.name === name);
+            const existingItem = cart.find(item => item.name === name);
 
-            if (existingItemIndex > -1) {
-                cart[existingItemIndex].quantity += 1;
+            if (existingItem) {
+                existingItem.quantity += 1;
             } else {
-                cart.push({ name: name, price: price, quantity: 1 });
+                cart.push({ name, price, quantity: 1 });
             }
 
             localStorage.setItem('cart', JSON.stringify(cart));
@@ -74,6 +78,8 @@
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             cartCount.textContent = cart.length;
         }
+
+        document.addEventListener('DOMContentLoaded', updateCartCount);
     </script>
 </head>
 <body>
