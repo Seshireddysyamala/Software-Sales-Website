@@ -19,33 +19,39 @@ function fetchTopDeals() {
 
 function displaySoftware(softwareList) {
     const latestSoftwareSection = document.getElementById('latest-software');
-    let html = '<h2>Latest Software</h2>';
+    let html = '<h2 class="col-12 text-center mb-4">Latest Software</h2>';
     softwareList.forEach(software => {
-        html += `<div class="software-item text-center">
+        html += `
+            <div class="col-md-6 mb-4">
+                <div class="software-item text-center box">
                     <img src="${software.image}" alt="${software.name}" class="img-fluid" style="max-width: 200px;">
                     <h3>${software.name}</h3>
                     <p>${software.description}</p>
                     <p>Price: $${software.price}</p>
                     <button class="btn btn-primary" onclick="addToCart(${software.id}, '${software.name}', ${software.price})">Add to Cart</button>
-                 </div>`;
+                </div>
+            </div>`;
     });
-    latestSoftwareSection.innerHTML += html;
+    latestSoftwareSection.innerHTML = html;
 }
 
 function displayTopDeals(dealsList) {
     const topDealsSection = document.getElementById('top-deals');
-    let html = '<h2>Top Deals</h2>';
+    let html = '<h2 class="col-12 text-center mb-4">Top Deals</h2>';
     dealsList.forEach(deal => {
-        html += `<div class="deal-item text-center">
+        html += `
+            <div class="col-md-6 mb-4">
+                <div class="deal-item text-center box">
                     <img src="${deal.image}" alt="${deal.name}" class="img-fluid" style="max-width: 200px;">
                     <h3>${deal.name}</h3>
                     <p>${deal.description}</p>
                     <p>Original Price: $${deal.originalPrice}</p>
                     <p>Discounted Price: $${deal.discountedPrice}</p>
                     <button class="btn btn-primary" onclick="addToCart(${deal.id}, '${deal.name}', ${deal.discountedPrice})">Add to Cart</button>
-                 </div>`;
+                </div>
+            </div>`;
     });
-    topDealsSection.innerHTML += html;
+    topDealsSection.innerHTML = html;
 }
 
 function addToCart(id, name, price) {

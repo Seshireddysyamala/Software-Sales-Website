@@ -76,5 +76,16 @@
 
         checkLoginState();
     </script>
+    <script>
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', checkLoginState);
+    </script>
+
 </body>
 </html>
