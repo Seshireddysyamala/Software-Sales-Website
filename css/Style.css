@@ -262,10 +262,12 @@ h1, h2, h3 {
         color: #66FCF1;
         background-color: transparent;
     }
+
 .container {
     padding: 0;
     margin: 0 auto;
 }
+
 @media (max-width: 768px) {
     .cart-container, .analytics-box {
         padding: 1rem;
