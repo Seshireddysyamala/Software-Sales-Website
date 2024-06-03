@@ -1,0 +1,16 @@
+[
+  {
+    "id": 3,
+    "name": "Software 3",
+    "description": "Description for software 3",
+    "originalPrice": 79.99,
+    "discountedPrice": 59.99
+  },
+  {
+    "id": 4,
+    "name": "Software 4",
+    "description": "Description for software 4",
+    "originalPrice": 129.99,
+    "discountedPrice": 99.99
+  }
+]

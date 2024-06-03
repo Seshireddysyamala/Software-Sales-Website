@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Software 1",
+    "description": "Description for software 1",
+    "price": 49.99
+  },
+  {
+    "id": 2,
+    "name": "Software 2",
+    "description": "Description for software 2",
+    "price": 99.99
+  }
+]

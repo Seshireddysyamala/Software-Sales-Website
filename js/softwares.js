@@ -5,14 +5,24 @@
 
 function fetchSoftware() {
     fetch('latest-software.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => displaySoftware(data))
         .catch(error => console.error('Error fetching latest software:', error));
 }
 
 function fetchTopDeals() {
     fetch('top-deals.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => displayTopDeals(data))
         .catch(error => console.error('Error fetching top deals:', error));
 }
