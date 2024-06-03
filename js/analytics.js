@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: [3000, 2000, 5000],
                 backgroundColor: ['red', 'blue', 'green']
             }]
+        },
+        options: {
+            responsive: true
         }
     });
 

@@ -81,6 +81,23 @@ main {
         object-fit: cover;
     }
 
+#personal-info,
+.development-experience {
+    text-align: left;
+}
+
+    #personal-info p,
+    #personal-info ul,
+    .development-experience p,
+    .development-experience ul {
+        margin-left: 1rem;
+    }
+
+    #personal-info h2,
+    .development-experience h2 {
+        margin-top: 1.5rem;
+    }
+
 h1, h2, h3 {
     color: #ffffff;
 }
@@ -217,10 +234,21 @@ table {
 
 /* Box Styles for Headings */
 .box-heading {
-    background-color: #37474f;
+    background-color: #455a64; /* Professional grey-blue */
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
+}
+
+/* Manage Sales Specific Styles */
+.add-sale .box-heading,
+.sales-list .box-heading {
+    background-color: #8d6e63; /* Muted brown for sub-section headings */
+}
+
+.add-sale,
+.sales-list {
+    background-color: #2c2c2c; /* Normal blackish background for boxes */
 }
 
 /* Responsive Navbar */
@@ -237,4 +265,3 @@ table {
                 padding: 0.5rem 1rem;
             }
 }
-
