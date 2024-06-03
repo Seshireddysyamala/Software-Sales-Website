@@ -6,6 +6,49 @@
     <title>Data Analytics</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chart-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            background-color: #1F2833;
+            color: #C5C6C7;
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            background-color: #1F2833;
+            color: #C5C6C7;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+            table th, table td {
+                border: 1px solid #66FCF1;
+                padding: 0.5rem;
+                text-align: center;
+            }
+
+            table th {
+                background-color: #45A29E;
+            }
+
+            table td {
+                background-color: #1F2833;
+            }
+    </style>
     <script>
         function checkLoginState() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -16,45 +59,49 @@
 
         document.addEventListener('DOMContentLoaded', checkLoginState);
     </script>
-
 </head>
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
         <section id="data-analytics" class="box">
-            <h1 class="box-heading">Data Analytics</h1>
+            <h1>Data Analytics</h1>
             <div class="chart-container">
-                <h2 class="box-heading">Sales Data (Bar Chart)</h2>
+                <h2>Sales Data (Bar Chart)</h2>
+                <p>This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
                 <canvas id="salesChart"></canvas>
             </div>
             <div class="chart-container">
-                <h2 class="box-heading">Sales Distribution (Pie Chart)</h2>
+                <h2>Sales Distribution (Pie Chart)</h2>
+                <p>The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
                 <canvas id="salesPieChart"></canvas>
             </div>
             <div class="chart-container">
-                <h2 class="box-heading">Sales Trend (Line Chart)</h2>
+                <h2>Sales Trend (Line Chart)</h2>
+                <p>This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
                 <canvas id="salesLineChart"></canvas>
             </div>
             <div class="table-container">
-                <h2 class="box-heading">Sales Data Table</h2>
-                <table class="table table-dark">
+                <h2>Sales Data Table</h2>
+                <p>This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
+                <table>
                     <thead>
                         <tr>
                             <th>Month</th>
-                            <th>Sales</th>
+                            <th>Windows 11</th>
+                            <th>Zoom</th>
+                            <th>GTA 6</th>
+                            <th>Microsoft Office</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>January</td><td>$1200</td></tr>
-                        <tr><td>February</td><td>$1900</td></tr>
-                        <tr><td>March</td><td>$3000</td></tr>
-                        <tr><td>April</td><td>$5000</td></tr>
-                        <tr><td>May</td><td>$2000</td></tr>
-                        <tr><td>June</td><td>$3000</td></tr>
-                        <tr><td>July</td><td>$4500</td></tr>
+                        <tr><td>January</td><td>$5000</td><td>$7000</td><td>$6000</td><td>$8000</td></tr>
+                        <tr><td>February</td><td>$6000</td><td>$8000</td><td>$7000</td><td>$9000</td></tr>
+                        <tr><td>March</td><td>$7000</td><td>$9000</td><td>$8000</td><td>$10000</td></tr>
+                        <tr><td>April</td><td>$8000</td><td>$10000</td><td>$9000</td><td>$11000</td></tr>
+                        <tr><td>May</td><td>$9000</td><td>$11000</td><td>$10000</td><td>$12000</td></tr>
+                        <tr><td>June</td><td>$10000</td><td>$12000</td><td>$11000</td><td>$13000</td></tr>
                     </tbody>
                 </table>
-                <p>This table provides a detailed breakdown of the monthly sales figures for the year.</p>
             </div>
         </section>
     </main>
