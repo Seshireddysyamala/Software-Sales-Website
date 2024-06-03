@@ -16,10 +16,11 @@
             border-radius: 8px;
             background-color: #1F2833;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            max-width: 500px; /* Increase the width of the boxes */
         }
 
             .software-item img {
-                max-width: 100px;
+                max-width: 150px; /* Increase the size of the images */
                 margin-bottom: 10px;
             }
 
@@ -46,6 +47,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
+            justify-content: center; /* Center the grid items */
         }
     </style>
     <script>
@@ -56,6 +58,13 @@
             }
         }
         document.addEventListener('DOMContentLoaded', checkLoginState);
+
+        function addToCart(software) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(software);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${software} added to cart!`);
+        }
     </script>
 </head>
 <body>
@@ -69,14 +78,14 @@
                     <h3>Windows 11</h3>
                     <p>Windows 11 is the latest operating system from Microsoft, released in October 2021. It features a redesigned interface with a centered Start menu and taskbar, improved virtual desktops, and enhanced performance and security.</p>
                     <p class="price">Price: $49.99</p>
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <button class="btn btn-primary" onclick="addToCart('Windows 11')">Add to Cart</button>
                 </div>
                 <div class="software-item">
                     <img src="images/zoom-logo.png" alt="Zoom">
                     <h3>Zoom</h3>
                     <p>Zoom is a popular video conferencing platform that allows users to conduct virtual meetings, webinars, and online classes. It offers features like screen sharing, breakout rooms, and virtual backgrounds, making it a versatile tool for both personal and professional use.</p>
                     <p class="price">Price: $99.99</p>
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <button class="btn btn-primary" onclick="addToCart('Zoom')">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -89,7 +98,7 @@
                     <p>Grand Theft Auto VI (GTA 6) is an anticipated open-world action-adventure game developed by Rockstar Games. It is expected to continue the franchise's tradition of offering a vast, immersive environment, engaging storylines, and a variety of missions and activities.</p>
                     <p class="price">Original Price: $79.99</p>
                     <p class="discounted-price">Discounted Price: $59.99</p>
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <button class="btn btn-primary" onclick="addToCart('GTA 6')">Add to Cart</button>
                 </div>
                 <div class="software-item">
                     <img src="images/microsoft-office-logo.png" alt="Microsoft Office">
@@ -97,7 +106,7 @@
                     <p>Microsoft Office is a suite of productivity software that includes applications like Word, Excel, PowerPoint, and Outlook. It is widely used for creating documents, spreadsheets, presentations, and managing emails.</p>
                     <p class="price">Original Price: $129.99</p>
                     <p class="discounted-price">Discounted Price: $99.99</p>
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <button class="btn btn-primary" onclick="addToCart('Microsoft Office')">Add to Cart</button>
                 </div>
             </div>
         </section>
