@@ -57,6 +57,7 @@ main {
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
+    margin-top: 8rem; /* Adjust this value to match the height of the fixed header */
 }
 
 .box {
