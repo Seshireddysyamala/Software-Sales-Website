@@ -37,7 +37,7 @@ header, .navbar {
 
         .navbar-nav .nav-item .nav-link {
             font-weight: bold;
-            color: #66FCF1;
+            color: #C5C6C7;
             padding: 0.5rem 1rem;
             border-radius: 0.25rem;
         }
@@ -51,14 +51,14 @@ header, .navbar {
 
 /* Main Styles */
 main {
-    padding: 2rem; /* Adjust padding to avoid white space */
-    margin-top: 5rem; /* Ensure the main content starts below the fixed header */
+    padding: 2rem 0; /* Adjust padding to avoid white space */
+    margin: 0 auto; /* Center content */
     max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    margin: 4rem auto; /* Center content */
+    margin-top: 4rem; /* Ensure the main content starts below the fixed header */
     border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
 }
 
