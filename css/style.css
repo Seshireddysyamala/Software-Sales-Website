@@ -11,7 +11,7 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     margin: 0;
-    padding-bottom: 4rem; /* Ensure space for the footer */
+    padding-bottom: 3rem; /* Ensure space for the footer */
 }
 
 /* Header Styles */
@@ -60,7 +60,7 @@ header, .navbar {
 main {
     padding: 2rem; /* Adjust padding to avoid white space */
     margin-top: 6rem; /* Ensure the main content starts below the fixed header */
-    margin-bottom: 5rem; /* Ensure the main content ends above the fixed footer */
+    margin-bottom: 4rem; /* Ensure the main content ends above the fixed footer */
     max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
@@ -94,7 +94,7 @@ h1, h2, h3 {
     color: #C5C6C7;
     text-align: center;
     padding: 1rem 0; /* Adjust padding to ensure visibility */
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     z-index: 1;
