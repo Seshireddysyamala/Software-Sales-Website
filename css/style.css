@@ -16,9 +16,9 @@ body {
 }
 
 header, .navbar {
-    background: #1F2833; /* Match the footer color */
+    background: #1F2833;
     color: #66FCF1;
-    padding: 0.05rem 0;
+    padding: 0.075rem 0;
     text-align: center;
     width: 100%;
     position: fixed;
@@ -38,15 +38,16 @@ header, .navbar {
         .navbar-nav .nav-item .nav-link {
             font-weight: bold;
             color: #66FCF1;
-            padding: 0.25rem 0.5rem;
+            padding: 0.375rem 0.75rem;
             border-radius: 0.25rem;
+            transition: color 0.3s ease, background-color 0.3s ease;
         }
 
             .navbar-nav .nav-item .nav-link.active,
             .navbar-nav .nav-item .nav-link:hover,
             .navbar-nav .nav-item .nav-link:focus {
-                color: #66FCF1;
-                background-color: transparent;
+                color: #1F2833;
+                background-color: #66FCF1;
             }
 
 .navbar-brand,
