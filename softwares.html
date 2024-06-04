@@ -31,8 +31,9 @@
         }
 
             .software-item img {
-                max-width: 200px; /* Ensure images fit well */
+                max-width: 100%; /* Ensure images fit well */
                 margin-bottom: 10px;
+                border: 2px solid red; /* Add a red border for troubleshooting */
             }
 
             .software-item h3 {
@@ -61,39 +62,6 @@
             justify-items: center; /* Center align grid items */
         }
     </style>
-    <script>
-        function checkLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
-                window.location.href = 'login.html';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', checkLoginState);
-
-        function addToCart(name, price) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingItem = cart.find(item => item.name === name);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ name, price, quantity: 1 });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${name} added to cart!`);
-            updateCartCount();
-        }
-
-        function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cartCount.textContent = cart.length;
-        }
-
-        document.addEventListener('DOMContentLoaded', updateCartCount);
-    </script>
 </head>
 <body>
     <div id="menu"></div>
