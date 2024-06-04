@@ -59,7 +59,6 @@ header, .navbar {
 main {
     padding: 2rem;
     margin-top: 5rem;
-    margin-bottom: 3rem; /* Ensure enough space for the footer */
     max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
@@ -92,10 +91,7 @@ h1, h2, h3 {
     text-align: center;
     padding: 0.5rem 0;
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
+    margin-top: auto; /* Ensure the footer is pushed to the bottom */
 }
 
 /* Responsive Navbar */
