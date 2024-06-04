@@ -58,7 +58,7 @@ header, .navbar {
 /* Main Styles */
 main {
     padding: 2rem; /* Adjust padding to avoid white space */
-    margin-top: 4rem; /* Decrease margin-top to ensure the main content starts below the fixed header */
+    margin-top: 6rem; /* Increase margin-top to ensure the main content starts below the fixed header */
     margin-bottom: 5rem; /* Ensure the main content ends above the fixed footer */
     max-width: 1000px;
     border-radius: 8px;
