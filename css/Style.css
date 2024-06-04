@@ -17,7 +17,7 @@ body {
 header, .navbar {
     background: #1F2833; /* Match the footer color */
     color: #66FCF1;
-    padding: 0.5rem 0; /* Adjust padding */
+    padding: 0.3rem 0; /* Adjust padding */
     text-align: center;
     position: fixed;
     width: 100%;
@@ -57,7 +57,7 @@ header, .navbar {
 
 /* Main Styles */
 main {
-    padding: 2rem; /* Adjust padding to avoid white space */
+    padding: 1.5rem; /* Adjust padding to avoid white space */
     margin-top: 5rem; /* Ensure the main content starts below the fixed header */
     max-width: 1000px;
     border-radius: 8px;
