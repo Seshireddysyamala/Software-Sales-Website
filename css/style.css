@@ -92,7 +92,7 @@ h1, h2, h3 {
     text-align: center;
     padding: 1rem 0;
     width: 100%;
-    position: relative;
+    position: absolute;
     bottom: 0;
 }
 
