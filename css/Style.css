@@ -11,17 +11,16 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     padding-bottom: 3rem; /* Ensure space for the footer */
 }
 
+/* Header Styles */
 header, .navbar {
     background: #1F2833; /* Match the footer color */
     color: #66FCF1;
     padding: 0.05rem 0; /* Further reduce padding to decrease height */
     text-align: center;
+    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -72,7 +71,6 @@ main {
     border: 2px solid #66FCF1; /* Make the main section border more visible */
     position: relative;
     z-index: 1;
-    flex: 1;
 }
 
 .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
@@ -96,7 +94,10 @@ h1, h2, h3 {
     color: #C5C6C7;
     text-align: center;
     padding: 1rem 0; /* Adjust padding to ensure visibility */
+    position: fixed;
+    bottom: 0;
     width: 100%;
+    z-index: 1;
 }
 
 /* Responsive Navbar */
@@ -148,12 +149,8 @@ h1, h2, h3 {
 }
 
     .software-item img {
-        width: 200px;
-        height: 150px;
-        object-fit: cover;
+        max-width: 300px;
         margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
     }
 
     .software-item h3 {
@@ -176,11 +173,10 @@ h1, h2, h3 {
     }
 
 .software-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
-    justify-items: center;
-    align-items: start;
 }
 
 /* Cart Section Styles */
@@ -202,14 +198,7 @@ h1, h2, h3 {
 
 .table {
     color: #C5C6C7;
-    width: 100%;
-    table-layout: fixed;
 }
-
-    .table th, .table td {
-        padding: 0.5rem;
-        word-wrap: break-word;
-    }
 
 .btn-success {
     background-color: #45A29E;
@@ -231,6 +220,7 @@ h1, h2, h3 {
     border-color: #dc3545;
 }
 
+/* Centering the Proceed to Checkout button */
 .text-right .btn-success {
     display: block;
     margin: 0 auto;
@@ -285,6 +275,38 @@ h1, h2, h3 {
         background-color: #0B0C10;
     }
 
+/* Menu Styles */
+.navbar-nav .nav-item .nav-link {
+    color: #C5C6C7;
+    padding: 0.25rem 0.5rem; /* Further reduce padding to decrease height */
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
+    .navbar-nav .nav-item .nav-link.active,
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .nav-link:focus {
+        color: #66FCF1;
+        background-color: transparent;
+    }
+
+.container {
+    padding: 0;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .cart-container, .analytics-box {
+        padding: 1rem;
+    }
+
+    .table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+}
+
 /* User Profile Styles */
 .user-profile-box {
     background-color: #1F2833;
@@ -310,20 +332,3 @@ h1, h2, h3 {
     .user-profile-box p {
         color: #C5C6C7;
     }
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .cart-container, .analytics-box {
-        padding: 1rem;
-    }
-
-    .table {
-        display: block;
-        overflow-x: auto;
-        width: 100%;
-    }
-
-    .analytics-box table th, .analytics-box table td {
-        white-space: nowrap;
-    }
-}
