@@ -36,7 +36,7 @@ header, .navbar {
 
         .navbar-nav .nav-item .nav-link {
             font-weight: bold;
-            color: #C5C6C7; /* Default color for all links */
+            color: #66FCF1;
             padding: 0.375rem 0.75rem; /* Reduce padding to decrease height by 25% */
             border-radius: 0.25rem;
             transition: color 0.3s ease, background-color 0.3s ease;
