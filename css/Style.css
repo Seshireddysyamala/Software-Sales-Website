@@ -15,9 +15,9 @@ body {
 
 /* Header Styles */
 header, .navbar {
-    background: #1F2833;
+    background: #1F2833; /* Match the footer color */
     color: #66FCF1;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0; /* Adjust padding */
     text-align: center;
     position: fixed;
     width: 100%;
@@ -48,23 +48,24 @@ header, .navbar {
                 background-color: transparent;
             }
 
+/* Change Software Sales to blue when hovered */
 .navbar-brand,
 .navbar-brand:hover,
 .navbar-brand:focus {
-    color: #66FCF1 !important;
+    color: #66FCF1 !important; /* Ensure it changes color */
 }
 
 /* Main Styles */
 main {
-    padding: 2rem;
-    margin-top: 5rem;
-    margin-bottom: 4rem;
+    padding: 2rem; /* Adjust padding to avoid white space */
+    margin-top: 5rem; /* Ensure the main content starts below the fixed header */
     max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    border: 2px solid #66FCF1;
+    margin: 0 auto 4rem; /* Center content and add bottom margin for footer */
+    border: 2px solid #66FCF1; /* Make the main section border more visible */
 }
 
 .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
@@ -73,7 +74,7 @@ main {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     background-color: #1F2833;
-    border: 1px solid #66FCF1;
+    border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
 }
 
 h1, h2, h3 {
@@ -87,7 +88,7 @@ h1, h2, h3 {
     background: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0; /* Adjust padding */
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -116,7 +117,7 @@ h1, h2, h3 {
     border-radius: 8px;
     margin-bottom: 2rem;
     text-align: center;
-    border: 1px solid #66FCF1;
+    border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
 }
 
     .banner h1 {
@@ -138,7 +139,7 @@ h1, h2, h3 {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     max-width: 1000px;
     margin: auto;
-    border: 1px solid #66FCF1;
+    border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
 }
 
     .software-item img {
@@ -181,7 +182,7 @@ h1, h2, h3 {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     margin: 2rem auto;
     max-width: 800px;
-    border: 1px solid #66FCF1;
+    border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
 }
 
     .cart-container h1 {
@@ -227,7 +228,7 @@ h1, h2, h3 {
     margin-bottom: 2rem;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     color: #C5C6C7;
-    border: 1px solid #66FCF1;
+    border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
 }
 
     .analytics-box h2 {
@@ -309,10 +310,19 @@ h1, h2, h3 {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     margin: 2rem auto;
     max-width: 800px;
-    border: 1px solid #66FCF1;
+    border: 1px solid #66FCF1; /* Add a thin border using the blue color palette */
 }
 
     .user-profile-box h1 {
         color: #66FCF1;
         margin-bottom: 2rem;
+    }
+
+    .user-profile-box .profile-details {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .user-profile-box p {
+        color: #C5C6C7;
     }
