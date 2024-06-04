@@ -18,7 +18,7 @@ body {
 header, .navbar {
     background: #1F2833;
     color: #66FCF1;
-    padding: 0.075rem 0;
+    padding: 0.05rem 0;
     text-align: center;
     width: 100%;
     position: fixed;
@@ -60,7 +60,7 @@ header, .navbar {
 main {
     padding: 2rem;
     margin-top: 5rem;
-    flex: 1; /* Ensure the main content takes up available space */
+    margin-bottom: 4rem; /* Ensure enough space for the footer */
     max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
@@ -68,7 +68,7 @@ main {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid #66FCF1; /* Set border color to match the palette blue */
+    border: 2px solid #66FCF1; /* Correct palette blue for the main section border */
 }
 
 .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
@@ -76,7 +76,7 @@ main {
     padding: 2rem;
     border-radius: 8px;
     background-color: #1F2833;
-    border: 1px solid #66FCF1;
+    border: 1px solid #66FCF1; /* Ensure this border color matches the palette blue */
 }
 
 h1, h2, h3 {
@@ -90,9 +90,8 @@ h1, h2, h3 {
     background: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
     width: 100%;
-    margin-top: auto;
     position: relative;
 }
 
