@@ -17,7 +17,7 @@ body {
 header, .navbar {
     background: #1F2833; /* Match the footer color */
     color: #66FCF1;
-    padding: 0.1rem 0; /* Adjust padding to reduce height */
+    padding: 0.2rem 0; /* Adjust padding to reduce height */
     text-align: center;
     position: fixed;
     width: 100%;
@@ -57,15 +57,19 @@ header, .navbar {
 
 /* Main Styles */
 main {
-    padding: 1.5rem; /* Adjust padding to avoid white space */
-    margin-top: 4rem; /* Ensure the main content starts below the fixed header */
+    padding: 2rem; /* Adjust padding to avoid white space */
+    margin-top: 5rem; /* Ensure the main content starts below the fixed header */
+    margin-bottom: 5rem; /* Ensure the main content ends above the fixed footer */
     max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    margin: 0 auto 4rem; /* Center content and add bottom margin for footer */
+    margin-left: auto;
+    margin-right: auto;
     border: 2px solid #66FCF1; /* Make the main section border more visible */
+    position: relative;
+    z-index: 1;
 }
 
 .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
@@ -88,7 +92,7 @@ h1, h2, h3 {
     background: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    padding: 0.1rem 0; /* Adjust padding to reduce height */
+    padding: 0.2rem 0; /* Adjust padding to reduce height */
     position: fixed;
     bottom: 0;
     width: 100%;
