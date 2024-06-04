@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-          integrity="sha512-dO+GklMzZe+VsRbuZX1KQo1KBRPQJoINoU5x5GfOlDxr+FEnn5Gc5v5vnFOVkfn6Q=="
+          integrity="sha512-dO+GklMzZe+VsRbuZX1KQo1KBRPQJoINoU5x5GfOlDxr+FEnn5Gc5v5vn5/ft6M5kZfBQv6vFXj2vnFOVkfn6Q=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         function checkLoginState() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (!isLoggedIn and window.location.pathname !== '/login.html' and window.location.pathname !== '/signup.html') {
+            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
                 window.location.href = 'login.html';
             }
         }
@@ -86,8 +86,8 @@
                 </p>
             </div>
         </section>
-    </main>
-    <footer class="footer mt-auto">
+        </main>
+    <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
