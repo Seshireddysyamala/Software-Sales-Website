@@ -11,14 +11,13 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     margin: 0;
-    padding-bottom: 3rem; /* Ensure space for the footer */
 }
 
 /* Header Styles */
 header, .navbar {
     background: #1F2833; /* Match the footer color */
     color: #66FCF1;
-    padding: 0.05rem 0; /* Further reduce padding to decrease height */
+    padding: 0.075rem 0; /* Reduce padding to decrease height by 25% */
     text-align: center;
     position: fixed;
     width: 100%;
@@ -37,19 +36,18 @@ header, .navbar {
 
         .navbar-nav .nav-item .nav-link {
             font-weight: bold;
-            color: #66FCF1;
-            padding: 0.25rem 0.5rem; /* Further reduce padding to decrease height */
+            color: #C5C6C7; /* Default color for all links */
+            padding: 0.375rem 0.75rem; /* Reduce padding to decrease height by 25% */
             border-radius: 0.25rem;
+            transition: color 0.3s ease, background-color 0.3s ease;
         }
 
-            .navbar-nav .nav-item .nav-link.active,
             .navbar-nav .nav-item .nav-link:hover,
             .navbar-nav .nav-item .nav-link:focus {
-                color: #66FCF1;
-                background-color: transparent;
+                color: #1F2833; /* Change to a contrasting color for visibility */
+                background-color: #66FCF1; /* Background color change for hover */
             }
 
-/* Change Software Sales to blue when hovered */
 .navbar-brand,
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -59,8 +57,8 @@ header, .navbar {
 /* Main Styles */
 main {
     padding: 2rem; /* Adjust padding to avoid white space */
-    margin-top: 6rem; /* Ensure the main content starts below the fixed header */
-    margin-bottom: 4rem; /* Ensure the main content ends above the fixed footer */
+    margin-top: 5rem; /* Ensure the main content starts below the fixed header */
+    margin-bottom: 5rem; /* Ensure the main content ends above the fixed footer */
     max-width: 1000px;
     border-radius: 8px;
     background-color: #1F2833;
@@ -68,7 +66,7 @@ main {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid #66FCF1; /* Make the main section border more visible */
+    border: 2px solid #66FCF1; /* Ensure the main section border matches the palette */
     position: relative;
     z-index: 1;
 }
@@ -93,11 +91,10 @@ h1, h2, h3 {
     background: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    padding: 1rem 0; /* Adjust padding to ensure visibility */
+    padding: 0.1rem 0; /* Adjust padding to reduce height */
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 1;
 }
 
 /* Responsive Navbar */
@@ -149,8 +146,12 @@ h1, h2, h3 {
 }
 
     .software-item img {
-        max-width: 300px;
+        width: 200px; /* Set a fixed width */
+        height: 150px; /* Set a fixed height */
+        object-fit: cover; /* Ensure the image covers the area without distortion */
         margin-bottom: 10px;
+        border: 1px solid #ccc; /* Optional: Add a border for better visuals */
+        border-radius: 4px; /* Optional: Add rounded corners */
     }
 
     .software-item h3 {
@@ -173,10 +174,11 @@ h1, h2, h3 {
     }
 
 .software-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust columns based on screen size */
     gap: 20px;
+    justify-items: center; /* Center align grid items */
+    align-items: start; /* Align items at the top */
 }
 
 /* Cart Section Styles */
@@ -198,7 +200,14 @@ h1, h2, h3 {
 
 .table {
     color: #C5C6C7;
+    width: 100%;
+    table-layout: fixed; /* Ensure table layout is fixed */
 }
+
+    .table th, .table td {
+        padding: 0.5rem;
+        word-wrap: break-word; /* Ensure content wraps */
+    }
 
 .btn-success {
     background-color: #45A29E;
@@ -275,38 +284,6 @@ h1, h2, h3 {
         background-color: #0B0C10;
     }
 
-/* Menu Styles */
-.navbar-nav .nav-item .nav-link {
-    color: #C5C6C7;
-    padding: 0.25rem 0.5rem; /* Further reduce padding to decrease height */
-    border-radius: 0.25rem;
-    font-weight: bold;
-}
-
-    .navbar-nav .nav-item .nav-link.active,
-    .navbar-nav .nav-item .nav-link:hover,
-    .navbar-nav .nav-item .nav-link:focus {
-        color: #66FCF1;
-        background-color: transparent;
-    }
-
-.container {
-    padding: 0;
-    margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-    .cart-container, .analytics-box {
-        padding: 1rem;
-    }
-
-    .table {
-        width: 100%;
-        display: block;
-        overflow-x: auto;
-    }
-}
-
 /* User Profile Styles */
 .user-profile-box {
     background-color: #1F2833;
@@ -332,3 +309,20 @@ h1, h2, h3 {
     .user-profile-box p {
         color: #C5C6C7;
     }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .cart-container, .analytics-box {
+        padding: 1rem;
+    }
+
+    .table {
+        display: block;
+        overflow-x: auto;
+        width: 100%; /* Ensure table fits within container */
+    }
+
+    .analytics-box table th, .analytics-box table td {
+        white-space: nowrap;
+    }
+}
