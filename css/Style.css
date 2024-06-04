@@ -11,6 +11,7 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     margin: 0;
+    padding-bottom: 60px; /* Space for the footer */
 }
 
 /* Header Styles */
@@ -70,6 +71,7 @@ main {
     position: relative;
     z-index: 1;
     box-shadow: none; /* Ensure there's no box-shadow affecting the border */
+    min-height: calc(100vh - 140px); /* Ensure main has enough height to avoid footer overlap */
 }
 
 .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
@@ -96,6 +98,7 @@ h1, h2, h3 {
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 40px; /* Ensure footer height is defined */
 }
 
 /* Responsive Navbar */
