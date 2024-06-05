@@ -7,14 +7,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Updated Font Awesome link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-          integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMphn08MZ1g/eQXg3z5fO8V5QLZxZB3gWQHGcTA"
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-/5bwaXDeBjX4E/FZ91b/jItQVRp+wQSPbtlYQzjq/TXJGBDF9vF4l/kaAaC9cL2B9ycfF8QzdfqUNB2XzJSoZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         function checkLoginState() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
+            if (!isLoggedIn and window.location.pathname !== '/login.html' and window.location.pathname !== '/signup.html') {
                 window.location.href = 'login.html';
             }
         }
@@ -83,9 +80,9 @@
                 <p>
                     <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
                     <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 </p>
             </div>
         </section>
