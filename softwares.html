@@ -22,16 +22,19 @@
     <style>
         .software-item {
             background-color: #1F2833;
-            padding: 2rem; /* Increase padding for bigger boxes */
+            padding: 2rem;
             border-radius: 8px;
             margin-bottom: 2rem;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            max-width: 1000px; /* Ensure boxes are wide enough */
+            max-width: 1000px;
             margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
             .software-item img {
-                max-width: 200px; /* Ensure images fit well */
+                max-width: 200px;
                 margin-bottom: 10px;
             }
 
@@ -55,10 +58,10 @@
             }
 
         .software-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Single column layout */
+            display: flex;
+            flex-direction: column;
             gap: 20px;
-            justify-items: center; /* Center align grid items */
+            align-items: center;
         }
     </style>
     <script>
