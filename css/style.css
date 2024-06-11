@@ -53,10 +53,18 @@ header, .navbar {
                 background-color: #66FCF1;
             }
 
+            .navbar-nav .nav-item .nav-link i {
+                margin-right: 5px; /* Space between icon and text */
+            }
+
 .navbar-brand,
 .navbar-brand:hover,
 .navbar-brand:focus {
     color: #66FCF1 !important;
+}
+
+#cart-count {
+    margin-left: 5px;
 }
 
 /* Main Styles */
@@ -338,17 +346,4 @@ h1, h2, h3 {
     .analytics-box table th, .analytics-box table td {
         white-space: nowrap;
     }
-}
-
-.nav-link {
-    display: flex;
-    align-items: center;
-}
-
-    .nav-link i {
-        margin-right: 5px; /* Space between icon and text */
-    }
-
-#cart-count {
-    margin-left: 5px;
 }
