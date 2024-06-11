@@ -59,17 +59,6 @@ header, .navbar {
     color: #66FCF1 !important;
 }
 
-/* Icon specific styles */
-.navbar-nav .nav-item .nav-link .fa-icon {
-    margin-right: 5px; /* Adjust spacing between icon and text */
-}
-
-.navbar-nav .nav-item .nav-link .fa-user,
-.navbar-nav .nav-item .nav-link .fa-cart-shopping {
-    font-size: 1.5rem; /* Adjust icon size */
-    color: #FFFFFF; /* Set icon color */
-}
-
 /* Main Styles */
 main {
     padding: 2rem;
@@ -156,9 +145,9 @@ h1, h2, h3 {
     border-radius: 8px;
     margin-bottom: 1rem;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    width: 100%;
-    max-width: none;
+    width: calc(50% - 20px); /* Two items per row with a gap */
     border: 1px solid #66FCF1;
+    box-sizing: border-box;
 }
 
     .software-item img {
@@ -330,7 +319,6 @@ h1, h2, h3 {
         color: #C5C6C7;
     }
 
-
 /* Responsive Styles */
 @media (max-width: 768px) {
     .software-item {
@@ -351,22 +339,16 @@ h1, h2, h3 {
         white-space: nowrap;
     }
 }
+
 .nav-link {
     display: flex;
     align-items: center;
-    gap: 5px; /* Adjust gap as needed for spacing between icon and text */
 }
 
-.nav-link i {
-    margin-right: 5px; /* Space between icon and text */
-    font-size: 18px; /* Adjust icon size as needed */
-}
+    .nav-link i {
+        margin-right: 5px; /* Space between icon and text */
+    }
 
 #cart-count {
     margin-left: 5px;
 }
-
-.navbar-nav .nav-item {
-    margin: 0 1rem;
-}
-
