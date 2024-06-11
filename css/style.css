@@ -28,8 +28,8 @@ header, .navbar {
 
 .navbar-nav {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-end; /* Aligns menu items to the right */
+    margin-right: 20px; /* Adds some space to the right */
 }
 
     .navbar-nav .nav-item {
@@ -62,20 +62,20 @@ main {
     padding: 2rem;
     margin-top: 5rem;
     flex: 1;
+    max-width: 100%;
     border-radius: 8px;
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     border: 2px solid #66FCF1; /* Correct palette blue for the main section border */
-    width: 100%;
-    max-width: none;
+    min-height: calc(100vh - 10rem); /* Ensure main takes full height minus header and footer */
 }
 
-.container, .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
-    width: 100%;
-    max-width: none;
-    padding: 2rem;
+.box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
     margin-bottom: 2rem;
+    padding: 2rem;
     border-radius: 8px;
     background-color: #1F2833;
     border: 1px solid #66FCF1; /* Ensure this border color matches the palette blue */
@@ -94,7 +94,7 @@ h1, h2, h3 {
     text-align: center;
     padding: 1rem 0;
     width: 100%;
-    position: relative;
+    position: fixed;
     bottom: 0;
 }
 
@@ -122,8 +122,6 @@ h1, h2, h3 {
     margin-bottom: 2rem;
     text-align: center;
     border: 1px solid #66FCF1;
-    width: 100%;
-    max-width: none;
 }
 
     .banner h1 {
@@ -143,8 +141,8 @@ h1, h2, h3 {
     border-radius: 8px;
     margin-bottom: 1rem;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    width: 100%;
-    max-width: none;
+    max-width: 1000px;
+    margin: auto;
     border: 1px solid #66FCF1;
 }
 
@@ -192,8 +190,7 @@ h1, h2, h3 {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     margin: 2rem auto;
-    width: 100%;
-    max-width: none;
+    max-width: 800px;
     border: 1px solid #66FCF1;
 }
 
@@ -247,8 +244,6 @@ h1, h2, h3 {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     color: #C5C6C7;
     border: 1px solid #66FCF1;
-    width: 100%;
-    max-width: none;
 }
 
     .analytics-box h2 {
@@ -275,8 +270,6 @@ h1, h2, h3 {
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    width: 100%;
-    max-width: none;
 }
 
     .table-dark th, .table-dark td {
@@ -299,8 +292,7 @@ h1, h2, h3 {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     margin: 2rem auto;
-    width: 100%;
-    max-width: none;
+    max-width: 800px;
     border: 1px solid #66FCF1;
 }
 
