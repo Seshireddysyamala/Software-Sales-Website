@@ -3,17 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+    <title>Your Cart</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
+    <script>
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = itemCount;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+            } else {
+                document.getElementById('profile-link').style.display = 'none';
+            }
+        }
+
+        checkLoginState();
+    </script>
 </head>
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
-        <div class="cart-container">
+        <div class="cart-container box">
             <h1>Your Cart</h1>
-            <table class="table table-dark">
+            <table class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -23,10 +45,13 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody id="cart-items"></tbody>
+                <tbody id="cart-table-body">
+                    <!-- Cart items will be dynamically inserted here -->
+                </tbody>
             </table>
             <div class="text-right">
-                <button class="btn btn-success">Checkout</button>
+                <h3>Total: <span id="cart-total">$0.00</span></h3>
+                <button class="btn btn-success">Proceed to Checkout</button>
             </div>
         </div>
     </main>
@@ -36,52 +61,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/cart.js"></script>
     <script>
         fetch('menu.html')
             .then(response => response.text())
             .then(data => document.getElementById('menu').innerHTML = data)
             .catch(error => console.error('Error loading menu:', error));
-
-        function displayCartItems() {
-            const cartItemsContainer = document.getElementById('cart-items');
-            cartItemsContainer.innerHTML = '';
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            cart.forEach(item => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                        <td>${item.name}</td>
-                        <td>$${item.price.toFixed(2)}</td>
-                        <td>${item.quantity}</td>
-                        <td>$${(item.price * item.quantity).toFixed(2)}</td>
-                        <td><button class="btn btn-danger" onclick="removeFromCart('${item.name}')">Remove</button></td>
-                    `;
-                cartItemsContainer.appendChild(row);
-            });
-        }
-
-        function removeFromCart(name) {
-            if (confirm('Are you sure you want to remove this item from the cart?')) {
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cart = cart.filter(item => item.name !== name);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                alert('${ name } removed from cart!');
-                updateCartCount();
-                displayCartItems();
-            }
-        }
-
-        function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = itemCount;
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            displayCartItems();
-            updateCartCount();
-        });
     </script>
 </body>
 </html>

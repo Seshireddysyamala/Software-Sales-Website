@@ -6,7 +6,29 @@
     <title>Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
+    <script>
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = itemCount;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+            } else {
+                document.getElementById('profile-link').style.display = 'none';
+            }
+        }
+
+        checkLoginState();
+    </script>
 </head>
 <body>
     <div id="menu"></div>
@@ -14,10 +36,9 @@
         <div class="user-profile-box">
             <h1>User Profile</h1>
             <div class="profile-details">
-                <p><strong>Name:</strong> <span id="profile-name"></span></p>
-                <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                <p><strong>Email:</strong> <span id="user-email"></span></p>
             </div>
-            <button class="btn btn-danger btn-logout" onclick="logout()">Logout</button>
+            <button class="btn btn-logout" onclick="logout()">Logout</button>
         </div>
     </main>
     <footer class="footer">
@@ -26,21 +47,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const userName = localStorage.getItem('userName');
-            const userEmail = localStorage.getItem('userEmail');
-            document.getElementById('profile-name').textContent = userName;
-            document.getElementById('profile-email').textContent = userEmail;
-        });
-
-        function logout() {
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('userName');
-            localStorage.removeItem('userEmail');
-            window.location.href = 'login.html';
-        }
-    </script>
     <script>
         fetch('menu.html')
             .then(response => response.text())
