@@ -29,15 +29,6 @@
 
         checkLoginState();
     </script>
-    <script>
-        function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cartCount.textContent = cart.length;
-        }
-
-        document.addEventListener('DOMContentLoaded', updateCartCount);
-    </script>
 </head>
 <body>
     <div id="menu"></div>
