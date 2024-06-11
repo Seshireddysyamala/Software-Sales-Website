@@ -1,58 +1,55 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const cartTable = document.getElementById('cart-table-body');
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    const renderCartItems = () => {
-        cartTable.innerHTML = '';
-        cart.forEach((item, index) => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.name}</td>
-                <td>$${item.price.toFixed(2)}</td>
-                <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
-                <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-            `;
-            cartTable.appendChild(row);
-        });
-        calculateTotal(); // Ensure the total is calculated whenever the cart is rendered
-    };
-
-    const updateCart = () => {
-        localStorage.setItem('cart', JSON.stringify(cart));
-        renderCartItems();
-        updateCartCount();
-        calculateTotal();
-    };
-
-    const updateCartCount = () => {
-        const cartCount = document.getElementById('cart-count');
-        cartCount.textContent = cart.reduce((count, item) => count + item.quantity, 0);
-    };
-
-    const calculateTotal = () => {
-        let total = 0;
-        cart.forEach(item => total += item.price * item.quantity);
-        document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-    };
-
-    cartTable.addEventListener('click', (event) => {
-        if (event.target.classList.contains('remove-item')) {
-            const index = event.target.getAttribute('data-index');
-            cart.splice(index, 1);
-            updateCart();
-        }
-    });
-
-    cartTable.addEventListener('input', (event) => {
-        if (event.target.classList.contains('item-quantity')) {
-            const index = event.target.getAttribute('data-index');
-            cart[index].quantity = parseInt(event.target.value, 10) || 1;
-            updateCart();
-        }
-    });
-
-    renderCartItems();
+document.addEventListener('DOMContentLoaded', function () {
+    displayCartItems();
     updateCartCount();
-    calculateTotal();
 });
+
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert('${ name } added to cart!');
+    updateCartCount();
+}
+
+function removeFromCart(name) {
+    if (confirm('Are you sure you want to remove this item from the cart?')) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart = cart.filter(item => item.name !== name);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('${ name } removed from cart!');
+        updateCartCount();
+        displayCartItems();
+    }
+}
+
+function updateCartCount() {
+    const cartCount = document.getElementById('cart-count');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    cartCount.textContent = itemCount;
+}
+
+function displayCartItems() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.innerHTML = '';
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    cart.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td>${item.quantity}</td>
+            <td>$${(item.price * item.quantity).toFixed(2)}</td>
+            <td><button class="btn btn-danger" onclick="removeFromCart('${item.name}')">Remove</button></td>
+        `;
+        cartItemsContainer.appendChild(row);
+    });
+}
