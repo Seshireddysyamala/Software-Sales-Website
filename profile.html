@@ -9,25 +9,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
     <script>
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = itemCount;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+
         function checkLoginState() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
-                window.location.href = 'login.html';
+            if (isLoggedIn) {
+                document.getElementById('login-link').style.display = 'none';
             } else {
-                const user = JSON.parse(localStorage.getItem('user'));
-                if (user) {
-                    document.getElementById('user-email').textContent = user.email;
-                }
+                document.getElementById('profile-link').style.display = 'none';
             }
         }
 
-        function logout() {
-            localStorage.removeItem('user');
-            localStorage.removeItem('isLoggedIn');
-            window.location.href = 'login.html';
-        }
-
-        document.addEventListener('DOMContentLoaded', checkLoginState);
+        checkLoginState();
     </script>
     <script>
         function updateCartCount() {

@@ -9,22 +9,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
     <script>
-        function checkLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
-                window.location.href = 'login.html';
-            }
-        }
-        document.addEventListener('DOMContentLoaded', checkLoginState);
-    </script>
-    <script>
         function updateCartCount() {
             const cartCount = document.getElementById('cart-count');
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cartCount.textContent = cart.length;
+            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = itemCount;
         }
 
         document.addEventListener('DOMContentLoaded', updateCartCount);
+
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+            } else {
+                document.getElementById('profile-link').style.display = 'none';
+            }
+        }
+
+        checkLoginState();
     </script>
     <style>
         .social-icons a {
@@ -94,7 +97,7 @@
                 <p>(813) 000-6666</p>
                 <h3><i class="fas fa-share-alt"></i> Social</h3>
                 <div class="social-icons">
-                    <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
                     <a href="https://github.com/Seshireddysyamala/Software-Sales-Website" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
