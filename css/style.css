@@ -340,13 +340,19 @@ h1, h2, h3 {
 .nav-link {
     display: flex;
     align-items: center;
+    gap: 5px; /* Adjust gap as needed for spacing between icon and text */
 }
 
-    .nav-link i {
-        margin-right: 5px; /* Space between icon and text */
-    }
+.nav-link i {
+    margin-right: 5px; /* Space between icon and text */
+    font-size: 18px; /* Adjust icon size as needed */
+}
 
 #cart-count {
     margin-left: 5px;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 1rem;
 }
 
