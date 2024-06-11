@@ -45,6 +45,7 @@ header, .navbar {
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer; /* Change cursor to pointer on hover */
         }
 
             .navbar-nav .nav-item .nav-link.active,
