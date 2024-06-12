@@ -34,6 +34,8 @@ header, .navbar {
 
     .navbar-nav .nav-item {
         margin: 0 1rem;
+        display: flex;
+        align-items: center;
     }
 
         .navbar-nav .nav-item .nav-link {
@@ -334,7 +336,7 @@ h1, h2, h3 {
     }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
     .software-item {
         width: 100%; /* Full width for small screens */
     }
@@ -353,3 +355,17 @@ h1, h2, h3 {
         white-space: nowrap;
     }
 }
+.nav-item i {
+    vertical-align: middle; /* Aligns the icon in the middle */
+    margin-right: 5px; /* Adds space between the icon and text */
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+}
+
+#cart-count {
+    margin-left: 5px;
+}
+
