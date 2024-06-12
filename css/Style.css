@@ -89,8 +89,7 @@ main {
     border: 2px solid #66FCF1;
     width: 100%;
     max-width: none;
-    display: flex;
-    flex-direction: column;
+    min-height: calc(100vh - 7rem); /* Adjust height based on header and footer heights */
 }
 
 /* Section Styles */
