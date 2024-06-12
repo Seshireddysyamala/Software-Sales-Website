@@ -76,6 +76,7 @@ header, .navbar {
 main {
     flex: 1;
     padding: 2rem;
+    padding-bottom :2rem;
     margin-top: 5rem;
     border-radius: 8px;
     background-color: #1F2833;
@@ -84,7 +85,7 @@ main {
     border: 2px solid #66FCF1;
     width: 100%;
     max-width: none;
-    margin-bottom: auto;
+    margin-bottom: 0;
 }
 
 /* Section Styles */
@@ -111,7 +112,7 @@ h1, h2, h3 {
     text-align: center;
     padding: 2rem 0;
     width: 100%;
-    margin-top: auto;
+    margin-top: 0;
 }
 
 /* Responsive Navbar */
