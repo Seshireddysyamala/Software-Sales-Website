@@ -195,11 +195,11 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 400px; /* Ensure consistent height */
+    height: 450px; /* Ensure consistent height */
 }
 
     .software-item img {
-        width: 100%;
+        max-width: 100%; /* Ensure images fit well */
         height: auto;
         object-fit: cover;
         margin-bottom: 10px;
