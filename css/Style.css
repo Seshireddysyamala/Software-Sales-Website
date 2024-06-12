@@ -5,13 +5,12 @@
     box-sizing: border-box;
 }
 
-html {
+html, body {
     height: 100%;
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 body {
     margin: 0;
@@ -23,6 +22,8 @@ body {
     line-height: 1.6;
     background-color: #0B0C10;
     color: #C5C6C7;
+    display:flex;
+    flex-direction:column;
 }
 
 /* Navbar */
@@ -58,7 +59,7 @@ header, .navbar {
         }
 
             .navbar-nav .nav-item .nav-link i {
-                margin-right: 7px;
+                margin-right: 10px;
                 vertical-align: middle;
             }
 
@@ -127,11 +128,9 @@ h1, h2, h3 {
     text-align: center;
     padding: 2rem 0;
     width: 100%;
-    margin-top: auto;
     border-top: 1px solid #66FCF1;
-    height: 106.49px;
-    position: relative;
-    bottom: 0; /* Stick to bottom */
+    position:relative;
+    bottom:auto;
 }
 
 /* Responsive Navbar */
