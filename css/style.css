@@ -24,7 +24,7 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     min-height: 100vh;
-    padding-right: 17px; /* Adjust padding to avoid scrollbar overlap */
+    padding-right: 2px; /* Adjust padding to avoid scrollbar overlap */
 }
 
 /* Navbar */
@@ -102,8 +102,8 @@ main {
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    border: 2px solid #66FCF1; /* Ensure border visibility */
-    width: calc(100% - 17px); /* Adjust width to avoid scrollbar overlap */
+    border: 2px solid #66FCF1 !important; /* Ensure border visibility with !important */
+    width: calc(100% - 2px); /* Adjust width to avoid scrollbar overlap */
     box-sizing: border-box;
 }
 
@@ -114,7 +114,7 @@ main {
     padding: 2rem;
     border-radius: 8px;
     background-color: #1F2833;
-    border: 1px solid #66FCF1; /* Ensure border visibility */
+    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
     box-sizing: border-box;
 }
 
@@ -137,7 +137,6 @@ h1, h2, h3 {
     padding: 2rem 0;
     width: 100%;
     margin-top: auto;
-    border-top: 1px solid #66FCF1;
     box-sizing: border-box;
 }
 
@@ -162,7 +161,7 @@ h1, h2, h3 {
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
-    border: 1px solid #66FCF1;
+    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
     width: 100%;
 }
 
@@ -184,7 +183,7 @@ h1, h2, h3 {
     margin-bottom: 1rem;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     width: calc(50% - 20px);
-    border: 1px solid #66FCF1; /* Ensure border visibility */
+    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
     box-sizing: border-box;
 }
 
@@ -233,7 +232,7 @@ h1, h2, h3 {
     margin: 2rem auto;
     width: 100%;
     max-width: none;
-    border: 1px solid #66FCF1; /* Ensure border visibility */
+    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
 }
 
     .cart-container h1 {
@@ -285,7 +284,7 @@ h1, h2, h3 {
     margin-bottom: 2rem;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     color: #C5C6C7;
-    border: 1px solid #66FCF1; /* Ensure border visibility */
+    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
     width: 100%;
     max-width: none;
 }
@@ -336,7 +335,7 @@ h1, h2, h3 {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    border: 1px solid #66FCF1; /* Ensure border visibility */
+    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
 }
 
 /* Responsive Styles */
