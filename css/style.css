@@ -195,7 +195,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 550px; /* Ensure consistent height */
+    height: 600px; /* Ensure consistent height */
 }
 
     .software-item img {
@@ -379,40 +379,29 @@ h1, h2, h3 {
         white-space: nowrap;
     }
 }
-/* Mobile Responsive Styles */
+/* Adjust software items for mobile screens */
 @media (max-width: 768px) {
-    .software-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
     .software-item {
-        width: 100%;
-        margin-bottom: 20px;
-        padding: 10px;
-        box-sizing: border-box;
+        width: 90%; /* Make the items take up most of the screen width */
+        margin: 1rem auto; /* Center items and add margin */
+        padding: 1rem; /* Add some padding */
     }
 
         .software-item img {
-            width: 100%;
+            max-width: 100%; /* Ensure images fit within the item container */
             height: auto;
-            margin-bottom: 10px;
         }
 
-        .software-item h3,
-        .software-item p {
-            text-align: center;
-            margin: 0 auto 10px;
+        .software-item h3, .software-item p {
+            margin-bottom: 1rem; /* Add margin below text */
         }
 
         .software-item .btn {
-            margin: 10px auto;
             display: block;
-            width: 90%; /* Make buttons span the width of the container */
+            width: 100%;
+            margin-top: 1rem; /* Ensure buttons are visible */
         }
 }
-
 
 /* Centering Navbar and Adjusting Margins */
 @media (max-width: 768px) {
