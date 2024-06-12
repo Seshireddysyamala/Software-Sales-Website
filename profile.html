@@ -9,34 +9,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
     <script>
-        function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = itemCount;
-        }
-
-        document.addEventListener('DOMContentLoaded', updateCartCount);
-
         function checkLoginState() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (isLoggedIn) {
-                document.getElementById('login-link').style.display = 'none';
-                const userEmail = localStorage.getItem('userEmail');
-                document.getElementById('user-email').textContent = userEmail;
+            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
+                window.location.href = 'login.html';
             } else {
-                document.getElementById('profile-link').style.display = 'none';
-                document.getElementById('user-email').textContent = 'Not Logged In';
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (user) {
+                    document.getElementById('user-email').textContent = user.email;
+                }
             }
         }
 
-        checkLoginState();
-
         function logout() {
+            localStorage.removeItem('user');
             localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('userEmail');
             window.location.href = 'login.html';
         }
+
+        document.addEventListener('DOMContentLoaded', checkLoginState);
     </script>
 </head>
 <body>
@@ -45,7 +36,7 @@
         <div class="user-profile-box">
             <h1>User Profile</h1>
             <div class="profile-details">
-                <p><strong>Email:</strong> <span id="user-email">Not Logged In</span></p>
+                <p><strong>Email:</strong> <span id="user-email"></span></p>
             </div>
             <button class="btn btn-logout" onclick="logout()">Logout</button>
         </div>
