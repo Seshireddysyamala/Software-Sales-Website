@@ -89,6 +89,8 @@ main {
     border: 2px solid #66FCF1;
     width: 100%;
     max-width: none;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Section Styles */
