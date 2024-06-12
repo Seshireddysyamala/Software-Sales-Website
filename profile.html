@@ -39,6 +39,8 @@
             const userEmail = localStorage.getItem('userEmail');
             if (userEmail) {
                 document.getElementById('user-email').textContent = userEmail;
+            } else {
+                document.getElementById('user-email').textContent = 'Not Logged In';
             }
         });
     </script>
