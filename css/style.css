@@ -382,8 +382,8 @@ h1, h2, h3 {
 /* Adjust software items for mobile screens */
 @media (max-width: 768px) {
     .software-item {
-        width: 90%; /* Make the items take up most of the screen width */
-        margin: 1rem auto; /* Center items and add margin */
+        width: 100%; /* Make the items take up most of the screen width */
+        margin: 1rem 0; /* Add margin for spacing */
         padding: 1rem; /* Add some padding */
         display: flex;
         flex-direction: column;
@@ -391,9 +391,18 @@ h1, h2, h3 {
     }
 
         .software-item img {
-            max-width: 80%; /* Ensure images fit within the item container */
+            max-width: 100%; /* Ensure images fit within the item container */
             height: auto;
             margin-bottom: 1rem;
+        }
+
+        .software-item h3 {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .software-item p {
+            text-align: center;
         }
 
         .software-item .price, .software-item .discounted-price {
@@ -402,15 +411,14 @@ h1, h2, h3 {
         }
 
         .software-item button {
-            margin-top: 0.5rem;
+            margin-top: 1rem;
             width: auto; /* Ensure button fits content */
         }
 
     .software-grid {
-        display: flex; /* Use flexbox for row layout */
-        flex-direction: column;
+        flex-direction: column; /* Stack items vertically */
+        gap: 1rem;
         align-items: center;
-        gap: 20px;
     }
 }
 
