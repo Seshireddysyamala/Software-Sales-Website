@@ -87,15 +87,14 @@ main {
 }
 
 .container, .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
-    width: calc(100% - 4rem);
+    width: 100%;
     max-width: none;
     padding: 2rem;
     margin-bottom: 2rem;
     border-radius: 8px;
     background-color: #1F2833;
     border: 1px solid #66FCF1; /* Ensure this border color matches the palette blue */
-    margin-left: auto;
-    margin-right: auto;
+    box-sizing: border-box; /* Ensure padding doesn't affect the width */
 }
 
 h1, h2, h3 {
@@ -109,10 +108,11 @@ h1, h2, h3 {
     background: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    padding: 1rem 0;
+    padding: 2rem 0; /* Increase padding to adjust height */
     width: 100%;
     position: relative;
     bottom: 0;
+    margin-top: auto; /* Ensure footer stays at the bottom */
 }
 
 /* Responsive Navbar */
@@ -335,22 +335,22 @@ h1, h2, h3 {
     }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
-    .software-item {
-        width: 100%; /* Full width for small screens */
-    }
+        @media (max-width: 768px) {
+            .software-item {
+                width: 100%; /* Full width for small screens */
+            }
 
-    .cart-container, .analytics-box {
-        padding: 1rem;
-    }
+            .cart-container, .analytics-box {
+                padding: 1rem;
+            }
 
-    .table {
-        display: block;
-        overflow-x: auto;
-        width: 100%;
-    }
+            .table {
+                display: block;
+                overflow-x: auto;
+                width: 100%;
+            }
 
-    .analytics-box table th, .analytics-box table td {
-        white-space: nowrap;
-    }
-}
+            .analytics-box table th, .analytics-box table td {
+                white-space: nowrap;
+            }
+        }
