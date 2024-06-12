@@ -127,9 +127,11 @@ h1, h2, h3 {
     text-align: center;
     padding: 2rem 0;
     width: 100%;
+    margin-top: auto;
     border-top: 1px solid #66FCF1;
-    position:relative;
-    bottom:auto;
+    height: 106.49px;
+    position: relative;
+    bottom: auto;
 }
 
 /* Responsive Navbar */
