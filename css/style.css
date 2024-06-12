@@ -73,12 +73,11 @@ header, .navbar {
                 color: #1F2833;
                 background-color: #66FCF1;
             }
-/* If using Font Awesome */
-.fa {
+.fas.fa-home, .fas.fa-user {
     position: relative;
-    top: 5px; /* Adjust these values accordingly */
-    left: 5px;
+    top: -2px; /* Adjust this value as needed to align with the text */
 }
+
 
 .navbar-brand,
 .navbar-brand:hover,
