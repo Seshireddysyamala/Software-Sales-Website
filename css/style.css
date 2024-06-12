@@ -391,6 +391,7 @@ h1, h2, h3 {
         width: 100%;
         margin-bottom: 20px;
         padding: 10px;
+        box-sizing: border-box;
     }
 
         .software-item img {
@@ -402,15 +403,16 @@ h1, h2, h3 {
         .software-item h3,
         .software-item p {
             text-align: center;
-            width: 90%;
-            margin: 0 auto;
+            margin: 0 auto 10px;
         }
 
-    .btn {
-        margin: 10px auto;
-        display: block;
-    }
+        .software-item .btn {
+            margin: 10px auto;
+            display: block;
+            width: 90%; /* Make buttons span the width of the container */
+        }
 }
+
 
 /* Centering Navbar and Adjusting Margins */
 @media (max-width: 768px) {
