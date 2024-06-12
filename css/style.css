@@ -115,20 +115,9 @@ main {
     border: 1px solid #66FCF1;
 }
 
-    /* Add margin-bottom to all boxes except the last one */
-    .container:not(:last-child),
-    .box:not(:last-child),
-    .banner:not(:last-child),
-    .software-item:not(:last-child),
-    .cart-container:not(:last-child),
-    .analytics-box:not(:last-child),
-    .section-box:not(:last-child),
-    .user-profile-box:not(:last-child) {
-        margin-bottom: 2rem;
-    }
-
-.section-content {
-    margin-bottom: 2rem; /* Apply margin-bottom to the inner content if needed */
+/* Add margin-bottom to create gaps between sections */
+.section-margin {
+    margin-bottom: 2rem;
 }
 
 h1, h2, h3 {
@@ -169,7 +158,6 @@ h1, h2, h3 {
 .banner {
     padding: 2rem;
     border-radius: 8px;
-    margin-bottom: 2rem;
     text-align: center;
     border: 1px solid #66FCF1;
     width: 100%;
@@ -337,6 +325,8 @@ h1, h2, h3 {
     .table-dark tbody tr:hover {
         background-color: #0B0C10;
     }
+
+
 
 
 /* User Profile Styles */
