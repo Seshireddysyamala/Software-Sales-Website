@@ -84,7 +84,7 @@ main {
     border: 2px solid #66FCF1;
     width: 100%;
     max-width: none;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 /* Section Styles */
@@ -111,7 +111,7 @@ h1, h2, h3 {
     text-align: center;
     padding: 2rem 0;
     width: 100%;
-    margin-top: auto;
+    margin-top: 4rem;
 }
 
 /* Responsive Navbar */
