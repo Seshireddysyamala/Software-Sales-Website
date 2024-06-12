@@ -71,12 +71,16 @@ header, .navbar {
 #cart-count {
     margin-left: 5px;
 }
-
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 /* Main Styles */
 main {
+    flex: 1;
     padding: 2rem;
     margin-top: 5rem;
-    flex: 1;
     border-radius: 8px;
     background-color: #1F2833;
     color: #C5C6C7;
@@ -84,7 +88,6 @@ main {
     border: 2px solid #66FCF1;
     width: 100%;
     max-width: none;
-    margin-bottom: -1rem; /* Pull main content down to overlap the footer */
 }
 
 
@@ -109,11 +112,10 @@ h1, h2, h3 {
     background: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    padding: 2rem 0; /* Increase height of footer */
+    padding: 2rem 0;
     width: 100%;
     position: relative;
     bottom: 0;
-    margin-top: -1rem; /* Pull footer up to overlap the main content */
 }
 
 
@@ -337,9 +339,16 @@ h1, h2, h3 {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .software-item {
-        width: 100%; /* Full width for small screens */
+    .software-grid {
+        display: block; /* Use block layout for mobile */
+        width: 100%;
     }
+
+    .software-item {
+        width: 100%;
+        margin-bottom: 20px; /* Add spacing between items */
+    }
+}
 
     .cart-container, .analytics-box {
         padding: 1rem;
@@ -354,7 +363,7 @@ h1, h2, h3 {
     .analytics-box table th, .analytics-box table td {
         white-space: nowrap;
     }
-}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -369,4 +378,3 @@ body {
 main {
     flex: 1;
 }
-
