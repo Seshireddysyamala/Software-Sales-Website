@@ -52,6 +52,7 @@ header, .navbar {
             display: flex;
             align-items: center;
             justify-content: center;
+            line-height: 1.6;
         }
 
             .navbar-nav .nav-item .nav-link.active,
@@ -354,7 +355,7 @@ h1, h2, h3 {
         overflow-x: auto;
         width: 100%;
     }
-
+    
     .analytics-box table th, .analytics-box table td {
         white-space: nowrap;
     }
