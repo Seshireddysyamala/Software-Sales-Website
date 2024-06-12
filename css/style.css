@@ -110,10 +110,13 @@ main {
     width: 100%;
     max-width: none;
     padding: 2rem;
-    margin-bottom: 2rem;
     border-radius: 8px;
     background-color: #1F2833;
     border: 1px solid #66FCF1;
+}
+/* Add a new class for the inner content of the sections */
+.section-content {
+    margin-bottom: 2rem; /* Apply margin-bottom to this inner content */
 }
 
 h1, h2, h3 {
