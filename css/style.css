@@ -9,6 +9,10 @@ html, body {
     height: 100%;
 }
 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -124,7 +128,9 @@ h1, h2, h3 {
     padding: 2rem 0;
     width: 100%;
     border-top: 1px solid #66FCF1;
+    height: auto;
     margin-top: auto;
+    position: relative;
 }
 
 /* Responsive Navbar */
