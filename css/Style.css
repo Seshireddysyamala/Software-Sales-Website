@@ -88,7 +88,6 @@ main {
 
 .container, .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
     width: 100%;
-    max-width: none;
     padding: 2rem;
     margin-bottom: 2rem;
     border-radius: 8px;
@@ -140,7 +139,6 @@ h1, h2, h3 {
     text-align: center;
     border: 1px solid #66FCF1;
     width: 100%;
-    max-width: none;
 }
 
     .banner h1 {
@@ -166,8 +164,8 @@ h1, h2, h3 {
 }
 
     .software-item img {
-        width: 200px;
-        height: 150px;
+        width: 100%; /* Adjust image width for mobile */
+        height: auto;
         object-fit: cover;
         margin-bottom: 10px;
         border: 1px solid #ccc;
@@ -292,7 +290,6 @@ h1, h2, h3 {
     color: #C5C6C7;
     text-align: center;
     width: 100%;
-    max-width: none;
 }
 
     .table-dark th, .table-dark td {
@@ -335,22 +332,22 @@ h1, h2, h3 {
     }
 
 /* Responsive Styles */
-        @media (max-width: 768px) {
-            .software-item {
-                width: 100%; /* Full width for small screens */
-            }
+@media (max-width: 768px) {
+    .software-item {
+        width: 100%; /* Full width for small screens */
+    }
 
-            .cart-container, .analytics-box {
-                padding: 1rem;
-            }
+    .cart-container, .analytics-box {
+        padding: 1rem;
+    }
 
-            .table {
-                display: block;
-                overflow-x: auto;
-                width: 100%;
-            }
+    .table {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
 
-            .analytics-box table th, .analytics-box table td {
-                white-space: nowrap;
-            }
-        }
+    .analytics-box table th, .analytics-box table td {
+        white-space: nowrap;
+    }
+}
