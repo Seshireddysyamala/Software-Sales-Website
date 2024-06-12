@@ -1,58 +1,49 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const cartTable = document.getElementById('cart-table-body');
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+document.addEventListener('DOMContentLoaded', function () {
+    updateCart();
 
-    const renderCartItems = () => {
-        cartTable.innerHTML = '';
+    function updateCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartTableBody = document.getElementById('cart-table-body');
+        const cartTotal = document.getElementById('cart-total');
+        let total = 0;
+
+        cartTableBody.innerHTML = '';
+
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
+
             row.innerHTML = `
                 <td>${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
-                <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
-                <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                <td>${item.quantity}</td>
+                <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" onclick="removeItemFromCart(${index})">Remove</button>
+                </td>
             `;
-            cartTable.appendChild(row);
+
+            cartTableBody.appendChild(row);
+            total += item.price * item.quantity;
         });
-        calculateTotal(); // Ensure the total is calculated whenever the cart is rendered
-    };
 
-    const updateCart = () => {
-        localStorage.setItem('cart', JSON.stringify(cart));
-        renderCartItems();
-        updateCartCount();
-        calculateTotal();
-    };
+        cartTotal.textContent = `$${total.toFixed(2)}`;
+    }
 
-    const updateCartCount = () => {
-        const cartCount = document.getElementById('cart-count');
-        cartCount.textContent = cart.reduce((count, item) => count + item.quantity, 0);
-    };
-
-    const calculateTotal = () => {
-        let total = 0;
-        cart.forEach(item => total += item.price * item.quantity);
-        document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-    };
-
-    cartTable.addEventListener('click', (event) => {
-        if (event.target.classList.contains('remove-item')) {
-            const index = event.target.getAttribute('data-index');
+    window.removeItemFromCart = function (index) {
+        const confirmation = confirm("Are you sure you want to remove this item from the cart?");
+        if (confirmation) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
             updateCart();
+            updateCartCount();
         }
-    });
+    }
 
-    cartTable.addEventListener('input', (event) => {
-        if (event.target.classList.contains('item-quantity')) {
-            const index = event.target.getAttribute('data-index');
-            cart[index].quantity = parseInt(event.target.value, 10) || 1;
-            updateCart();
-        }
-    });
-
-    renderCartItems();
-    updateCartCount();
-    calculateTotal();
+    function updateCartCount() {
+        const cartCount = document.getElementById('cart-count');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+        cartCount.textContent = itemCount;
+    }
 });
