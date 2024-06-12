@@ -131,7 +131,6 @@ h1, h2, h3 {
     margin-top: auto;
     border-top: 1px solid #66FCF1;
     height: auto; /* Adjust height as needed */
-    position: relative;
 }
 
 /* Responsive Navbar */
