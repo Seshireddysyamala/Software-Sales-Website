@@ -390,11 +390,11 @@ h1, h2, h3 {
     .software-item {
         width: 90%;
         margin-bottom: 20px;
-        padding: 10px; /* Ensure padding for better layout */
+        padding: 10px;
     }
 
         .software-item img {
-            width: 100%; /* Make the image full width */
+            width: 100%;
             margin-bottom: 10px;
         }
 
@@ -404,7 +404,7 @@ h1, h2, h3 {
         }
 
     .btn {
-        margin: 10px auto; /* Center the button and add margin */
+        margin: 10px auto;
         display: block;
     }
 }
