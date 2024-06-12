@@ -73,6 +73,11 @@ header, .navbar {
                 color: #1F2833;
                 background-color: #66FCF1;
             }
+.fas.fa-home, .fas.fa-user {
+    position: relative;
+    top: -1px; /* Adjust this value as needed to align with the text */
+}
+
 
 .navbar-brand,
 .navbar-brand:hover,
