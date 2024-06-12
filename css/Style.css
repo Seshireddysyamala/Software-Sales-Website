@@ -81,10 +81,10 @@ main {
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    border: 2px solid #66FCF1; /* Correct palette blue for the main section border */
+    border: 2px solid #66FCF1;
     width: 100%;
     max-width: none;
-    margin-bottom: -2rem; /* Adjust margin to remove gap */
+    margin-bottom: 0; /* Remove bottom margin */
 }
 
 .container, .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
