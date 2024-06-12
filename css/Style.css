@@ -87,13 +87,15 @@ main {
 }
 
 .container, .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
-    width: 100%;
+    width: calc(100% - 4rem);
     max-width: none;
     padding: 2rem;
     margin-bottom: 2rem;
     border-radius: 8px;
     background-color: #1F2833;
     border: 1px solid #66FCF1; /* Ensure this border color matches the palette blue */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1, h2, h3 {
@@ -344,7 +346,7 @@ h1, h2, h3 {
 
     .table {
         display: block;
-        overflow-x:auto;
+        overflow-x: auto;
         width: 100%;
     }
 
