@@ -84,16 +84,17 @@ main {
     border: 2px solid #66FCF1; /* Correct palette blue for the main section border */
     width: 100%;
     max-width: none;
+    margin-bottom: -2rem; /* Adjust margin to remove gap */
 }
 
 .container, .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
     width: 100%;
+    max-width: none;
     padding: 2rem;
     margin-bottom: 2rem;
     border-radius: 8px;
     background-color: #1F2833;
     border: 1px solid #66FCF1; /* Ensure this border color matches the palette blue */
-    box-sizing: border-box; /* Ensure padding doesn't affect the width */
 }
 
 h1, h2, h3 {
@@ -107,11 +108,10 @@ h1, h2, h3 {
     background: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    padding: 3.5rem 0; /* Increase padding to adjust height */
+    padding: 2rem 0; /* Increase height of footer */
     width: 100%;
     position: relative;
     bottom: 0;
-    margin-top: auto; /* Ensure footer stays at the bottom */
 }
 
 /* Responsive Navbar */
@@ -129,6 +129,7 @@ h1, h2, h3 {
                 padding: 0.5rem 1rem;
             }
 }
+
 
 /* Banner Styles */
 .banner {
