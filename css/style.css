@@ -388,19 +388,22 @@ h1, h2, h3 {
     }
 
     .software-item {
-        width: 90%;
+        width: 100%;
         margin-bottom: 20px;
         padding: 10px;
     }
 
         .software-item img {
             width: 100%;
+            height: auto;
             margin-bottom: 10px;
         }
 
         .software-item h3,
         .software-item p {
             text-align: center;
+            width: 90%;
+            margin: 0 auto;
         }
 
     .btn {
@@ -408,6 +411,7 @@ h1, h2, h3 {
         display: block;
     }
 }
+
 /* Centering Navbar and Adjusting Margins */
 @media (max-width: 768px) {
     .navbar-nav {
