@@ -58,7 +58,7 @@ header, .navbar {
         }
 
             .navbar-nav .nav-item .nav-link i {
-                margin-right: 5px;
+                margin-right: 7px;
                 vertical-align: middle;
             }
 
@@ -130,7 +130,7 @@ h1, h2, h3 {
     margin-top: auto;
     border-top: 1px solid #66FCF1;
     height: 106.49px;
-    position: fixed;
+    position: relative;
     bottom: 0; /* Stick to bottom */
 }
 
