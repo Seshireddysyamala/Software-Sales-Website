@@ -84,8 +84,9 @@ main {
     border: 2px solid #66FCF1;
     width: 100%;
     max-width: none;
-    margin-bottom: 0; /* Remove bottom margin */
+    margin-bottom: -1rem; /* Pull main content down to overlap the footer */
 }
+
 
 .container, .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
     width: 100%;
@@ -112,7 +113,9 @@ h1, h2, h3 {
     width: 100%;
     position: relative;
     bottom: 0;
+    margin-top: -1rem; /* Pull footer up to overlap the main content */
 }
+
 
 /* Responsive Navbar */
 @media (max-width: 992px) {
@@ -352,3 +355,18 @@ h1, h2, h3 {
         white-space: nowrap;
     }
 }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
