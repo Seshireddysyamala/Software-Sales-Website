@@ -195,7 +195,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 450px; /* Ensure consistent height */
+    height: 400px; /* Ensure consistent height */
 }
 
     .software-item img {
@@ -216,6 +216,7 @@ h1, h2, h3 {
         margin-bottom: 10px;
         color: #C5C6C7;
         flex: 1; /* Allow paragraphs to take up available space */
+        text-align: center;
     }
 
     .software-item .price,
@@ -225,6 +226,10 @@ h1, h2, h3 {
 
     .software-item .discounted-price {
         color: red;
+    }
+
+    .software-item .btn {
+        margin-top: auto; /* Push button to the bottom */
     }
 
 /* Cart Section Styles */
