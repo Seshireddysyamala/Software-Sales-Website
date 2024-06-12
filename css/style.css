@@ -58,7 +58,7 @@ header, .navbar {
         }
 
             .navbar-nav .nav-item .nav-link i {
-                margin-right: 5px;
+                margin-right: 10px;
                 vertical-align: middle;
             }
 
@@ -75,7 +75,7 @@ header, .navbar {
             }
 .fas.fa-home, .fas.fa-user {
     position: relative;
-    top: -2px; /* Adjust this value as needed to align with the text */
+    top: -1px; /* Adjust this value as needed to align with the text */
 }
 
 
@@ -130,8 +130,8 @@ h1, h2, h3 {
     margin-top: auto;
     border-top: 1px solid #66FCF1;
     height: 106.49px;
-    position: fixed;
-    bottom: 0; /* Stick to bottom */
+    position: relative;
+    bottom: auto;
 }
 
 /* Responsive Navbar */
