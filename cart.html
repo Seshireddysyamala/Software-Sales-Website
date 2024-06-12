@@ -67,6 +67,16 @@
             .then(response => response.text())
             .then(data => document.getElementById('menu').innerHTML = data)
             .catch(error => console.error('Error loading menu:', error));
+
+        function removeItemFromCart(index) {
+            const confirmation = confirm("Are you sure you want to remove this item from the cart?");
+            if (confirmation) {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            }
+        }
     </script>
 </body>
 </html>

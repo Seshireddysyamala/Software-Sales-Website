@@ -22,23 +22,24 @@
             const isLoggedIn = localStorage.getItem('isLoggedIn');
             if (isLoggedIn) {
                 document.getElementById('login-link').style.display = 'none';
-                const user = JSON.parse(localStorage.getItem('user'));
-                if (user && user.email) {
-                    document.getElementById('user-email').textContent = user.email;
-                }
             } else {
                 document.getElementById('profile-link').style.display = 'none';
-                window.location.href = 'login.html';
             }
         }
 
+        checkLoginState();
+
         function logout() {
             localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('user');
             window.location.href = 'login.html';
         }
 
-        document.addEventListener('DOMContentLoaded', checkLoginState);
+        document.addEventListener('DOMContentLoaded', function () {
+            const userEmail = localStorage.getItem('userEmail');
+            if (userEmail) {
+                document.getElementById('user-email').textContent = userEmail;
+            }
+        });
     </script>
 </head>
 <body>
@@ -47,7 +48,7 @@
         <div class="user-profile-box">
             <h1>User Profile</h1>
             <div class="profile-details">
-                <p><strong>Email:</strong> <span id="user-email"></span></p>
+                <p><strong>Email:</strong> <span id="user-email">Not Logged In</span></p>
             </div>
             <button class="btn btn-logout" onclick="logout()">Logout</button>
         </div>
