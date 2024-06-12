@@ -379,7 +379,7 @@ h1, h2, h3 {
         white-space: nowrap;
     }
 }
-/* Mobile Responsive Styles */
+/* General Mobile Styles */
 @media (max-width: 768px) {
     .software-grid {
         flex-direction: column;
@@ -388,16 +388,43 @@ h1, h2, h3 {
 
     .software-item {
         width: 90%;
-        margin-bottom: 20px;
+        margin: 10px 0;
     }
 
         .software-item img {
             margin-bottom: 10px;
         }
+
+    .navbar-nav {
+        justify-content: center;
+    }
 }
-/* Centering Navbar on Mobile */
+/* Centering Navbar and Adjusting Margins */
 @media (max-width: 768px) {
     .navbar-nav {
         justify-content: center;
     }
+
+        .navbar-nav .nav-item {
+            margin: 5px 0; /* Adjust as necessary for spacing */
+        }
+}
+
+/* Changing Text Colors */
+.customer-reviews p {
+    color: yellow; /* Customer reviews text to yellow */
+}
+
+#about-company p {
+    color: #00FF00; /* About company text to bright green */
+}
+
+#contact-us p:first-of-type {
+    color: #FFA500; /* Contact us intro text to bright orange */
+}
+
+/* Adding Spacing Between Images and Text */
+#latest-software img,
+#top-deals img {
+    margin-bottom: 20px;
 }
