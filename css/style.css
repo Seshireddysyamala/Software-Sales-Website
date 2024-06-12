@@ -43,36 +43,36 @@ header, .navbar {
     width: 100%;
 }
 
-    .navbar-nav .nav-item {
-        margin: 0 1rem;
-    }
+.navbar-nav .nav-item {
+    margin: 0 1rem;
+}
 
-        .navbar-nav .nav-item .nav-link {
-            font-weight: bold;
-            color: #FFFFFF;
-            padding: 0.375rem 0.75rem;
-            border-radius: 0.25rem;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
+.navbar-nav .nav-item .nav-link {
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
 
-            .navbar-nav .nav-item .nav-link i {
-                margin-right: 10px;
-                vertical-align: middle;
-            }
+.navbar-nav .nav-item .nav-link i {
+    margin-right: 10px;
+    vertical-align: middle;
+}
 
-            .navbar-nav .nav-item .nav-link span {
-                display: inline-block;
-                vertical-align: middle;
-            }
+.navbar-nav .nav-item .nav-link span {
+    display: inline-block;
+    vertical-align: middle;
+}
 
-            .navbar-nav .nav-item .nav-link.active,
-            .navbar-nav .nav-item .nav-link:hover,
-            .navbar-nav .nav-item .nav-link:focus {
-                color: #1F2833;
-                background-color: #66FCF1;
-            }
+.navbar-nav .nav-item .nav-link.active,
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus {
+    color: #1F2833;
+    background-color: #66FCF1;
+}
 
 .fas.fa-home, .fas.fa-user {
     position: relative;
@@ -110,6 +110,8 @@ main {
     width: 100%;
     max-width: none;
     padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
     background-color: #1F2833;
     border: 1px solid #66FCF1;
 }
@@ -125,7 +127,7 @@ h1, h2, h3 {
     background: #1F2833;
     color: #C5C6C7;
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
     width: 100%;
     margin-top: auto; /* Pushes footer to the bottom when there is little content */
 }
@@ -137,13 +139,13 @@ h1, h2, h3 {
         text-align: center;
     }
 
-        .navbar-nav .nav-item {
-            margin: 0.5rem 0;
-        }
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0;
+    }
 
-            .navbar-nav .nav-item .nav-link {
-                padding: 0.5rem 1rem;
-            }
+    .navbar-nav .nav-item .nav-link {
+        padding: 0.5rem 1rem;
+    }
 }
 
 /* Banner Styles */
@@ -156,15 +158,15 @@ h1, h2, h3 {
     width: 100%;
 }
 
-    .banner h1 {
-        font-size: 2rem;
-        color: #66FCF1;
-    }
+.banner h1 {
+    font-size: 2rem;
+    color: #66FCF1;
+}
 
-    .banner p {
-        color: #C5C6C7;
-        font-size: 1.2rem;
-    }
+.banner p {
+    color: #C5C6C7;
+    font-size: 1.2rem;
+}
 
 /* Software Section Styles */
 .software-item {
@@ -178,33 +180,33 @@ h1, h2, h3 {
     box-sizing: border-box;
 }
 
-    .software-item img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
+.software-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
-    .software-item h3 {
-        margin-bottom: 10px;
-        color: #66FCF1;
-    }
+.software-item h3 {
+    margin-bottom: 10px;
+    color: #66FCF1;
+}
 
-    .software-item p {
-        margin-bottom: 10px;
-        color: #C5C6C7;
-    }
+.software-item p {
+    margin-bottom: 10px;
+    color: #C5C6C7;
+}
 
-    .software-item .price,
-    .software-item .discounted-price {
-        font-weight: bold;
-    }
+.software-item .price,
+.software-item .discounted-price {
+    font-weight: bold;
+}
 
-    .software-item .discounted-price {
-        color: red;
-    }
+.software-item .discounted-price {
+    color: red;
+}
 
 .software-grid {
     display: flex;
@@ -226,10 +228,10 @@ h1, h2, h3 {
     border: 1px solid #66FCF1;
 }
 
-    .cart-container h1 {
-        color: #66FCF1;
-        margin-bottom: 2rem;
-    }
+.cart-container h1 {
+    color: #66FCF1;
+    margin-bottom: 2rem;
+}
 
 .table {
     color: #C5C6C7;
@@ -237,10 +239,10 @@ h1, h2, h3 {
     table-layout: fixed;
 }
 
-    .table th, .table td {
-        padding: 0.5rem;
-        word-wrap: break-word;
-    }
+.table th, .table td {
+    padding: 0.5rem;
+    word-wrap: break-word;
+}
 
 .btn-success {
     background-color: #45A29E;
@@ -280,24 +282,24 @@ h1, h2, h3 {
     max-width: none;
 }
 
-    .analytics-box h2 {
-        color: #66FCF1;
-    }
+.analytics-box h2 {
+    color: #66FCF1;
+}
 
-    .analytics-box canvas {
-        margin-bottom: 1rem;
-    }
+.analytics-box canvas {
+    margin-bottom: 1rem;
+}
 
-    .analytics-box table {
-        width: 100%;
-        margin-bottom: 1rem;
-        color: #C5C6C7;
-    }
+.analytics-box table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #C5C6C7;
+}
 
-        .analytics-box table th, .analytics-box table td {
-            padding: 0.5rem;
-            text-align: center;
-        }
+.analytics-box table th, .analytics-box table td {
+    padding: 0.5rem;
+    text-align: center;
+}
 
 /* Table Styles */
 .table-dark {
@@ -307,17 +309,17 @@ h1, h2, h3 {
     width: 100%;
 }
 
-    .table-dark th, .table-dark td {
-        border: 1px solid #C5C6C7;
-    }
+.table-dark th, .table-dark td {
+    border: 1px solid #C5C6C7;
+}
 
-    .table-dark th {
-        background-color: #0B0C10;
-    }
+.table-dark th {
+    background-color: #0B0C10;
+}
 
-    .table-dark tbody tr:hover {
-        background-color: #0B0C10;
-    }
+.table-dark tbody tr:hover {
+    background-color: #0B0C10;
+}
 
 
 /* User Profile Styles */
@@ -367,8 +369,3 @@ h1, h2, h3 {
         white-space: nowrap;
     }
 }
-/* Custom Styles */
-.border-primary {
-    border-color: #66FCF1 !important; /* Adjust the color as needed */
-}
-
