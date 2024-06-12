@@ -19,6 +19,7 @@ body {
     color: #C5C6C7;
     display: flex;
     min-height: 100vh;
+    flex-direction: column;
 }
 
 /* Navbar */
@@ -84,13 +85,11 @@ main {
     flex: 1;
     padding: 2rem;
     margin-top: 5rem;
-    border-radius: 8px;
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
     border: 2px solid #66FCF1;
     width: 100%;
-    max-width: none;
     display: flex;
     flex-direction: column;
     overflow:auto;
@@ -122,7 +121,9 @@ h1, h2, h3 {
     width: 100%;
     margin-top: auto;
     border-top: 1px solid #66FCF1;
-    height:106.49px;
+    height: 106.49px;
+    position: fixed;
+    bottom: 0; /* Stick to bottom */
 }
 
 /* Responsive Navbar */
