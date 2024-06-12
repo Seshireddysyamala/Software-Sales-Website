@@ -71,11 +71,11 @@ header, .navbar {
                 color: #1F2833;
                 background-color: #66FCF1;
             }
+
 .fas.fa-home, .fas.fa-user {
     position: relative;
     top: -1px; /* Adjust this value as needed to align with the text */
 }
-
 
 .navbar-brand,
 .navbar-brand:hover,
@@ -97,8 +97,6 @@ main {
     text-align: center;
     border: 2px solid #66FCF1;
     width: 100%;
-    flex-direction: column;
-    overflow-y: auto;
     box-sizing: border-box;
 }
 
@@ -126,9 +124,9 @@ h1, h2, h3 {
     text-align: center;
     padding: 2rem 0;
     width: 100%;
-    margin-top: auto;
     border-top: 1px solid #66FCF1;
-    height: auto; /* Adjust height as needed */
+    height: auto;
+    margin-top: auto;
     position: relative;
 }
 
@@ -347,6 +345,7 @@ h1, h2, h3 {
     .user-profile-box p {
         color: #C5C6C7;
     }
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
