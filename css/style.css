@@ -347,6 +347,17 @@ h1, h2, h3 {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
 }
+/* Logout Button */
+.btn-logout {
+    background-color: #45A29E; /* Same as .btn-success */
+    border-color: #45A29E; /* Same as .btn-success */
+    color: #fff; /* White text color */
+}
+
+    .btn-logout:hover {
+        background-color: #DC3545; /* Red color on hover */
+        border-color: #DC3545; /* Red color on hover */
+    }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
