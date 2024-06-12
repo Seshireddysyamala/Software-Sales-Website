@@ -344,7 +344,7 @@ h1, h2, h3 {
 
     .table {
         display: block;
-        overflow-x: auto;
+        overflow-x:auto;
         width: 100%;
     }
 
