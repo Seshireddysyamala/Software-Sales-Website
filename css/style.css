@@ -29,7 +29,7 @@ body {
 header, .navbar {
     background: #1F2833;
     color: #66FCF1;
-    padding: 0.05rem 0;
+    padding: 0.19rem 0;
     text-align: center;
     width: 100%;
     position: fixed;
@@ -110,8 +110,6 @@ main {
     width: 100%;
     max-width: none;
     padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
     background-color: #1F2833;
     border: 1px solid #66FCF1;
 }
