@@ -8,107 +8,43 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
-    <script>
-        function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = itemCount;
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
-        document.addEventListener('DOMContentLoaded', updateCartCount);
+        .popup-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
 
-        function checkLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (isLoggedIn) {
-                document.getElementById('login-link').style.display = 'none';
-                document.getElementById('profile-link').style.display = 'block';
-            } else {
-                document.getElementById('login-link').style.display = 'block';
-                document.getElementById('profile-link').style.display = 'none';
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close-btn:hover,
+            .close-btn:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
             }
-        }
-
-        function proceedToCheckout() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (!isLoggedIn) {
-                window.location.href = 'login.html';
-            } else {
-                // Redirect to checkout page (assuming you have one)
-                window.location.href = 'checkout.html';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('menu.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('menu').innerHTML = data;
-                    checkLoginState();
-                })
-                .catch(error => console.error('Error loading menu:', error));
-        });
-
-        function removeItemFromCart(index) {
-            const confirmation = confirm("Are you sure you want to remove this item from the cart?");
-            if (confirmation) {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartCount();
-                renderCartItems();
-            }
-        }
-
-        function renderCartItems() {
-            const cartTable = document.getElementById('cart-table-body');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cartTable.innerHTML = '';
-            cart.forEach((item, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                        <td>${item.name}</td>
-                        <td>$${item.price.toFixed(2)}</td>
-                        <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
-                        <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                        <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-                    `;
-                cartTable.appendChild(row);
-            });
-            calculateTotal();
-        }
-
-        function calculateTotal() {
-            let total = 0;
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.forEach(item => total += item.price * item.quantity);
-            document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCartItems();
-            updateCartCount();
-        });
-
-        document.getElementById('cart-table-body').addEventListener('click', (event) => {
-            if (event.target.classList.contains('remove-item')) {
-                const index = event.target.getAttribute('data-index');
-                removeItemFromCart(index);
-            }
-        });
-
-        document.getElementById('cart-table-body').addEventListener('input', (event) => {
-            if (event.target.classList.contains('item-quantity')) {
-                const index = event.target.getAttribute('data-index');
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cart[index].quantity = parseInt(event.target.value, 10) || 1;
-                localStorage.setItem('cart', JSON.stringify(cart));
-                renderCartItems();
-                updateCartCount();
-                calculateTotal();
-            }
-        });
-    </script>
+    </style>
 </head>
 <body>
     <div id="menu"></div>
@@ -131,15 +67,59 @@
             </table>
             <div class="text-right">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
-                <button class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                <button class="btn btn-success" onclick="showPopup()">Proceed to Checkout</button>
             </div>
         </div>
     </main>
     <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
+    <div id="checkoutPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="hidePopup()">&times;</span>
+            <img src="images/under-construction-example.png" alt="Under Construction" style="max-width: 100%;">
+            <p>Thank you for being patient. We are doing some work on the site and will be back shortly.</p>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu').innerHTML = data;
+                checkLoginState();
+            })
+            .catch(error => console.error('Error loading menu:', error));
+
+        function showPopup() {
+            document.getElementById('checkoutPopup').style.display = 'block';
+        }
+
+        function hidePopup() {
+            document.getElementById('checkoutPopup').style.display = 'none';
+        }
+
+        function proceedToCheckout() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            } else {
+                showPopup();
+            }
+        }
+
+        function removeItemFromCart(index) {
+            const confirmation = confirm("Are you sure you want to remove this item from the cart?");
+            if (confirmation) {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            }
+        }
+    </script>
 </body>
 </html>
