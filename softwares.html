@@ -8,44 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
-    <script>
-        function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = itemCount;
-        }
-
-        document.addEventListener('DOMContentLoaded', updateCartCount);
-
-        function checkLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (isLoggedIn) {
-                document.getElementById('login-link').style.display = 'none';
-                document.getElementById('profile-link').style.display = 'block';
-            } else {
-                document.getElementById('login-link').style.display = 'block';
-                document.getElementById('profile-link').style.display = 'none';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', checkLoginState);
-
-        function addToCart(name, price) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingItem = cart.find(item => item.name === name);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ name, price, quantity: 1 });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${name} added to cart!`);
-            updateCartCount();
-        }
-    </script>
     <style>
         .software-item {
             background-color: #1F2833;
@@ -153,6 +115,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/softwares.js"></script>
     <script>
         fetch('menu.html')
             .then(response => response.text())
