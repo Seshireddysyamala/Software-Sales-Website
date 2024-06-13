@@ -29,7 +29,7 @@
             }
         }
 
-        checkLoginState();
+        document.addEventListener('DOMContentLoaded', checkLoginState);
     </script>
 </head>
 <body>
@@ -67,7 +67,10 @@
     <script>
         fetch('menu.html')
             .then(response => response.text())
-            .then(data => document.getElementById('menu').innerHTML = data)
+            .then(data => {
+                document.getElementById('menu').innerHTML = data;
+                checkLoginState();
+            })
             .catch(error => console.error('Error loading menu:', error));
 
         function proceedToCheckout() {
