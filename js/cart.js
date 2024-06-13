@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             cartTable.appendChild(row);
         });
-        calculateTotal();
+        calculateTotal(); // Ensure the total is calculated whenever the cart is rendered
     };
 
     const updateCart = () => {

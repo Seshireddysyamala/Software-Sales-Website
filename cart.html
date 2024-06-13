@@ -106,7 +106,7 @@
         function removeItemFromCart(index) {
             const confirmation = confirm("Are you sure you want to remove this item from the cart?");
             if (confirmation) {
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 cart.splice(index, 1);
                 localStorage.setItem('cart', JSON.stringify(cart));
                 updateCartCount();
@@ -145,14 +145,14 @@
             updateCartCount();
         });
 
-        document.addEventListener('click', (event) => {
+        document.getElementById('cart-table-body').addEventListener('click', (event) => {
             if (event.target.classList.contains('remove-item')) {
                 const index = event.target.getAttribute('data-index');
                 removeItemFromCart(index);
             }
         });
 
-        document.addEventListener('input', (event) => {
+        document.getElementById('cart-table-body').addEventListener('input', (event) => {
             if (event.target.classList.contains('item-quantity')) {
                 const index = event.target.getAttribute('data-index');
                 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -206,6 +206,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/cart.js"></script>
 </body>
 </html>
