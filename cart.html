@@ -11,23 +11,30 @@
     <style>
         .modal-content {
             background-color: #1F2833;
-            color: #fff;
+            color: white;
             border: 2px solid #66FCF1;
-            position: relative;
         }
 
             .modal-content img {
                 border: 2px solid #66FCF1;
+                width: 100%;
             }
 
-            .modal-content .close {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                color: #66FCF1;
-                font-size: 24px;
-                font-weight: bold;
-                cursor: pointer;
+        .modal .close {
+            color: #66FCF1;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            opacity: 1;
+        }
+
+        .modal .modal-body {
+            text-align: center;
+        }
+
+            .modal .modal-body p {
+                margin-top: 1rem;
             }
     </style>
     <script>
@@ -56,7 +63,7 @@
             if (!isLoggedIn) {
                 window.location.href = 'login.html';
             } else {
-                $('#constructionModal').modal('show');
+                $('#checkoutModal').modal('show');
             }
         }
 
@@ -159,17 +166,19 @@
     <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
-    <div id="constructionModal" class="modal fade" tabindex="-1" role="dialog">
+
+    <div id="checkoutModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <span class="close" onclick="$('#constructionModal').modal('hide')">&times;</span>
-                <div class="modal-body text-center">
-                    <img src="images/under-construction-example.png" alt="Under Construction" class="img-fluid">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                <div class="modal-body">
+                    <img src="images/under-construction-example.png" alt="Under Construction">
                     <p>Thank you for being patient. We are doing some work on the site and will be back shortly.</p>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
