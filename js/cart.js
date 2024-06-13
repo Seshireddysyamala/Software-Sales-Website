@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculateTotal = () => {
         let total = 0;
         cart.forEach(item => total += item.price * item.quantity);
-        document.getElementById('cart-total').textContent =' $${ total.toFixed(2) }';
+        document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
     };
 
     cartTable.addEventListener('click', (event) => {
@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             window.location.href = 'login.html'; // Redirect to login page if not logged in
         } else {
+            // Proceed to checkout if logged in
             document.getElementById('constructionModal').style.display = 'block';
         }
     });
