@@ -9,41 +9,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
     <style>
-        .popup {
+        .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 1;
+            padding-top: 100px;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0,0,0,0.4);
         }
 
-        .popup-content {
-            background-color: #fefefe;
-            margin: 15% auto;
+        .modal-content {
+            background-color: #1F2833;
+            margin: auto;
             padding: 20px;
-            border: 1px solid #888;
+            border: 1px solid #66FCF1;
             width: 80%;
             max-width: 600px;
+            position: relative;
             text-align: center;
         }
 
-        .close-btn {
+        .close {
             color: #aaa;
-            float: right;
+            position: absolute;
+            right: 10px;
+            top: 10px;
             font-size: 28px;
             font-weight: bold;
         }
 
-            .close-btn:hover,
-            .close-btn:focus {
-                color: black;
+            .close:hover,
+            .close:focus {
+                color: white;
                 text-decoration: none;
                 cursor: pointer;
             }
+
+        .modal img {
+            border: 2px solid #66FCF1;
+            max-width: 100%;
+        }
+
+        .modal p {
+            color: white;
+            margin-top: 20px;
+        }
     </style>
     <script>
         function updateCartCount() {
@@ -71,9 +85,12 @@
             if (!isLoggedIn) {
                 window.location.href = 'login.html';
             } else {
-                // Show popup when proceeding to checkout
-                showPopup();
+                document.getElementById('constructionModal').style.display = 'block';
             }
+        }
+
+        function closeModal() {
+            document.getElementById('constructionModal').style.display = 'none';
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -145,14 +162,6 @@
                 calculateTotal();
             }
         });
-
-        function showPopup() {
-            document.getElementById('checkoutPopup').style.display = 'block';
-        }
-
-        function hidePopup() {
-            document.getElementById('checkoutPopup').style.display = 'none';
-        }
     </script>
 </head>
 <body>
@@ -183,13 +192,16 @@
     <footer class="footer">
         <p>&copy; 2024 Software Sales. All rights reserved.</p>
     </footer>
-    <div id="checkoutPopup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="hidePopup()">&times;</span>
-            <img src="images/under-construction-example.png" alt="Under Construction" style="max-width: 100%;">
+
+    <!-- The Modal -->
+    <div id="constructionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img src="images/under-construction-example.png" alt="Under Construction">
             <p>Thank you for being patient. We are doing some work on the site and will be back shortly.</p>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
