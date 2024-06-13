@@ -17,6 +17,8 @@
                 const user = JSON.parse(localStorage.getItem('user'));
                 if (user) {
                     document.getElementById('user-email').textContent = user.email;
+                    document.getElementById('login-link').style.display = 'none';
+                    document.getElementById('profile-link').style.display = 'block';
                 }
             }
         }
@@ -27,15 +29,7 @@
             window.location.href = 'login.html';
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('menu.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('menu').innerHTML = data;
-                    checkLoginState();
-                })
-                .catch(error => console.error('Error loading menu:', error));
-        });
+        document.addEventListener('DOMContentLoaded', checkLoginState);
     </script>
 </head>
 <body>
@@ -55,5 +49,14 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu').innerHTML = data;
+                checkLoginState();
+            })
+            .catch(error => console.error('Error loading menu:', error));
+    </script>
 </body>
 </html>
