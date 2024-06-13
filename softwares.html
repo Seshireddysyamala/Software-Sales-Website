@@ -34,21 +34,21 @@
     <style>
         .software-item {
             background-color: #1F2833;
-            padding: 2rem; /* Increase padding for bigger boxes */
+            padding: 2rem;
             border-radius: 8px;
             margin-bottom: 2rem;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            width: calc(50% - 20px); /* Ensure boxes are wide enough */
+            width: calc(50% - 20px);
             margin: auto;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            height: 650px; /* Ensure consistent height */
+            height: 650px;
         }
 
             .software-item img {
-                max-width: 200px; /* Ensure images fit well */
+                max-width: 200px;
                 margin-bottom: 10px;
                 display: block;
             }
@@ -61,7 +61,7 @@
             .software-item p {
                 margin-bottom: 10px;
                 color: #C5C6C7;
-                text-align: center; /* Center text alignment */
+                text-align: center;
                 flex: 1;
             }
 
@@ -75,9 +75,9 @@
             }
 
         .software-grid {
-            display: flex; /* Use flexbox for row layout */
+            display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Center align grid items */
+            justify-content: center;
             gap: 20px;
         }
 
@@ -88,15 +88,6 @@
         }
     </style>
     <script>
-        function checkLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
-                window.location.href = 'login.html';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', checkLoginState);
-
         function addToCart(name, price) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const existingItem = cart.find(item => item.name === name);
@@ -174,10 +165,7 @@
     <script>
         fetch('menu.html')
             .then(response => response.text())
-            .then(data => {
-                document.getElementById('menu').innerHTML = data;
-                checkLoginState();
-            })
+            .then(data => document.getElementById('menu').innerHTML = data)
             .catch(error => console.error('Error loading menu:', error));
     </script>
 </body>

@@ -22,7 +22,9 @@
             const isLoggedIn = localStorage.getItem('isLoggedIn');
             if (isLoggedIn) {
                 document.getElementById('login-link').style.display = 'none';
+                document.getElementById('profile-link').style.display = 'block';
             } else {
+                document.getElementById('login-link').style.display = 'block';
                 document.getElementById('profile-link').style.display = 'none';
             }
         }
@@ -51,7 +53,7 @@
             </table>
             <div class="text-right">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
-                <button id="checkout-button" class="btn btn-success">Proceed to Checkout</button>
+                <button class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
             </div>
         </div>
     </main>
@@ -67,6 +69,16 @@
             .then(response => response.text())
             .then(data => document.getElementById('menu').innerHTML = data)
             .catch(error => console.error('Error loading menu:', error));
+
+        function proceedToCheckout() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            } else {
+                // Redirect to checkout page (assuming you have one)
+                window.location.href = 'checkout.html';
+            }
+        }
 
         function removeItemFromCart(index) {
             const confirmation = confirm("Are you sure you want to remove this item from the cart?");
