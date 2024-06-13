@@ -301,10 +301,16 @@ h1, h2, h3 {
 
     .analytics-box h2 {
         color: #66FCF1;
+        margin-bottom: 1rem; /* Adds space below the heading */
     }
 
     .analytics-box canvas {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem; /* Adds more space below the chart */
+    }
+
+    .analytics-box p {
+        margin-top: 1rem; /* Adds space above the description */
+        margin-bottom: 2rem; /* Adds more space below the description */
     }
 
     .analytics-box table {
@@ -317,6 +323,7 @@ h1, h2, h3 {
             padding: 0.5rem;
             text-align: center;
         }
+
 
 /* Table Styles */
 .table-dark {
@@ -382,16 +389,16 @@ h1, h2, h3 {
 /* Adjust software items for mobile screens */
 @media (max-width: 768px) {
     .software-item {
-        width: 100%; /* Make the items take up most of the screen width */
-        margin: 1rem 0; /* Add margin for spacing */
-        padding: 1rem; /* Add some padding */
+        width: 90%;
+        margin: 1rem auto;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
         .software-item img {
-            max-width: 100%; /* Ensure images fit within the item container */
+            max-width: 100%;
             height: auto;
             margin-bottom: 1rem;
         }
@@ -412,15 +419,17 @@ h1, h2, h3 {
 
         .software-item button {
             margin-top: 1rem;
-            width: auto; /* Ensure button fits content */
+            width: 100%;
+            padding: 0.5rem;
         }
 
     .software-grid {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column;
         gap: 1rem;
         align-items: center;
     }
 }
+
 
 /* Centering Navbar and Adjusting Margins */
 @media (max-width: 768px) {
@@ -450,4 +459,35 @@ h1, h2, h3 {
 #latest-software img,
 #top-deals img {
     margin-bottom: 20px;
+}
+body {
+    font-size: 18px; /* Adjust base font size as needed */
+}
+
+h1 {
+    font-size: 2.5rem; /* Adjust heading font size */
+}
+
+h2 {
+    font-size: 2rem; /* Adjust heading font size */
+}
+
+h3 {
+    font-size: 1.75rem; /* Adjust heading font size */
+}
+
+p {
+    font-size: 1.125rem; /* Adjust paragraph font size */
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 1.125rem; /* Adjust navbar link font size */
+}
+
+.table th, .table td {
+    font-size: 1rem; /* Adjust table font size */
+}
+
+.btn {
+    font-size: 1rem; /* Adjust button font size */
 }
