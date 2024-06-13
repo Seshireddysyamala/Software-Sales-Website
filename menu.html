@@ -10,7 +10,8 @@
             <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
             <li class="nav-item"><a class="nav-link" href="analytics.html"><i class="fas fa-chart-bar"></i> Sales Statistics</a></li>
             <li class="nav-item"><a class="nav-link" href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="profile.html" id="profile-link" style="display: none;"><i class="fas fa-user"></i> Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html" id="login-link"><i class="fas fa-sign-in-alt"></i> Login/Signup</a></li>
         </ul>
     </div>
 </nav>
@@ -19,8 +20,10 @@
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         if (isLoggedIn) {
             document.getElementById('login-link').style.display = 'none';
+            document.getElementById('profile-link').style.display = 'block';
         } else {
             document.getElementById('profile-link').style.display = 'none';
+            document.getElementById('login-link').style.display = 'block';
         }
     }
     checkLoginState();

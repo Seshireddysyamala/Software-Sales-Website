@@ -58,4 +58,35 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCartItems();
     updateCartCount();
     calculateTotal();
+
+    document.getElementById('checkout-button').addEventListener('click', function (event) {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
+            event.preventDefault();
+            window.location.href = 'login.html'; // Redirect to login page if not logged in
+        } else {
+            // Proceed to checkout if logged in
+            window.location.href = 'checkout.html';
+        }
+    });
 });
+
+function checkLoginState() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn) {
+        document.getElementById('login-link').style.display = 'none';
+        document.getElementById('signup-link').style.display = 'none';
+        document.getElementById('profile-link').style.display = 'block';
+        document.getElementById('logout-link').style.display = 'block';
+    } else {
+        document.getElementById('login-link').style.display = 'block';
+        document.getElementById('signup-link').style.display = 'block';
+        document.getElementById('profile-link').style.display = 'none';
+        document.getElementById('logout-link').style.display = 'none';
+    }
+}
+
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'index.html'; // Redirect to the home page after logout
+}
