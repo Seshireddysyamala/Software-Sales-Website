@@ -30,6 +30,26 @@
         }
 
         document.addEventListener('DOMContentLoaded', checkLoginState);
+
+        function proceedToCheckout() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            } else {
+                // Redirect to checkout page (assuming you have one)
+                window.location.href = 'checkout.html';
+            }
+        }
+
+        function removeItemFromCart(index) {
+            const confirmation = confirm("Are you sure you want to remove this item from the cart?");
+            if (confirmation) {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            }
+        }
     </script>
 </head>
 <body>
@@ -62,7 +82,7 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/cart.js"></script>
     <script>
         fetch('menu.html')
@@ -72,26 +92,6 @@
                 checkLoginState();
             })
             .catch(error => console.error('Error loading menu:', error));
-
-        function proceedToCheckout() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (!isLoggedIn) {
-                window.location.href = 'login.html';
-            } else {
-                // Redirect to checkout page (assuming you have one)
-                window.location.href = 'checkout.html';
-            }
-        }
-
-        function removeItemFromCart(index) {
-            const confirmation = confirm("Are you sure you want to remove this item from the cart?");
-            if (confirmation) {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCart();
-            }
-        }
     </script>
 </body>
 </html>
