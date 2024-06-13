@@ -444,7 +444,7 @@ h1, h2, h3 {
 /* Add this to your CSS */
 .modal-content .close {
     position: absolute;
-    top: 4px;
+    top: 2px;
     right: 6px;
     color: #66FCF1;
     font-size: 24px;
