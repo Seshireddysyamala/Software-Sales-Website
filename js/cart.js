@@ -63,8 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         if (!isLoggedIn) {
             event.preventDefault();
-            window.location.href = 'login.html';
+            window.location.href = 'login.html'; // Redirect to login page if not logged in
         } else {
+            // Proceed to checkout if logged in
             document.getElementById('constructionModal').style.display = 'block';
         }
     });
@@ -87,5 +88,5 @@ function checkLoginState() {
 
 function logout() {
     localStorage.removeItem('isLoggedIn');
-    window.location.href = 'index.html';
+    window.location.href = 'index.html'; // Redirect to the home page after logout
 }
