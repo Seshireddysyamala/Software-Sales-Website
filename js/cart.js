@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             cartTable.appendChild(row);
         });
-        calculateTotal(); // Ensure the total is calculated whenever the cart is rendered
+        calculateTotal();
     };
 
     const updateCart = () => {
@@ -63,10 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         if (!isLoggedIn) {
             event.preventDefault();
-            window.location.href = 'login.html'; // Redirect to login page if not logged in
+            window.location.href = 'login.html';
         } else {
-            // Proceed to checkout if logged in
-            window.location.href = 'checkout.html';
+            document.getElementById('constructionModal').style.display = 'block';
         }
     });
 });
@@ -88,5 +87,5 @@ function checkLoginState() {
 
 function logout() {
     localStorage.removeItem('isLoggedIn');
-    window.location.href = 'index.html'; // Redirect to the home page after logout
+    window.location.href = 'index.html';
 }
