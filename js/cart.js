@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             window.location.href = 'login.html'; // Redirect to login page if not logged in
         } else {
-            // Proceed to checkout if logged in
+            // Show the modal if logged in
             document.getElementById('constructionModal').style.display = 'block';
         }
     });
