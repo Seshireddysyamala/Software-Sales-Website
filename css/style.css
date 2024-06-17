@@ -136,6 +136,7 @@ main {
     padding: 2rem;
     border-radius: 8px;
     background-color: #1F2833;
+    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
     box-sizing: border-box;
 }
 
@@ -469,3 +470,8 @@ h1, h2, h3 {
     #latest-software + #top-deals {
         margin-left: 0;
     }
+
+/* Remove borders for index page */
+.border-primary, .border {
+    border: none !important;
+}
