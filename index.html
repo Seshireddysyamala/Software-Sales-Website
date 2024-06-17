@@ -12,7 +12,6 @@
 <body>
     <header>
         <div id="menu"></div>
-        <button id="theme-toggle" class="btn btn-secondary">Toggle Theme</button>
     </header>
     <main>
         <div class="combined-section" style="background: url('images/homepage.png') no-repeat center center; background-size: cover;">
@@ -49,17 +48,17 @@
             </div>
             <section id="customer-reviews" class="box section-margin text-center customer-reviews box-gap">
                 <h2>Customer Reviews</h2>
-                <p class="review-text">“Great selection of software and amazing deals! Highly recommend.” - John Doe</p>
-                <p class="review-text">“The customer service is excellent, and the prices are unbeatable.” - Jane Smith</p>
-                <p class="review-text">“A one-stop shop for all software needs. Very satisfied with my purchases.” - Mark Johnson</p>
+                <p>“Great selection of software and amazing deals! Highly recommend.” - John Doe</p>
+                <p>“The customer service is excellent, and the prices are unbeatable.” - Jane Smith</p>
+                <p>“A one-stop shop for all software needs. Very satisfied with my purchases.” - Mark Johnson</p>
             </section>
             <section id="about-company" class="box section-margin text-center about-company box-gap">
                 <h2>About Our Company</h2>
-                <p class="about-text">At Software Sales, we are dedicated to providing the best software solutions at the most competitive prices. Our mission is to make high-quality software accessible to everyone, whether for personal use, educational purposes, or business needs. With a commitment to customer satisfaction, we strive to offer exceptional service, knowledgeable support, and an extensive selection of software products. Join us in discovering the latest software trends and top deals, and experience the difference with Software Sales.</p>
+                <p>At Software Sales, we are dedicated to providing the best software solutions at the most competitive prices. Our mission is to make high-quality software accessible to everyone, whether for personal use, educational purposes, or business needs. With a commitment to customer satisfaction, we strive to offer exceptional service, knowledgeable support, and an extensive selection of software products. Join us in discovering the latest software trends and top deals, and experience the difference with Software Sales.</p>
             </section>
             <section id="contact-us" class="box text-center contact-us-info box-gap">
                 <h2>Contact Us</h2>
-                <p class="contact-text">We'd like to send you more information. Leave us your name and how best to contact you, plus any comments or questions you may have about Software Sales. We look forward to hearing from you!</p>
+                <p>We'd like to send you more information. Leave us your name and how best to contact you, plus any comments or questions you may have about Software Sales. We look forward to hearing from you!</p>
                 <form id="contact-form">
                     <div class="form-group text-left">
                         <label for="name"><i class="fas fa-user"></i> Name</label>
@@ -142,21 +141,20 @@
 
         document.addEventListener('DOMContentLoaded', checkLoginState);
 
-        // Theme toggle function
+        // Theme Toggle Logic
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
         }
 
-        // Set initial theme based on saved preference
+        // Load theme on page load
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
-
-            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
         });
     </script>
+    <button onclick="toggleTheme()" class="theme-toggle-btn">Toggle Theme</button>
 </body>
 </html>
