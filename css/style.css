@@ -117,6 +117,9 @@ main {
     justify-content: center;
     text-align: center;
     color: #fff;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
     .combined-section .overlay {
