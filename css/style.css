@@ -12,10 +12,6 @@ html, body {
     overflow-y: auto; /* Use browser scrollbar */
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
 body {
     display: flex;
     flex-direction: column;
@@ -25,16 +21,6 @@ body {
     color: #C5C6C7;
     min-height: 100vh;
     padding-right: 2px; /* Adjust padding to avoid scrollbar overlap */
-}
-
-:root {
-    --primary-color: #45A29E; /* Teal green */
-    --palette-blue: #66FCF1; /* Palette blue */
-    --bg-color: #0B0C10;
-    --text-color: #C5C6C7;
-    --box-bg-color: #1F2833;
-    --footer-text-color: #ffffff;
-    --bright-yellow: #FFFF00; /* Bright yellow */
 }
 
 /* Navbar */
@@ -54,7 +40,6 @@ header, .navbar {
 @media (min-width: 992px) {
     header, .navbar {
         width: calc(100% - 52px); /* Adjusted width to avoid overlapping scrollbar for desktop view */
-        left: 26px; /* Center the navbar on desktop view */
     }
 }
 
@@ -105,9 +90,8 @@ header, .navbar {
 /* Responsive adjustments for mobile view */
 @media (max-width: 768px) {
     header, .navbar {
-        padding: 0.5rem; /* Add padding to keep gap from edges */
-        width: calc(100% - 2rem); /* Ensure width minus padding */
-        left: 1rem; /* Add gap from the edges */
+        padding: 0.5rem 1rem; /* Add padding to keep gap from edges */
+        width: 100%; /* Ensure full width for mobile view */
     }
 
     .navbar-nav {
@@ -124,6 +108,7 @@ header, .navbar {
                 padding: 0.5rem 1rem;
             }
 }
+
 
 
 
