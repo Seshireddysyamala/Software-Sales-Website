@@ -38,7 +38,7 @@ body {
 
 /* Navbar */
 header, .navbar {
-    background-color: #1F2833; /* Teal green background */
+    background-color: var(--primary-color); /* Teal green background */
     color: #ffffff;
     padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
@@ -200,7 +200,7 @@ h1, h2, h3 {
 
 /* Footer Styles */
 .footer {
-    background: #1F2833; /* Teal green background */
+    background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
     font-weight: bold; /* Make footer text bold */
     text-align: center;
@@ -262,7 +262,7 @@ h1, h2, h3 {
 
 .software-item p {
     margin-bottom: 10px;
-    color: var(--text-color);
+    color: #ffffff; /* Bright white text */
     flex: 1; /* Allow paragraphs to take up available space */
     text-align: center;
 }
@@ -315,6 +315,12 @@ h1, h2, h3 {
     border-color: #45A29E;
 }
 
+    .btn-success:hover {
+        background-color: #379287; /* Darker teal color on hover */
+        border-color: #379287; /* Darker teal
+            color on hover */
+    }
+
 .btn-danger {
     background-color: #DC3545;
     border-color: #DC3545;
@@ -361,6 +367,7 @@ h1, h2, h3 {
     .analytics-box p {
         margin-top: 1rem; /* Adds space above the description */
         margin-bottom: 2rem; /* Adds more space below the description */
+        color: #ffffff; /* Bright white text */
     }
 
     .analytics-box table {
@@ -404,6 +411,10 @@ h1, h2, h3 {
     box-sizing: border-box;
     border: 1px solid var(--primary-color) !important; /* Ensure border visibility with !important */
 }
+
+    .user-profile-box p {
+        color: #ffffff; /* Bright white text */
+    }
 
 /* Logout Button */
 .btn-logout {
@@ -565,6 +576,7 @@ main {
         margin-right: 1rem;
     }
 }
+
 /* Teal Color Incorporation */
 .btn-primary, .btn-success {
     background-color: var(--primary-color); /* Teal color */
