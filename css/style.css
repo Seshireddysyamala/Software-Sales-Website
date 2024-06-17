@@ -38,6 +38,7 @@ body {
 }
 
 /* Navbar */
+/* Navbar */
 header, .navbar {
     background-color: var(--primary-color); /* Teal green background */
     color: #ffffff;
@@ -56,17 +57,14 @@ header, .navbar {
     }
 }
 
-/* Grey line below the navbar */
-.navbar-line {
-    width: 100%;
-    height: 1px; /* Adjust the height as needed */
-    background-color: #c5c6c7; /* Grey color */
-    position: fixed;
-    top: 62px; /* Adjust based on the height of your navbar */
-    left: 0;
-    z-index: 999; /* Ensure it appears above other elements */
+.navbar-border-bottom {
+    border-bottom: 1px solid #c5c6c7; /* Grey line at the bottom */
 }
 
+/* Exclude border-bottom on profile and cart pages */
+body:not(.profile-page):not(.cart-page) .navbar {
+    border-bottom: 1px solid #c5c6c7; /* Grey line at the bottom */
+}
 
 .navbar-brand,
 .navbar-brand:hover,
@@ -133,6 +131,7 @@ header, .navbar {
                 padding: 0.5rem 1rem;
             }
 }
+
 
 
 
