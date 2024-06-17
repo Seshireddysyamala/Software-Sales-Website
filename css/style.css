@@ -174,8 +174,9 @@ main {
     color: #fff;
     width: 100%;
     position: relative; /* Ensure it does not overlap content */
-    padding-top: 1rem; /* Reduce the padding at the top */
+    padding-top: 2rem; /* Add some padding at the top */
     padding-bottom: 2rem; /* Keep bottom padding as it is */
+    margin-top: 1rem; /* Add margin at the top to avoid overlaying */
 }
 
     .combined-section .overlay {
@@ -187,16 +188,17 @@ main {
     }
 
     .combined-section h1, .combined-section h2, .combined-section p {
-        color: #66FCF1; /* White text color */
+        color: #66FCF1; /* Keep text color as palette blue */
         font-size: 2.5rem; /* Increase the text size */
         margin: 0 2rem; /* Add some margin for better spacing */
     }
 
 @media (max-width: 768px) {
     .combined-section h1, .combined-section h2, .combined-section p {
-        font-size: 1rem; /* Adjust font size for smaller screens */
+        font-size: 0.1rem; /* Adjust font size for smaller screens */
     }
 }
+
 
 
 /* Section Styles */
