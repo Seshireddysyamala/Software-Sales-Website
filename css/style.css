@@ -98,7 +98,7 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     padding: 0; /* Remove padding to stretch the content */
-    margin-top: 5rem;
+    margin-top: 0; /* Remove top margin */
     background-color: #1F2833;
     color: #C5C6C7;
     text-align: center;
