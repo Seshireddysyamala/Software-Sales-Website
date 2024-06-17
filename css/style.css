@@ -38,9 +38,9 @@ body {
 
 /* Navbar */
 header, .navbar {
-    background:#45A29E;
+    background-color: #45A29E; /* Teal green background */
     color: #ffffff;
-    padding: 0.19rem 0;
+    padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
     width: 100%;
     position: fixed;
@@ -48,12 +48,12 @@ header, .navbar {
     z-index: 1000;
 }
 
-.navbar-brand,
-.navbar-brand:hover,
-.navbar-brand:focus {
-    color: #ffffff !important;
-    font-weight: bold; /* Make Software Sales bold */
-}
+    .navbar .navbar-brand,
+    .navbar .navbar-brand:hover,
+    .navbar .navbar-brand:focus {
+        color: #ffffff !important;
+        font-weight: bold; /* Make Software Sales bold */
+    }
 
 .navbar-nav {
     display: flex;
@@ -88,8 +88,8 @@ header, .navbar {
             .navbar-nav .nav-item .nav-link.active,
             .navbar-nav .nav-item .nav-link:hover,
             .navbar-nav .nav-item .nav-link:focus {
-                color:#45A29E;
-                background-color:#66FCF1;
+                color: var(--box-bg-color);
+                background-color: #66FCF1; /* Palette blue on hover */
             }
 
 .fas.fa-home, .fas.fa-user {
