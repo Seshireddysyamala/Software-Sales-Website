@@ -48,7 +48,28 @@ header, .navbar {
     top: 0;
     left: 0; /* Ensures the navbar is aligned to the left */
     z-index: 1000;
+    box-sizing: border-box; /* Ensure it fits within the viewport */
 }
+
+/* Navbar Styles for Mobile View */
+@media (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+        .navbar-nav .nav-item {
+            margin: 0.5rem 0;
+        }
+
+            .navbar-nav .nav-item .nav-link {
+                padding: 0.5rem 1rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+}
+
 
 /* Adjusted width for specific pages */
 body:not(.cart-page):not(.profile-page) .navbar {
@@ -140,11 +161,26 @@ main {
     position: relative; /* Ensure it does not overlap content */
 }
 
+    .combined-section .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 8px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
     .combined-section h1, .combined-section h2, .combined-section p {
-        color: var(--palette-blue); /* Palette blue text color */
+        color: #fff; /* White text color */
         font-size: 2.5rem; /* Increase the text size */
         margin: 0 2rem; /* Add some margin for better spacing */
     }
+
+@media (max-width: 768px) {
+    .combined-section h1, .combined-section h2, .combined-section p {
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+}
+
 
 
 /* Section Styles */
