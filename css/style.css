@@ -119,9 +119,7 @@ main {
     text-align: center;
     color: #fff;
     width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Ensure it does not overlap content */
+    position: relative; /* Ensure it does not overlap content */
 }
 
     .combined-section .overlay {
@@ -335,6 +333,7 @@ h1, h2, h3 {
     width: 100%;
     max-width: none;
     box-sizing: border-box;
+    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
 }
 
     .analytics-box h2 {
@@ -519,3 +518,15 @@ main {
 .border-primary, .border {
     border: none !important;
 }
+
+/* Adjust social icons in contact us section */
+.contact-us-info .social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5rem;
+}
+
+    .contact-us-info .social-icons a:hover {
+        color: #66FCF1;
+    }
+
