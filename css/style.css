@@ -504,18 +504,13 @@ h1, h2, h3 {
     }
 
 /* Adjust spacing between latest software and top deals */
-#latest-software {
+#latest-software, #top-deals {
     margin-right: 2rem;
 }
 
     #latest-software + #top-deals {
         margin-left: 0;
     }
-
-.row.section-margin.justify-content-center {
-    margin-right: 2rem; /* Add margin-right to the row */
-    margin-left: 2rem; /* Add margin-left to the row */
-}
 
 /* Remove borders for main content on all pages */
 main {
@@ -549,4 +544,10 @@ main {
     padding: 2rem; /* Padding for the boxes */
     border: 1px solid #66FCF1; /* Border color */
     border-radius: 8px;
+}
+
+/* Update to adjust gap between Latest Software and Top Deals */
+#latest-software, #top-deals {
+    width: calc(50% - 1rem); /* Adjust the width to allow for a gap */
+    margin: 0 0.5rem; /* Add margin to create the gap */
 }
