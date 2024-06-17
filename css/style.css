@@ -110,7 +110,7 @@ main {
 /* Combined Section Styles */
 .combined-section {
     position: relative;
-    background: url('images/6507a9857dd32ba394160042_19.-What-is-Software-Engineering.png') no-repeat center center;
+    background: url('images/homepage.png') no-repeat center center;
     background-size: cover;
     height: 400px;
     display: flex;
