@@ -107,6 +107,30 @@ main {
     box-sizing: border-box;
 }
 
+/* Combined Section Styles */
+.combined-section {
+    position: relative;
+    background: url('path_to_image.jpg') no-repeat center center;
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
+}
+
+    .combined-section .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 8px;
+    }
+
+    .combined-section h1, .combined-section h2, .combined-section p {
+        color: #fff;
+    }
+
 /* Section Styles */
 .container, .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
     width: 100%;
@@ -154,25 +178,6 @@ h1, h2, h3 {
                 padding: 0.5rem 1rem;
             }
 }
-
-/* Banner Styles */
-.banner {
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
-    width: 100%;
-}
-
-    .banner h1 {
-        font-size: 2rem;
-        color: #66FCF1;
-    }
-
-    .banner p {
-        color: #C5C6C7;
-        font-size: 1.2rem;
-    }
 
 /* Software Section Styles */
 .row.section-margin {
