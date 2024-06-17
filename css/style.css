@@ -124,6 +124,7 @@ main {
     left: 0;
     border: none !important;
     border-radius: 0 !important;
+    z-index: -1; /* Ensure it does not overlap content */
 }
 
     .combined-section .overlay {
@@ -169,6 +170,26 @@ h1, h2, h3 {
     color: #66FCF1;
     text-align: center;
     margin-bottom: 1rem;
+}
+
+/* Add gap between headings and boxes in software page */
+#softwares h2 {
+    margin-bottom: 1rem;
+}
+
+/* Add gap between headings and boxes in analytics page */
+#analytics h2 {
+    margin-bottom: 1rem;
+}
+
+/* Apply border color for charts and table in analytics page */
+#analytics .chart-box, #analytics .data-table-box {
+    border: 1px solid #66FCF1 !important;
+}
+
+/* Apply border color for "Your Cart" box */
+#cart .cart-container {
+    border: 1px solid #66FCF1 !important;
 }
 
 /* Footer Styles */
