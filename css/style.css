@@ -111,7 +111,7 @@ main {
 /* Combined Section Styles */
 .combined-section {
     position: relative;
-    background: url('images/image.png') no-repeat center center;
+    background: url('images/homepage.png') no-repeat center center;
     background-size: cover;
     height: 400px;
     display: flex;
@@ -122,8 +122,6 @@ main {
     width: 100%;
     top: 0;
     left: 0;
-    border: none !important;
-    border-radius: 0 !important;
     z-index: -1; /* Ensure it does not overlap content */
 }
 
