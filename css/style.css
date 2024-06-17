@@ -202,7 +202,7 @@ h1, h2, h3 {
     }
 
 .latest-software img, .top-deals img {
-    height: 250px; /* Set a fixed height for consistency */
+    height: 350px; /* Set a fixed height for consistency */
 }
 
 .software-item h3 {
