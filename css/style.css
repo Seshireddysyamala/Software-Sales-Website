@@ -47,7 +47,7 @@ header, .navbar {
     top: 0;
     left: 0; /* Ensures the navbar is aligned to the left */
     z-index: 1000;
-    width: 100%; /* Default to full width */
+    width: calc(100% - 15px); /* Default to full width */
 }
 
 @media (min-width: 992px) {
@@ -69,36 +69,36 @@ header, .navbar {
     width: 100%;
 }
 
-    .navbar-nav .nav-item {
-        margin: 0 1rem;
-    }
+.navbar-nav .nav-item {
+    margin: 0 1rem;
+}
 
-        .navbar-nav .nav-item .nav-link {
-            font-weight: bold;
-            color: #FFFFFF;
-            padding: 0.375rem 0.75rem;
-            border-radius: 0.25rem;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
+.navbar-nav .nav-item .nav-link {
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
 
-            .navbar-nav .nav-item .nav-link i {
-                margin-right: 7px;
-                vertical-align: middle;
-            }
+.navbar-nav .nav-item .nav-link i {
+    margin-right: 7px;
+    vertical-align: middle;
+}
 
-            .navbar-nav .nav-item .nav-link span {
-                display: inline-block;
-                vertical-align: middle;
-            }
+.navbar-nav .nav-item .nav-link span {
+    display: inline-block;
+    vertical-align: middle;
+}
 
-            .navbar-nav .nav-item .nav-link.active,
-            .navbar-nav .nav-item .nav-link:hover,
-            .navbar-nav .nav-item .nav-link:focus {
-                color: var(--box-bg-color);
-                background-color: var(--palette-blue); /* Palette blue on hover */
-            }
+.navbar-nav .nav-item .nav-link.active,
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus {
+    color: var(--box-bg-color);
+    background-color: var(--palette-blue); /* Palette blue on hover */
+}
 
 /* Responsive adjustments for mobile view */
 @media (max-width: 768px) {
@@ -107,13 +107,13 @@ header, .navbar {
         text-align: center;
     }
 
-        .navbar-nav .nav-item {
-            margin: 0.5rem 0;
-        }
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0;
+    }
 
-            .navbar-nav .nav-item .nav-link {
-                padding: 0.5rem 1rem;
-            }
+    .navbar-nav .nav-item .nav-link {
+        padding: 0.5rem 1rem;
+    }
 }
 
 
@@ -317,25 +317,6 @@ h1, h2, h3 {
 .software-item .btn {
     margin-top: auto; /* Push button to the bottom */
 }
-
-@media (max-width: 768px) {
-    .software-item {
-        width: 100%; /* Full width for mobile view */
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1200px) {
-    .software-item {
-        width: 48%; /* Adjust width for tablet view */
-    }
-}
-
-@media (min-width: 1201px) {
-    .software-item {
-        width: 31%; /* Adjust width for desktop view */
-    }
-}
-
 
 /* Cart Section Styles */
 .cart-container {
