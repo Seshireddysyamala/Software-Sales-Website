@@ -39,13 +39,6 @@ header, .navbar {
     z-index: 1000;
 }
 
-.navbar-brand,
-.navbar-brand:hover,
-.navbar-brand:focus {
-    color: #66FCF1 !important;
-    font-weight: bold; /* Make Software Sales bold */
-}
-
 .navbar-nav {
     display: flex;
     justify-content: flex-end;
@@ -86,6 +79,12 @@ header, .navbar {
 .fas.fa-home, .fas.fa-user {
     position: relative;
     top: -1px; /* Adjust this value as needed to align with the text */
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #66FCF1 !important;
 }
 
 #cart-count {
@@ -191,7 +190,7 @@ h1, h2, h3 {
 /* Footer Styles */
 .footer {
     background: #1F2833;
-    color: #ffffff; /* Bright white text */
+    color: #fff; /* Change footer text to bright white */
     font-weight: bold; /* Make footer text bold */
     text-align: center;
     padding: 2rem 0;
@@ -281,7 +280,6 @@ h1, h2, h3 {
     width: 100%;
     max-width: none;
     box-sizing: border-box;
-    border: 1px solid #66FCF1 !important;
 }
 
     .cart-container h1 {
@@ -476,6 +474,10 @@ h1, h2, h3 {
     color: #FFA500; /* Contact us intro text to bright orange */
 }
 
+#contact-us .address-text {
+    color: #FFFFFF; /* Make the address text white */
+}
+
 /* Adding Spacing Between Images and Text */
 #latest-software img,
 #top-deals img {
@@ -506,11 +508,16 @@ h1, h2, h3 {
 /* Adjust spacing between latest software and top deals */
 #latest-software, #top-deals {
     margin-right: 2rem;
+    margin-bottom: 2rem; /* Add space at the bottom */
 }
 
-    #latest-software + #top-deals {
-        margin-left: 0;
-    }
+#latest-software {
+    margin-left: 2rem; /* Add space on the left side */
+}
+
+#top-deals {
+    margin-left: 2rem; /* Add space on the left side */
+}
 
 /* Remove borders for main content on all pages */
 main {
@@ -533,15 +540,3 @@ main {
     .contact-us-info .social-icons a:hover {
         color: #66FCF1;
     }
-
-/* Specific Updates */
-.address-text {
-    color: #ffffff; /* Bright white text for address */
-}
-
-.box-gap {
-    margin-bottom: 2rem; /* Gap between boxes */
-    padding: 2rem; /* Padding for the boxes */
-    border: 1px solid #66FCF1; /* Border color */
-    border-radius: 8px;
-}
