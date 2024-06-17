@@ -48,12 +48,13 @@ header, .navbar {
     left: 0; /* Ensures the navbar is aligned to the left */
     z-index: 1000;
     width: 100%; /* Default to full width */
-    border-bottom: 1px solid #C5C6C7; /* Grey line at the bottom */
+    border-bottom: 1px solid #c5c6c7; /* Grey line at the bottom */
 }
 
 @media (min-width: 992px) {
     header, .navbar {
         width: calc(100% - 52px); /* Adjusted width to avoid overlapping scrollbar for desktop view */
+        left: 26px; /* Center the navbar on desktop view */
     }
 }
 
@@ -106,6 +107,7 @@ header, .navbar {
     header, .navbar {
         padding: 0.5rem; /* Add padding to keep gap from edges */
         width: calc(100% - 2rem); /* Ensure width minus padding */
+        left: 1rem; /* Add gap from the edges */
     }
 
     .navbar-nav {
@@ -122,6 +124,7 @@ header, .navbar {
                 padding: 0.5rem 1rem;
             }
 }
+
 
 
 
