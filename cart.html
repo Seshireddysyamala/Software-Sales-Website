@@ -69,85 +69,87 @@
     </style>
 </head>
 <body class="cart-page">
-        <div id="menu"></div>
-        <main class="container mt-5">
-            <div class="cart-container box">
-                <h1>Your Cart</h1>
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cart-table-body">
-                        <!-- Cart items will be dynamically inserted here -->
-                    </tbody>
-                </table>
-                <div class="text-right">
-                    <h3>Total: <span id="cart-total">$0.00</span></h3>
-                    <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
-                    <p id="error-message" class="error-message" style="display: none;">No items in cart. Please add items before proceeding to checkout.</p>
-                </div>
-            </div>
-        </main>
-        <footer class="footer">
-            <p>&copy; 2024 Software Sales. All rights reserved.</p>
-        </footer>
-
-        <!-- The Modal -->
-        <div id="constructionModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <img src="images/under-construction-example.png" alt="Under Construction">
-                <p><strong>Thank you for being patient!</strong><br><strong>We are still building the backend of this site and will be back shortly.</strong></p>
+    <div id="menu"></div>
+    <!-- Add this line below the navbar in your HTML -->
+    <div class="navbar-line"></div>
+    <main class="container mt-5">
+        <div class="cart-container box">
+            <h1>Your Cart</h1>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-table-body">
+                    <!-- Cart items will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <div class="text-right">
+                <h3>Total: <span id="cart-total">$0.00</span></h3>
+                <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                <p id="error-message" class="error-message" style="display: none;">No items in cart. Please add items before proceeding to checkout.</p>
             </div>
         </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 Software Sales. All rights reserved.</p>
+    </footer>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="js/cart.js"></script>
-        <script>
-            fetch('menu.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('menu').innerHTML = data;
-                    checkLoginState();
-                })
-                .catch(error => console.error('Error loading menu:', error));
+    <!-- The Modal -->
+    <div id="constructionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img src="images/under-construction-example.png" alt="Under Construction">
+            <p><strong>Thank you for being patient!</strong><br><strong>We are still building the backend of this site and will be back shortly.</strong></p>
+        </div>
+    </div>
 
-            function proceedToCheckout() {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                if (cart.length === 0) {
-                    document.getElementById('error-message').style.display = 'block';
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu').innerHTML = data;
+                checkLoginState();
+            })
+            .catch(error => console.error('Error loading menu:', error));
+
+        function proceedToCheckout() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                document.getElementById('error-message').style.display = 'block';
+            } else {
+                if (!localStorage.getItem('isLoggedIn')) {
+                    localStorage.setItem('redirectAfterLogin', 'cart.html');
+                    window.location.href = 'login.html';
                 } else {
-                    if (!localStorage.getItem('isLoggedIn')) {
-                        localStorage.setItem('redirectAfterLogin', 'cart.html');
-                        window.location.href = 'login.html';
-                    } else {
-                        document.getElementById('constructionModal').style.display = 'block';
-                    }
+                    document.getElementById('constructionModal').style.display = 'block';
                 }
             }
+        }
 
-            function closeModal() {
-                document.getElementById('constructionModal').style.display = 'none';
-            }
+        function closeModal() {
+            document.getElementById('constructionModal').style.display = 'none';
+        }
 
-            function checkLoginState() {
-                const isLoggedIn = localStorage.getItem('isLoggedIn');
-                if (isLoggedIn) {
-                    document.getElementById('login-link').style.display = 'none';
-                    document.getElementById('profile-link').style.display = 'block';
-                } else {
-                    document.getElementById('login-link').style.display = 'block';
-                    document.getElementById('profile-link').style.display = 'none';
-                }
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('profile-link').style.display = 'block';
+            } else {
+                document.getElementById('login-link').style.display = 'block';
+                document.getElementById('profile-link').style.display = 'none';
             }
-        </script>
-    </body>
+        }
+    </script>
+</body>
 </html>

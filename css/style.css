@@ -37,7 +37,7 @@ body {
     --bright-yellow: #FFFF00; /* Bright yellow */
 }
 
-/* Navbar */
+
 /* Navbar */
 header, .navbar {
     background-color: var(--primary-color); /* Teal green background */
@@ -109,11 +109,21 @@ body:not(.profile-page):not(.cart-page) .navbar {
                 color: var(--box-bg-color);
                 background-color: var(--palette-blue); /* Palette blue on hover */
             }
+/* Grey line below the navbar */
+.navbar-line {
+    width: 100%;
+    height: 1px; /* Adjust the height as needed */
+    background-color: #c5c6c7; /* Grey color */
+    position: fixed;
+    top: 62px; /* Adjust based on the height of your navbar */
+    left: 0;
+    z-index: 999; /* Ensure it appears above other elements */
+}
 
 /* Responsive adjustments for mobile view */
 @media (max-width: 768px) {
     header, .navbar {
-        padding: 0.5rem; /* Add padding to keep gap from edges */
+        padding: 0.1rem; /* Add padding to keep gap from edges */
         width: calc(100% - 2rem); /* Ensure width minus padding */
     }
 
@@ -194,7 +204,7 @@ main {
 
 @media (max-width: 768px) {
     .combined-section h1, .combined-section h2, .combined-section p {
-        font-size: 0.1rem; /* Adjust font size for smaller screens */
+        font-size: 0.5rem; /* Adjust font size for smaller screens */
     }
 }
 
