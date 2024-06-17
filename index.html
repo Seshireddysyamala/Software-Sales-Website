@@ -127,6 +127,19 @@
                 });
             });
         });
+
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('profile-link').style.display = 'block';
+            } else {
+                document.getElementById('login-link').style.display = 'block';
+                document.getElementById('profile-link').style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', checkLoginState);
     </script>
 </body>
 </html>
