@@ -503,7 +503,7 @@ h1, h2, h3 {
 
 /* Adjust spacing between latest software and top deals */
 #latest-software, #top-deals {
-    margin-right: 2rem;
+    margin-right: 5rem;
 }
 
     #latest-software + #top-deals {
