@@ -45,6 +45,7 @@ header, .navbar {
     width: 100%;
     position: fixed;
     top: 0;
+    left: 0; /* Ensures the navbar is aligned to the left */
     z-index: 1000;
 }
 
