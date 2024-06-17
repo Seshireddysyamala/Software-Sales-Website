@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background-color: #0B0C10;
+    background-color: #1F2833;
     color: #C5C6C7;
     min-height: 100vh;
     padding-right: 2px; /* Adjust padding to avoid scrollbar overlap */
@@ -37,45 +37,19 @@ body {
     --bright-yellow: #FFFF00; /* Bright yellow */
 }
 
-/* General Navbar Styles */
+/* Navbar */
+/* Navbar */
 header, .navbar {
     background-color: var(--primary-color); /* Teal green background */
     color: #ffffff;
     padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
-    width: 100%; /* Default full width */
+    width: calc(100% - 52px); /* Adjusted width to avoid overlapping scrollbar */
     position: fixed;
     top: 0;
     left: 0; /* Ensures the navbar is aligned to the left */
     z-index: 1000;
-    box-sizing: border-box; /* Ensure it fits within the viewport */
 }
-
-/* Navbar Styles for Mobile View */
-@media (max-width: 992px) {
-    .navbar-nav {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-    }
-
-        .navbar-nav .nav-item {
-            margin: 0.5rem 0;
-        }
-
-            .navbar-nav .nav-item .nav-link {
-                padding: 0.5rem 1rem;
-                width: 100%;
-                box-sizing: border-box;
-            }
-}
-
-
-/* Adjusted width for specific pages */
-body:not(.cart-page):not(.profile-page) .navbar {
-    width: calc(100% - 52px); /* Adjusted width to avoid overlapping scrollbar */
-}
-
 
 
 .navbar-brand,
@@ -170,8 +144,8 @@ main {
     }
 
     .combined-section h1, .combined-section h2, .combined-section p {
-        color: #fff; /* White text color */
-        font-size: 2.5rem; /* Increase the text size */
+        color: #66FCF1; /* White text color */
+        font-size: 4rem; /* Increase the text size */
         margin: 0 2rem; /* Add some margin for better spacing */
     }
 
@@ -180,7 +154,6 @@ main {
         font-size: 1.5rem; /* Adjust font size for smaller screens */
     }
 }
-
 
 
 /* Section Styles */
