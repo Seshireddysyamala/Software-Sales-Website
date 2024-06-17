@@ -34,6 +34,7 @@ body {
     --text-color: #C5C6C7;
     --box-bg-color: #1F2833;
     --footer-text-color: #ffffff;
+    --bright-yellow: #FFFF00; /* Bright yellow */
 }
 
 /* Navbar */
@@ -272,6 +273,10 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
+.software-item .price {
+    color: var(--bright-yellow); /* Bright yellow for original price */
+}
+
 .software-item .discounted-price {
     color: red;
 }
@@ -317,8 +322,7 @@ h1, h2, h3 {
 
     .btn-success:hover {
         background-color: #379287; /* Darker teal color on hover */
-        border-color: #379287; /* Darker teal
-            color on hover */
+        border-color: #379287; /* Darker teal color on hover */
     }
 
 .btn-danger {
