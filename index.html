@@ -8,60 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
-    <script>
-        function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = itemCount;
-        }
-
-        document.addEventListener('DOMContentLoaded', updateCartCount);
-
-        function checkLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (isLoggedIn) {
-                document.getElementById('login-link').style.display = 'none';
-                document.getElementById('profile-link').style.display = 'block';
-            } else {
-                document.getElementById('login-link').style.display = 'block';
-                document.getElementById('profile-link').style.display = 'none';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', checkLoginState);
-    </script>
-    <style>
-        .social-icons a {
-            color: #fff; /* Set icon color to white */
-            margin: 0 10px;
-            font-size: 1.5rem;
-        }
-
-        /* Custom Styles for Text Colors */
-        .customer-reviews p {
-            color: yellow;
-        }
-
-        .about-company p {
-            color: #00FF00; /* Bright popping green */
-        }
-
-        .contact-us-info p {
-            color: #FFA500; /* Bright orange */
-        }
-
-        /* Custom Styles for Spacing */
-        .latest-software img,
-        .top-deals img {
-            margin-bottom: 20px; /* Add space between images and text */
-        }
-
-        .latest-software p,
-        .top-deals p {
-            margin-top: 20px; /* Add space between images and text */
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -77,13 +23,21 @@
         </section>
         <section id="latest-software" class="box section-margin text-center latest-software">
             <h2>Latest Software</h2>
-            <img src="images/software-company-technology.png" alt="Latest Software" class="img-fluid rounded">
-            <p>Explore the newest software available on the market.</p>
+            <div class="card">
+                <img src="images/software-company-technology.png" alt="Latest Software" class="img-fluid rounded">
+                <div class="card-body">
+                    <p>Explore the newest software available on the market.</p>
+                </div>
+            </div>
         </section>
         <section id="top-deals" class="box section-margin text-center top-deals">
             <h2>Top Deals</h2>
-            <img src="images/654a478f1b2ac3a4f32c9fb6_BFCM Deals Blog 2023.png" alt="Top Deals" class="img-fluid rounded">
-            <p>Check out the best deals on software to save money.</p>
+            <div class="card">
+                <img src="images/654a478f1b2ac3a4f32c9fb6_BFCM Deals Blog 2023.png" alt="Top Deals" class="img-fluid rounded">
+                <div class="card-body">
+                    <p>Check out the best deals on software to save money.</p>
+                </div>
+            </div>
         </section>
         <section id="customer-reviews" class="box section-margin text-center customer-reviews">
             <h2>Customer Reviews</h2>
@@ -98,7 +52,7 @@
         <section id="contact-us" class="box text-center contact-us-info">
             <h2>Contact Us</h2>
             <p>We'd like to send you more information. Leave us your name and how best to contact you, plus any comments or questions you may have about Software Sales. We look forward to hearing from you!</p>
-            <form>
+            <form id="contact-form">
                 <div class="form-group text-left">
                     <label for="name"><i class="fas fa-user"></i> Name</label>
                     <input type="text" class="form-control" id="name" required>
@@ -113,6 +67,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
+            <div id="form-message" class="mt-4"></div>
             <hr> <!-- Dividing line -->
             <div class="contact-details mt-4">
                 <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
@@ -146,6 +101,24 @@
                 checkLoginState();
             })
             .catch(error => console.error('Error loading menu:', error));
+
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            document.getElementById('form-message').innerText = 'Thank you for your message. We will get back to you shortly.';
+            document.getElementById('form-message').style.color = 'green';
+            document.getElementById('contact-form').reset();
+        });
+
+        // Smooth scrolling effect
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
