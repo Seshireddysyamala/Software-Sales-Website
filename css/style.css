@@ -175,61 +175,60 @@ h1, h2, h3 {
     }
 
 /* Software Section Styles */
-.software-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+.row.section-margin {
+    margin-bottom: 2rem !important;
 }
 
 .software-item {
     background-color: #1F2833;
     padding: 1rem;
     border-radius: 8px;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem; /* Add space between items */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    width: calc(50% - 20px);
     border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 450px; /* Ensure consistent height */
 }
 
     .software-item img {
         max-width: 100%; /* Ensure images fit well */
-        height: 300px; /* Ensure consistent height */
+        height: auto;
         object-fit: cover;
         margin-bottom: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
     }
 
-    .software-item h3 {
-        margin-bottom: 10px;
-        color: #66FCF1;
-    }
+.latest-software img, .top-deals img {
+    height: 250px; /* Set a fixed height for consistency */
+}
 
-    .software-item p {
-        margin-bottom: 10px;
-        color: #C5C6C7;
-        flex: 1; /* Allow paragraphs to take up available space */
-        text-align: center;
-    }
+.software-item h3 {
+    margin-bottom: 10px;
+    color: #66FCF1;
+}
 
-    .software-item .price,
-    .software-item .discounted-price {
-        font-weight: bold;
-    }
+.software-item p {
+    margin-bottom: 10px;
+    color: #C5C6C7;
+    flex: 1; /* Allow paragraphs to take up available space */
+    text-align: center;
+}
 
-    .software-item .discounted-price {
-        color: red;
-    }
+.software-item .price,
+.software-item .discounted-price {
+    font-weight: bold;
+}
 
-    .software-item .btn {
-        margin-top: auto; /* Push button to the bottom */
-    }
+.software-item .discounted-price {
+    color: red;
+}
+
+.software-item .btn {
+    margin-top: auto; /* Push button to the bottom */
+}
 
 /* Cart Section Styles */
 .cart-container {
