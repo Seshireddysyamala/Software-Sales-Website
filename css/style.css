@@ -118,7 +118,6 @@ main {
     box-sizing: border-box;
 }
 
-/* Add margin-bottom to create gaps between sections */
 .section-margin {
     margin-bottom: 2rem;
 }
@@ -449,3 +448,13 @@ h1, h2, h3 {
     font-weight: bold;
     cursor: pointer;
 }
+
+/* Card link styling */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+    .card-link:hover {
+        text-decoration: none;
+    }
