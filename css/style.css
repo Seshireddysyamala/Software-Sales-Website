@@ -37,7 +37,7 @@ body {
     --bright-yellow: #FFFF00; /* Bright yellow */
 }
 
-/* Navbar */
+/* General Navbar Styles */
 header, .navbar {
     background-color: var(--primary-color); /* Teal green background */
     color: #ffffff;
@@ -54,6 +54,7 @@ header, .navbar {
 body:not(.cart-page):not(.profile-page) .navbar {
     width: calc(100% - 52px); /* Adjusted width to avoid overlapping scrollbar */
 }
+
 
 
 .navbar-brand,
@@ -135,23 +136,16 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff;
     width: 100%;
     position: relative; /* Ensure it does not overlap content */
 }
 
-    .combined-section h1 {
-        color: #fff;
-        font-size: 4rem; /* Larger text size */
-        margin-bottom: 1rem;
-        width: 100%; /* Stretch to edge-to-edge */
+    .combined-section h1, .combined-section h2, .combined-section p {
+        color: var(--palette-blue); /* Palette blue text color */
+        font-size: 2.5rem; /* Increase the text size */
+        margin: 0 2rem; /* Add some margin for better spacing */
     }
 
-    .combined-section h2, .combined-section p {
-        color: #fff;
-        font-size: 2rem; /* Larger text size */
-        width: 100%; /* Stretch to edge-to-edge */
-    }
 
 /* Section Styles */
 .container, .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
