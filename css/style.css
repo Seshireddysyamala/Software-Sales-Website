@@ -39,6 +39,13 @@ header, .navbar {
     z-index: 1000;
 }
 
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #66FCF1 !important;
+    font-weight: bold; /* Make Software Sales bold */
+}
+
 .navbar-nav {
     display: flex;
     justify-content: flex-end;
@@ -79,12 +86,6 @@ header, .navbar {
 .fas.fa-home, .fas.fa-user {
     position: relative;
     top: -1px; /* Adjust this value as needed to align with the text */
-}
-
-.navbar-brand,
-.navbar-brand:hover,
-.navbar-brand:focus {
-    color: #66FCF1 !important;
 }
 
 #cart-count {
@@ -147,7 +148,7 @@ main {
 #softwares .latest-software, #softwares .top-deals,
 #cart .cart-container,
 #analytics .analytics-box,
-#about-us .about-section, #about-us .personal-details, #about-us .development-experience {
+#about-us .about-section {
     border: 1px solid #66FCF1 !important;
 }
 
@@ -190,7 +191,8 @@ h1, h2, h3 {
 /* Footer Styles */
 .footer {
     background: #1F2833;
-    color: #C5C6C7;
+    color: #ffffff; /* Bright white text */
+    font-weight: bold; /* Make footer text bold */
     text-align: center;
     padding: 2rem 0;
     width: 100%;
@@ -503,7 +505,7 @@ h1, h2, h3 {
 
 /* Adjust spacing between latest software and top deals */
 #latest-software, #top-deals {
-    margin-right: 5rem;
+    margin-right: 2rem;
 }
 
     #latest-software + #top-deals {
@@ -531,3 +533,15 @@ main {
     .contact-us-info .social-icons a:hover {
         color: #66FCF1;
     }
+
+/* Specific Updates */
+.address-text {
+    color: #ffffff; /* Bright white text for address */
+}
+
+.box-gap {
+    margin-bottom: 2rem; /* Gap between boxes */
+    padding: 2rem; /* Padding for the boxes */
+    border: 1px solid #66FCF1; /* Border color */
+    border-radius: 8px;
+}
