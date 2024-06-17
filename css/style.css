@@ -90,7 +90,7 @@ header, .navbar {
             .navbar-nav .nav-item .nav-link:hover,
             .navbar-nav .nav-item .nav-link:focus {
                 color: var(--box-bg-color);
-                background-color: #66FCF1; /* Palette blue on hover */
+                background-color: var(--palette-blue); /* Palette blue on hover */
             }
 
 .fas.fa-home, .fas.fa-user {
@@ -200,7 +200,7 @@ h1, h2, h3 {
 
 /* Footer Styles */
 .footer {
-    background: var(--primary-color);
+    background: #45A29E; /* Teal green background */
     color: #ffffff; /* Bright white text */
     font-weight: bold; /* Make footer text bold */
     text-align: center;
