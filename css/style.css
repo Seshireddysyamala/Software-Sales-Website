@@ -44,7 +44,7 @@ header, .navbar {
     color: #ffffff;
     padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
-    width: calc(100% - 15px); /* Adjusted width to avoid overlapping scrollbar */
+    width: calc(100% - 52px); /* Adjusted width to avoid overlapping scrollbar */
     position: fixed;
     top: 0;
     left: 0; /* Ensures the navbar is aligned to the left */
