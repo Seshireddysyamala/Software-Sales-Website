@@ -171,8 +171,11 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: #fff;
     width: 100%;
     position: relative; /* Ensure it does not overlap content */
+    padding-top: 1rem; /* Reduce the padding at the top */
+    padding-bottom: 2rem; /* Keep bottom padding as it is */
 }
 
     .combined-section .overlay {
@@ -191,7 +194,7 @@ main {
 
 @media (max-width: 768px) {
     .combined-section h1, .combined-section h2, .combined-section p {
-        font-size: 1.5rem; /* Adjust font size for smaller screens */
+        font-size: 1rem; /* Adjust font size for smaller screens */
     }
 }
 
