@@ -147,7 +147,7 @@ main {
 #softwares .latest-software, #softwares .top-deals,
 #cart .cart-container,
 #analytics .analytics-box,
-#about-us .about-section {
+#about-us .about-section, #about-us .personal-details, #about-us .development-experience {
     border: 1px solid #66FCF1 !important;
 }
 
@@ -424,6 +424,7 @@ h1, h2, h3 {
         white-space: nowrap;
     }
 }
+
 /* Fix Software Page in Mobile View */
 @media (max-width: 768px) {
     .software-item {
@@ -529,4 +530,3 @@ main {
     .contact-us-info .social-icons a:hover {
         color: #66FCF1;
     }
-
