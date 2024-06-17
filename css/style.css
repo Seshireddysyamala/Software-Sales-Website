@@ -199,7 +199,7 @@ h1, h2, h3 {
 
 .latest-software img, .top-deals img {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    height: 300px; /* Ensure consistent height */
     object-fit: cover;
 }
 
@@ -454,4 +454,13 @@ h1, h2, h3 {
 
     .card-link:hover {
         text-decoration: none;
+    }
+
+/* Adjust spacing between latest software and top deals */
+#latest-software, #top-deals {
+    margin-right: 2rem;
+}
+
+    #latest-software + #top-deals {
+        margin-left: 0;
     }
