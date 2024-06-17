@@ -116,7 +116,23 @@
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
                 window.location.href = 'login.html';
             } else {
-                window.location.href = 'checkout.html';
+                // Show the under-construction modal for now
+                document.getElementById('constructionModal').style.display = 'block';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('constructionModal').style.display = 'none';
+        }
+
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('profile-link').style.display = 'block';
+            } else {
+                document.getElementById('login-link').style.display = 'block';
+                document.getElementById('profile-link').style.display = 'none';
             }
         }
     </script>
