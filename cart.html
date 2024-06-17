@@ -58,6 +58,12 @@
             color: white;
             margin-top: 20px;
         }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -82,6 +88,7 @@
             <div class="text-right">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
                 <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                <p id="error-message" class="error-message" style="display: none;">No items in cart. Please add items before proceeding to checkout.</p>
             </div>
         </div>
     </main>
@@ -112,12 +119,16 @@
             .catch(error => console.error('Error loading menu:', error));
 
         function proceedToCheckout() {
-            if (!localStorage.getItem('isLoggedIn')) {
-                localStorage.setItem('redirectAfterLogin', 'cart.html');
-                window.location.href = 'login.html';
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                document.getElementById('error-message').style.display = 'block';
             } else {
-                // Show the under-construction modal for now
-                document.getElementById('constructionModal').style.display = 'block';
+                if (!localStorage.getItem('isLoggedIn')) {
+                    localStorage.setItem('redirectAfterLogin', 'cart.html');
+                    window.location.href = 'login.html';
+                } else {
+                    document.getElementById('constructionModal').style.display = 'block';
+                }
             }
         }
 
