@@ -38,7 +38,7 @@ body {
 
 /* Navbar */
 header, .navbar {
-    background-color: var(--primary-color); /* Teal green background */
+    background-color: #1F2833; /* Teal green background */
     color: #ffffff;
     padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
@@ -200,11 +200,11 @@ h1, h2, h3 {
 
 /* Footer Styles */
 .footer {
-    background: var(--primary-color); /* Teal green background */
+    background: #1F2833; /* Teal green background */
     color: #ffffff; /* Bright white text */
     font-weight: bold; /* Make footer text bold */
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
     width: 100%;
     margin-top: auto;
     box-sizing: border-box;
