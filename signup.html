@@ -92,7 +92,15 @@
             }
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('user', JSON.stringify({ email: document.getElementById('email').value }));
-            window.location.href = 'index.html';
+
+            // Check for redirectAfterLogin and navigate to the specified page
+            const redirectAfterLogin = localStorage.getItem('redirectAfterLogin');
+            if (redirectAfterLogin) {
+                localStorage.removeItem('redirectAfterLogin');
+                window.location.href = redirectAfterLogin;
+            } else {
+                window.location.href = 'index.html';
+            }
         });
 
         // Redirect to index if already logged in
