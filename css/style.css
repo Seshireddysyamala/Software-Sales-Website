@@ -38,7 +38,7 @@ body {
 
 /* Navbar */
 header, .navbar {
-    background: var(--primary-color);
+    background:#45A29E;
     color: #ffffff;
     padding: 0.19rem 0;
     text-align: center;
@@ -88,8 +88,8 @@ header, .navbar {
             .navbar-nav .nav-item .nav-link.active,
             .navbar-nav .nav-item .nav-link:hover,
             .navbar-nav .nav-item .nav-link:focus {
-                color: var(--box-bg-color);
-                background-color: var(--primary-color);
+                color:#45A29E;
+                background-color:#66FCF1;
             }
 
 .fas.fa-home, .fas.fa-user {
