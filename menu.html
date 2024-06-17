@@ -29,3 +29,36 @@
 
     document.addEventListener('DOMContentLoaded', checkLoginState);
 </script>
+
+/* Teal Color Incorporation */
+.btn-primary, .btn-success {
+    background-color: var(--primary-color); /* Teal color */
+    border-color: var(--primary-color); /* Teal color */
+}
+
+    .btn-primary:hover, .btn-success:hover {
+        background-color: #379287; /* Darker teal color on hover */
+        border-color: #379287; /* Darker teal color on hover */
+    }
+
+.card-link:hover {
+    color: var(--primary-color); /* Teal color for card links on hover */
+}
+
+/* Call-to-action buttons */
+.cta-button {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+    .cta-button:hover {
+        background-color: #379287; /* Darker teal color on hover */
+        border-color: #379287; /* Darker teal color on hover */
+    }

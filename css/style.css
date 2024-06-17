@@ -38,7 +38,7 @@ body {
 
 /* Navbar */
 header, .navbar {
-    background-color: #45A29E; /* Teal green background */
+    background-color: var(--primary-color); /* Teal green background */
     color: #ffffff;
     padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
@@ -200,7 +200,7 @@ h1, h2, h3 {
 
 /* Footer Styles */
 .footer {
-    background: #45A29E; /* Teal green background */
+    background: var(--primary-color); /* Teal green background */
     color: #ffffff; /* Bright white text */
     font-weight: bold; /* Make footer text bold */
     text-align: center;
@@ -565,7 +565,6 @@ main {
         margin-right: 1rem;
     }
 }
-
 /* Teal Color Incorporation */
 .btn-primary, .btn-success {
     background-color: var(--primary-color); /* Teal color */
