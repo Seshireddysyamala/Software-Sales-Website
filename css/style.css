@@ -45,7 +45,7 @@ body {
 
 /* Navbar */
 header, .navbar {
-    background: var(--box-bg-color);
+    background: #000000; /* Changed to black */
     color: var(--primary-color);
     padding: 0.19rem 0;
     text-align: center;
@@ -108,7 +108,6 @@ header, .navbar {
     margin-left: 5px;
 }
 
-/* Main Styles */
 main {
     flex: 1;
     display: flex;
@@ -206,7 +205,7 @@ h1, h2, h3 {
 
 /* Footer Styles */
 .footer {
-    background: var(--box-bg-color);
+    background: #000000; /* Changed to black */
     color: var(--footer-text-color); /* Bright white text */
     font-weight: bold; /* Make footer text bold */
     text-align: center;
@@ -481,15 +480,19 @@ h1, h2, h3 {
 
 /* Changing Text Colors */
 .customer-reviews p {
-    color: yellow; /* Customer reviews text to yellow */
+    color: #ffffff; /* Customer reviews text to bright white */
 }
 
 #about-company p {
-    color: #00FF00; /* About company text to bright green */
+    color: #ffffff; /* About company text to bright white */
 }
 
 #contact-us p:first-of-type {
-    color: #FFA500; /* Contact us intro text to bright orange */
+    color: #ffffff; /* Contact us intro text to bright white */
+}
+
+.address-text {
+    color: #ffffff; /* Bright white text for address */
 }
 
 /* Adding Spacing Between Images and Text */
@@ -551,10 +554,6 @@ main {
     }
 
 /* Specific Updates */
-.address-text {
-    color: #ffffff; /* Bright white text for address */
-}
-
 .box-gap {
     margin-bottom: 2rem; /* Gap between boxes */
     padding: 2rem; /* Padding for the boxes */
@@ -604,3 +603,5 @@ main {
         background-color: #379287; /* Darker teal color on hover */
         border-color: #379287; /* Darker teal color on hover */
     }
+
+
