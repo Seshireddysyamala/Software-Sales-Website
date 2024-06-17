@@ -120,6 +120,8 @@ main {
     width: 100%;
     top: 0;
     left: 0;
+    border: none !important;
+    border-radius: 0 !important;
 }
 
     .combined-section .overlay {
@@ -478,6 +480,7 @@ h1, h2, h3 {
 /* Remove borders for main content on all pages */
 main {
     border: none !important;
+    border-radius: 0 !important;
 }
 
 /* Remove specific border classes for all pages */
