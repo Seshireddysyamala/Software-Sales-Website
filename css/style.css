@@ -353,6 +353,7 @@ h1, h2, h3 {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     box-sizing: border-box;
+    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
 }
 
 /* Logout Button */
@@ -471,7 +472,12 @@ h1, h2, h3 {
         margin-left: 0;
     }
 
-/* Remove borders for index page */
+/* Remove borders for main content on all pages */
+main {
+    border: none !important;
+}
+
+/* Remove specific border classes for all pages */
 .border-primary, .border {
     border: none !important;
 }
