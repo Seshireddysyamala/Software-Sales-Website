@@ -12,6 +12,10 @@ html, body {
     overflow-y: auto; /* Use browser scrollbar */
 }
 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -21,6 +25,16 @@ body {
     color: #C5C6C7;
     min-height: 100vh;
     padding-right: 2px; /* Adjust padding to avoid scrollbar overlap */
+}
+
+:root {
+    --primary-color: #45A29E; /* Teal green */
+    --palette-blue: #66FCF1; /* Palette blue */
+    --bg-color: #0B0C10;
+    --text-color: #C5C6C7;
+    --box-bg-color: #1F2833;
+    --footer-text-color: #ffffff;
+    --bright-yellow: #FFFF00; /* Bright yellow */
 }
 
 /* Navbar */
@@ -34,7 +48,7 @@ header, .navbar {
     left: 0; /* Ensures the navbar is aligned to the left */
     z-index: 1000;
     width: 100%; /* Default to full width */
-    border-bottom: 1px solid #c5c6c7; /* Grey line at the bottom */
+    border-bottom: 1px solid #C5C6C7; /* Grey line at the bottom */
 }
 
 @media (min-width: 992px) {
@@ -90,8 +104,8 @@ header, .navbar {
 /* Responsive adjustments for mobile view */
 @media (max-width: 768px) {
     header, .navbar {
-        padding: 0.5rem 1rem; /* Add padding to keep gap from edges */
-        width: 100%; /* Ensure full width for mobile view */
+        padding: 0.5rem; /* Add padding to keep gap from edges */
+        width: calc(100% - 2rem); /* Ensure width minus padding */
     }
 
     .navbar-nav {
@@ -108,8 +122,6 @@ header, .navbar {
                 padding: 0.5rem 1rem;
             }
 }
-
-
 
 
 
