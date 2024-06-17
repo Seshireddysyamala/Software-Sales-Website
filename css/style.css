@@ -25,20 +25,10 @@ body {
     padding-right: 2px; /* Adjust padding to avoid scrollbar overlap */
 }
 
-[data-theme="dark"] body {
-    background-color: #0B0C10;
-    color: #C5C6C7;
-}
-
-[data-theme="light"] body {
-    background-color: #ffffff;
-    color: #000000;
-}
-
 /* Navbar */
 header, .navbar {
-    background: #1F2833;
-    color: #66FCF1;
+    background: var(--navbar-bg);
+    color: var(--navbar-text);
     padding: 0.19rem 0;
     text-align: center;
     width: 100%;
@@ -47,15 +37,10 @@ header, .navbar {
     z-index: 1000;
 }
 
-[data-theme="light"] header, [data-theme="light"] .navbar {
-    background: #f8f9fa;
-    color: #000000;
-}
-
 .navbar-brand,
 .navbar-brand:hover,
 .navbar-brand:focus {
-    color: #66FCF1 !important;
+    color: var(--navbar-text) !important;
     font-weight: bold; /* Make Software Sales bold */
 }
 
@@ -79,26 +64,22 @@ header, .navbar {
             align-items: center;
         }
 
-[data-theme="light"] .navbar-nav .nav-item .nav-link {
-    color: #000000;
-}
+            .navbar-nav .nav-item .nav-link i {
+                margin-right: 7px;
+                vertical-align: middle;
+            }
 
-.navbar-nav .nav-item .nav-link i {
-    margin-right: 7px;
-    vertical-align: middle;
-}
+            .navbar-nav .nav-item .nav-link span {
+                display: inline-block;
+                vertical-align: middle;
+            }
 
-.navbar-nav .nav-item .nav-link span {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.navbar-nav .nav-item .nav-link.active,
-.navbar-nav .nav-item .nav-link:hover,
-.navbar-nav .nav-item .nav-link:focus {
-    color: #1F2833;
-    background-color: #66FCF1;
-}
+            .navbar-nav .nav-item .nav-link.active,
+            .navbar-nav .nav-item .nav-link:hover,
+            .navbar-nav .nav-item .nav-link:focus {
+                color: var(--navbar-hover-text);
+                background-color: var(--navbar-hover-bg);
+            }
 
 .fas.fa-home, .fas.fa-user {
     position: relative;
@@ -117,18 +98,13 @@ main {
     justify-content: flex-start;
     padding: 0; /* Remove padding to stretch the content */
     margin-top: 0; /* Remove top margin */
-    background-color: #1F2833;
-    color: #C5C6C7;
+    background-color: var(--main-bg);
+    color: var(--main-text);
     text-align: center;
     width: 100%;
     box-sizing: border-box;
     border: none; /* Remove main border */
     border-radius: 0;
-}
-
-[data-theme="light"] main {
-    background-color: #f8f9fa;
-    color: #000000;
 }
 
 /* Combined Section Styles */
@@ -155,23 +131,14 @@ main {
         color: #fff;
     }
 
-[data-theme="light"] .combined-section {
-    color: #000000;
-}
-
 /* Section Styles */
 .container, .box, .banner, .software-item, .cart-container, .analytics-box, .section-box, .user-profile-box {
     width: 100%;
     max-width: none;
     padding: 2rem;
     border-radius: 8px;
-    background-color: #1F2833;
+    background-color: var(--section-bg);
     box-sizing: border-box;
-}
-
-[data-theme="light"] .container, [data-theme="light"] .box, [data-theme="light"] .banner, [data-theme="light"] .software-item, [data-theme="light"] .cart-container, [data-theme="light"] .analytics-box, [data-theme="light"] .section-box, [data-theme="light"] .user-profile-box {
-    background-color: #ffffff;
-    color: #000000;
 }
 
 /* Section borders to keep */
@@ -180,15 +147,7 @@ main {
 #cart .cart-container,
 #analytics .analytics-box,
 #about-us .about-section {
-    border: 1px solid #66FCF1 !important;
-}
-
-[data-theme="light"] .latest-software, [data-theme="light"] .top-deals, [data-theme="light"] .customer-reviews, [data-theme="light"] .about-company, [data-theme="light"] .contact-us-info,
-[data-theme="light"] #softwares .latest-software, [data-theme="light"] #softwares .top-deals,
-[data-theme="light"] #cart .cart-container,
-[data-theme="light"] #analytics .analytics-box,
-[data-theme="light"] #about-us .about-section {
-    border: 1px solid #000000 !important;
+    border: 1px solid var(--section-border) !important;
 }
 
 /* Remove border from main sections */
@@ -207,10 +166,6 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
-[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3 {
-    color: #000000;
-}
-
 /* Add gap between headings and boxes in software page */
 #softwares h2 {
     margin-bottom: 1rem;
@@ -223,37 +178,24 @@ h1, h2, h3 {
 
 /* Apply border color for charts and table in analytics page */
 #analytics .chart-box, #analytics .data-table-box {
-    border: 1px solid #66FCF1 !important;
-}
-
-[data-theme="light"] #analytics .chart-box, [data-theme="light"] #analytics .data-table-box {
-    border: 1px solid #000000 !important;
+    border: 1px solid var(--section-border) !important;
 }
 
 /* Apply border color for "Your Cart" box */
 #cart .cart-container {
-    border: 1px solid #66FCF1 !important;
-}
-
-[data-theme="light"] #cart .cart-container {
-    border: 1px solid #000000 !important;
+    border: 1px solid var(--section-border) !important;
 }
 
 /* Footer Styles */
 .footer {
-    background: #1F2833;
-    color: #ffffff; /* Bright white text */
+    background: var(--footer-bg);
+    color: var(--footer-text);
     font-weight: bold; /* Make footer text bold */
     text-align: center;
     padding: 2rem 0;
     width: 100%;
     margin-top: auto;
     box-sizing: border-box;
-}
-
-[data-theme="light"] .footer {
-    background: #f8f9fa;
-    color: #000000;
 }
 
 /* Responsive Navbar */
@@ -278,12 +220,12 @@ h1, h2, h3 {
 }
 
 .software-item {
-    background-color: #1F2833;
+    background-color: var(--section-bg);
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 2rem; /* Add space between items */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
+    border: 1px solid var(--section-border) !important; /* Ensure border visibility with !important */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -291,16 +233,9 @@ h1, h2, h3 {
     transition: transform 0.3s ease;
 }
 
-[data-theme="light"] .software-item {
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid #000000 !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.software-item:hover {
-    transform: translateY(-10px);
-}
+    .software-item:hover {
+        transform: translateY(-10px);
+    }
 
 .latest-software img, .top-deals img {
     width: 100%;
@@ -310,138 +245,17 @@ h1, h2, h3 {
 
 .software-item h3 {
     margin-bottom: 10px;
-    color: #66FCF1;
-}
-
-[data-theme="light"] .software-item h3 {
-    color: #000000;
-}
-
-.software-item p {
-    margin-bottom: 10px;
-    color: #C5C6C7;
-    flex: 1; /* Allow paragraphs to take up available space */
-    text-align: center;
-}
-
-[data-theme="light"] .software-item p {
-    color: #000000;
-}
-
-.software-item .price,
-.software-item .discounted-price {
-    font-weight: bold;
-}
-
-.software-item .discounted-price {
-    color: red;
-}
-
-[data-theme="light"] .software-item .discounted-price {
-    color: #ff0000;
-}
-
-.software-item .btn {
-    margin-top: auto; /* Push button to the bottom */
-}
-
-/* Cart Section Styles */
-.cart-container {
-    background-color: #1F2833;
-    color: #C5C6C7;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    margin: 2rem auto;
+    color: var(--main-text);
     width: 100%;
     max-width: none;
     box-sizing: border-box;
-    border: 1px solid #66FCF1 !important;
+    border: 1px solid var(--section-border) !important; /* Ensure border visibility with !important */
 }
 
-[data-theme="light"] .cart-container {
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid #000000 !important;
-}
-
-.cart-container h1 {
-    color: #66FCF1;
-    margin-bottom: 2rem;
-}
-
-[data-theme="light"] .cart-container h1 {
-    color: #000000;
-}
-
-.table {
-    color: #C5C6C7;
-    width: 100%;
-    table-layout: fixed;
-}
-
-[data-theme="light"] .table {
-    color: #000000;
-}
-
-.table th, .table td {
-    padding: 0.5rem;
-    word-wrap: break-word;
-}
-
-.btn-success {
-    background-color: #45A29E;
-    border-color: #45A29E;
-}
-
-.btn-danger {
-    background-color: #DC3545;
-    border-color: #DC3545;
-}
-
-.text-right {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.btn-logout {
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-
-.text-right .btn-success {
-    display: block;
-    margin: 0 auto;
-}
-
-/* Analytics Section Styles */
-.analytics-box {
-    background-color: #1F2833;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    color: #C5C6C7;
-    width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
-}
-
-[data-theme="light"] .analytics-box {
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid #000000 !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
 .analytics-box h2 {
     color: #66FCF1;
     margin-bottom: 1rem; /* Adds space below the heading */
-}
-
-[data-theme="light"] .analytics-box h2 {
-    color: #000000;
 }
 
 .analytics-box canvas {
@@ -456,71 +270,43 @@ h1, h2, h3 {
 .analytics-box table {
     width: 100%;
     margin-bottom: 1rem;
-    color: #C5C6C7;
+    color: var(--main-text);
 }
 
-[data-theme="light"] .analytics-box table {
-    color: #000000;
-}
-
-.analytics-box table th, .analytics-box table td {
-    padding: 0.5rem;
-    text-align: center;
-}
+    .analytics-box table th, .analytics-box table td {
+        padding: 0.5rem;
+        text-align: center;
+    }
 
 /* Table Styles */
 .table-dark {
-    background-color: #1F2833;
-    color: #C5C6C7;
+    background-color: var(--section-bg);
+    color: var(--main-text);
     text-align: center;
     width: 100%;
 }
 
-[data-theme="light"] .table-dark {
-    background-color: #ffffff;
-    color: #000000;
-}
+    .table-dark th, .table-dark td {
+        border: 1px solid var(--main-text);
+    }
 
-.table-dark th, .table-dark td {
-    border: 1px solid #C5C6C7;
-}
+    .table-dark th {
+        background-color: #0B0C10;
+    }
 
-[data-theme="light"] .table-dark th, [data-theme="light"] .table-dark td {
-    border: 1px solid #000000;
-}
-
-.table-dark th {
-    background-color: #0B0C10;
-}
-
-[data-theme="light"] .table-dark th {
-    background-color: #f8f9fa;
-}
-
-.table-dark tbody tr:hover {
-    background-color: #0B0C10;
-}
-
-[data-theme="light"] .table-dark tbody tr:hover {
-    background-color: #e9ecef;
-}
+    .table-dark tbody tr:hover {
+        background-color: #0B0C10;
+    }
 
 /* User Profile Styles */
 .user-profile-box {
-    background-color: #1F2833;
-    color: #C5C6C7;
+    background-color: var(--section-bg);
+    color: var(--main-text);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     box-sizing: border-box;
-    border: 1px solid #66FCF1 !important; /* Ensure border visibility with !important */
-}
-
-[data-theme="light"] .user-profile-box {
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid #000000 !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--section-border) !important; /* Ensure border visibility with !important */
 }
 
 /* Logout Button */
@@ -593,19 +379,15 @@ h1, h2, h3 {
 
 /* Changing Text Colors */
 .customer-reviews p {
-    color: yellow; /* Customer reviews text to yellow */
+    color: var(--text-color); /* Customer reviews text */
 }
 
 #about-company p {
-    color: #00FF00; /* About company text to bright green */
+    color: var(--text-color); /* About company text */
 }
 
 #contact-us p:first-of-type {
-    color: #FFA500; /* Contact us intro text to bright orange */
-}
-
-[data-theme="light"] .customer-reviews p, [data-theme="light"] #about-company p, [data-theme="light"] #contact-us p:first-of-type {
-    color: #000000;
+    color: var(--text-color); /* Contact us intro text */
 }
 
 /* Adding Spacing Between Images and Text */
@@ -671,10 +453,6 @@ main {
     color: #ffffff; /* Bright white text for address */
 }
 
-[data-theme="light"] .address-text {
-    color: #000000;
-}
-
 .box-gap {
     margin-bottom: 2rem; /* Gap between boxes */
     padding: 2rem; /* Padding for the boxes */
@@ -725,22 +503,46 @@ main {
         border-color: #379287; /* Darker teal color on hover */
     }
 
-/* Theme Toggle Button */
-.theme-toggle-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #45A29E;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 16px;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
+/* Theme Variables */
+:root {
+    --navbar-bg: #1F2833;
+    --navbar-text: #66FCF1;
+    --navbar-hover-bg: #66FCF1;
+    --navbar-hover-text: #1F2833;
+    --main-bg: #0B0C10;
+    --main-text: #C5C6C7;
+    --section-bg: #1F2833;
+    --section-border: #66FCF1;
+    --footer-bg: #1F2833;
+    --footer-text: #ffffff;
+    --text-color: white;
 }
 
-    .theme-toggle-btn:hover {
-        background-color: #379287; /* Darker teal color on hover */
-    }
+[data-theme="light"] {
+    --navbar-bg: #ffffff;
+    --navbar-text: #1F2833;
+    --navbar-hover-bg: #f0f0f0;
+    --navbar-hover-text: #1F2833;
+    --main-bg: #ffffff;
+    --main-text: #1F2833;
+    --section-bg: #f0f0f0;
+    --section-border: #1F2833;
+    --footer-bg: #ffffff;
+    --footer-text: #1F2833;
+    --text-color: #1F2833;
+}
+
+[data-theme="dark"] {
+    --navbar-bg: #1F2833;
+    --navbar-text: #66FCF1;
+    --navbar-hover-bg: #66FCF1;
+    --navbar-hover-text: #1F2833;
+    --main-bg: #000000; /* Changed from dark gray to black */
+    --main-text: #C5C6C7;
+    --section-bg: #1F2833;
+    --section-border: #66FCF1;
+    --footer-bg: #1F2833;
+    --footer-text: #ffffff;
+    --text-color: white;
+}
+
