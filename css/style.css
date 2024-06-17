@@ -104,12 +104,14 @@ main {
     text-align: center;
     width: 100%;
     box-sizing: border-box;
+    border: none; /* Remove main border */
+    border-radius: 0;
 }
 
 /* Combined Section Styles */
 .combined-section {
     position: relative;
-    background: url('images/homepage.png') no-repeat center center;
+    background: url('images/image.png') no-repeat center center;
     background-size: cover;
     height: 400px;
     display: flex;
@@ -142,6 +144,21 @@ main {
     border-radius: 8px;
     background-color: #1F2833;
     box-sizing: border-box;
+}
+
+/* Section borders to keep */
+.latest-software, .top-deals, .customer-reviews, .about-company, .contact-us-info,
+#softwares .latest-software, #softwares .top-deals,
+#cart .cart-container,
+#analytics .analytics-box,
+#about-us .about-section {
+    border: 1px solid #66FCF1 !important;
+}
+
+/* Remove border from main sections */
+.main-content {
+    border: none !important;
+    border-radius: 0 !important;
 }
 
 .section-margin {
