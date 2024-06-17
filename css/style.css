@@ -549,5 +549,5 @@ main {
 /* Update to adjust gap between Latest Software and Top Deals */
 #latest-software, #top-deals {
     width: calc(50% - 1rem); /* Adjust the width to allow for a gap */
-    margin: 0 0.5rem; /* Add margin to create the gap */
+    margin: 2rem; /* Add margin to create the gap */
 }
