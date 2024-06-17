@@ -279,6 +279,7 @@ h1, h2, h3 {
     width: 100%;
     max-width: none;
     box-sizing: border-box;
+    border: 1px solid #66FCF1 !important;
 }
 
     .cart-container h1 {
