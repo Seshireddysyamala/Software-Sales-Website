@@ -504,13 +504,18 @@ h1, h2, h3 {
     }
 
 /* Adjust spacing between latest software and top deals */
-#latest-software, #top-deals {
-    margin-right: 4rem;
+#latest-software {
+    margin-right: 2rem;
 }
 
     #latest-software + #top-deals {
         margin-left: 0;
     }
+
+.row.section-margin.justify-content-center {
+    margin-right: 2rem; /* Add margin-right to the row */
+    margin-left: 2rem; /* Add margin-left to the row */
+}
 
 /* Remove borders for main content on all pages */
 main {
