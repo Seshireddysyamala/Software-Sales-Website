@@ -148,3 +148,12 @@ document.addEventListener('click', (event) => {
         removeItemFromCart(index);
     }
 });
+
+function removeItemFromCart(index) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCartItems();
+    updateCartCount();
+    calculateTotal();
+}
