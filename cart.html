@@ -128,11 +128,13 @@
 
             if (cart.length === 0) {
                 document.getElementById('error-message').style.display = 'block';
-            } else if (!isLoggedIn) {
-                localStorage.setItem('redirectAfterLogin', 'cart.html');
-                window.location.href = 'login.html';
             } else {
-                document.getElementById('constructionModal').style.display = 'block';
+                if (!isLoggedIn) {
+                    localStorage.setItem('redirectAfterLogin', 'cart.html');
+                    window.location.href = 'login.html';
+                } else {
+                    document.getElementById('constructionModal').style.display = 'block';
+                }
             }
         }
 
