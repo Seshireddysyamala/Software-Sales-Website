@@ -301,11 +301,11 @@ h1, h2, h3 {
     background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.3rem 0;
     width: 100%;
     margin-top: auto;
     box-sizing: border-box;
-    border-top: 0.5px solid #ffffff; /* White border at the top */
+    border-top: 07px solid #ffffff; /* White border at the top */
 }
 
     .footer .container {
