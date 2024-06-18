@@ -19,7 +19,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Oxanium', sans-serif; /* Set Oxanium as the default font */
     line-height: 1.6;
     background-color: #1F2833;
     color: #C5C6C7;
