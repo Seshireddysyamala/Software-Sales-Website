@@ -322,6 +322,19 @@ h1, h2, h3 {
             .navbar-nav .nav-item .nav-link {
                 padding: 0.5rem 1rem;
             }
+
+}
+
+/* Responsive Navbar Mobile */
+@media (max-width: 768px) {
+    .footer {
+        padding: 1rem; /* Adjust padding for smaller screens */
+        text-align: center; /* Center-align text on smaller screens */
+    }
+
+        .footer p {
+            margin: 0.5rem 0; /* Add some margin for better spacing */
+        }
 }
 
 /* Software Section Styles */
@@ -552,22 +565,31 @@ h1, h2, h3 {
 
 /* Fix Software Page in Mobile View */
 @media (max-width: 768px) {
+    .software-grid {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px; /* Add gap between grid items */
+    }
+
     .software-item {
         width: 100%; /* Ensure software items take full width in mobile view */
         margin-bottom: 2rem; /* Add margin-bottom to create gaps between items */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align the items */
     }
 
         .software-item img {
             max-width: 100%; /* Ensure images fit well */
+            height: auto; /* Maintain aspect ratio */
         }
 
-    .software-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px; /* Add gap between grid items */
-    }
+        .software-item button {
+            width: 100%; /* Ensure buttons take full width */
+            margin-top: auto; /* Push button to the bottom */
+        }
 }
+
 
 /* Add Gap Between Boxes in About Us Page */
 .section-margin {
