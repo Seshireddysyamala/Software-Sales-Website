@@ -205,6 +205,7 @@ main {
         color: #66FCF1; /* Palette blue */
         font-size: 5rem; /* Larger size for h1 */
         margin: 0 2rem 1rem 2rem; /* Add some margin for better spacing */
+        font-family: 'Roboto Condensed', sans-serif; /* Apply Roboto Condensed font */
         font-weight: bold; /* Default to bold */
     }
 
@@ -221,7 +222,7 @@ main {
         font-size: 1.25rem; /* Medium size for p */
         margin: 1rem 1rem; /* Add some margin for better spacing */
         font-style: italic; /* Default to italic */
-        font-family: 'Cursive', sans-serif; /* Apply cursive font */
+        font-family: 'Playfair Display', serif; /* Apply Playfair Display font */
     }
 
 @media (max-width: 768px) {
@@ -237,6 +238,7 @@ main {
         font-size: 0.8rem; /* Adjust font size for smaller screens */
     }
 }
+
 
 
 
