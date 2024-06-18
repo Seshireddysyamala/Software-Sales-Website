@@ -314,37 +314,40 @@ h1, h2, h3 {
         margin: 0 auto;
     }
 
-.footer-logo img {
-    max-width: 80px;
-    margin-bottom: 1rem;
-}
+    .footer h3 {
+        color: #66FCF1; /* Palette blue for headings */
+        font-size: 1rem; /* Decreased size for headings */
+        margin-bottom: 1rem;
+    }
 
-.footer h3 {
-    color: #66FCF1; /* Palette blue for headings */
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-}
+    .footer p {
+        font-size: 0.8rem; /* Decreased size for text */
+        line-height: 1.4;
+        color: #ffffff;
+    }
 
-.footer p {
-    font-size: 0.8rem;
-    line-height: 1.4;
-    color: #ffffff;
-}
-
-.footer a {
-    color: #66FCF1;
-}
-
-.footer .social-icons a {
-    color: #ffffff;
-    font-size: 1.5rem;
-    margin-right: 10px;
-    transition: color 0.3s;
-}
-
-    .footer .social-icons a:hover {
+    .footer a {
         color: #66FCF1;
     }
+
+    .footer .form-group label {
+        font-size: 0.8rem; /* Decreased size for labels */
+    }
+
+    .footer .form-control {
+        font-size: 0.8rem; /* Decreased size for form inputs */
+    }
+
+    .footer .social-icons a {
+        color: #ffffff;
+        font-size: 1rem; /* Decreased size for social icons */
+        margin-right: 10px;
+        transition: color 0.3s;
+    }
+
+        .footer .social-icons a:hover {
+            color: #66FCF1;
+        }
 
 hr {
     border-top: 1px solid #ffffff;
@@ -359,6 +362,7 @@ hr {
         margin-bottom: 1.5rem;
     }
 }
+
 
 
 
