@@ -126,13 +126,13 @@
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const isLoggedIn = localStorage.getItem('isLoggedIn');
 
-            if (cart.length === 0) {
+            if (cart.length === 0 && !isLoggedIn) {
                 document.getElementById('error-message').style.display = 'block';
-                document.getElementById('constructionModal').style.display = 'none';
-            } else if (!isLoggedIn) {
-                document.getElementById('error-message').style.display = 'none';
+            } else if (cart.length > 0 && !isLoggedIn) {
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
                 window.location.href = 'login.html';
+            } else if (cart.length === 0 && isLoggedIn) {
+                document.getElementById('error-message').style.display = 'block';
             } else {
                 document.getElementById('error-message').style.display = 'none';
                 document.getElementById('constructionModal').style.display = 'block';
