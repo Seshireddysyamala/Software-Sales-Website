@@ -297,7 +297,7 @@ h1, h2, h3 {
 }
 
 
-
+/*FOOTER*/
 
 .footer {
     background: #1F2833; /* Footer background */
@@ -330,14 +330,6 @@ h1, h2, h3 {
         color: #66FCF1;
     }
 
-    .footer .form-group label {
-        font-size: 0.8rem; /* Decreased size for labels */
-    }
-
-    .footer .form-control {
-        font-size: 0.8rem; /* Decreased size for form inputs */
-    }
-
     .footer .social-icons a {
         color: #ffffff;
         font-size: 1rem; /* Decreased size for social icons */
@@ -353,6 +345,14 @@ hr {
     border-top: 1px solid #ffffff;
 }
 
+.text-justify {
+    text-align: justify;
+}
+
+.text-center {
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     .footer .row {
         text-align: center;
@@ -362,11 +362,6 @@ hr {
         margin-bottom: 1.5rem;
     }
 }
-
-
-
-
-
 
 
 
