@@ -58,12 +58,12 @@ header, .navbar {
 }
 
 .navbar-border-bottom {
-    border-bottom: 1px solid #c5c6c7; /* Grey line at the bottom */
+    border-bottom: 0.5px solid #c5c6c7; /* Grey line at the bottom */
 }
 
 /* Exclude border-bottom on profile and cart pages */
 body:not(.profile-page):not(.cart-page) .navbar {
-    border-bottom: 1px solid #c5c6c7; /* Grey line at the bottom */
+    border-bottom: 0.5px solid #c5c6c7; /* Grey line at the bottom */
 }
 
 .navbar-brand,
@@ -112,7 +112,7 @@ body:not(.profile-page):not(.cart-page) .navbar {
 /* Grey line below the navbar */
 .navbar-line {
     width: 100%;
-    height: 1px; /* Adjust the height as needed */
+    height: 0.5px; /* Adjust the height as needed */
     background-color: #c5c6c7; /* Grey color */
     position: fixed;
     top: 62px; /* Adjust based on the height of your navbar */
