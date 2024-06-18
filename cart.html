@@ -128,14 +128,13 @@
             if (cart.length === 0) {
                 document.getElementById('error-message').style.display = 'block';
                 document.getElementById('constructionModal').style.display = 'none';
+            } else if (!isLoggedIn) {
+                document.getElementById('error-message').style.display = 'none';
+                localStorage.setItem('redirectAfterLogin', 'cart.html');
+                window.location.href = 'login.html';
             } else {
-                if (!isLoggedIn) {
-                    localStorage.setItem('redirectAfterLogin', 'cart.html');
-                    window.location.href = 'login.html';
-                } else {
-                    document.getElementById('error-message').style.display = 'none';
-                    document.getElementById('constructionModal').style.display = 'block';
-                }
+                document.getElementById('error-message').style.display = 'none';
+                document.getElementById('constructionModal').style.display = 'block';
             }
         }
 
