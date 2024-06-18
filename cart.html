@@ -128,14 +128,16 @@
 
             if (cart.length === 0) {
                 document.getElementById('error-message').style.display = 'block';
-            } else {
-                if (!isLoggedIn) {
-                    localStorage.setItem('redirectAfterLogin', 'cart.html');
-                    window.location.href = 'login.html';
-                } else {
-                    document.getElementById('constructionModal').style.display = 'block';
-                }
+                return; // Stop further execution if no items in cart
             }
+
+            if (!isLoggedIn) {
+                localStorage.setItem('redirectAfterLogin', 'cart.html');
+                window.location.href = 'login.html';
+                return; // Stop further execution if not logged in
+            }
+
+            document.getElementById('constructionModal').style.display = 'block'; // Show modal if logged in and items are in cart
         }
 
         function closeModal() {
