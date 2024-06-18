@@ -175,29 +175,32 @@ main {
 .combined-section {
     background: url('images/homepage.png') no-repeat center center;
     background-size: cover;
-    height: 100vh; /* Ensure it covers the entire viewport height */
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #fff;
     width: 100%;
-    position: relative;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    margin-top: 1rem;
+    position: relative; /* Ensure it does not overlap content */
+    margin-top: 1rem; /* Add margin at the top to avoid overlaying */
 }
 
     .combined-section .overlay {
         background: rgba(0, 0, 0, 0.5);
         padding: 2rem;
         border-radius: 8px;
-        width: 100%; /* Ensure it covers the entire section */
-        height: 100%; /* Ensure it covers the entire section height */
-        position: absolute; /* Position it absolutely within the section */
-        top: 0; /* Align to the top */
-        left: 0; /* Align to the left */
+        width: 100%; /* Ensure it covers the entire width */
+        height: 100%; /* Ensure it covers the entire height */
+        position: absolute; /* Ensure it overlays the entire section */
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
+
 
     .combined-section h1 {
         color: #66FCF1; /* Palette blue */
@@ -236,7 +239,6 @@ main {
         font-size: 0.8rem; /* Adjust font size for smaller screens */
     }
 }
-
 
 
 /* Section Styles */
