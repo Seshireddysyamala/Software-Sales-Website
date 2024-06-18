@@ -298,14 +298,14 @@ h1, h2, h3 {
 
 /* Footer Styles */
 .footer {
-    background: #1F2833; /* Footer background */
+    background: #0B0C10; /* Footer background */
     color: #ffffff; /* Bright white text */
     text-align: center;
     padding: 0.3rem 0;
     width: 100%;
     margin-top: auto;
     box-sizing: border-box;
-    border-top: 07px solid #ffffff; /* White border at the top */
+    border-top:1px solid #ffffff; /* White border at the top */
 }
 
     .footer .container {
