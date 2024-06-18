@@ -127,19 +127,24 @@
             const isLoggedIn = localStorage.getItem('isLoggedIn');
             const errorMessage = document.getElementById('error-message');
 
-            // Hide any previous error messages
+            // Reset the error message display and text
             errorMessage.style.display = 'none';
+            errorMessage.textContent = '';
 
-            if (cart.length === 0) {
-                // Condition 1: No items in cart
+            if (cart.length === 0 && !isLoggedIn) {
+                // Condition 1: No items in cart and not logged in
                 errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
                 errorMessage.style.display = 'block';
-            } else if (!isLoggedIn) {
+            } else if (cart.length === 0 && isLoggedIn) {
+                // Condition 3: No items in cart but logged in
+                errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
+                errorMessage.style.display = 'block';
+            } else if (cart.length > 0 && !isLoggedIn) {
                 // Condition 2: User is not logged in
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
                 window.location.href = 'login.html';
             } else {
-                // Condition 3: User is logged in and there are items in the cart
+                // Condition 4: User is logged in and there are items in the cart
                 document.getElementById('constructionModal').style.display = 'block';
             }
         }
