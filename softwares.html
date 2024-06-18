@@ -43,13 +43,29 @@
                 flex: 1;
             }
 
+            .software-item .price-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                flex-grow: 1; /* Allow the wrapper to take available space */
+            }
+
             .software-item .price,
             .software-item .discounted-price {
                 font-weight: bold;
             }
 
+            .software-item .price {
+                color: var(--bright-yellow); /* Bright yellow for original price */
+            }
+
             .software-item .discounted-price {
                 color: red;
+            }
+
+            .software-item .btn {
+                margin-top: auto; /* Push button to the bottom */
             }
 
         .software-grid {
@@ -76,14 +92,18 @@
                     <img src="images/win-11-logo-small-168x230.jpg" alt="Windows 11">
                     <h3>Windows 11</h3>
                     <p>Windows 11 is the latest operating system from Microsoft, released in October 2021. It features a redesigned interface with a centered Start menu and taskbar, improved virtual desktops, and enhanced performance and security.</p>
-                    <p class="price">Price: $49.99</p>
+                    <div class="price-wrapper">
+                        <p class="price">Price: $49.99</p>
+                    </div>
                     <button class="btn btn-primary" onclick="addToCart('Windows 11', 49.99)">Add to Cart</button>
                 </div>
                 <div class="software-item">
                     <img src="images/zoom-168x230.png" alt="Zoom">
                     <h3>Zoom</h3>
                     <p>Zoom is a popular video conferencing platform that allows users to conduct virtual meetings, webinars, and online classes. It offers features like screen sharing, breakout rooms, and virtual backgrounds, making it a versatile tool for both personal and professional use.</p>
-                    <p class="price">Price: $99.99</p>
+                    <div class="price-wrapper">
+                        <p class="price">Price: $99.99</p>
+                    </div>
                     <button class="btn btn-primary" onclick="addToCart('Zoom', 99.99)">Add to Cart</button>
                 </div>
             </div>
@@ -95,16 +115,20 @@
                     <img src="images/gta-168x230.jpeg" alt="GTA 6">
                     <h3>GTA 6</h3>
                     <p>Grand Theft Auto VI (GTA 6) is an anticipated open-world action-adventure game developed by Rockstar Games. It is expected to continue the franchise's tradition of offering a vast, immersive environment, engaging storylines, and a variety of missions and activities.</p>
-                    <p class="price" style="color: #FFFF00;">Original Price: $79.99</p>
-                    <p class="discounted-price">Discounted Price: $59.99</p>
+                    <div class="price-wrapper">
+                        <p class="price" style="color: #FFFF00;">Original Price: $79.99</p>
+                        <p class="discounted-price">Discounted Price: $59.99</p>
+                    </div>
                     <button class="btn btn-primary" onclick="addToCart('GTA 6', 59.99)">Add to Cart</button>
                 </div>
                 <div class="software-item">
                     <img src="images/Microsoft-Office-365-168x230.png" alt="Microsoft Office">
                     <h3>Microsoft Office</h3>
                     <p>Microsoft Office is a suite of productivity software that includes applications like Word, Excel, PowerPoint, and Outlook. It is widely used for creating documents, spreadsheets, presentations, and managing emails.</p>
-                    <p class="price" style="color: #FFFF00;">Original Price: $129.99</p>
-                    <p class="discounted-price">Discounted Price: $99.99</p>
+                    <div class="price-wrapper">
+                        <p class="price" style="color: #FFFF00;">Original Price: $129.99</p>
+                        <p class="discounted-price">Discounted Price: $99.99</p>
+                    </div>
                     <button class="btn btn-primary" onclick="addToCart('Microsoft Office', 99.99)">Add to Cart</button>
                 </div>
             </div>

@@ -397,6 +397,20 @@ h1, h2, h3 {
     margin-top: auto; /* Push button to the bottom */
 }
 
+/* Ensure consistent alignment of prices */
+.software-item .price-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1; /* Allow the wrapper to take available space */
+}
+
+    .software-item .price-wrapper .price,
+    .software-item .price-wrapper .discounted-price {
+        margin: 5px 0; /* Add some margin for better spacing */
+    }
+
 /* Fix Software Page in Mobile View */
 @media (max-width: 768px) {
     .software-item {
