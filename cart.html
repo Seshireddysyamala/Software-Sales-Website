@@ -125,17 +125,21 @@
         function proceedToCheckout() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const errorMessage = document.getElementById('error-message');
+
+            // Hide any previous error messages
+            errorMessage.style.display = 'none';
 
             if (cart.length === 0) {
-                document.getElementById('error-message').style.display = 'block';
-                return; // Ensure no further action is taken
-            }
-
-            if (!isLoggedIn) {
+                // Condition 1: No items in cart
+                errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
+                errorMessage.style.display = 'block';
+            } else if (!isLoggedIn) {
+                // Condition 2: User is not logged in
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
                 window.location.href = 'login.html';
             } else {
-                document.getElementById('error-message').style.display = 'none'; // Hide error message if any items in cart
+                // Condition 3: User is logged in and there are items in the cart
                 document.getElementById('constructionModal').style.display = 'block';
             }
         }
