@@ -123,8 +123,8 @@ body:not(.profile-page):not(.cart-page) .navbar {
 /* Responsive adjustments for mobile view */
 @media (max-width: 768px) {
     header, .navbar {
-        padding: 0.1rem; /* Add padding to keep gap from edges */
-        width: calc(100% - 2rem); /* Ensure width minus padding */
+        padding: 2rem; /* Add padding to keep gap from edges */
+        width: calc(100% - 0rem); /* Ensure width minus padding */
     }
 
     .navbar-nav {
@@ -204,7 +204,7 @@ main {
 
 @media (max-width: 768px) {
     .combined-section h1, .combined-section h2, .combined-section p {
-        font-size: 0.5rem; /* Adjust font size for smaller screens */
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
     }
 }
 
