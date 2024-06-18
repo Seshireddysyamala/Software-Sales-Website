@@ -589,7 +589,19 @@ h1, h2, h3 {
             width: 100%; /* Ensure buttons take full width */
             margin-top: 1rem; /* Add margin-top for spacing */
         }
+
+        .software-item .btn {
+            margin-top: auto; /* Push button to the bottom */
+        }
 }
+
+/* Ensure footer does not overlap content */
+footer.footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem; /* Add margin-top for spacing */
+}
+
 
 
 
