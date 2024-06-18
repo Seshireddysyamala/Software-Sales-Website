@@ -128,14 +128,15 @@
 
             if (cart.length === 0) {
                 document.getElementById('error-message').style.display = 'block';
+                return; // Ensure no further action is taken
+            }
+
+            if (!isLoggedIn) {
+                localStorage.setItem('redirectAfterLogin', 'cart.html');
+                window.location.href = 'login.html';
             } else {
-                if (!isLoggedIn) {
-                    localStorage.setItem('redirectAfterLogin', 'cart.html');
-                    window.location.href = 'login.html';
-                } else {
-                    document.getElementById('error-message').style.display = 'none'; // Hide error message if any items in cart
-                    document.getElementById('constructionModal').style.display = 'block';
-                }
+                document.getElementById('error-message').style.display = 'none'; // Hide error message if any items in cart
+                document.getElementById('constructionModal').style.display = 'block';
             }
         }
 
