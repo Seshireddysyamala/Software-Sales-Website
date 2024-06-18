@@ -310,6 +310,11 @@ h1, h2, h3 {
     .footer .container {
         max-width: 1200px;
         margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
     }
 
 .footer-logo {
@@ -321,12 +326,13 @@ h1, h2, h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #66FCF1; /* Palette blue for headings */
+    text-align: center; /* Center heading text */
 }
 
 .footer p {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #ffffff; /* Bright white text for paragraphs */
+    text-align: center; /* Center paragraph text */
 }
 
 .footer .btn {
@@ -358,10 +364,16 @@ h1, h2, h3 {
         text-align: center;
     }
 
+        .footer .container {
+            flex-direction: column;
+            align-items: center;
+        }
+
         .footer .row > [class*='col-'] {
             margin-bottom: 2rem;
         }
 }
+
 
 
 /* Responsive Footer */
