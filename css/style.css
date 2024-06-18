@@ -315,6 +315,10 @@ h1, h2, h3 {
         margin-bottom: 30px;
     }
 
+        .footer-about .footer-logo img {
+            max-width: 80px; /* Reduce logo size */
+        }
+
     .footer-about p {
         color: #b7b7b7;
         margin-bottom: 30px;
@@ -405,6 +409,7 @@ h1, h2, h3 {
     .social-icons a:hover {
         color: #66FCF1;
     }
+
 
 
 
