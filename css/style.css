@@ -296,45 +296,62 @@ h1, h2, h3 {
     border: 1px solid var(--primary-color) !important;
 }
 
-/* Footer Styles */
+/*footer styles*/
 .footer {
     background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
     font-weight: bold; /* Make footer text bold */
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 2rem 0;
     width: 100%;
     margin-top: auto;
     box-sizing: border-box;
 }
 
-/* Responsive Navbar */
-@media (max-width: 992px) {
-    .navbar-nav {
-        flex-direction: column;
-        text-align: center;
+    .footer .container {
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
-        .navbar-nav .nav-item {
-            margin: 0.5rem 0;
-        }
-
-            .navbar-nav .nav-item .nav-link {
-                padding: 0.5rem 1rem;
-            }
-
+.footer-logo {
+    max-width: 100px;
+    margin-bottom: 1rem;
 }
 
-/* Responsive Navbar Mobile */
-@media (max-width: 768px) {
-    .footer {
-        padding: 2rem; /* Adjust padding for smaller screens */
-        text-align: center; /* Center-align text on smaller screens */
+.footer h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer .btn {
+    margin: 0.5rem 0;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+    .social-icons a:hover {
+        color: #66FCF1;
     }
 
-        .footer p {
-            margin: 0.5rem 0; /* Add some margin for better spacing */
-        }
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer .row > div {
+        margin-bottom: 1rem;
+    }
+
+    .footer .container {
+        padding: 0 1rem;
+    }
 }
 
 
@@ -386,7 +403,7 @@ h1, h2, h3 {
     align-items: center;
     justify-content: flex-end;
     flex-grow: 1; /* Allow the wrapper to take available space */
-    min-height: 65px; /* Add a minimum height to ensure alignment */
+    min-height: 75px; /* Add a minimum height to ensure alignment */
 }
 
 .software-item .price,

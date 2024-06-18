@@ -56,52 +56,8 @@
                 <p>“The customer service is excellent, and the prices are unbeatable.” - Jane Smith</p>
                 <p>“A one-stop shop for all software needs. Very satisfied with my purchases.” - Mark Johnson</p>
             </section>
-            <section id="about-company" class="box section-margin text-center about-company box-gap">
-                <h2>About Our Company</h2>
-                <p>At Software Sales, we are dedicated to providing the best software solutions at the most competitive prices. Our mission is to make high-quality software accessible to everyone, whether for personal use, educational purposes, or business needs. With a commitment to customer satisfaction, we strive to offer exceptional service, knowledgeable support, and an extensive selection of software products. Join us in discovering the latest software trends and top deals, and experience the difference with Software Sales.</p>
-            </section>
-            <section id="contact-us" class="box text-center contact-us-info box-gap">
-                <h2>Contact Us</h2>
-                <p>We'd like to send you more information. Leave us your name and how best to contact you, plus any comments or questions you may have about Software Sales. We look forward to hearing from you!</p>
-                <form id="contact-form">
-                    <div class="form-group text-left">
-                        <label for="name"><i class="fas fa-user"></i> Name</label>
-                        <input type="text" class="form-control" id="name" required>
-                    </div>
-                    <div class="form-group text-left">
-                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                        <input type="email" class="form-control" id="email" required>
-                    </div>
-                    <div class="form-group text-left">
-                        <label for="message"><i class="fas fa-comment"></i> Message</label>
-                        <textarea class="form-control" id="message" rows="3" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-                <div id="form-message" class="mt-4"></div>
-                <hr>
-                <div class="contact-details mt-4">
-                    <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
-                    <p class="address-text">12345 Software Sales, University Dr, Tampa, Fl 33620, USA</p>
-                    <h3><i class="fas fa-envelope"></i> Email</h3>
-                    <p><a href="mailto:Softwaresales@ssr.com">Softwaresales@ssr.com</a></p>
-                    <h3><i class="fas fa-phone"></i> Phone</h3>
-                    <p><a href="tel:+18130006666">(813) 000-6666</a></p>
-                    <h3><i class="fas fa-share-alt"></i> Social</h3>
-                    <div class="social-icons">
-                        <a href="https://twitter.com" target="_blank" style="color: white; margin-right: 15px;"><i class="fab fa-twitter"></i></a>
-                        <a href="https://facebook.com" target="_blank" style="color: white; margin-right: 15px;"><i class="fab fa-facebook"></i></a>
-                        <a href="https://github.com/Seshireddysyamala/Software-Sales-Website" target="_blank" style="color: white; margin-right: 15px;"><i class="fab fa-github"></i></a>
-                        <a href="https://instagram.com" target="_blank" style="color: white; margin-right: 15px;"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/seshi-reddy-syamala" target="_blank" style="color: white;"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </section>
         </div>
     </main>
-    <footer class="footer">
-        <p>&copy; 2024 Software Sales. All rights reserved.</p>
-    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -153,6 +109,14 @@
         }
 
         document.addEventListener('DOMContentLoaded', checkLoginState);
+
+        // Load the footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
+            })
+            .catch(error => console.error('Error loading footer:', error));
     </script>
 </body>
 </html>
