@@ -131,16 +131,20 @@
             errorMessage.style.display = 'none';
             errorMessage.textContent = '';
 
-            if (cart.length === 0) {
-                // Condition 1: No items in cart
+            if (cart.length === 0 && !isLoggedIn) {
+                // Condition 1: No items in cart and user is not logged in
                 errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
                 errorMessage.style.display = 'block';
-            } else if (!isLoggedIn) {
+            } else if (cart.length > 0 && !isLoggedIn) {
                 // Condition 2: User is not logged in
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
                 window.location.href = 'login.html';
-            } else if (isLoggedIn && cart.length > 0) {
-                // Condition 3: User is logged in and there are items in the cart
+            } else if (cart.length === 0 && isLoggedIn) {
+                // Condition 3: User is logged in but no items in the cart
+                errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
+                errorMessage.style.display = 'block';
+            } else if (cart.length > 0 && isLoggedIn) {
+                // Condition 4: User is logged in and there are items in the cart
                 document.getElementById('constructionModal').style.display = 'block';
             }
         }
