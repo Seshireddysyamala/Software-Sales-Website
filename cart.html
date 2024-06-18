@@ -119,34 +119,21 @@
             .then(data => {
                 document.getElementById('menu').innerHTML = data;
                 checkLoginState();
-                updateCartCount(); // Ensure this function is called to update the cart count
             })
             .catch(error => console.error('Error loading menu:', error));
 
         function proceedToCheckout() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            const errorMessage = document.getElementById('error-message');
-
-            // Hide any previous error messages
-            errorMessage.style.display = 'none';
-
             if (cart.length === 0) {
-                // Condition 1: No items in cart
-                errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
-                errorMessage.style.display = 'block';
-                return; // Exit the function to prevent further code execution
+                document.getElementById('error-message').style.display = 'block';
+            } else {
+                if (!localStorage.getItem('isLoggedIn')) {
+                    localStorage.setItem('redirectAfterLogin', 'cart.html');
+                    window.location.href = 'login.html';
+                } else {
+                    document.getElementById('constructionModal').style.display = 'block';
+                }
             }
-
-            if (!isLoggedIn) {
-                // Condition 2: User is not logged in
-                localStorage.setItem('redirectAfterLogin', 'cart.html');
-                window.location.href = 'login.html';
-                return; // Exit the function to prevent further code execution
-            }
-
-            // Condition 3: User is logged in and there are items in the cart
-            document.getElementById('constructionModal').style.display = 'block';
         }
 
         function closeModal() {
