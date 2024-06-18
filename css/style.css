@@ -353,6 +353,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
     transition: transform 0.3s ease;
 }
 
@@ -369,6 +370,7 @@ h1, h2, h3 {
 .software-item h3 {
     margin-bottom: 10px;
     color: var(--palette-blue);
+    text-align: center;
 }
 
 .software-item p {
@@ -381,6 +383,7 @@ h1, h2, h3 {
 .software-item .price,
 .software-item .discounted-price {
     font-weight: bold;
+    text-align: center;
 }
 
 .software-item .price {
@@ -393,7 +396,28 @@ h1, h2, h3 {
 
 .software-item .btn {
     margin-top: auto; /* Push button to the bottom */
+    align-self: center; /* Center align the button */
 }
+
+/* Fix Software Page in Mobile View */
+@media (max-width: 768px) {
+    .software-item {
+        width: 100%; /* Ensure software items take full width in mobile view */
+        margin-bottom: 2rem; /* Add margin-bottom to create gaps between items */
+    }
+
+        .software-item img {
+            max-width: 100%; /* Ensure images fit well */
+        }
+
+    .software-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px; /* Add gap between grid items */
+    }
+}
+
 
 /* Cart Section Styles */
 .cart-container {
