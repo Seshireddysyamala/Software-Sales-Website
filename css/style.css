@@ -386,7 +386,7 @@ h1, h2, h3 {
     align-items: center;
     justify-content: flex-end;
     flex-grow: 1; /* Allow the wrapper to take available space */
-    min-height: 50px; /* Add a minimum height to ensure alignment */
+    min-height: 65px; /* Add a minimum height to ensure alignment */
 }
 
 .software-item .price,
@@ -409,7 +409,7 @@ h1, h2, h3 {
 /* Fix Software Page in Mobile View */
 @media (max-width: 768px) {
     .software-item {
-        width: calc(100% - 30px);
+        width: calc(100% - 37px);
     }
 }
 
