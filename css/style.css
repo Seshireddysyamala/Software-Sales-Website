@@ -124,7 +124,7 @@ body:not(.profile-page):not(.cart-page) .navbar {
 @media (max-width: 768px) {
     header, .navbar {
         padding: 2rem; /* Add padding to keep gap from edges */
-        width: calc(100% - 0rem); /* Ensure width minus padding */
+        width: calc(100% - 12rem); /* Ensure width minus padding */
     }
 
     .navbar-nav {
