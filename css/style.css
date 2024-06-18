@@ -197,19 +197,19 @@ main {
     }
     .combined-section h1 {
         color: #66FCF1; /* Palette blue */
-        font-size: 5rem; /* Larger size for h1 */
+        font-size: 3.5rem; /* Larger size for h1 */
         margin: 0 2rem; /* Add some margin for better spacing */
     }
 
     .combined-section h2 {
         color: #45A29E; /* Different color for h2 */
-        font-size: 2rem; /* Smaller size for h2 */
+        font-size: 3rem; /* Smaller size for h2 */
         margin: 0 2rem; /* Add some margin for better spacing */
     }
 
     .combined-section p {
         color: #C5C6C7; /* Another color for p */
-        font-size: 3rem; /* Medium size for p */
+        font-size: 1.5rem; /* Medium size for p */
         margin: 0 2rem; /* Add some margin for better spacing */
     }
 
