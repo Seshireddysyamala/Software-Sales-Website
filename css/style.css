@@ -175,7 +175,7 @@ main {
 .combined-section {
     background: url('images/homepage.png') no-repeat center center;
     background-size: cover;
-    height: 400px;
+    height: 100vh; /* Ensure it covers the entire viewport height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -193,7 +193,10 @@ main {
         padding: 2rem;
         border-radius: 8px;
         width: 100%; /* Ensure it covers the entire section */
-        margin: 0 auto;
+        height: 100%; /* Ensure it covers the entire section height */
+        position: absolute; /* Position it absolutely within the section */
+        top: 0; /* Align to the top */
+        left: 0; /* Align to the left */
     }
 
     .combined-section h1 {
@@ -233,6 +236,7 @@ main {
         font-size: 0.8rem; /* Adjust font size for smaller screens */
     }
 }
+
 
 
 /* Section Styles */
