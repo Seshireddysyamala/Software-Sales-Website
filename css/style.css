@@ -679,3 +679,9 @@ main {
         background-color: #379287; /* Darker teal color on hover */
         border-color: #379287; /* Darker teal color on hover */
     }
+/* Center the specific paragraph */
+.centered-text {
+    text-align: center;
+    width: 100%;
+}
+
