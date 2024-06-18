@@ -208,13 +208,14 @@ main {
         font-size: 2.5rem; /* Smaller size for h2 */
         margin: 1rem 2rem; /* Add some margin for better spacing */
         font-weight: normal; /* Default to normal */
+        font-family: 'Brush Script MT', cursive; /* Apply Brush Script font */
     }
-
     .combined-section p {
         color: #ffffff; /* Another color for p */
         font-size: 1.25rem; /* Medium size for p */
         margin: 1rem 1rem; /* Add some margin for better spacing */
         font-style: italic; /* Default to italic */
+        font-family: 'Cursive', sans-serif; /* Apply cursive font */
     }
 
 @media (max-width: 768px) {
