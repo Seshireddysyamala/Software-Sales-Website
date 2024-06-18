@@ -591,6 +591,7 @@ h1, h2, h3 {
         }
 
         .software-item .btn {
+            width: 100%; /* Ensure buttons take full width */
             margin-top: auto; /* Push button to the bottom */
         }
 }
@@ -602,6 +603,10 @@ footer.footer {
     margin-top: 2rem; /* Add margin-top for spacing */
 }
 
+/* Ensure sufficient space at the bottom of the page */
+body {
+    padding-bottom: 4rem; /* Add padding to ensure footer does not overlap content */
+}
 
 
 
