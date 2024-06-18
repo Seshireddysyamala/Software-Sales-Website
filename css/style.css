@@ -630,20 +630,13 @@ h1, h2, h3 {
     }
 
 /* Adjust spacing between latest software and top deals */
-#latest-software {
-    margin-right: 5.65rem; /* Add margin to the right of latest software */
-}
-
-#top-deals {
-    margin-left: 5.65rem; /* Add margin to the left of top deals */
-}
-
-/* Additional styles to ensure they are displayed correctly */
 #latest-software, #top-deals {
-    display: inline-block; /* Ensure they are inline-block elements */
-    vertical-align: top; /* Align them to the top */
+    margin-right: 2rem;
 }
 
+    #latest-software + #top-deals {
+        margin-left: 0;
+    }
 
 /* Remove borders for main content on all pages */
 main {
