@@ -76,7 +76,7 @@
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
                 <div id="form-message" class="mt-4"></div>
-                <hr> <!-- Dividing line -->
+                <hr>
                 <div class="contact-details mt-4">
                     <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
                     <p class="address-text">12345 Software Sales, University Dr, Tampa, Fl 33620, USA</p>
@@ -109,7 +109,7 @@
             .then(data => {
                 document.getElementById('menu').innerHTML = data;
                 checkLoginState();
-                updateCartCount();
+                updateCartCount(); // Ensure this function is called to update the cart count
             })
             .catch(error => console.error('Error loading menu:', error));
 
@@ -140,6 +140,13 @@
                 document.getElementById('login-link').style.display = 'block';
                 document.getElementById('profile-link').style.display = 'none';
             }
+        }
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = itemCount;
         }
 
         document.addEventListener('DOMContentLoaded', checkLoginState);
