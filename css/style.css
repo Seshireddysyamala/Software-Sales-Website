@@ -302,7 +302,7 @@ h1, h2, h3 {
 .footer {
     background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
-    padding: 2rem 0;
+    padding: 1rem 0; /* Reduced padding */
     width: 100%;
     margin-top: auto;
     box-sizing: border-box;
@@ -316,8 +316,8 @@ h1, h2, h3 {
 
     .footer h3 {
         color: #66FCF1; /* Palette blue for headings */
-        font-size: 1rem; /* Decreased size for headings */
-        margin-bottom: 1rem;
+        font-size: 0.9rem; /* Decreased size for headings */
+        margin-bottom: 0.5rem;
     }
 
     .footer p {
@@ -362,6 +362,7 @@ hr {
         margin-bottom: 1.5rem;
     }
 }
+
 
 
 
