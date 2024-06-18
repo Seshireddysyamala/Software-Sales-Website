@@ -139,12 +139,8 @@
                 // Condition 2: User is not logged in
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
                 window.location.href = 'login.html';
-            } else if (cart.length === 0 && isLoggedIn) {
-                // Condition 3: No items in cart but logged in
-                errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
-                errorMessage.style.display = 'block';
-            } else {
-                // Condition 4: User is logged in and there are items in the cart
+            } else if (isLoggedIn && cart.length > 0) {
+                // Condition 3: User is logged in and there are items in the cart
                 document.getElementById('constructionModal').style.display = 'block';
             }
         }
