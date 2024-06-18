@@ -310,14 +310,15 @@ h1, h2, h3 {
     border-top: 2px solid #ffffff; /* Add white border on top */
 }
 
-    .footer .container {
-        max-width: 2000px;
-        margin: 0 auto;
+    .footer .container-fluid {
+        max-width: 100%;
+        padding: 0 50px; /* Adjust padding to stretch footer */
     }
 
     .footer h4 {
         font-size: 1.2rem;
         color: #66FCF1; /* Palette blue */
+        margin-bottom: 1rem;
     }
 
     .footer p {
@@ -375,11 +376,6 @@ h1, h2, h3 {
 .footer .text-center {
     margin-top: 1rem;
 }
-
-
-
-
-
 
 /* Responsive Footer */
 @media (max-width: 768px) {
