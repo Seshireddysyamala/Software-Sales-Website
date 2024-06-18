@@ -300,13 +300,29 @@ h1, h2, h3 {
 .footer {
     background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
-    font-weight: bold; /* Make footer text bold */
     text-align: center;
     padding: 1rem 0;
     width: 100%;
     margin-top: auto;
     box-sizing: border-box;
+    border-top: 0.5px solid #ffffff; /* White border at the top */
 }
+
+    .footer .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+    .social-icons a:hover {
+        color: #66FCF1;
+    }
 
 /* Responsive Navbar */
 @media (max-width: 992px) {
@@ -717,7 +733,3 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
-
-
-
-
