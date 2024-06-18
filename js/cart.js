@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             cartTable.appendChild(row);
         });
-        calculateTotal(); // Ensure the total is calculated whenever the cart is rendered
+        calculateTotal();
     };
 
     const updateCart = () => {
@@ -61,12 +61,24 @@ document.addEventListener('DOMContentLoaded', () => {
     calculateTotal();
 
     document.getElementById('checkout-button').addEventListener('click', function (event) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const isLoggedIn = localStorage.getItem('isLoggedIn');
-        if (!isLoggedIn) {
-            event.preventDefault();
-            window.location.href = 'login.html'; // Redirect to login page if not logged in
+        const errorMessage = document.getElementById('error-message');
+
+        // Reset the error message display and text
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+
+        if (cart.length === 0) {
+            // Condition 1: No items in cart
+            errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
+            errorMessage.style.display = 'block';
+        } else if (!isLoggedIn) {
+            // Condition 2: User is not logged in
+            localStorage.setItem('redirectAfterLogin', 'cart.html');
+            window.location.href = 'login.html';
         } else {
-            // Show the modal if logged in
+            // Condition 3: User is logged in and there are items in the cart
             document.getElementById('constructionModal').style.display = 'block';
         }
     });
@@ -85,16 +97,7 @@ function checkLoginState() {
 
 function logout() {
     localStorage.removeItem('isLoggedIn');
-    window.location.href = 'index.html'; // Redirect to the home page after logout
-}
-
-function proceedToCheckout() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (!isLoggedIn) {
-        window.location.href = 'login.html';
-    } else {
-        document.getElementById('constructionModal').style.display = 'block';
-    }
+    window.location.href = 'index.html';
 }
 
 function closeModal() {
@@ -107,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             document.getElementById('menu').innerHTML = data;
             checkLoginState();
-            updateCartCount(); // Ensure cart count is updated after loading menu
+            updateCartCount();
         })
         .catch(error => console.error('Error loading menu:', error));
 });
@@ -156,4 +159,11 @@ function removeItemFromCart(index) {
     renderCartItems();
     updateCartCount();
     calculateTotal();
+}
+
+function updateCartCount() {
+    const cartCountElements = document.querySelectorAll('#cart-count');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    cartCountElements.forEach(el => el.textContent = itemCount);
 }
