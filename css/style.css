@@ -680,13 +680,13 @@ main {
         border-color: #379287; /* Darker teal color on hover */
     }
 
-.centered-text-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.centered-text {
     text-align: center;
-    margin-top: 20px; /* Add some margin if needed */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 
 
