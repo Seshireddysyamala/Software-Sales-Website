@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartTable = document.getElementById('cart-table-body');
+    const cartCountElements = document.querySelectorAll('#cart-count');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const renderCartItems = () => {
@@ -26,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateCartCount = () => {
-        const cartCount = document.getElementById('cart-count');
-        cartCount.textContent = cart.reduce((count, item) => count + item.quantity, 0);
+        const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
+        cartCountElements.forEach(el => el.textContent = itemCount);
     };
 
     const calculateTotal = () => {
@@ -75,39 +76,16 @@ function checkLoginState() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (isLoggedIn) {
         document.getElementById('login-link').style.display = 'none';
-        document.getElementById('signup-link').style.display = 'none';
         document.getElementById('profile-link').style.display = 'block';
-        document.getElementById('logout-link').style.display = 'block';
     } else {
         document.getElementById('login-link').style.display = 'block';
-        document.getElementById('signup-link').style.display = 'block';
         document.getElementById('profile-link').style.display = 'none';
-        document.getElementById('logout-link').style.display = 'none';
     }
 }
 
 function logout() {
     localStorage.removeItem('isLoggedIn');
     window.location.href = 'index.html'; // Redirect to the home page after logout
-}
-function updateCartCount() {
-    const cartCount = document.getElementById('cart-count');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCount.textContent = itemCount;
-}
-
-document.addEventListener('DOMContentLoaded', updateCartCount);
-
-function checkLoginState() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (isLoggedIn) {
-        document.getElementById('login-link').style.display = 'none';
-        document.getElementById('profile-link').style.display = 'block';
-    } else {
-        document.getElementById('login-link').style.display = 'block';
-        document.getElementById('profile-link').style.display = 'none';
-    }
 }
 
 function proceedToCheckout() {
@@ -129,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             document.getElementById('menu').innerHTML = data;
             checkLoginState();
+            updateCartCount(); // Ensure cart count is updated after loading menu
         })
         .catch(error => console.error('Error loading menu:', error));
 });
@@ -140,12 +119,12 @@ function renderCartItems() {
     cart.forEach((item, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
-                            <td>${item.name}</td>
-                            <td>$${item.price.toFixed(2)}</td>
-                            <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
-                            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-                        `;
+            <td>${item.name}</td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
+            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+        `;
         cartTable.appendChild(row);
     });
     calculateTotal();
