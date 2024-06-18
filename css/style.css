@@ -203,7 +203,7 @@ main {
 
 
     .combined-section h1 {
-        color: #5ecff0; /* Palette blue */
+        color: #66fcf1; /* Palette blue */
         font-size: 5rem; /* Larger size for h1 */
         margin: 0 2rem 1rem 2rem; /* Add some margin for better spacing */
         font-weight: bold; /* Default to bold */
@@ -211,7 +211,7 @@ main {
     }
 
     .combined-section h2 {
-        color: #45a29e; /* Different color for h2 */
+        color: #0ad1c9; /* Different color for h2 */
         font-size: 2.5rem; /* Smaller size for h2 */
         margin: 1rem 2rem; /* Add some margin for better spacing */
         font-weight: normal; /* Default to normal */
@@ -219,7 +219,7 @@ main {
     }
 
     .combined-section p {
-        color: #c5c6c7; /* Another color for p */
+        color: #ffffff; /* Another color for p */
         font-size: 1.25rem; /* Medium size for p */
         margin: 1rem 1rem; /* Add some margin for better spacing */
         font-style: italic; /* Default to italic */
