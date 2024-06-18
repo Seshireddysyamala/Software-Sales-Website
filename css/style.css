@@ -302,7 +302,6 @@ h1, h2, h3 {
 .footer {
     background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
-    text-align: center;
     padding: 2rem 0;
     width: 100%;
     margin-top: auto;
@@ -322,13 +321,13 @@ h1, h2, h3 {
 
 .footer h3 {
     color: #66FCF1; /* Palette blue for headings */
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 1rem;
 }
 
 .footer p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.8rem;
+    line-height: 1.4;
     color: #ffffff;
 }
 
@@ -346,6 +345,20 @@ h1, h2, h3 {
     .footer .social-icons a:hover {
         color: #66FCF1;
     }
+
+hr {
+    border-top: 1px solid #ffffff;
+}
+
+@media (max-width: 768px) {
+    .footer .row {
+        text-align: center;
+    }
+
+    .footer .col-lg-3 {
+        margin-bottom: 1.5rem;
+    }
+}
 
 
 
