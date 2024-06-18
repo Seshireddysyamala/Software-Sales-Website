@@ -680,8 +680,16 @@ main {
         border-color: #379287; /* Darker teal color on hover */
     }
 /* Center the specific paragraph */
-.centered-text {
+.centered-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     text-align: center;
+}
+
+.centered-text {
     width: 100%;
 }
+
 
