@@ -337,6 +337,7 @@ h1, h2, h3 {
         }
 }
 
+
 /* Software Section Styles */
 .row.section-margin {
     margin-bottom: 2rem !important;
@@ -353,8 +354,8 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
     transition: transform 0.3s ease;
+    height: 600px; /* Ensure consistent height */
 }
 
     .software-item:hover {
@@ -363,14 +364,13 @@ h1, h2, h3 {
 
 .latest-software img, .top-deals img {
     width: 100%;
-    height: 300px; /* Ensure consistent height */
+    height: 200px; /* Ensure consistent height */
     object-fit: cover;
 }
 
 .software-item h3 {
     margin-bottom: 10px;
     color: var(--palette-blue);
-    text-align: center;
 }
 
 .software-item p {
@@ -383,7 +383,6 @@ h1, h2, h3 {
 .software-item .price,
 .software-item .discounted-price {
     font-weight: bold;
-    text-align: center;
 }
 
 .software-item .price {
@@ -396,7 +395,6 @@ h1, h2, h3 {
 
 .software-item .btn {
     margin-top: auto; /* Push button to the bottom */
-    align-self: center; /* Center align the button */
 }
 
 /* Fix Software Page in Mobile View */
