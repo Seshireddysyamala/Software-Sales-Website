@@ -211,7 +211,7 @@ main {
     }
 
     .combined-section h2 {
-        color: #0ad1c9; /* Different color for h2 */
+        color: #FFA500; /* Different color for h2 */
         font-size: 2.5rem; /* Smaller size for h2 */
         margin: 1rem 2rem; /* Add some margin for better spacing */
         font-weight: normal; /* Default to normal */
