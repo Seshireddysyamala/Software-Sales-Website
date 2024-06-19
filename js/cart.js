@@ -110,59 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error loading menu:', error));
 });
 
-
-    document.getElementById('checkout-button').addEventListener('click', function (event) {
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        const errorMessage = document.getElementById('error-message');
-        errorMessage.style.display = 'none';
-        errorMessage.textContent = '';
-
-        if (cart.length === 0) {
-            errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
-            errorMessage.style.display = 'block';
-        } else if (!isLoggedIn) {
-            localStorage.setItem('redirectAfterLogin', 'cart.html');
-            window.location.href = 'login.html';
-        } else {
-            document.getElementById('constructionModal').style.display = 'block';
-        }
-    });
-
-    renderCartItems();
-    updateCartCount();
-    calculateTotal();
-
-function checkLoginState() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (isLoggedIn) {
-        document.getElementById('login-link').style.display = 'none';
-        document.getElementById('profile-link').style.display = 'block';
-    } else {
-        document.getElementById('login-link').style.display = 'block';
-        document.getElementById('profile-link').style.display = 'none';
-    }
-}
-
-function logout() {
-    localStorage.removeItem('isLoggedIn');
-    window.location.href = 'index.html';
-}
-
-function closeModal() {
-    document.getElementById('constructionModal').style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('menu').innerHTML = data;
-            checkLoginState();
-            updateCartCount();
-        })
-        .catch(error => console.error('Error loading menu:', error));
-});
-
 function removeItemFromCart(index) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
