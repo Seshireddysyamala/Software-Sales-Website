@@ -48,15 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Function to update the cart count immediately
-    function updateCartCount() {
-        const cartCountElements = document.querySelectorAll('#cart-count');
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-        cartCountElements.forEach(el => el.textContent = itemCount);
-    }
-
-
     cartTable.addEventListener('input', (event) => {
         if (event.target.classList.contains('item-quantity')) {
             const index = parseInt(event.target.getAttribute('data-index'), 10);
