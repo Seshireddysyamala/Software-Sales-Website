@@ -110,6 +110,43 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error loading menu:', error));
 });
 
+function renderCartItems() {
+    const cartTable = document.getElementById('cart-table-body');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cartTable.innerHTML = '';
+    cart.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
+            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+        `;
+        cartTable.appendChild(row);
+    });
+    calculateTotal();
+}
+
+function calculateTotal() {
+    let total = 0;
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.forEach(item => total += item.price * item.quantity);
+    document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderCartItems();
+    updateCartCount();
+});
+
+document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('remove-item')) {
+        const index = parseInt(event.target.getAttribute('data-index'), 10);
+        removeItemFromCart(index);
+    }
+});
+
 function removeItemFromCart(index) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
