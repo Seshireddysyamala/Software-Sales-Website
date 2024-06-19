@@ -42,7 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const index = parseInt(event.target.getAttribute('data-index'), 10);
             const confirmation = confirm("Are you sure you want to remove this item from the cart?");
             if (confirmation) {
-                removeItemFromCart(index);
+                cart.splice(index, 1);
+                updateCart();
             }
         }
     });
