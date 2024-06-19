@@ -40,7 +40,7 @@ body {
 
 /* Navbar */
 header, .navbar {
-    background-color: var(--primary-color); /* Teal green background */
+    background-color:#0B0C10; /* Teal green background */
     color: #ffffff;
     padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
@@ -298,18 +298,20 @@ h1, h2, h3 {
 
 /* Footer styles */
 .footer {
-    background: #000; /* Ensure footer background is applied completely */
+    background:#0B0C10; /* Ensure footer background is applied completely */
     color: #ffffff; /* Bright white text */
     padding: 2rem 0;
     width: 100%;
     box-sizing: border-box;
     border-top: 1px solid #ffffff; /* Border color */
     margin-top: auto;
+    position: relative; /* Ensure it stays at the bottom */
 }
 
     .footer .container {
         max-width: 2000px; /* Ensure container stretches to the desired width */
         margin: 0 auto;
+        padding: 0 15px; /* Add padding to ensure content is not touching edges */
     }
 
     .footer p {
