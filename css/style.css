@@ -40,7 +40,7 @@ body {
 
 /* Navbar */
 header, .navbar {
-    background-color:#0B0C10; /* Teal green background */
+    background-color: var(--primary-color); /* Teal green background */
     color: #ffffff;
     padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
@@ -296,44 +296,33 @@ h1, h2, h3 {
     border: 1px solid var(--primary-color) !important;
 }
 
-/* Footer styles */
+/* Footer Styles */
 .footer {
-    background:#0B0C10; /* Ensure footer background is applied completely */
+    background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
-    padding: 2rem 0;
+    text-align: center;
+    padding: 1rem 0;
     width: 100%;
-    box-sizing: border-box;
-    border-top: 1px solid #ffffff; /* Border color */
     margin-top: auto;
-    position: relative; /* Ensure it stays at the bottom */
+    box-sizing: border-box;
+    border-top: 0.2px solid #ffffff; /* White border at the top */
 }
 
     .footer .container {
-        max-width: 2000px; /* Ensure container stretches to the desired width */
+        max-width: 1200px;
         margin: 0 auto;
-        padding: 0 15px; /* Add padding to ensure content is not touching edges */
     }
 
-    .footer p {
-        margin: 0; /* Ensure no margin around text */
-        padding: 0; /* Ensure no padding around text */
-    }
-
-.social-icons {
-    margin-top: 1rem; /* Add some space above social icons */
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    transition: color 0.3s;
 }
 
-    .social-icons a {
-        color: #ffffff; /* Icon color */
-        font-size: 1.5rem; /* Icon size */
-        margin: 0 10px; /* Space between icons */
-        transition: color 0.3s;
+    .social-icons a:hover {
+        color: #66FCF1;
     }
-
-        .social-icons a:hover {
-            color: #66FCF1; /* Hover color for icons */
-        }
-
 
 /* Responsive Navbar */
 @media (max-width: 992px) {
