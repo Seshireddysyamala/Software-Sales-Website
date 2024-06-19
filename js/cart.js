@@ -79,6 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('constructionModal').style.display = 'block';
         }
     });
+
+    fetch('menu.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('menu').innerHTML = data;
+            checkLoginState();
+            updateCartCount();
+        })
+        .catch(error => console.error('Error loading menu:', error));
 });
 
 function checkLoginState() {
@@ -99,31 +108,4 @@ function logout() {
 
 function closeModal() {
     document.getElementById('constructionModal').style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('menu').innerHTML = data;
-            checkLoginState();
-            updateCartCount();
-        })
-        .catch(error => console.error('Error loading menu:', error));
-});
-
-function removeItemFromCart(index) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderCartItems();
-    updateCartCount();
-    calculateTotal();
-}
-
-function updateCartCount() {
-    const cartCountElements = document.querySelectorAll('#cart-count');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCountElements.forEach(el => el.textContent = itemCount);
 }
