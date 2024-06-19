@@ -296,33 +296,42 @@ h1, h2, h3 {
     border: 1px solid var(--primary-color) !important;
 }
 
-/* Footer Styles */
+/* Footer styles */
 .footer {
-    background: #0B0C10; /* Footer background */
+    background: #000; /* Ensure footer background is applied completely */
     color: #ffffff; /* Bright white text */
-    text-align: center;
-    padding: 0.3rem 0;
+    padding: 2rem 0;
     width: 100%;
-    margin-top: auto;
     box-sizing: border-box;
-    border-top: 1px solid #ffffff; /* White border at the top */
+    border-top: 1px solid #ffffff; /* Border color */
+    margin-top: auto;
 }
 
     .footer .container {
-        max-width: 1200px;
+        max-width: 2000px; /* Ensure container stretches to the desired width */
         margin: 0 auto;
     }
 
-.social-icons a {
-    color: #ffffff;
-    font-size: 1.5rem;
-    margin-right: 10px;
-    transition: color 0.3s;
+    .footer p {
+        margin: 0; /* Ensure no margin around text */
+        padding: 0; /* Ensure no padding around text */
+    }
+
+.social-icons {
+    margin-top: 1rem; /* Add some space above social icons */
 }
 
-    .social-icons a:hover {
-        color: #66FCF1;
+    .social-icons a {
+        color: #ffffff; /* Icon color */
+        font-size: 1.5rem; /* Icon size */
+        margin: 0 10px; /* Space between icons */
+        transition: color 0.3s;
     }
+
+        .social-icons a:hover {
+            color: #66FCF1; /* Hover color for icons */
+        }
+
 
 /* Responsive Navbar */
 @media (max-width: 992px) {
