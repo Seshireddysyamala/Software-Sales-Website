@@ -17,12 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
             cartTable.appendChild(row);
         });
         calculateTotal();
-        updateCartCount();
     };
 
     const updateCart = () => {
         localStorage.setItem('cart', JSON.stringify(cart));
         renderCartItems();
+        updateCartCount();
+        calculateTotal();
     };
 
     const updateCartCount = () => {
