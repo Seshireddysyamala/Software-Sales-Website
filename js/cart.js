@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             cartTable.appendChild(row);
         });
+        calculateTotal();
     };
 
     const updateCart = () => {
