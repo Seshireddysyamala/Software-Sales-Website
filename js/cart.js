@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cartTable.addEventListener('click', (event) => {
         if (event.target.classList.contains('remove-item')) {
-            const index = event.target.getAttribute('data-index');
+            const index = parseInt(event.target.getAttribute('data-index'), 10);
             const confirmation = confirm("Are you sure you want to remove this item from the cart?");
             if (confirmation) {
                 cart.splice(index, 1);
@@ -50,38 +50,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cartTable.addEventListener('input', (event) => {
         if (event.target.classList.contains('item-quantity')) {
-            const index = event.target.getAttribute('data-index');
-            cart[index].quantity = parseInt(event.target.value, 10) || 1;
+            const index = parseInt(event.target.getAttribute('data-index'), 10);
+            const quantity = parseInt(event.target.value, 10) || 1;
+            cart[index].quantity = quantity;
             updateCart();
+        }
+    });
+
+    document.getElementById('checkout-button').addEventListener('click', function (event) {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+
+        if (cart.length === 0) {
+            errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
+            errorMessage.style.display = 'block';
+        } else if (!isLoggedIn) {
+            localStorage.setItem('redirectAfterLogin', 'cart.html');
+            window.location.href = 'login.html';
+        } else {
+            document.getElementById('constructionModal').style.display = 'block';
         }
     });
 
     renderCartItems();
     updateCartCount();
     calculateTotal();
-
-    document.getElementById('checkout-button').addEventListener('click', function (event) {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        const errorMessage = document.getElementById('error-message');
-
-        // Reset the error message display and text
-        errorMessage.style.display = 'none';
-        errorMessage.textContent = '';
-
-        if (cart.length === 0) {
-            // Condition 1: No items in cart
-            errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
-            errorMessage.style.display = 'block';
-        } else if (!isLoggedIn) {
-            // Condition 2: User is not logged in
-            localStorage.setItem('redirectAfterLogin', 'cart.html');
-            window.location.href = 'login.html';
-        } else {
-            // Condition 3: User is logged in and there are items in the cart
-            document.getElementById('constructionModal').style.display = 'block';
-        }
-    });
 });
 
 function checkLoginState() {
@@ -113,43 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCartCount();
         })
         .catch(error => console.error('Error loading menu:', error));
-});
-
-function renderCartItems() {
-    const cartTable = document.getElementById('cart-table-body');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cartTable.innerHTML = '';
-    cart.forEach((item, index) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${item.name}</td>
-            <td>$${item.price.toFixed(2)}</td>
-            <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
-            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-        `;
-        cartTable.appendChild(row);
-    });
-    calculateTotal();
-}
-
-function calculateTotal() {
-    let total = 0;
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.forEach(item => total += item.price * item.quantity);
-    document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    renderCartItems();
-    updateCartCount();
-});
-
-document.addEventListener('click', (event) => {
-    if (event.target.classList.contains('remove-item')) {
-        const index = event.target.getAttribute('data-index');
-        removeItemFromCart(index);
-    }
 });
 
 function removeItemFromCart(index) {
