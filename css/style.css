@@ -296,7 +296,8 @@ h1, h2, h3 {
     border: 1px solid var(--primary-color) !important;
 }
 
-/* Footer Styles */
+
+/*footer styles*/
 .footer {
     background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
@@ -305,7 +306,7 @@ h1, h2, h3 {
     width: 100%;
     margin-top: auto;
     box-sizing: border-box;
-    border-top: 0.2px solid #ffffff; /* White border at the top */
+    border-top: 1px solid #ffffff; /* White border at the top */
 }
 
     .footer .container {
