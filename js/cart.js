@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             cartTable.appendChild(row);
         });
-        calculateTotal();
     };
 
     const updateCart = () => {
@@ -57,12 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    renderCartItems();
-    updateCartCount();
-    calculateTotal();
-
     document.getElementById('checkout-button').addEventListener('click', function (event) {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         const errorMessage = document.getElementById('error-message');
 
@@ -88,6 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCartCount();
         })
         .catch(error => console.error('Error loading menu:', error));
+
+    renderCartItems();
+    updateCartCount();
+    calculateTotal();
 });
 
 function checkLoginState() {
