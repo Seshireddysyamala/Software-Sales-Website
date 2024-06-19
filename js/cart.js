@@ -66,20 +66,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         const errorMessage = document.getElementById('error-message');
 
-        // Reset the error message display and text
         errorMessage.style.display = 'none';
         errorMessage.textContent = '';
 
         if (cart.length === 0) {
-            // Condition 1: No items in cart
             errorMessage.textContent = 'No items in cart. Please add items before proceeding to checkout.';
             errorMessage.style.display = 'block';
         } else if (!isLoggedIn) {
-            // Condition 2: User is not logged in
             localStorage.setItem('redirectAfterLogin', 'cart.html');
             window.location.href = 'login.html';
         } else {
-            // Condition 3: User is logged in and there are items in the cart
             document.getElementById('constructionModal').style.display = 'block';
         }
     });
