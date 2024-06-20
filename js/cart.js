@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('checkout-button').addEventListener('click', function (event) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         const errorMessage = document.getElementById('error-message');
 
