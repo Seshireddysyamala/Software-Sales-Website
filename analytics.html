@@ -9,6 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap">
+    <style>
+        /* Adding margin for spacing between elements */
+        .gap {
+            margin-bottom: 20px; /* Adjust this value as needed */
+        }
+    </style>
     <script>
         function updateCartCount() {
             const cartCount = document.getElementById('cart-count');
@@ -34,30 +40,30 @@
     </script>
 </head>
 <body>
-    <div id="menu"></div>
+    <div id="menu" class="gap"></div>
     <main class="container mt-5">
         <section id="data-analytics" class="box">
-            <h1 class="box-heading">Sales Statistics</h1>
-            <div class="analytics-box">
-                <h2 class="box-heading">Sales Data (Bar Chart)</h2>
-                <canvas id="salesChart"></canvas>
-                <p><strong>Description:</strong> This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
+            <h1 class="box-heading gap">Sales Statistics</h1>
+            <div class="analytics-box gap">
+                <h2 class="box-heading gap">Sales Data (Bar Chart)</h2>
+                <canvas id="salesChart" class="gap"></canvas>
+                <p class="gap"><strong>Description:</strong> This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
             </div>
-            <div class="analytics-box">
-                <h2 class="box-heading">Sales Distribution (Pie Chart)</h2>
-                <canvas id="salesPieChart"></canvas>
-                <p><strong>Description:</strong> The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
+            <div class="analytics-box gap">
+                <h2 class="box-heading gap">Sales Distribution (Pie Chart)</h2>
+                <canvas id="salesPieChart" class="gap"></canvas>
+                <p class="gap"><strong>Description:</strong> The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
             </div>
-            <div class="analytics-box">
-                <h2 class="box-heading">Sales Trend (Line Chart)</h2>
-                <canvas id="salesLineChart"></canvas>
-                <p><strong>Description:</strong> This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
+            <div class="analytics-box gap">
+                <h2 class="box-heading gap">Sales Trend (Line Chart)</h2>
+                <canvas id="salesLineChart" class="gap"></canvas>
+                <p class="gap"><strong>Description:</strong> This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
             </div>
-            <div class="analytics-box">
-                <h2 class="box-heading">Sales Data Table</h2>
-                <table class="table table-dark">
-                    <thead>
-                        <tr>
+            <div class="analytics-box gap">
+                <h2 class="box-heading gap">Sales Data Table</h2>
+                <table class="table table-dark gap">
+                    <thead class="gap">
+                        <tr class="gap">
                             <th>Month</th>
                             <th>Windows 11</th>
                             <th>Zoom</th>
@@ -66,15 +72,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>January</td><td>$5000</td><td>$7000</td><td>$6000</td><td>$8000</td></tr>
-                        <tr><td>February</td><td>$6000</td><td>$8000</td><td>$7000</td><td>$9000</td></tr>
-                        <tr><td>March</td><td>$7000</td><td>$9000</td><td>$8000</td><td>$10000</td></tr>
-                        <tr><td>April</td><td>$8000</td><td>$10000</td><td>$9000</td><td>$11000</td></tr>
-                        <tr><td>May</td><td>$9000</td><td>$11000</td><td>$10000</td><td>$12000</td></tr>
-                        <tr><td>June</td><td>$10000</td><td>$12000</td><td>$11000</td><td>$13000</td></tr>
+                        <tr class="gap"><td>January</td><td>$5000</td><td>$7000</td><td>$6000</td><td>$8000</td></tr>
+                        <tr class="gap"><td>February</td><td>$6000</td><td>$8000</td><td>$7000</td><td>$9000</td></tr>
+                        <tr class="gap"><td>March</td><td>$7000</td><td>$9000</td><td>$8000</td><td>$10000</td></tr>
+                        <tr class="gap"><td>April</td><td>$8000</td><td>$10000</td><td>$9000</td><td>$11000</td></tr>
+                        <tr class="gap"><td>May</td><td>$9000</td><td>$11000</td><td>$10000</td><td>$12000</td></tr>
+                        <tr class="gap"><td>June</td><td>$10000</td><td>$12000</td><td>$11000</td><td>$13000</td></tr>
                     </tbody>
                 </table>
-                <p><strong>Description:</strong> This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
+                <p class="gap"><strong>Description:</strong> This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
             </div>
         </section>
     </main>
