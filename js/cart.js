@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             cartTable.appendChild(row);
         });
-        calculateTotal();
     };
 
     const updateCart = () => {
@@ -42,14 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const index = event.target.getAttribute('data-index');
             const confirmation = confirm("Are you sure you want to remove this item from the cart?");
             if (confirmation) {
-                removeItemFromCart(index);
+                removeItemFromCart(parseInt(index));
             }
         }
     });
 
     cartTable.addEventListener('input', (event) => {
         if (event.target.classList.contains('item-quantity')) {
-            const index = event.target.getAttribute('data-index');
+            const index = parseInt(event.target.getAttribute('data-index'), 10);
             cart[index].quantity = parseInt(event.target.value, 10) || 1;
             updateCart();
         }
@@ -116,9 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCartCount();
         })
         .catch(error => console.error('Error loading menu:', error));
-
-    renderCartItems();
-    updateCartCount();
 });
 
 function removeItemFromCart(index) {
