@@ -14,6 +14,12 @@
         .gap {
             margin-bottom: 50px; /* Adjust this value as needed */
         }
+        /* Adding margin for spacing between elements */
+        hr {
+            border: 0;
+            border-top: 1px solid #66FCF1;
+            margin: 40px 0;
+        }
     </style>
     <script>
         function updateCartCount() {
@@ -47,16 +53,19 @@
             <div class="analytics-box gap">
                 <h2 class="box-heading gap">Sales Data (Bar Chart)</h2>
                 <canvas id="salesChart" class="gap"></canvas>
+                <hr>
                 <p class="gap"><strong>Description:</strong> This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
             </div>
             <div class="analytics-box gap">
                 <h2 class="box-heading gap">Sales Distribution (Pie Chart)</h2>
                 <canvas id="salesPieChart" class="gap"></canvas>
+                <hr>
                 <p class="gap"><strong>Description:</strong> The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
             </div>
             <div class="analytics-box gap">
                 <h2 class="box-heading gap">Sales Trend (Line Chart)</h2>
                 <canvas id="salesLineChart" class="gap"></canvas>
+                <hr>
                 <p class="gap"><strong>Description:</strong> This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
             </div>
             <div class="analytics-box gap">
@@ -80,6 +89,7 @@
                         <tr class="gap"><td>June</td><td>$10000</td><td>$12000</td><td>$11000</td><td>$13000</td></tr>
                     </tbody>
                 </table>
+                <hr>
                 <p class="gap"><strong>Description:</strong> This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
             </div>
         </section>
