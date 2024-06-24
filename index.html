@@ -11,6 +11,58 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Brush+Script+MT&display=swap');
+
+        @keyframes fadeAndScale {
+            0% {
+                opacity: 0;
+                transform: scale3d(.75, .75, 1);
+            }
+
+            70% {
+                opacity: 0;
+                transform: scale3d(.75, .75, 1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .combined-section h1 {
+            animation: fadeAndScale 1s cubic-bezier(.39, -1.05, .58, 1.95);
+            transform-origin: center bottom;
+        }
+
+        .combined-section .overlay {
+            animation: fadeIn 1s ease-in 1s forwards;
+            opacity: 0;
+        }
+
+        .combined-section h2, .combined-section p {
+            animation: fadeAndScale 2s cubic-bezier(.39, -1.05, .58, 1.95);
+            transform-origin: center bottom;
+        }
+
+        section h2 {
+            animation: fadeIn 1s ease-in;
+            opacity: 0;
+        }
+
+        section p, section .card, section form {
+            animation: fadeIn 1s ease-in 0.5s forwards;
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
@@ -169,3 +221,4 @@
     </script>
 </body>
 </html>
+
