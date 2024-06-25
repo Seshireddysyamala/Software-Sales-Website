@@ -68,28 +68,12 @@
             text-align: center;
         }
 
-        
-        .cart-table img {
-            max-width: 100px;
-            height: auto;
-        }
-
         .quantity-buttons {
             display: flex;
             align-items: center;
         }
 
             .quantity-buttons button {
-                background-color: #45A29E;
-                color: white;
-                border: none;
-                padding: 5px 10px;
-                cursor: pointer;
-            }
-
-            .quantity-buttons input {
-                width: 50px;
-                text-align: center;
                 margin: 0 5px;
             }
     </style>
@@ -101,8 +85,7 @@
     <main class="container mt-5">
         <div class="cart-container box">
             <h1>Your Cart</h1>
-            <p id="empty-cart-message" style="display: none;">Your cart is empty.</p>
-            <table id="cart-table" class="table table-dark table-striped" style="display: none;">
+            <table class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -116,10 +99,13 @@
                     <!-- Cart items will be dynamically inserted here -->
                 </tbody>
             </table>
-            <div id="cart-actions" class="text-right" style="display: none;">
+            <div class="text-right">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
                 <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
-                <p id="error-message" class="error-message" style="display: none;"></p>
+                <p id="error-message" class="error-message" style="display: none;">No items in cart. Please add items before proceeding to checkout.</p>
+            </div>
+            <div id="empty-cart-message" style="display: none; text-align: center; margin-top: 20px;">
+                <h3>Your cart is empty.</h3>
             </div>
         </div>
     </main>
@@ -162,100 +148,40 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/cart.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cartTable = document.getElementById('cart-table-body');
-            const cartCountElements = document.querySelectorAll('#cart-count');
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu').innerHTML = data;
+                checkLoginState();
+                updateCartCount(); // Ensure this function is called to update the cart count
+            })
+            .catch(error => console.error('Error loading menu:', error));
 
-            const renderCartItems = () => {
-                cartTable.innerHTML = '';
-                if (cart.length === 0) {
-                    document.getElementById('cart-table').style.display = 'none';
-                    document.getElementById('cart-actions').style.display = 'none';
-                    document.getElementById('empty-cart-message').style.display = 'block';
-                } else {
-                    document.getElementById('cart-table').style.display = 'table';
-                    document.getElementById('cart-actions').style.display = 'block';
-                    document.getElementById('empty-cart-message').style.display = 'none';
-                    cart.forEach((item, index) => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${item.name}</td>
-                            <td>$${item.price.toFixed(2)}</td>
-                            <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
-                            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-                        `;
-                        cartTable.appendChild(row);
-                    });
-                    calculateTotal();
-                }
-            };
+        function proceedToCheckout() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const errorMessage = document.getElementById('error-message');
 
-            const updateCart = () => {
-                localStorage.setItem('cart', JSON.stringify(cart));
-                renderCartItems();
-                updateCartCount();
-                calculateTotal();
-            };
+            // Reset the error message display and text
+            errorMessage.style.display = 'none';
+            errorMessage.textContent = '';
 
-            const updateCartCount = () => {
-                const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
-                cartCountElements.forEach(el => el.textContent = itemCount);
-            };
+            if (cart.length === 0) {
+                // Show empty cart message
+                document.getElementById('empty-cart-message').style.display = 'block';
+            } else if (!isLoggedIn) {
+                // Condition 2: User is not logged in
+                localStorage.setItem('redirectAfterLogin', 'cart.html');
+                window.location.href = 'login.html';
+            } else {
+                // Condition 3: User is logged in and there are items in the cart
+                document.getElementById('constructionModal').style.display = 'block';
+            }
+        }
 
-            const calculateTotal = () => {
-                let total = 0;
-                cart.forEach(item => total += item.price * item.quantity);
-                document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-            };
-
-            cartTable.addEventListener('click', (event) => {
-                if (event.target.classList.contains('remove-item')) {
-                    const index = event.target.getAttribute('data-index');
-                    const confirmation = confirm("Are you sure you want to remove this item from the cart?");
-                    if (confirmation) {
-                        removeItemFromCart(parseInt(index));
-                    }
-                }
-            });
-
-            cartTable.addEventListener('input', (event) => {
-                if (event.target.classList.contains('item-quantity')) {
-                    const index = parseInt(event.target.getAttribute('data-index'), 10);
-                    cart[index].quantity = parseInt(event.target.value, 10) || 1;
-                    updateCart();
-                }
-            });
-
-            document.getElementById('checkout-button').addEventListener('click', function () {
-                const isLoggedIn = localStorage.getItem('isLoggedIn');
-                const errorMessage = document.getElementById('error-message');
-
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-
-                if (!isLoggedIn) {
-                    localStorage.setItem('redirectAfterLogin', 'cart.html');
-                    window.location.href = 'login.html';
-                } else {
-                    document.getElementById('constructionModal').style.display = 'block';
-                }
-            });
-
-            fetch('menu.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('menu').innerHTML = data;
-                    checkLoginState();
-                    updateCartCount();
-                })
-                .catch(error => console.error('Error loading menu:', error));
-
-            renderCartItems();
-            updateCartCount();
-            calculateTotal();
-        });
+        function closeModal() {
+            document.getElementById('constructionModal').style.display = 'none';
+        }
 
         function checkLoginState() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -268,58 +194,11 @@
             }
         }
 
-        function closeModal() {
-            document.getElementById('constructionModal').style.display = 'none';
-        }
-
-        function removeItemFromCart(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            renderCartItems();
-            updateCartCount();
-            calculateTotal();
-        }
-
         function updateCartCount() {
-            const cartCountElements = document.querySelectorAll('#cart-count');
+            const cartCount = document.getElementById('cart-count');
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCountElements.forEach(el => el.textContent = itemCount);
-        }
-
-        function renderCartItems() {
-            const cartTable = document.getElementById('cart-table-body');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cartTable.innerHTML = '';
-            if (cart.length === 0) {
-                document.getElementById('cart-table').style.display = 'none';
-                document.getElementById('cart-actions').style.display = 'none';
-                document.getElementById('empty-cart-message').style.display = 'block';
-            } else {
-                document.getElementById('cart-table').style.display = 'table';
-                document.getElementById('cart-actions').style.display = 'block';
-                document.getElementById('empty-cart-message').style.display = 'none';
-                cart.forEach((item, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${item.name}</td>
-                        <td>$${item.price.toFixed(2)}</td>
-                        <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
-                        <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                        <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-                    `;
-                    cartTable.appendChild(row);
-                });
-                calculateTotal();
-            }
-        }
-
-        function calculateTotal() {
-            let total = 0;
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.forEach(item => total += item.price * item.quantity);
-            document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+            cartCount.textContent = itemCount;
         }
     </script>
 </body>
