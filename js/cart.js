@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>
                         <div class="quantity-buttons">
                             <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
-                            <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1" readonly>
+                            <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1">
                             <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
                         </div>
                     </td>
@@ -160,7 +160,7 @@ function renderCartItems() {
                 <td>
                     <div class="quantity-buttons">
                         <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
-                        <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1" readonly>
+                        <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1">
                         <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
                     </div>
                 </td>
