@@ -85,7 +85,7 @@
     <main class="container mt-5">
         <div class="cart-container box">
             <h1>Your Cart</h1>
-            <table class="table table-dark table-striped">
+            <table id="cart-table" class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -99,10 +99,9 @@
                     <!-- Cart items will be dynamically inserted here -->
                 </tbody>
             </table>
-            <div class="text-right">
+            <div id="cart-actions" class="text-right">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
                 <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
-                <p id="error-message" class="error-message" style="display: none;">No items in cart. Please add items before proceeding to checkout.</p>
             </div>
             <div id="empty-cart-message" style="display: none; text-align: center; margin-top: 20px;">
                 <h3>Your cart is empty.</h3>
@@ -160,21 +159,16 @@
         function proceedToCheckout() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const isLoggedIn = localStorage.getItem('isLoggedIn');
-            const errorMessage = document.getElementById('error-message');
-
-            // Reset the error message display and text
-            errorMessage.style.display = 'none';
-            errorMessage.textContent = '';
 
             if (cart.length === 0) {
                 // Show empty cart message
                 document.getElementById('empty-cart-message').style.display = 'block';
             } else if (!isLoggedIn) {
-                // Condition 2: User is not logged in
+                // User is not logged in
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
                 window.location.href = 'login.html';
             } else {
-                // Condition 3: User is logged in and there are items in the cart
+                // User is logged in and there are items in the cart
                 document.getElementById('constructionModal').style.display = 'block';
             }
         }
@@ -195,11 +189,57 @@
         }
 
         function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
+            const cartCountElements = document.querySelectorAll('#cart-count');
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = itemCount;
+            cartCountElements.forEach(el => el.textContent = itemCount);
         }
+
+        function renderCartItems() {
+            const cartTable = document.getElementById('cart-table-body');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartTable.innerHTML = '';
+            if (cart.length === 0) {
+                document.getElementById('cart-table').style.display = 'none';
+                document.getElementById('cart-actions').style.display = 'none';
+                document.getElementById('empty-cart-message').style.display = 'block';
+            } else {
+                document.getElementById('cart-table').style.display = 'table';
+                document.getElementById('cart-actions').style.display = 'block';
+                document.getElementById('empty-cart-message').style.display = 'none';
+                cart.forEach((item, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                                <td>${item.name}</td>
+                                <td>$${item.price.toFixed(2)}</td>
+                                <td>
+                                    <div class="quantity-buttons">
+                                        <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
+                                        <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1" readonly>
+                                        <button class="btn btn-sm btn-secondary increase-quantity                                " data-index="${index}">+</button>
+                                </div>
+                            </td>
+                            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
+                            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                        `;
+                    cartTable.appendChild(row);
+                });
+                calculateTotal();
+            }
+        }
+
+        function calculateTotal() {
+            let total = 0;
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.forEach(item => total += item.price * item.quantity);
+            document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCartItems();
+            updateCartCount();
+        });
     </script>
 </body>
 </html>
+
