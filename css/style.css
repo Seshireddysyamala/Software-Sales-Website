@@ -302,7 +302,7 @@ h1, h2, h3 {
     background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     width: 100%;
     margin-top: auto;
     box-sizing: border-box;
