@@ -68,36 +68,23 @@
             text-align: center;
         }
 
-        .quantity-buttons {
-            display: flex;
-            align-items: center;
+        .empty-cart-message {
+            color: #C5C6C7;
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
         }
-
-            .quantity-buttons button {
-                margin: 0 5px;
-            }
-
-            .quantity-buttons input {
-                text-align: center;
-                max-width: 50px;
-                -moz-appearance: textfield;
-            }
-
-                /* Remove the up and down arrows from number input */
-                .quantity-buttons input::-webkit-outer-spin-button,
-                .quantity-buttons input::-webkit-inner-spin-button {
-                    -webkit-appearance: none;
-                    margin: 0;
-                }
     </style>
 </head>
 <body class="cart-page">
     <div id="menu"></div>
+    <!-- Add this line below the navbar in your HTML -->
     <div class="navbar-line"></div>
     <main class="container mt-5">
         <div class="cart-container box">
             <h1>Your Cart</h1>
-            <table id="cart-table" class="table table-dark table-striped">
+            <p id="empty-cart-message" class="empty-cart-message" style="display: none;">Your cart is empty.</p>
+            <table class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -111,12 +98,9 @@
                     <!-- Cart items will be dynamically inserted here -->
                 </tbody>
             </table>
-            <div id="cart-actions" class="text-right">
+            <div class="text-right">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
                 <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
-            </div>
-            <div id="empty-cart-message" style="display: none; text-align: center; margin-top: 20px;">
-                <h3>Your cart is empty.</h3>
             </div>
         </div>
     </main>
@@ -158,195 +142,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/cart.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cartTable = document.getElementById('cart-table-body');
-            const cartCountElements = document.querySelectorAll('#cart-count');
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            const renderCartItems = () => {
-                cartTable.innerHTML = '';
-                if (cart.length === 0) {
-                    document.getElementById('cart-table').style.display = 'none';
-                    document.getElementById('cart-actions').style.display = 'none';
-                    document.getElementById('empty-cart-message').style.display = 'block';
-                } else {
-                    document.getElementById('cart-table').style.display = 'table';
-                    document.getElementById('cart-actions').style.display = 'block';
-                    document.getElementById('empty-cart-message').style.display = 'none';
-                    cart.forEach((item, index) => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                                <td>${item.name}</td>
-                                <td>$${item.price.toFixed(2)}</td>
-                                <td>
-                                    <div class="quantity-buttons">
-                                        <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
-                                        <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1">
-                                        <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
-                                    </div>
-                                </td>
-                                <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                                <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-                            `;
-                        cartTable.appendChild(row);
-                    });
-                    calculateTotal();
-                    updateCartCount();
-                }
-            };
-
-            const updateCart = () => {
-                localStorage.setItem('cart', JSON.stringify(cart));
-                renderCartItems();
-                updateCartCount();
-                calculateTotal();
-            };
-
-            const updateCartCount = () => {
-                const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
-                cartCountElements.forEach(el => el.textContent = itemCount);
-            };
-
-            const calculateTotal = () => {
-                let total = 0;
-                cart.forEach(item => total += item.price * item.quantity);
-                document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-            };
-
-            cartTable.addEventListener('click', (event) => {
-                if (event.target.classList.contains('remove-item')) {
-                    const index = event.target.getAttribute('data-index');
-                    const confirmation = confirm("Are you sure you want to remove this item from the cart?");
-                    if (confirmation) {
-                        removeItemFromCart(parseInt(index));
-                    }
-                } else if (event.target.classList.contains('increase-quantity')) {
-                    const index = parseInt(event.target.getAttribute('data-index'), 10);
-                    cart[index].quantity++;
-                    updateCart();
-                } else if (event.target.classList.contains('decrease-quantity')) {
-                    const index = parseInt(event.target.getAttribute('data-index'), 10);
-                    if (cart[index].quantity > 1) {
-                        cart[index].quantity--;
-                        updateCart();
-                    }
-                }
-            });
-
-            cartTable.addEventListener('input', (event) => {
-                if (event.target.classList.contains('item-quantity')) {
-                    const index = parseInt(event.target.getAttribute('data-index'), 10);
-                    cart[index].quantity = parseInt(event.target.value, 10) || 1;
-                    updateCart();
-                }
-            });
-
-            document.getElementById('checkout-button').addEventListener('click', function () {
-                const isLoggedIn = localStorage.getItem('isLoggedIn');
-                const errorMessage = document.getElementById('error-message');
-
-                errorMessage.style.display = 'none';
-                errorMessage.textContent = '';
-
-                if (!isLoggedIn) {
-                    localStorage.setItem('redirectAfterLogin', 'cart.html');
-                    window.location.href = 'login.html';
-                } else {
-                    document.getElementById('constructionModal').style.display = 'block';
-                }
-            });
-
-            fetch('menu.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('menu').innerHTML = data;
-                    checkLoginState();
-                    updateCartCount();
-                })
-                .catch(error => console.error('Error loading menu:', error));
-
-            renderCartItems();
-            updateCartCount();
-            calculateTotal();
-        });
-
-        function checkLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (isLoggedIn) {
-                document.getElementById('login-link').style.display = 'none';
-                document.getElementById('profile-link').style.display = 'block';
-            } else {
-                document.getElementById('login-link').style.display = 'block';
-                document.getElementById('profile-link').style.display = 'none';
-            }
-        }
-
-        function closeModal() {
-            document.getElementById('constructionModal').style.display = 'none';
-        }
-
-        function removeItemFromCart(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            renderCartItems();
-            updateCartCount();
-            calculateTotal();
-        }
-
-        function updateCartCount() {
-            const cartCountElements = document.querySelectorAll('#cart-count');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCountElements.forEach(el => el.textContent = itemCount);
-        }
-
-        function renderCartItems() {
-            const cartTable = document.getElementById('cart-table-body');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cartTable.innerHTML = '';
-            if (cart.length === 0) {
-                document.getElementById('cart-table').style.display = 'none';
-                document.getElementById('cart-actions').style.display = 'none';
-                document.getElementById('empty-cart-message').style.display = 'block';
-            } else {
-                document.getElementById('cart-table').style.display = 'table';
-                document.getElementById('cart-actions').style.display = 'block';
-                document.getElementById('empty-cart-message').style.display = 'none';
-                cart.forEach((item, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                            <td>${item.name}</td>
-                            <td>$${item.price.toFixed(2)}</td>
-                            <td>
-                                <div class="quantity-buttons">
-                                    <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
-                                    <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1">
-                                    <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
-                                </div>
-                            </td>
-                            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-                        `;
-                    cartTable.appendChild(row);
-                });
-                calculateTotal();
-                updateCartCount();
-            }
-        }
-
-        function calculateTotal() {
-            let total = 0;
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.forEach(item => total += item.price * item.quantity);
-            document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCartItems();
-            updateCartCount();
-        });
-    </script>
 </body>
 </html>
