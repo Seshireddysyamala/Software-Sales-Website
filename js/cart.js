@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><img src="${item.image}" alt="${item.name}" class="cart-item-image" /> ${item.name}</td>
+                    <td><img src="${item.image}" alt="${item.name}" /> ${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
                     <td>
                         <div class="quantity-buttons">
@@ -155,7 +155,7 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><img src="${item.image}" alt="${item.name}" class="cart-item-image" /> ${item.name}</td>
+                <td><img src="${item.image}" alt="${item.name}" /> ${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
                 <td>
                     <div class="quantity-buttons">
