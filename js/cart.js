@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><img src="${item.image}" alt="${item.name}" /> ${item.name}</td>
+                    <td><img src="${item.image}" alt="${item.name}" style="max-width: 100px; height: auto;" /> ${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
                     <td>
                         <div class="quantity-buttons">
@@ -69,14 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 cart[index].quantity--;
                 updateCart();
             }
-        }
-    });
-
-    cartTable.addEventListener('input', (event) => {
-        if (event.target.classList.contains('item-quantity')) {
-            const index = parseInt(event.target.getAttribute('data-index'), 10);
-            cart[index].quantity = parseInt(event.target.value, 10) || 1;
-            updateCart();
         }
     });
 
@@ -155,7 +147,7 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><img src="${item.image}" alt="${item.name}" /> ${item.name}</td>
+                <td><img src="${item.image}" alt="${item.name}" style="max-width: 100px; height: auto;" /> ${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
                 <td>
                     <div class="quantity-buttons">
