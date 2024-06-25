@@ -120,10 +120,10 @@
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
-        <section id="latest-software" class="box text-center section-margin fade-in delay-1">
+        <section id="latest-software-section" class="box text-center section-margin fade-in delay-1">
             <h2>Latest Software</h2>
             <div class="software-grid">
-                <div class="software-item fade-in delay-2">
+                <div class="software-item">
                     <img src="images/win-11-logo-small-168x230.jpg" alt="Windows 11">
                     <h3>Windows 11</h3>
                     <p>Windows 11 is the latest operating system from Microsoft, released in October 2021. It features a redesigned interface with a centered Start menu and taskbar, improved virtual desktops, and enhanced performance and security.</p>
@@ -132,7 +132,7 @@
                     </div>
                     <button class="btn btn-primary" onclick="addToCart('Windows 11', 49.99)">Add to Cart</button>
                 </div>
-                <div class="software-item fade-in delay-3">
+                <div class="software-item">
                     <img src="images/zoom-168x230.png" alt="Zoom">
                     <h3>Zoom</h3>
                     <p>Zoom is a popular video conferencing platform that allows users to conduct virtual meetings, webinars, and online classes. It offers features like screen sharing, breakout rooms, and virtual backgrounds, making it a versatile tool for both personal and professional use.</p>
@@ -143,10 +143,10 @@
                 </div>
             </div>
         </section>
-        <section id="top-deals" class="box text-center section-margin fade-in delay-1">
+        <section id="top-deals-section" class="box text-center section-margin fade-in delay-2">
             <h2>Top Deals</h2>
             <div class="software-grid">
-                <div class="software-item fade-in delay-2">
+                <div class="software-item">
                     <img src="images/gta-168x230.jpeg" alt="GTA 6">
                     <h3>GTA 6</h3>
                     <p>Grand Theft Auto VI (GTA 6) is an anticipated open-world action-adventure game developed by Rockstar Games. It is expected to continue the franchise's tradition of offering a vast, immersive environment, engaging storylines, and a variety of missions and activities.</p>
@@ -156,7 +156,7 @@
                     </div>
                     <button class="btn btn-primary" onclick="addToCart('GTA 6', 59.99)">Add to Cart</button>
                 </div>
-                <div class="software-item fade-in delay-3">
+                <div class="software-item">
                     <img src="images/Microsoft-Office-365-168x230.png" alt="Microsoft Office">
                     <h3>Microsoft Office</h3>
                     <p>Microsoft Office is a suite of productivity software that includes applications like Word, Excel, PowerPoint, and Outlook. It is widely used for creating documents, spreadsheets, presentations, and managing emails.</p>
@@ -207,7 +207,7 @@
             })
             .catch(error => console.error('Error loading menu:', error));
 
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', function () {
             const elements = document.querySelectorAll('.fade-in');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -215,7 +215,7 @@
                         entry.target.classList.add('active');
                     }
                 });
-            }, { threshold: 0.1 });
+            });
 
             elements.forEach(element => {
                 observer.observe(element);
@@ -224,3 +224,4 @@
     </script>
 </body>
 </html>
+
