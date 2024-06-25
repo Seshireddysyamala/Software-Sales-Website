@@ -18,7 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 row.innerHTML = `
                     <td>${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
-                    <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                    <td>
+                        <div class="quantity-buttons">
+                            <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
+                            <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1" readonly>
+                            <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
+                        </div>
+                    </td>
                     <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
                     <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
                 `;
@@ -53,14 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (confirmation) {
                 removeItemFromCart(parseInt(index));
             }
-        }
-    });
-
-    cartTable.addEventListener('input', (event) => {
-        if (event.target.classList.contains('item-quantity')) {
+        } else if (event.target.classList.contains('increase-quantity')) {
             const index = parseInt(event.target.getAttribute('data-index'), 10);
-            cart[index].quantity = parseInt(event.target.value, 10) || 1;
+            cart[index].quantity++;
             updateCart();
+        } else if (event.target.classList.contains('decrease-quantity')) {
+            const index = parseInt(event.target.getAttribute('data-index'), 10);
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+                updateCart();
+            }
         }
     });
 
@@ -157,7 +165,13 @@ function renderCartItems() {
             row.innerHTML = `
                 <td>${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
-                <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                <td>
+                    <div class="quantity-buttons">
+                        <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
+                        <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1" readonly>
+                        <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
+                    </div>
+                </td>
                 <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
                 <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
             `;
