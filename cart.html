@@ -229,15 +229,7 @@
             document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
         }
 
-        document.getElementById('cart-table-body').addEventListener('click', (event) => {
-            if (event.target.classList.contains('remove-item')) {
-                const index = event.target.getAttribute('data-index');
-                const confirmation = confirm("Are you sure you want to remove this item from the cart?");
-                if (confirmation) {
-                    removeItemFromCart(parseInt(index));
-                }
-            }
-        });
+        
 
         document.getElementById('cart-table-body').addEventListener('input', (event) => {
             if (event.target.classList.contains('item-quantity')) {
