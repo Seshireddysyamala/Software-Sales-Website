@@ -67,13 +67,6 @@
             position: relative;
             text-align: center;
         }
-
-        .empty-cart-message {
-            color: white;
-            font-weight: bold;
-            margin-top: 20px;
-            text-align: center;
-        }
     </style>
 </head>
 <body class="cart-page">
@@ -83,8 +76,8 @@
     <main class="container mt-5">
         <div class="cart-container box">
             <h1>Your Cart</h1>
-            <div id="empty-cart-message" class="empty-cart-message" style="display: none;">Your cart is empty.</div>
-            <table class="table table-dark table-striped" id="cart-table" style="display: none;">
+            <p id="empty-cart-message" style="display: none;">Your cart is empty.</p>
+            <table id="cart-table" class="table table-dark table-striped" style="display: none;">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -101,6 +94,7 @@
             <div id="cart-actions" class="text-right" style="display: none;">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
                 <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                <p id="error-message" class="error-message" style="display: none;"></p>
             </div>
         </div>
     </main>
@@ -143,32 +137,100 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/cart.js"></script>
     <script>
-        fetch('menu.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('menu').innerHTML = data;
-                checkLoginState();
-                updateCartCount(); // Ensure this function is called to update the cart count
-            })
-            .catch(error => console.error('Error loading menu:', error));
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartTable = document.getElementById('cart-table-body');
+            const cartCountElements = document.querySelectorAll('#cart-count');
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        function proceedToCheckout() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const renderCartItems = () => {
+                cartTable.innerHTML = '';
+                if (cart.length === 0) {
+                    document.getElementById('cart-table').style.display = 'none';
+                    document.getElementById('cart-actions').style.display = 'none';
+                    document.getElementById('empty-cart-message').style.display = 'block';
+                } else {
+                    document.getElementById('cart-table').style.display = 'table';
+                    document.getElementById('cart-actions').style.display = 'block';
+                    document.getElementById('empty-cart-message').style.display = 'none';
+                    cart.forEach((item, index) => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item.name}</td>
+                            <td>$${item.price.toFixed(2)}</td>
+                            <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
+                            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                        `;
+                        cartTable.appendChild(row);
+                    });
+                    calculateTotal();
+                }
+            };
 
-            if (cart.length === 0) {
-                document.getElementById('empty-cart-message').style.display = 'block';
-            } else if (!isLoggedIn) {
-                localStorage.setItem('redirectAfterLogin', 'cart.html');
-                window.location.href = 'login.html';
-            } else {
-                document.getElementById('constructionModal').style.display = 'block';
-            }
-        }
+            const updateCart = () => {
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCartItems();
+                updateCartCount();
+                calculateTotal();
+            };
 
-        function closeModal() {
-            document.getElementById('constructionModal').style.display = 'none';
-        }
+            const updateCartCount = () => {
+                const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
+                cartCountElements.forEach(el => el.textContent = itemCount);
+            };
+
+            const calculateTotal = () => {
+                let total = 0;
+                cart.forEach(item => total += item.price * item.quantity);
+                document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+            };
+
+            cartTable.addEventListener('click', (event) => {
+                if (event.target.classList.contains('remove-item')) {
+                    const index = event.target.getAttribute('data-index');
+                    const confirmation = confirm("Are you sure you want to remove this item from the cart?");
+                    if (confirmation) {
+                        removeItemFromCart(parseInt(index));
+                    }
+                }
+            });
+
+            cartTable.addEventListener('input', (event) => {
+                if (event.target.classList.contains('item-quantity')) {
+                    const index = parseInt(event.target.getAttribute('data-index'), 10);
+                    cart[index].quantity = parseInt(event.target.value, 10) || 1;
+                    updateCart();
+                }
+            });
+
+            document.getElementById('checkout-button').addEventListener('click', function () {
+                const isLoggedIn = localStorage.getItem('isLoggedIn');
+                const errorMessage = document.getElementById('error-message');
+
+                errorMessage.style.display = 'none';
+                errorMessage.textContent = '';
+
+                if (!isLoggedIn) {
+                    localStorage.setItem('redirectAfterLogin', 'cart.html');
+                    window.location.href = 'login.html';
+                } else {
+                    document.getElementById('constructionModal').style.display = 'block';
+                }
+            });
+
+            fetch('menu.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('menu').innerHTML = data;
+                    checkLoginState();
+                    updateCartCount();
+                })
+                .catch(error => console.error('Error loading menu:', error));
+
+            renderCartItems();
+            updateCartCount();
+            calculateTotal();
+        });
 
         function checkLoginState() {
             const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -181,11 +243,24 @@
             }
         }
 
+        function closeModal() {
+            document.getElementById('constructionModal').style.display = 'none';
+        }
+
+        function removeItemFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCartItems();
+            updateCartCount();
+            calculateTotal();
+        }
+
         function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
+            const cartCountElements = document.querySelectorAll('#cart-count');
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = itemCount;
+            cartCountElements.forEach(el => el.textContent = itemCount);
         }
 
         function renderCartItems() {
@@ -203,23 +278,16 @@
                 cart.forEach((item, index) => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                            <td>${item.name}</td>
-                            <td>$${item.price.toFixed(2)}</td>
-                            <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
-                            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-                        `;
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                        <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
+                        <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                    `;
                     cartTable.appendChild(row);
                 });
+                calculateTotal();
             }
-        }
-
-        function updateCart() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            localStorage.setItem('cart', JSON.stringify(cart));
-            renderCartItems();
-            updateCartCount();
-            calculateTotal();
         }
 
         function calculateTotal() {
@@ -228,32 +296,6 @@
             cart.forEach(item => total += item.price * item.quantity);
             document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
         }
-
-        
-
-        document.getElementById('cart-table-body').addEventListener('input', (event) => {
-            if (event.target.classList.contains('item-quantity')) {
-                const index = parseInt(event.target.getAttribute('data-index'), 10);
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cart[index].quantity = parseInt(event.target.value, 10) || 1;
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCart();
-            }
-        });
-
-        function removeItemFromCart(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            renderCartItems();
-            updateCartCount();
-            calculateTotal();
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCartItems();
-            updateCartCount();
-        });
     </script>
 </body>
 </html>
