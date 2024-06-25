@@ -5,17 +5,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const renderCartItems = () => {
         cartTable.innerHTML = '';
-        cart.forEach((item, index) => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.name}</td>
-                <td>$${item.price.toFixed(2)}</td>
-                <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
-                <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-            `;
-            cartTable.appendChild(row);
-        });
+        if (cart.length === 0) {
+            document.getElementById('cart-table').style.display = 'none';
+            document.getElementById('cart-actions').style.display = 'none';
+            document.getElementById('empty-cart-message').style.display = 'block';
+        } else {
+            document.getElementById('cart-table').style.display = 'table';
+            document.getElementById('cart-actions').style.display = 'block';
+            document.getElementById('empty-cart-message').style.display = 'none';
+            cart.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                    <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
+                    <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                `;
+                cartTable.appendChild(row);
+            });
+        }
     };
 
     const updateCart = () => {
@@ -54,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.getElementById('checkout-button').addEventListener('click', function (event) {
+    document.getElementById('checkout-button').addEventListener('click', function () {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         const errorMessage = document.getElementById('error-message');
@@ -71,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             document.getElementById('constructionModal').style.display = 'block';
         }
+
     });
 
     fetch('menu.html')
@@ -82,84 +92,67 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error loading menu:', error));
 
-    renderCartItems();
-    updateCartCount();
-    calculateTotal();
-});
-
-function checkLoginState() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (isLoggedIn) {
-        document.getElementById('login-link').style.display = 'none';
-        document.getElementById('profile-link').style.display = 'block';
-    } else {
-        document.getElementById('login-link').style.display = 'block';
-        document.getElementById('profile-link').style.display = 'none';
+    function checkLoginState() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (isLoggedIn) {
+            document.getElementById('login-link').style.display = 'none';
+            document.getElementById('profile-link').style.display = 'block';
+        } else {
+            document.getElementById('login-link').style.display = 'block';
+            document.getElementById('profile-link').style.display = 'none';
+        }
     }
-}
 
-function logout() {
-    localStorage.removeItem('isLoggedIn');
-    window.location.href = 'index.html';
-}
+    function removeItemFromCart(index) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCartItems();
+        updateCartCount();
+        calculateTotal();
+    }
 
-function closeModal() {
-    document.getElementById('constructionModal').style.display = 'none';
-}
+    function updateCartCount() {
+        const cartCountElements = document.querySelectorAll('#cart-count');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+        cartCountElements.forEach(el => el.textContent = itemCount);
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('menu').innerHTML = data;
-            checkLoginState();
-            updateCartCount();
-        })
-        .catch(error => console.error('Error loading menu:', error));
-});
+    function renderCartItems() {
+        const cartTable = document.getElementById('cart-table-body');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cartTable.innerHTML = '';
+        if (cart.length === 0) {
+            document.getElementById('cart-table').style.display = 'none';
+            document.getElementById('cart-actions').style.display = 'none';
+            document.getElementById('empty-cart-message').style.display = 'block';
+        } else {
+            document.getElementById('cart-table').style.display = 'table';
+            document.getElementById('cart-actions').style.display = 'block';
+            document.getElementById('empty-cart-message').style.display = 'none';
+            cart.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                    <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
+                    <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                `;
+                cartTable.appendChild(row);
+            });
+            calculateTotal();
+        }
+    }
 
-function removeItemFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderCartItems();
-    updateCartCount();
-    calculateTotal();
-}
+    function calculateTotal() {
+        let total = 0;
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.forEach(item => total += item.price * item.quantity);
+        document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+    }
 
-function updateCartCount() {
-    const cartCountElements = document.querySelectorAll('#cart-count');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCountElements.forEach(el => el.textContent = itemCount);
-}
-
-function renderCartItems() {
-    const cartTable = document.getElementById('cart-table-body');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cartTable.innerHTML = '';
-    cart.forEach((item, index) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${item.name}</td>
-            <td>$${item.price.toFixed(2)}</td>
-            <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
-            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-        `;
-        cartTable.appendChild(row);
-    });
-    calculateTotal();
-}
-
-function calculateTotal() {
-    let total = 0;
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.forEach(item => total += item.price * item.quantity);
-    document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
     renderCartItems();
     updateCartCount();
 });
