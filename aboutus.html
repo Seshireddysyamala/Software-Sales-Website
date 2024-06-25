@@ -53,41 +53,6 @@
             align-items: center;
             text-align: center;
         }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-            .fade-in.active {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-                .fade-in.active.delay-1 {
-                    transition-delay: 0.5s;
-                }
-
-                .fade-in.active.delay-2 {
-                    transition-delay: 1s;
-                }
-
-                .fade-in.active.delay-3 {
-                    transition-delay: 1.5s;
-                }
     </style>
     <script>
         function updateCartCount() {
@@ -116,24 +81,24 @@
 <body>
     <div id="menu"></div>
     <main class="container mt-5">
-        <section id="about" class="box section-margin personal-details development-experience fade-in delay-1">
-            <div class="profile-image text-center fade-in delay-2">
+        <section id="about" class="box section-margin personal-details development-experience">
+            <div class="profile-image text-center">
                 <img src="images/passport.JPG" alt="Seshi Reddy Syamala" class="img-fluid image-box">
             </div>
-            <h1 class="centered-text fade-in delay-3">SESHI REDDY SYAMALA</h1>
-            <p class="centered-text fade-in delay-2">Currently pursuing a Master's in Business Analytics with Information Systems at University of South Florida with one year of work experience as an IT Deployment Engineer.</p>
+            <h1 class="centered-text">SESHI REDDY SYAMALA</h1>
+            <p class="centered-text">Currently pursuing a Master's in Business Analytics with Information Systems at University of South Florida with one year of work experience as an IT Deployment Engineer.</p>
             <hr>
-            <h2 class="box-heading fade-in delay-3">Software Sales - Development Experience</h2>
-            <p class="fade-in delay-2">While developing this website, I focused on creating a user-friendly interface using HTML, CSS, and JavaScript. The website is designed to provide an overview of software sales, display top deals, customer reviews, and company information.</p>
-            <p class="fade-in delay-2">Key highlights include:</p>
-            <ul class="spaced-list fade-in delay-3">
+            <h2 class="box-heading">Software Sales - Development Experience</h2>
+            <p>While developing this website, I focused on creating a user-friendly interface using HTML, CSS, and JavaScript. The website is designed to provide an overview of software sales, display top deals, customer reviews, and company information.</p>
+            <p>Key highlights include:</p>
+            <ul class="spaced-list">
                 <li>Utilized Bootstrap for responsive design.</li>
                 <li>Incorporated Font Awesome icons for enhanced visual appeal.</li>
                 <li>Integrated real-world functionalities with efficient redirections and robust local storage management for the cart and login pages.</li>
                 <li>Applied a consistent color palette across the website for a cohesive look.</li>
                 <li>Used Chart.js for data visualizations in the Data Analytics section.</li>
             </ul>
-            <p class="fade-in delay-2">The site is responsive and easy to navigate, ensuring a seamless user experience. All source code is available on my <a href="https://github.com/Seshireddysyamala/Software-Sales-Website">GitHub repository</a>.</p>
+            <p>The site is responsive and easy to navigate, ensuring a seamless user experience. All source code is available on my <a href="https://github.com/Seshireddysyamala/Software-Sales-Website">GitHub repository</a>.</p>
         </section>
     </main>
     <footer class="footer">
@@ -172,22 +137,6 @@
                 checkLoginState();
             })
             .catch(error => console.error('Error loading menu:', error));
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            elements.forEach(element => {
-                observer.observe(element);
-            });
-        });
     </script>
 </body>
 </html>
-

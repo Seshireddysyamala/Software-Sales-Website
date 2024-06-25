@@ -10,44 +10,15 @@
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap">
     <style>
+        /* Adding margin for spacing between elements */
         .gap {
-            margin-bottom: 50px;
+            margin-bottom: 50px; /* Adjust this value as needed */
         }
+        
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-            .fade-in.active {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-                .fade-in.active.delay-1 {
-                    transition-delay: 0.5s;
-                }
-
-                .fade-in.active.delay-2 {
-                    transition-delay: 1s;
-                }
-
-                .fade-in.active.delay-3 {
-                    transition-delay: 1.5s;
-                }
     </style>
     <script>
         function updateCartCount() {
@@ -76,29 +47,29 @@
 <body>
     <div id="menu" class="gap"></div>
     <main class="container mt-5">
-        <section id="data-analytics" class="box fade-in delay-1">
-            <h1 class="box-heading gap fade-in delay-2">Sales Statistics</h1>
-            <div class="analytics-box gap fade-in delay-3">
-                <h2 class="box-heading gap fade-in delay-2">Sales Data (Bar Chart)</h2>
-                <canvas id="salesChart" class="gap fade-in delay-3"></canvas>
-                <hr class="fade-in delay-2">
-                <p class="gap fade-in delay-3"><strong>Description:</strong> This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
+        <section id="data-analytics" class="box">
+            <h1 class="box-heading gap">Sales Statistics</h1>
+            <div class="analytics-box gap">
+                <h2 class="box-heading gap">Sales Data (Bar Chart)</h2>
+                <canvas id="salesChart" class="gap"></canvas>
+                <hr>
+                <p class="gap"><strong>Description:</strong> This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
             </div>
-            <div class="analytics-box gap fade-in delay-3">
-                <h2 class="box-heading gap fade-in delay-2">Sales Distribution (Pie Chart)</h2>
-                <canvas id="salesPieChart" class="gap fade-in delay-3"></canvas>
-                <hr class="fade-in delay-2">
-                <p class="gap fade-in delay-3"><strong>Description:</strong> The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
+            <div class="analytics-box gap">
+                <h2 class="box-heading gap">Sales Distribution (Pie Chart)</h2>
+                <canvas id="salesPieChart" class="gap"></canvas>
+                <hr>
+                <p class="gap"><strong>Description:</strong> The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
             </div>
-            <div class="analytics-box gap fade-in delay-3">
-                <h2 class="box-heading gap fade-in delay-2">Sales Trend (Line Chart)</h2>
-                <canvas id="salesLineChart" class="gap fade-in delay-3"></canvas>
-                <hr class="fade-in delay-2">
-                <p class="gap fade-in delay-3"><strong>Description:</strong> This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
+            <div class="analytics-box gap">
+                <h2 class="box-heading gap">Sales Trend (Line Chart)</h2>
+                <canvas id="salesLineChart" class="gap"></canvas>
+                <hr>
+                <p class="gap"><strong>Description:</strong> This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
             </div>
-            <div class="analytics-box gap fade-in delay-3">
-                <h2 class="box-heading gap fade-in delay-2">Sales Data Table</h2>
-                <table class="table table-dark gap fade-in delay-3">
+            <div class="analytics-box gap">
+                <h2 class="box-heading gap">Sales Data Table</h2>
+                <table class="table table-dark gap">
                     <thead class="gap">
                         <tr class="gap">
                             <th>Month</th>
@@ -117,8 +88,8 @@
                         <tr class="gap"><td>June</td><td>$10000</td><td>$12000</td><td>$11000</td><td>$13000</td></tr>
                     </tbody>
                 </table>
-                <hr class="fade-in delay-2">
-                <p class="gap fade-in delay-3"><strong>Description:</strong> This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
+                <hr>
+                <p class="gap"><strong>Description:</strong> This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
             </div>
         </section>
     </main>
@@ -160,21 +131,6 @@
                 checkLoginState();
             })
             .catch(error => console.error('Error loading menu:', error));
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            elements.forEach(element => {
-                observer.observe(element);
-            });
-        });
     </script>
 </body>
 </html>
