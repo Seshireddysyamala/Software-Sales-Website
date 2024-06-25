@@ -76,11 +76,6 @@
             .quantity-buttons button {
                 margin: 0 5px;
             }
-
-            .quantity-buttons input {
-                text-align: center;
-                max-width: 50px;
-            }
     </style>
 </head>
 <body class="cart-page">
@@ -220,7 +215,8 @@
                                 <td>
                                     <div class="quantity-buttons">
                                         <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
-                                        <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1">                                <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
+                                        <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1" readonly>
+                                        <button class="btn btn-sm btn-secondary increase-quantity                                " data-index="${index}">+</button>
                                 </div>
                             </td>
                             <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
@@ -242,51 +238,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderCartItems();
             updateCartCount();
-
-            document.getElementById('cart-table-body').addEventListener('click', (event) => {
-                if (event.target.classList.contains('remove-item')) {
-                    const index = event.target.getAttribute('data-index');
-                    const confirmation = confirm("Are you sure you want to remove this item from the cart?");
-                    if (confirmation) {
-                        removeItemFromCart(parseInt(index));
-                    }
-                } else if (event.target.classList.contains('increase-quantity')) {
-                    const index = parseInt(event.target.getAttribute('data-index'), 10);
-                    cart[index].quantity++;
-                    updateCart();
-                } else if (event.target.classList.contains('decrease-quantity')) {
-                    const index = parseInt(event.target.getAttribute('data-index'), 10);
-                    if (cart[index].quantity > 1) {
-                        cart[index].quantity--;
-                        updateCart();
-                    }
-                }
-            });
-
-            document.getElementById('cart-table-body').addEventListener('input', (event) => {
-                if (event.target.classList.contains('item-quantity')) {
-                    const index = parseInt(event.target.getAttribute('data-index'), 10);
-                    cart[index].quantity = parseInt(event.target.value, 10) || 1;
-                    updateCart();
-                }
-            });
         });
-
-        function removeItemFromCart(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            renderCartItems();
-            updateCartCount();
-            calculateTotal();
-        }
-
-        function updateCart() {
-            localStorage.setItem('cart', JSON.stringify(cart));
-            renderCartItems();
-            updateCartCount();
-            calculateTotal();
-        }
     </script>
 </body>
 </html>
+
