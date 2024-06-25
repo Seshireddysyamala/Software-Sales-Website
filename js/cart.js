@@ -16,15 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><img src="${item.image}" alt="${item.name}" style="max-width: 100px; height: auto;" /> ${item.name}</td>
+                    <td>${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
-                    <td>
-                        <div class="quantity-buttons">
-                            <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
-                            <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1" readonly>
-                            <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
-                        </div>
-                    </td>
+                    <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
                     <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
                     <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
                 `;
@@ -59,16 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (confirmation) {
                 removeItemFromCart(parseInt(index));
             }
-        } else if (event.target.classList.contains('increase-quantity')) {
+        }
+    });
+
+    cartTable.addEventListener('input', (event) => {
+        if (event.target.classList.contains('item-quantity')) {
             const index = parseInt(event.target.getAttribute('data-index'), 10);
-            cart[index].quantity++;
+            cart[index].quantity = parseInt(event.target.value, 10) || 1;
             updateCart();
-        } else if (event.target.classList.contains('decrease-quantity')) {
-            const index = parseInt(event.target.getAttribute('data-index'), 10);
-            if (cart[index].quantity > 1) {
-                cart[index].quantity--;
-                updateCart();
-            }
         }
     });
 
@@ -112,9 +104,25 @@ function checkLoginState() {
     }
 }
 
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'index.html';
+}
+
 function closeModal() {
     document.getElementById('constructionModal').style.display = 'none';
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('menu.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('menu').innerHTML = data;
+            checkLoginState();
+            updateCartCount();
+        })
+        .catch(error => console.error('Error loading menu:', error));
+});
 
 function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -147,15 +155,9 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><img src="${item.image}" alt="${item.name}" style="max-width: 100px; height: auto;" /> ${item.name}</td>
+                <td>${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
-                <td>
-                    <div class="quantity-buttons">
-                        <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
-                        <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1" readonly>
-                        <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
-                    </div>
-                </td>
+                <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
                 <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
                 <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
             `;
