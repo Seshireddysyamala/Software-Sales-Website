@@ -68,6 +68,12 @@
             text-align: center;
         }
 
+        
+        .cart-table img {
+            max-width: 100px;
+            height: auto;
+        }
+
         .quantity-buttons {
             display: flex;
             align-items: center;
@@ -90,6 +96,7 @@
 </head>
 <body class="cart-page">
     <div id="menu"></div>
+    <!-- Add this line below the navbar in your HTML -->
     <div class="navbar-line"></div>
     <main class="container mt-5">
         <div class="cart-container box">
@@ -173,18 +180,12 @@
                     cart.forEach((item, index) => {
                         const row = document.createElement('tr');
                         row.innerHTML = `
-                                        <td>${item.name}</td>
-                                        <td>$${item.price.toFixed(2)}</td>
-                                        <td>
-                                            <div class="quantity-buttons">
-                                                <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
-                                                <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1" readonly>
-                                                <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
-                                            </div>
-                                        </td>
-                                        <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                                        <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-                                    `;
+                            <td>${item.name}</td>
+                            <td>$${item.price.toFixed(2)}</td>
+                            <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
+                            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                        `;
                         cartTable.appendChild(row);
                     });
                     calculateTotal();
@@ -216,16 +217,14 @@
                     if (confirmation) {
                         removeItemFromCart(parseInt(index));
                     }
-                } else if (event.target.classList.contains('increase-quantity')) {
+                }
+            });
+
+            cartTable.addEventListener('input', (event) => {
+                if (event.target.classList.contains('item-quantity')) {
                     const index = parseInt(event.target.getAttribute('data-index'), 10);
-                    cart[index].quantity++;
+                    cart[index].quantity = parseInt(event.target.value, 10) || 1;
                     updateCart();
-                } else if (event.target.classList.contains('decrease-quantity')) {
-                    const index = parseInt(event.target.getAttribute('data-index'), 10);
-                    if (cart[index].quantity > 1) {
-                        cart[index].quantity--;
-                        updateCart();
-                    }
                 }
             });
 
@@ -304,18 +303,12 @@
                 cart.forEach((item, index) => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                            <td>${item.name}</td>
-                            <td>$${item.price.toFixed(2)}</td>
-                            <td>
-                                <div class="quantity-buttons">
-                                    <button class="btn btn-sm btn-secondary decrease-quantity" data-index="${index}">-</button>
-                                    <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1" readonly>
-                                    <button class="btn btn-sm btn-secondary increase-quantity" data-index="${index}">+</button>
-                                </div>
-                            </td>
-                            <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                            <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
-                        `;
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                        <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
+                        <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                    `;
                     cartTable.appendChild(row);
                 });
                 calculateTotal();
@@ -328,13 +321,6 @@
             cart.forEach(item => total += item.price * item.quantity);
             document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCartItems();
-            updateCartCount();
-        });
     </script>
 </body>
 </html>
-
-

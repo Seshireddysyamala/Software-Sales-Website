@@ -72,14 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    cartTable.addEventListener('input', (event) => {
-        if (event.target.classList.contains('item-quantity')) {
-            const index = parseInt(event.target.getAttribute('data-index'), 10);
-            cart[index].quantity = parseInt(event.target.value, 10) || 1;
-            updateCart();
-        }
-    });
-
     document.getElementById('checkout-button').addEventListener('click', function () {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         const errorMessage = document.getElementById('error-message');
@@ -120,9 +112,25 @@ function checkLoginState() {
     }
 }
 
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'index.html';
+}
+
 function closeModal() {
     document.getElementById('constructionModal').style.display = 'none';
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('menu.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('menu').innerHTML = data;
+            checkLoginState();
+            updateCartCount();
+        })
+        .catch(error => console.error('Error loading menu:', error));
+});
 
 function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
