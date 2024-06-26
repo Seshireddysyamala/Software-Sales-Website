@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
+                    <td><img src="${item.image}" alt="${item.name}" style="max-width: 50px;"></td>
                     <td>${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
                     <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
@@ -99,6 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
     calculateTotal();
 });
 
+function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItemIndex = cart.findIndex(item => item.name === name);
+    if (existingItemIndex > -1) {
+        cart[existingItemIndex].quantity += 1;
+    } else {
+        cart.push({ name, price, image, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+}
+
 function proceedToCheckout() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -168,6 +181,7 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
+                <td><img src="${item.image}" alt="${item.name}" style="max-width: 50px;"></td>
                 <td>${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
                 <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
