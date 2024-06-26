@@ -3,15 +3,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartCountElements = document.querySelectorAll('#cart-count');
     const checkoutButton = document.getElementById('checkout-button');
     const errorMessage = document.getElementById('error-message');
+    const cartContainer = document.querySelector('.cart-container');
+    const cartTotalContainer = document.querySelector('.cart-total-container');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const renderCartItems = () => {
         cartTable.innerHTML = '';
         if (cart.length === 0) {
-            cartTable.innerHTML = '<tr><td colspan="5" class="text-center">Your cart is empty</td></tr>';
+            cartContainer.innerHTML = '<p class="text-center">Your cart is empty</p>';
             checkoutButton.style.display = 'none';
+            cartTotalContainer.style.display = 'none';
         } else {
             checkoutButton.style.display = 'inline-block';
+            cartTotalContainer.style.display = 'block';
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
@@ -144,12 +148,17 @@ function updateCartCount() {
 function renderCartItems() {
     const cartTable = document.getElementById('cart-table-body');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.querySelector('.cart-container');
+    const cartTotalContainer = document.querySelector('.cart-total-container');
+
     cartTable.innerHTML = '';
     if (cart.length === 0) {
-        cartTable.innerHTML = '<tr><td colspan="5" class="text-center">Your cart is empty</td></tr>';
+        cartContainer.innerHTML = '<p class="text-center">Your cart is empty</p>';
         document.getElementById('checkout-button').style.display = 'none';
+        cartTotalContainer.style.display = 'none';
     } else {
         document.getElementById('checkout-button').style.display = 'inline-block';
+        cartTotalContainer.style.display = 'block';
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
