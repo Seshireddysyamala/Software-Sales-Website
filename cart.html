@@ -71,9 +71,14 @@
         .empty-cart-message {
             color: red;
             text-align: center;
-            font-size: 1.5em;
+            font-size: 1.5rem;
             margin-top: 20px;
         }
+
+            .empty-cart-message i {
+                font-size: 2rem;
+                display: block;
+            }
 
         .checkout-button-container {
             display: flex;
@@ -90,7 +95,8 @@
         <div class="cart-container box table-responsive">
             <h1>Cart</h1>
             <p id="empty-cart-message" class="empty-cart-message" style="display: none;">
-                <i class="fas fa-shopping-cart"></i> Your cart is empty.
+                <i class="fas fa-shopping-cart"></i>
+                Your cart is empty.
             </p>
             <table id="cart-table" class="table table-dark table-striped">
                 <thead>
