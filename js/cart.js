@@ -53,6 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateCartCount = () => {
         const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
         cartCountElements.forEach(el => el.textContent = itemCount);
+
+        if (itemCount === 0) {
+            showEmptyCartMessage();
+        }
     };
 
     const calculateTotal = () => {
