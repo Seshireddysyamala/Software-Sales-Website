@@ -535,11 +535,11 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px; /* Add gap between image and text */
 }
 
     .product-details img {
-        margin-right: 10px;
-        border-radius: 4px;
+        flex-shrink: 0;
     }
 
 /* Responsive Cart Section */
@@ -570,6 +570,7 @@ h1, h2, h3 {
     display: inline-block;
     margin: 0;
 }
+
 
 
 

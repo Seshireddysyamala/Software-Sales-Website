@@ -190,19 +190,6 @@
             observer.observe(element);
         });
 
-        function checkLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (!isLoggedIn && window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
-                window.location.href = 'login.html';
-            } else {
-                const user = JSON.parse(localStorage.getItem('user'));
-                if (user) {
-                    document.getElementById('user-email').textContent = user.email;
-                    document.getElementById('login-link').style.display = 'none';
-                    document.getElementById('profile-link').style.display = 'block';
-                }
-            }
-        }
 
       
 
