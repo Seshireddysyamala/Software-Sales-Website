@@ -69,7 +69,7 @@
         }
 
         .empty-cart-message {
-            color: #C5C6C7;
+            color: red;
             text-align: center;
             font-size: 1.5em;
             margin-top: 20px;
@@ -89,7 +89,9 @@
     <main class="container mt-5">
         <div class="cart-container box table-responsive">
             <h1>Cart</h1>
-            <p id="empty-cart-message" class="empty-cart-message" style="display: none;">Your cart is empty.</p>
+            <p id="empty-cart-message" class="empty-cart-message" style="display: none;">
+                <i class="fas fa-shopping-cart"></i> Your cart is empty.
+            </p>
             <table id="cart-table" class="table table-dark table-striped">
                 <thead>
                     <tr>
