@@ -95,7 +95,7 @@
                     <div class="price-wrapper">
                         <p class="price">Price: $49.99</p>
                     </div>
-                    <button class="btn btn-primary" onclick="addToCart('Windows 11', 49.99, 'images/win-11-logo-small-168x230.jpg')">Add to Cart</button>
+                    <button class="btn btn-primary" onclick="addToCart('Windows 11', 49.99)">Add to Cart</button>
                 </div>
                 <div class="software-item">
                     <img src="images/zoom-168x230.png" alt="Zoom">
@@ -104,7 +104,7 @@
                     <div class="price-wrapper">
                         <p class="price">Price: $99.99</p>
                     </div>
-                    <button class="btn btn-primary" onclick="addToCart('Zoom', 99.99, 'images/zoom-168x230.png')">Add to Cart</button>
+                    <button class="btn btn-primary" onclick="addToCart('Zoom', 99.99)">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -119,7 +119,7 @@
                         <p class="price" style="color: #FFFF00;">Original Price: $79.99</p>
                         <p class="discounted-price">Discounted Price: $59.99</p>
                     </div>
-                    <button class="btn btn-primary" onclick="addToCart('GTA 6', 59.99, 'images/gta-168x230.jpeg')">Add to Cart</button>
+                    <button class="btn btn-primary" onclick="addToCart('GTA 6', 59.99)">Add to Cart</button>
                 </div>
                 <div class="software-item">
                     <img src="images/Microsoft-Office-365-168x230.png" alt="Microsoft Office">
@@ -129,7 +129,7 @@
                         <p class="price" style="color: #FFFF00;">Original Price: $129.99</p>
                         <p class="discounted-price">Discounted Price: $99.99</p>
                     </div>
-                    <button class="btn btn-primary" onclick="addToCart('Microsoft Office', 99.99, 'images/Microsoft-Office-365-168x230.png')">Add to Cart</button>
+                    <button class="btn btn-primary" onclick="addToCart('Microsoft Office', 99.99)">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -164,20 +164,6 @@
     <script src="js/softwares.js"></script>
     <script src="js/cart.js"></script>
     <script>
-        function addToCart(productName, price, imageUrl) {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingProduct = cart.find(item => item.name === productName);
-
-            if (existingProduct) {
-                existingProduct.quantity += 1;
-            } else {
-                cart.push({ name: productName, price: price, imageUrl: imageUrl, quantity: 1 });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(productName + ' has been added to the cart.');
-        }
-
         fetch('menu.html')
             .then(response => response.text())
             .then(data => {
@@ -189,15 +175,7 @@
         elements.forEach(element => {
             observer.observe(element);
         });
-
-        function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = itemCount;
-        }
-
-        document.addEventListener('DOMContentLoaded', checkLoginState);
     </script>
 </body>
 </html>
+
