@@ -53,12 +53,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateCartCount = () => {
         const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
         cartCountElements.forEach(el => el.textContent = itemCount);
+
+        if (itemCount === 0) {
+            showEmptyCartMessage();
+        }
     };
 
     const calculateTotal = () => {
         let total = 0;
         cart.forEach(item => total += item.price * item.quantity);
         document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+    };
+
+    const showEmptyCartMessage = () => {
+        emptyCartMessage.style.display = 'block';
+        additionalText.style.display = 'block';
+        cartTableElement.style.display = 'none';
+        checkoutButton.style.display = 'none';
+        cartTotalContainer.style.display = 'none';
+        continueShoppingBtn.style.display = 'block';
     };
 
     cartTable.addEventListener('click', (event) => {
@@ -144,9 +157,7 @@ function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
-    renderCartItems(); // Update the UI immediately after removal
-    updateCartCount(); // Update the cart count immediately
-    calculateTotal(); // Recalculate the total immediately
+    updateCart();
 }
 
 function updateCartCount() {
