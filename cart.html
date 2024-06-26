@@ -72,29 +72,29 @@
             text-align: center;
             font-size: 2.2rem;
             margin-top: 20px;
-            display: none;
+            display: none; /* Hide by default */
         }
 
             .empty-cart-message i {
                 font-size: 6rem;
                 display: block;
-                margin-bottom: 10px;
-                color: orangered;
+                margin-bottom: 10px; /* Add margin to increase gap between icon and text */
+                color: orangered; /* Set the color of the cart icon */
             }
 
         .empty-cart-text {
-            color: white;
-            font-weight: bold;
+            color: white; /* Set the color of the empty cart text */
+            font-weight: bold; /* Make the text bold */
         }
 
         .additional-text {
             text-align: center;
             font-size: 1.5rem;
             color: #C5C6C7;
-            font-family: 'Brush Script MT', cursive;
+            font-family: 'Brush Script MT', cursive; /* Set the font style */
             margin-top: 10px;
             margin-bottom: 20px;
-            display: none;
+            display: none; /* Hide by default */
         }
 
         .checkout-button-container {
@@ -106,7 +106,7 @@
 
         .cart-container {
             margin-top: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* Add margin to the container */
             padding: 20px;
             background-color: #1F2833;
             border: 1px solid #66FCF1;
@@ -114,7 +114,7 @@
         }
 
         .continue-shopping-btn {
-            display: none;
+            display: none; /* Hide the button by default */
             padding: 10px 20px;
             font-size: 1rem;
             color: #ffffff;
@@ -124,8 +124,8 @@
             text-decoration: none;
             text-align: center;
             cursor: pointer;
-            margin: 20px auto;
-            display: block;
+            margin: 20px auto; /* Center the button */
+            display: block; /* Make it a block element */
         }
 
             .continue-shopping-btn:hover {
@@ -134,73 +134,83 @@
             }
 
         h1 {
-            margin-top: 20px;
-            margin-bottom: 20px;
+            margin-top: 20px; /* Add margin to the top */
+            margin-bottom: 20px; /* Add margin to the bottom */
             text-align: center;
         }
 
         .navbar-line {
-            margin-bottom: 20px;
-            border-bottom: 0.5px solid #C5C6C7;
+            margin-bottom: 20px; /* Add margin to the bottom */
+            border-bottom: 0.5px solid #C5C6C7; /* Add the 0.5px solid #c5c6c7 line */
         }
 
         .footer {
-            margin-top: 20px;
+            margin-top: 20px; /* Add margin to the top */
         }
 
         .table-responsive {
             width: 100%;
-            overflow-x: auto;
+            overflow-x: auto; /* Enable horizontal scrolling */
         }
 
         .table {
             color: var(--text-color);
             width: 100%;
-            table-layout: auto;
-            border-collapse: collapse;
+            table-layout: auto; /* Auto layout for better responsiveness */
+            border-collapse: collapse; /* Collapsed borders for a cleaner look */
         }
 
             .table th, .table td {
                 padding: 0.75rem;
                 text-align: center;
-                vertical-align: middle;
-                white-space: nowrap;
+                vertical-align: middle; /* Vertically center align text */
+                white-space: nowrap; /* Prevent text wrapping */
                 border: 1px solid var(--text-color);
             }
 
             .table th {
                 background-color: var(--bg-color);
                 font-weight: bold;
-                text-transform: uppercase;
+                text-transform: uppercase; /* Uppercase text for headers */
                 color: var(--palette-blue);
             }
 
             .table td input[type="number"] {
-                text-align: center;
-                width: 60px;
-                margin: 0 auto;
+                text-align: center; /* Center the numbers */
+                width: 60px; /* Adjust width as needed */
+                margin: 0 auto; /* Center align input field */
                 display: block;
-                border: 1px solid var(--text-color);
-                border-radius: 4px;
+                border: 1px solid var(--text-color); /* Border for inputs */
+                border-radius: 4px; /* Rounded corners for inputs */
             }
 
             .table td img {
                 max-width: 50px;
                 height: auto;
-                border-radius: 4px;
+                border-radius: 4px; /* Rounded corners for images */
             }
 
         .btn-danger {
             background-color: #DC3545;
             border-color: #DC3545;
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-            border-radius: 4px;
+            padding: 0.5rem 1rem; /* Padding for remove buttons */
+            font-size: 0.875rem; /* Font size for remove buttons */
+            border-radius: 4px; /* Rounded corners for buttons */
         }
 
             .btn-danger:hover {
-                background-color: #c82333;
-                border-color: #bd2130;
+                background-color: #c82333; /* Darker red on hover */
+                border-color: #bd2130; /* Darker red on hover */
+            }
+
+        .btn-logout {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+            .btn-logout:hover {
+                background-color: #c82333; /* Darker red on hover */
+                border-color: #bd2130; /* Darker red on hover */
             }
 
         .quantity-controls {
@@ -247,11 +257,11 @@
             }
 
             .table-responsive {
-                margin-bottom: 1rem;
+                margin-bottom: 1rem; /* Add margin below the table */
             }
 
             .text-right .btn-success {
-                width: 100%;
+                width: 100%; /* Full width for mobile */
             }
         }
 
@@ -262,10 +272,12 @@
             white-space: normal;
         }
 
+        /* Fix button alignment */
         .btn-danger {
             display: inline-block;
             margin: 0;
         }
+
     </style>
 </head>
 <body class="cart-page">
