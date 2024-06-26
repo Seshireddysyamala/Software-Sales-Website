@@ -144,7 +144,9 @@ function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
-    updateCart();
+    renderCartItems(); // Update the UI immediately after removal
+    updateCartCount(); // Update the cart count immediately
+    calculateTotal(); // Recalculate the total immediately
 }
 
 function updateCartCount() {
