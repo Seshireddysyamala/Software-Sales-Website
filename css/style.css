@@ -458,6 +458,26 @@ h1, h2, h3 {
     display: block;
     margin: 0 auto;
 }
+/* Responsive Cart Section */
+@media (max-width: 768px) {
+    .cart-container {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+        .cart-container .table {
+            display: block;
+            overflow-x: auto;
+        }
+
+    .table th, .table td {
+        white-space: nowrap;
+    }
+
+    .text-right .btn-success {
+        width: 100%; /* Full width for mobile */
+    }
+}
 
 /* Analytics Section Styles */
 .analytics-box {
