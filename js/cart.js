@@ -53,6 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateCartCount = () => {
         const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
         cartCountElements.forEach(el => el.textContent = itemCount);
+
+        // Show the "Continue Shopping" button and empty cart message if the cart is empty
+        if (itemCount === 0) {
+            showEmptyCartMessage();
+        }
     };
 
     const calculateTotal = () => {
