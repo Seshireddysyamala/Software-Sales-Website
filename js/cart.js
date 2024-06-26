@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
 
         if (cart.length === 0) {
-            // No items in cart, do nothing or show a different message if needed
+            // Do nothing if cart is empty
         } else if (!isLoggedIn) {
             localStorage.setItem('redirectAfterLogin', 'cart.html');
             window.location.href = 'login.html';

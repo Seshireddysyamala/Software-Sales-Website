@@ -142,5 +142,51 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/cart.js"></script>
+    <script>
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu').innerHTML = data;
+                checkLoginState();
+                updateCartCount(); // Ensure this function is called to update the cart count
+            })
+            .catch(error => console.error('Error loading menu:', error));
+
+        function proceedToCheckout() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+            if (cart.length === 0) {
+                // Do nothing if cart is empty
+            } else if (!isLoggedIn) {
+                localStorage.setItem('redirectAfterLogin', 'cart.html');
+                window.location.href = 'login.html';
+            } else {
+                document.getElementById('constructionModal').style.display = 'block';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('constructionModal').style.display = 'none';
+        }
+
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('profile-link').style.display = 'block';
+            } else {
+                document.getElementById('login-link').style.display = 'block';
+                document.getElementById('profile-link').style.display = 'none';
+            }
+        }
+
+        function updateCartCount() {
+            const cartCountElements = document.querySelectorAll('#cart-count');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCountElements.forEach(el => el.textContent = itemCount);
+        }
+    </script>
 </body>
 </html>
