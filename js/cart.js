@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartTable = document.getElementById('cart-table-body');
-    const cartCountElements = document.querySelectorAll('#cart-count');
+    const cartCountElements = document.querySelectorAll('#cart-count'); // Updated to match multiple elements
     const checkoutButton = document.getElementById('checkout-button');
     const cartTotalContainer = document.getElementById('cart-total-container');
     const emptyCartMessage = document.getElementById('empty-cart-message');
@@ -46,8 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateCartCount = () => {
-        const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
-        cartCountElements.forEach(el => el.textContent = itemCount);
+        const cartCountElements = document.querySelectorAll('#cart-count');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+        cartCountElements.forEach(el => el.textContent = itemCount); // Updated to handle multiple elements
     };
 
     const calculateTotal = () => {
@@ -133,10 +135,10 @@ function removeItemFromCart(index) {
 }
 
 function updateCartCount() {
-    const cartCountElements = document.querySelectorAll('#cart-count');
+    const cartCountElements = document.querySelectorAll('#cart-count'); // Updated to match multiple elements
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCountElements.forEach(el => el.textContent = itemCount);
+    cartCountElements.forEach(el => el.textContent = itemCount); // Updated to handle multiple elements
 }
 
 function renderCartItems() {
