@@ -472,11 +472,32 @@ h1, h2, h3 {
 
     .table th, .table td {
         white-space: nowrap;
+        padding: 0.5rem;
     }
 
-    .text-right .btn-success {
-        width: 100%; /* Full width for mobile */
+    .text-right {
+        text-align: center;
+        margin-top: 1rem;
     }
+
+        .text-right .btn-success {
+            display: block;
+            width: 100%; /* Full width for mobile */
+            margin: 0.5rem 0;
+        }
+}
+
+/* Adjust table cell alignment and wrapping */
+.table th, .table td {
+    vertical-align: middle;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* Fix button alignment */
+.btn-danger {
+    display: inline-block;
+    margin: 0;
 }
 
 /* Analytics Section Styles */
