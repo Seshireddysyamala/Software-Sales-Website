@@ -81,6 +81,7 @@
             align-items: center;
             margin-top: 20px;
         }
+
         .empty-cart-message {
             display: flex;
             flex-direction: column;
@@ -174,14 +175,74 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/cart.js"></script>
     <script>
-        fetch('menu.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('menu').innerHTML = data;
-                checkLoginState();
-                updateCartCount(); // Ensure this function is called to update the cart count
-            })
-            .catch(error => console.error('Error loading menu:', error));
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('menu.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('menu').innerHTML = data;
+                    checkLoginState();
+                    updateCartCount(); // Ensure this function is called to update the cart count
+                })
+                .catch(error => console.error('Error loading menu:', error));
+
+            updateCartDisplay();
+        });
+
+        function updateCartDisplay() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const emptyCartContainer = document.getElementById('empty-cart-container');
+            const cartTableBody = document.getElementById('cart-table-body');
+            const cartTotalContainer = document.getElementById('cart-total-container');
+            const checkoutButton = document.getElementById('checkout-button');
+
+            if (cart.length === 0) {
+                emptyCartContainer.style.display = 'block';
+                cartTotalContainer.style.display = 'none';
+                checkoutButton.style.display = 'none';
+                cartTableBody.innerHTML = ''; // Clear cart table body
+            } else {
+                emptyCartContainer.style.display = 'none';
+                cartTotalContainer.style.display = 'block';
+                checkoutButton.style.display = 'block';
+                // Populate the cart table with items
+                cartTableBody.innerHTML = ''; // Clear cart table body before populating
+                let total = 0;
+                cart.forEach(item => {
+                    total += item.price * item.quantity;
+                    cartTableBody.innerHTML += `
+                            <tr>
+                                <td>${item.product}</td>
+                                <td>$${item.price.toFixed(2)}</td>
+                                <td>
+                                    <input type="number" class="form-control" value="${item.quantity}" min="1" onchange="updateQuantity('${item.product}', this.value)">
+                                </td>
+                                <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                                <td><button class="btn btn-danger" onclick="removeFromCart('${item.product}')">Remove</button></td>
+                            </tr>
+                        `;
+                });
+                document.getElementById('cart-total').innerText = `$${total.toFixed(2)}`;
+            }
+        }
+
+        function updateQuantity(product, quantity) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.map(item => {
+                if (item.product === product) {
+                    item.quantity = parseInt(quantity, 10);
+                }
+                return item;
+            });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        function removeFromCart(product) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.product !== product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
 
         function proceedToCheckout() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -218,52 +279,6 @@
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
             cartCountElements.forEach(el => el.textContent = itemCount);
         }
-        document.addEventListener('DOMContentLoaded', function () {
-            updateCartDisplay();
-        });
-
-        function updateCartDisplay() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const emptyCartContainer = document.getElementById('empty-cart-container');
-            const cartTableBody = document.getElementById('cart-table-body');
-            const cartTotalContainer = document.getElementById('cart-total-container');
-            const checkoutButton = document.getElementById('checkout-button');
-
-            if (cart.length === 0) {
-                emptyCartContainer.style.display = 'block';
-                cartTotalContainer.style.display = 'none';
-                checkoutButton.style.display = 'none';
-                cartTableBody.innerHTML = ''; // Clear cart table body
-            } else {
-                emptyCartContainer.style.display = 'none';
-                cartTotalContainer.style.display = 'block';
-                checkoutButton.style.display = 'block';
-                // Populate the cart table with items
-                cartTableBody.innerHTML = ''; // Clear cart table body before populating
-                let total = 0;
-                cart.forEach(item => {
-                    total += item.price * item.quantity;
-                    cartTableBody.innerHTML += `
-                        <tr>
-                            <td>${item.product}</td>
-                            <td>$${item.price.toFixed(2)}</td>
-                            <td>${item.quantity}</td>
-                            <td>$${(item.price * item.quantity).toFixed(2)}</td>
-                            <td><button class="btn btn-danger" onclick="removeFromCart('${item.product}')">Remove</button></td>
-                        </tr>
-                    `;
-                });
-                document.getElementById('cart-total').innerText = `$${total.toFixed(2)}`;
-            }
-        }
-
-        function removeFromCart(product) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart = cart.filter(item => item.product !== product);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartDisplay();
-        }
-
     </script>
 </body>
 </html>
