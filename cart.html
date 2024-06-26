@@ -277,7 +277,6 @@
             display: inline-block;
             margin: 0;
         }
-
     </style>
 </head>
 <body class="cart-page">
@@ -309,7 +308,7 @@
             <div id="cart-total-container">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
             </div>
-            <div class="checkout-button-container">
+            <div class="checkout-button-container text-right">
                 <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
             </div>
         </div>
@@ -358,7 +357,7 @@
             .then(data => {
                 document.getElementById('menu').innerHTML = data;
                 checkLoginState();
-                updateCartCount();
+                updateCartCount(); // Ensure this function is called to update the cart count
             })
             .catch(error => console.error('Error loading menu:', error));
 
@@ -367,6 +366,7 @@
             const isLoggedIn = localStorage.getItem('isLoggedIn');
 
             if (cart.length === 0) {
+                // Do nothing if cart is empty
                 showEmptyCartMessage();
             } else if (!isLoggedIn) {
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
@@ -397,6 +397,7 @@
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
             cartCountElements.forEach(el => el.textContent = itemCount);
 
+            // Show the "Continue Shopping" button and empty cart message if the cart is empty
             if (itemCount === 0) {
                 showEmptyCartMessage();
             }
@@ -408,6 +409,7 @@
             document.querySelector('#additional-text').style.display = 'block';
         }
 
+        // Check if cart is empty on page load
         document.addEventListener('DOMContentLoaded', function () {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             if (cart.length === 0) {

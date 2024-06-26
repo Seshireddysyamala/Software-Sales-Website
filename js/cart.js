@@ -28,10 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td class="product-details">
-                        <img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">
-                        <span>${item.name}</span>
-                    </td>
+                    <td class="product-details"><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
                     <td class="quantity-controls">
                         <button class="quantity-decrease" data-index="${index}">-</button>
@@ -178,10 +175,7 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td class="product-details">
-                    <img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">
-                    <span>${item.name}</span>
-                </td>
+                <td class="product-details"><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
                 <td class="quantity-controls">
                     <button class="quantity-decrease" data-index="${index}">-</button>
