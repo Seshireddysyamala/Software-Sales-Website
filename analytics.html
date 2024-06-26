@@ -10,15 +10,42 @@
     <script src="https://kit.fontawesome.com/4aacb9c22b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap">
     <style>
-        /* Adding margin for spacing between elements */
-        .gap {
-            margin-bottom: 50px; /* Adjust this value as needed */
+        h1 {
+            margin-top: 20px; /* Add margin to the top */
+            margin-bottom: 20px; /* Add margin to the bottom */
+            color: #66FCF1;
+            text-align: center;
         }
-        
 
+        .navbar-line {
+            margin-bottom: 20px; /* Add margin to the bottom */
+            border-bottom: 2px solid #66FCF1;
+        }
 
-        
+        .footer {
+            margin-top: 20px; /* Add margin to the top */
+        }
 
+        .analytics-box {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #1F2833;
+            border: 1px solid #66FCF1;
+            border-radius: 5px;
+        }
+
+            .analytics-box h2 {
+                margin-bottom: 20px;
+                color: #66FCF1;
+            }
+
+            .analytics-box p {
+                margin-bottom: 20px;
+            }
+
+        .gap {
+            margin-bottom: 20px; /* Adjust this value as needed */
+        }
     </style>
     <script>
         function updateCartCount() {
@@ -46,32 +73,33 @@
 </head>
 <body>
     <div id="menu" class="gap"></div>
+    <div class="navbar-line"></div>
     <main class="container mt-5">
+        <h1>Sales Statistics</h1>
         <section id="data-analytics" class="box">
-            <h1 class="box-heading gap">Sales Statistics</h1>
             <div class="analytics-box gap">
-                <h2 class="box-heading gap">Sales Data (Bar Chart)</h2>
-                <canvas id="salesChart" class="gap"></canvas>
+                <h2>Sales Data (Bar Chart)</h2>
+                <canvas id="salesChart"></canvas>
                 <hr>
-                <p class="gap"><strong>Description:</strong> This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
+                <p><strong>Description:</strong> This chart represents the sales figures for each software product over the past six months. It shows the comparison between different products and their sales performance.</p>
             </div>
             <div class="analytics-box gap">
-                <h2 class="box-heading gap">Sales Distribution (Pie Chart)</h2>
-                <canvas id="salesPieChart" class="gap"></canvas>
+                <h2>Sales Distribution (Pie Chart)</h2>
+                <canvas id="salesPieChart"></canvas>
                 <hr>
-                <p class="gap"><strong>Description:</strong> The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
+                <p><strong>Description:</strong> The pie chart illustrates the percentage distribution of total sales among the four software products. It helps in understanding the market share of each product.</p>
             </div>
             <div class="analytics-box gap">
-                <h2 class="box-heading gap">Sales Trend (Line Chart)</h2>
-                <canvas id="salesLineChart" class="gap"></canvas>
+                <h2>Sales Trend (Line Chart)</h2>
+                <canvas id="salesLineChart"></canvas>
                 <hr>
-                <p class="gap"><strong>Description:</strong> This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
+                <p><strong>Description:</strong> This line chart depicts the sales trends of the software products over the last six months. It provides insights into the sales growth or decline for each product.</p>
             </div>
             <div class="analytics-box gap">
-                <h2 class="box-heading gap">Sales Data Table</h2>
-                <table class="table table-dark gap">
-                    <thead class="gap">
-                        <tr class="gap">
+                <h2>Sales Data Table</h2>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
                             <th>Month</th>
                             <th>Windows 11</th>
                             <th>Zoom</th>
@@ -80,16 +108,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="gap"><td>January</td><td>$5000</td><td>$7000</td><td>$6000</td><td>$8000</td></tr>
-                        <tr class="gap"><td>February</td><td>$6000</td><td>$8000</td><td>$7000</td><td>$9000</td></tr>
-                        <tr class="gap"><td>March</td><td>$7000</td><td>$9000</td><td>$8000</td><td>$10000</td></tr>
-                        <tr class="gap"><td>April</td><td>$8000</td><td>$10000</td><td>$9000</td><td>$11000</td></tr>
-                        <tr class="gap"><td>May</td><td>$9000</td><td>$11000</td><td>$10000</td><td>$12000</td></tr>
-                        <tr class="gap"><td>June</td><td>$10000</td><td>$12000</td><td>$11000</td><td>$13000</td></tr>
+                        <tr><td>January</td><td>$5000</td><td>$7000</td><td>$6000</td><td>$8000</td></tr>
+                        <tr><td>February</td><td>$6000</td><td>$8000</td><td>$7000</td><td>$9000</td></tr>
+                        <tr><td>March</td><td>$7000</td><td>$9000</td><td>$8000</td><td>$10000</td></tr>
+                        <tr><td>April</td><td>$8000</td><td>$10000</td><td>$9000</td><td>$11000</td></tr>
+                        <tr><td>May</td><td>$9000</td><td>$11000</td><td>$10000</td><td>$12000</td></tr>
+                        <tr><td>June</td><td>$10000</td><td>$12000</td><td>$11000</td><td>$13000</td></tr>
                     </tbody>
                 </table>
                 <hr>
-                <p class="gap"><strong>Description:</strong> This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
+                <p><strong>Description:</strong> This table provides a detailed view of the monthly sales data for each software product. It includes the sales figures for the past six months.</p>
             </div>
         </section>
     </main>
