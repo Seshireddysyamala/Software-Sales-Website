@@ -69,17 +69,21 @@
         }
 
         .empty-cart-message {
-            color: red;
             text-align: center;
-            font-size: 3rem;
+            font-size: 1.5rem;
             margin-top: 20px;
         }
 
             .empty-cart-message i {
-                font-size: 8rem;
+                font-size: 6rem;
                 display: block;
                 margin-bottom: 10px; /* Add margin to increase gap between icon and text */
+                color: blue; /* Set the color of the cart icon */
             }
+
+        .empty-cart-text {
+            color: red; /* Set the color of the empty cart text */
+        }
 
         .checkout-button-container {
             display: flex;
@@ -89,7 +93,7 @@
         }
 
         .cart-container h1 {
-            margin-bottom: 30px; /* Add margin to the heading */
+            margin-bottom: 20px; /* Add margin to the heading */
         }
     </style>
 </head>
@@ -99,9 +103,10 @@
     <main class="container mt-5">
         <div class="cart-container box table-responsive">
             <h1>Cart</h1>
+            <hr>
             <p id="empty-cart-message" class="empty-cart-message" style="display: none;">
                 <i class="fas fa-shopping-cart"></i>
-                Your cart is empty.
+                <span class="empty-cart-text">Your cart is empty.</span>
             </p>
             <table id="cart-table" class="table table-dark table-striped">
                 <thead>
