@@ -75,14 +75,22 @@
         }
 
             .empty-cart-message i {
-                font-size: 6rem;
+                font-size: 2rem;
                 display: block;
                 margin-bottom: 10px; /* Add margin to increase gap between icon and text */
-                color: grey; /* Set the color of the cart icon */
+                color: blue; /* Set the color of the cart icon */
             }
 
         .empty-cart-text {
-            color: white; /* Set the color of the empty cart text */
+            color: red; /* Set the color of the empty cart text */
+        }
+
+        .additional-text {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #C5C6C7;
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
 
         .checkout-button-container {
@@ -107,6 +115,8 @@
             text-decoration: none;
             text-align: center;
             cursor: pointer;
+            margin: 0 auto; /* Center the button */
+            display: block; /* Make it a block element */
         }
 
             .continue-shopping-btn:hover {
@@ -121,11 +131,11 @@
     <main class="container mt-5">
         <div class="cart-container box table-responsive">
             <h1>Cart</h1>
-            <hr>
             <p id="empty-cart-message" class="empty-cart-message" style="display: none;">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="empty-cart-text">Your cart is empty.</span>
             </p>
+            <p id="additional-text" class="additional-text" style="display: none;">add something to make me happy :)</p>
             <button onclick="location.href='softwares.html'" class="continue-shopping-btn">Continue Shopping</button>
             <table id="cart-table" class="table table-dark table-striped">
                 <thead>
@@ -242,6 +252,7 @@
         function showEmptyCartMessage() {
             document.querySelector('.continue-shopping-btn').style.display = 'block';
             document.querySelector('#empty-cart-message').style.display = 'block';
+            document.querySelector('#additional-text').style.display = 'block';
         }
 
         // Check if cart is empty on page load
