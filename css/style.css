@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     font-family: 'Oxanium', sans-serif; /* Set Oxanium as the default font */
     line-height: 1.6;
-    background-color: #1F2833;
+    background-color:#0B0C10;
     color: #C5C6C7;
     min-height: 100vh;
     padding-right: 2px; /* Adjust padding to avoid scrollbar overlap */
@@ -32,20 +32,16 @@ body {
     --palette-blue: #66FCF1; /* Palette blue */
     --bg-color: #0B0C10;
     --text-color: #C5C6C7;
-    --box-bg-color: #1F2833;
-    --footer-bg-color: #1F2833; /* Footer background color */
-    --footer-text-color: #ffffff; /* Footer text color */
-    --header-bg-color: #45A29E; /* Header background color */
-    --header-text-color: #ffffff; /* Header text color */
+    --box-bg-color: #0B0C10;
+    --footer-text-color: #ffffff;
     --bright-yellow: #FFFF00; /* Bright yellow */
 }
 
 
-
-/* Header */
+/* Navbar */
 header, .navbar {
-    background-color: #0B0C10 !important; /* Header background color */
-    color: #ffffff; /* Header text color */
+    background-color: var(--primary-color); /* Teal green background */
+    color: #ffffff;
     padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
     position: fixed;
@@ -301,13 +297,12 @@ h1, h2, h3 {
 }
 
 
-
-/* Footer styles */
+/*footer styles*/
 .footer {
-    background: #0B0C10 !important; /* Footer background */
+    background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
     text-align: center;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
     width: 100%;
     margin-top: auto;
     box-sizing: border-box;
@@ -319,19 +314,16 @@ h1, h2, h3 {
         margin: 0 auto;
     }
 
-    .footer .social-icons a {
-        color: #ffffff; /* Default color */
-        font-size: 1.5rem;
-        margin-right: 10px;
-        transition: color 0.3s; /* Smooth transition */
-        text-decoration: none; /* Ensure no underline */
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+    .social-icons a:hover {
+        color: #66FCF1;
     }
-
-        .footer .social-icons a:hover {
-            color: #66FCF1; /* Hover color */
-        }
-
-
 
 /* Responsive Navbar */
 @media (max-width: 992px) {
