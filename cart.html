@@ -72,7 +72,6 @@
             text-align: center;
             font-size: 2.2rem;
             margin-top: 20px;
-            display: none; /* Hide by default */
         }
 
             .empty-cart-message i {
@@ -94,7 +93,6 @@
             font-family: 'Brush Script MT', cursive; /* Set the font style */
             margin-top: 10px;
             margin-bottom: 20px;
-            display: none; /* Hide by default */
         }
 
         .checkout-button-container {
@@ -124,7 +122,7 @@
             text-decoration: none;
             text-align: center;
             cursor: pointer;
-            margin: 20px auto; /* Center the button */
+            margin: 0 auto; /* Center the button */
             display: block; /* Make it a block element */
         }
 
@@ -147,136 +145,6 @@
         .footer {
             margin-top: 20px; /* Add margin to the top */
         }
-
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto; /* Enable horizontal scrolling */
-        }
-
-        .table {
-            color: var(--text-color);
-            width: 100%;
-            table-layout: auto; /* Auto layout for better responsiveness */
-            border-collapse: collapse; /* Collapsed borders for a cleaner look */
-        }
-
-            .table th, .table td {
-                padding: 0.75rem;
-                text-align: center;
-                vertical-align: middle; /* Vertically center align text */
-                white-space: nowrap; /* Prevent text wrapping */
-                border: 1px solid var(--text-color);
-            }
-
-            .table th {
-                background-color: var(--bg-color);
-                font-weight: bold;
-                text-transform: uppercase; /* Uppercase text for headers */
-                color: var(--palette-blue);
-            }
-
-            .table td input[type="number"] {
-                text-align: center; /* Center the numbers */
-                width: 60px; /* Adjust width as needed */
-                margin: 0 auto; /* Center align input field */
-                display: block;
-                border: 1px solid var(--text-color); /* Border for inputs */
-                border-radius: 4px; /* Rounded corners for inputs */
-            }
-
-            .table td img {
-                max-width: 50px;
-                height: auto;
-                border-radius: 4px; /* Rounded corners for images */
-            }
-
-        .btn-danger {
-            background-color: #DC3545;
-            border-color: #DC3545;
-            padding: 0.5rem 1rem; /* Padding for remove buttons */
-            font-size: 0.875rem; /* Font size for remove buttons */
-            border-radius: 4px; /* Rounded corners for buttons */
-        }
-
-            .btn-danger:hover {
-                background-color: #c82333; /* Darker red on hover */
-                border-color: #bd2130; /* Darker red on hover */
-            }
-
-        .btn-logout {
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-
-            .btn-logout:hover {
-                background-color: #c82333; /* Darker red on hover */
-                border-color: #bd2130; /* Darker red on hover */
-            }
-
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-            .quantity-controls button {
-                background-color: #66FCF1;
-                color: #1F2833;
-                border: none;
-                padding: 0.5rem;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-                .quantity-controls button:hover {
-                    background-color: #45A29E;
-                }
-
-            .quantity-controls input[type="number"] {
-                text-align: center;
-                width: 50px;
-                border: none;
-                margin: 0 0.5rem;
-            }
-
-        .product-details {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-            .product-details img {
-                flex-shrink: 0;
-            }
-
-        /* Responsive Cart Section */
-        @media (max-width: 768px) {
-            .cart-container {
-                padding: 1rem;
-                margin: 1rem auto;
-            }
-
-            .table-responsive {
-                margin-bottom: 1rem; /* Add margin below the table */
-            }
-
-            .text-right .btn-success {
-                width: 100%; /* Full width for mobile */
-            }
-        }
-
-        /* Adjust table cell alignment and wrapping */
-        .table th, .table td {
-            vertical-align: middle;
-            word-wrap: break-word;
-            white-space: normal;
-        }
-
-        /* Fix button alignment */
-        .btn-danger {
-            display: inline-block;
-            margin: 0;
-        }
     </style>
 </head>
 <body class="cart-page">
@@ -285,11 +153,11 @@
     <main class="container mt-5">
         <h1>Cart</h1>
         <div class="cart-container box table-responsive">
-            <p id="empty-cart-message" class="empty-cart-message">
+            <p id="empty-cart-message" class="empty-cart-message" style="display: none;">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="empty-cart-text">Your cart is empty.</span>
             </p>
-            <p id="additional-text" class="additional-text">Add something to make me happy :)</p>
+            <p id="additional-text" class="additional-text" style="display: none;">Add something to make me happy :)</p>
             <button onclick="location.href='softwares.html'" class="continue-shopping-btn" id="continue-shopping-btn">Continue Shopping</button>
             <table id="cart-table" class="table table-dark table-striped">
                 <thead>
