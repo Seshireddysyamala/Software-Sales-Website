@@ -198,6 +198,24 @@
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
             cartCountElements.forEach(el => el.textContent = itemCount);
         }
+        document.addEventListener('DOMContentLoaded', function () {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const emptyCartContainer = document.getElementById('empty-cart-container');
+            const cartTableBody = document.getElementById('cart-table-body');
+            const cartTotalContainer = document.getElementById('cart-total-container');
+            const checkoutButton = document.getElementById('checkout-button');
+
+            if (cart.length === 0) {
+                emptyCartContainer.style.display = 'block';
+                cartTotalContainer.style.display = 'none';
+                checkoutButton.style.display = 'none';
+            } else {
+                emptyCartContainer.style.display = 'none';
+                cartTotalContainer.style.display = 'block';
+                checkoutButton.style.display = 'block';
+                // Add code here to populate the cart table with items if needed
+            }
+        });
     </script>
 </body>
 </html>
