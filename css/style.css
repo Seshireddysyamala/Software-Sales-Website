@@ -33,9 +33,9 @@ body {
     --bg-color: #0B0C10;
     --text-color: #C5C6C7;
     --box-bg-color: #1F2833;
-    --footer-bg-color: #0B0C10; /* Footer background color */
+    --footer-bg-color: #1F2833; /* Footer background color */
     --footer-text-color: #ffffff; /* Footer text color */
-    --header-bg-color: #0B0C10; /* Header background color */
+    --header-bg-color: #45A29E; /* Header background color */
     --header-text-color: #ffffff; /* Header text color */
     --bright-yellow: #FFFF00; /* Bright yellow */
 }
