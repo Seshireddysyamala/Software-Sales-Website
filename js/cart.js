@@ -116,7 +116,7 @@ function proceedToCheckout() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
 
     if (cart.length === 0) {
-        // Do nothing if cart is empty
+        showEmptyCartMessage();
     } else if (!isLoggedIn) {
         localStorage.setItem('redirectAfterLogin', 'cart.html');
         window.location.href = 'login.html';
@@ -139,17 +139,6 @@ function checkLoginState() {
 function closeModal() {
     document.getElementById('constructionModal').style.display = 'none';
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('menu').innerHTML = data;
-            checkLoginState();
-            updateCartCount();
-        })
-        .catch(error => console.error('Error loading menu:', error));
-});
 
 function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];

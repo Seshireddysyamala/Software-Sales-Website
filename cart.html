@@ -72,29 +72,29 @@
             text-align: center;
             font-size: 2.2rem;
             margin-top: 20px;
-            display: none; /* Hide by default */
+            display: none;
         }
 
             .empty-cart-message i {
                 font-size: 6rem;
                 display: block;
-                margin-bottom: 10px; /* Add margin to increase gap between icon and text */
-                color: orangered; /* Set the color of the cart icon */
+                margin-bottom: 10px;
+                color: orangered;
             }
 
         .empty-cart-text {
-            color: white; /* Set the color of the empty cart text */
-            font-weight: bold; /* Make the text bold */
+            color: white;
+            font-weight: bold;
         }
 
         .additional-text {
             text-align: center;
             font-size: 1.5rem;
             color: #C5C6C7;
-            font-family: 'Brush Script MT', cursive; /* Set the font style */
+            font-family: 'Brush Script MT', cursive;
             margin-top: 10px;
             margin-bottom: 20px;
-            display: none; /* Hide by default */
+            display: none;
         }
 
         .checkout-button-container {
@@ -106,7 +106,7 @@
 
         .cart-container {
             margin-top: 20px;
-            margin-bottom: 20px; /* Add margin to the container */
+            margin-bottom: 20px;
             padding: 20px;
             background-color: #1F2833;
             border: 1px solid #66FCF1;
@@ -114,7 +114,7 @@
         }
 
         .continue-shopping-btn {
-            display: none; /* Hide the button by default */
+            display: none;
             padding: 10px 20px;
             font-size: 1rem;
             color: #ffffff;
@@ -124,8 +124,8 @@
             text-decoration: none;
             text-align: center;
             cursor: pointer;
-            margin: 20px auto; /* Center the button */
-            display: block; /* Make it a block element */
+            margin: 20px auto;
+            display: block;
         }
 
             .continue-shopping-btn:hover {
@@ -134,83 +134,73 @@
             }
 
         h1 {
-            margin-top: 20px; /* Add margin to the top */
-            margin-bottom: 20px; /* Add margin to the bottom */
+            margin-top: 20px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
         .navbar-line {
-            margin-bottom: 20px; /* Add margin to the bottom */
-            border-bottom: 0.5px solid #C5C6C7; /* Add the 0.5px solid #c5c6c7 line */
+            margin-bottom: 20px;
+            border-bottom: 0.5px solid #C5C6C7;
         }
 
         .footer {
-            margin-top: 20px; /* Add margin to the top */
+            margin-top: 20px;
         }
 
         .table-responsive {
             width: 100%;
-            overflow-x: auto; /* Enable horizontal scrolling */
+            overflow-x: auto;
         }
 
         .table {
             color: var(--text-color);
             width: 100%;
-            table-layout: auto; /* Auto layout for better responsiveness */
-            border-collapse: collapse; /* Collapsed borders for a cleaner look */
+            table-layout: auto;
+            border-collapse: collapse;
         }
 
             .table th, .table td {
                 padding: 0.75rem;
                 text-align: center;
-                vertical-align: middle; /* Vertically center align text */
-                white-space: nowrap; /* Prevent text wrapping */
+                vertical-align: middle;
+                white-space: nowrap;
                 border: 1px solid var(--text-color);
             }
 
             .table th {
                 background-color: var(--bg-color);
                 font-weight: bold;
-                text-transform: uppercase; /* Uppercase text for headers */
+                text-transform: uppercase;
                 color: var(--palette-blue);
             }
 
             .table td input[type="number"] {
-                text-align: center; /* Center the numbers */
-                width: 60px; /* Adjust width as needed */
-                margin: 0 auto; /* Center align input field */
+                text-align: center;
+                width: 60px;
+                margin: 0 auto;
                 display: block;
-                border: 1px solid var(--text-color); /* Border for inputs */
-                border-radius: 4px; /* Rounded corners for inputs */
+                border: 1px solid var(--text-color);
+                border-radius: 4px;
             }
 
             .table td img {
                 max-width: 50px;
                 height: auto;
-                border-radius: 4px; /* Rounded corners for images */
+                border-radius: 4px;
             }
 
         .btn-danger {
             background-color: #DC3545;
             border-color: #DC3545;
-            padding: 0.5rem 1rem; /* Padding for remove buttons */
-            font-size: 0.875rem; /* Font size for remove buttons */
-            border-radius: 4px; /* Rounded corners for buttons */
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 4px;
         }
 
             .btn-danger:hover {
-                background-color: #c82333; /* Darker red on hover */
-                border-color: #bd2130; /* Darker red on hover */
-            }
-
-        .btn-logout {
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-
-            .btn-logout:hover {
-                background-color: #c82333; /* Darker red on hover */
-                border-color: #bd2130; /* Darker red on hover */
+                background-color: #c82333;
+                border-color: #bd2130;
             }
 
         .quantity-controls {
@@ -257,11 +247,11 @@
             }
 
             .table-responsive {
-                margin-bottom: 1rem; /* Add margin below the table */
+                margin-bottom: 1rem;
             }
 
             .text-right .btn-success {
-                width: 100%; /* Full width for mobile */
+                width: 100%;
             }
         }
 
@@ -272,7 +262,6 @@
             white-space: normal;
         }
 
-        /* Fix button alignment */
         .btn-danger {
             display: inline-block;
             margin: 0;
@@ -308,7 +297,7 @@
             <div id="cart-total-container">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
             </div>
-            <div class="checkout-button-container text-right">
+            <div class="checkout-button-container">
                 <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
             </div>
         </div>
@@ -357,7 +346,7 @@
             .then(data => {
                 document.getElementById('menu').innerHTML = data;
                 checkLoginState();
-                updateCartCount(); // Ensure this function is called to update the cart count
+                updateCartCount();
             })
             .catch(error => console.error('Error loading menu:', error));
 
@@ -366,7 +355,6 @@
             const isLoggedIn = localStorage.getItem('isLoggedIn');
 
             if (cart.length === 0) {
-                // Do nothing if cart is empty
                 showEmptyCartMessage();
             } else if (!isLoggedIn) {
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
@@ -397,7 +385,6 @@
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
             cartCountElements.forEach(el => el.textContent = itemCount);
 
-            // Show the "Continue Shopping" button and empty cart message if the cart is empty
             if (itemCount === 0) {
                 showEmptyCartMessage();
             }
@@ -409,7 +396,6 @@
             document.querySelector('#additional-text').style.display = 'block';
         }
 
-        // Check if cart is empty on page load
         document.addEventListener('DOMContentLoaded', function () {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             if (cart.length === 0) {
