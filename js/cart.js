@@ -144,9 +144,7 @@ function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
-    renderCartItems();
-    updateCartCount();
-    calculateTotal();
+    updateCart(); // Use updateCart instead of renderCartItems to ensure real-time update
 }
 
 function updateCartCount() {
@@ -154,54 +152,23 @@ function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
     cartCountElements.forEach(el => el.textContent = itemCount);
-}
 
-function renderCartItems() {
-    const cartTable = document.getElementById('cart-table-body');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartContainer = document.querySelector('.cart-container');
-    const cartTableElement = document.getElementById('cart-table');
-    const cartTotalContainer = document.getElementById('cart-total-container');
-    const emptyCartMessage = document.getElementById('empty-cart-message');
-
-    cartTable.innerHTML = '';
-    if (cart.length === 0) {
-        emptyCartMessage.style.display = 'block';
-        cartTableElement.style.display = 'none';
-        document.getElementById('checkout-button').style.display = 'none';
-        cartTotalContainer.style.display = 'none';
-    } else {
-        emptyCartMessage.style.display = 'none';
-        cartTableElement.style.display = 'table';
-        document.getElementById('checkout-button').style.display = 'inline-block';
-        cartTotalContainer.style.display = 'block';
-        cart.forEach((item, index) => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td class="product-details"><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
-                <td>$${item.price.toFixed(2)}</td>
-                <td class="quantity-controls">
-                    <button class="quantity-decrease" data-index="${index}">-</button>
-                    <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1">
-                    <button class="quantity-increase" data-index="${index}">+</button>
-                </td>
-                <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                <td><button class="btn btn-danger remove-item" data-index="${index}"><i class="fas fa-trash"></i></button></td>
-            `;
-            cartTable.appendChild(row);
-        });
+    if (itemCount === 0) {
+        showEmptyCartMessage();
     }
-    calculateTotal();
 }
 
-function calculateTotal() {
-    let total = 0;
+function showEmptyCartMessage() {
+    document.querySelector('.continue-shopping-btn').style.display = 'block';
+    document.querySelector('#empty-cart-message').style.display = 'block';
+    document.querySelector('#additional-text').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.forEach(item => total += item.price * item.quantity);
-    document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    renderCartItems();
-    updateCartCount();
+    if (cart.length === 0) {
+        showEmptyCartMessage();
+    } else {
+        document.getElementById('continue-shopping-btn').style.display = 'none';
+    }
 });
