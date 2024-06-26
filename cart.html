@@ -75,14 +75,14 @@
         }
 
             .empty-cart-message i {
-                font-size: 2rem;
+                font-size: 6rem;
                 display: block;
                 margin-bottom: 10px; /* Add margin to increase gap between icon and text */
-                color: blue; /* Set the color of the cart icon */
+                color: grey; /* Set the color of the cart icon */
             }
 
         .empty-cart-text {
-            color: red; /* Set the color of the empty cart text */
+            color: white; /* Set the color of the empty cart text */
         }
 
         .checkout-button-container {
@@ -98,7 +98,6 @@
 
         .continue-shopping-btn {
             display: none;
-            margin: 20px auto;
             padding: 10px 20px;
             font-size: 1rem;
             color: #ffffff;
@@ -107,6 +106,7 @@
             border-radius: 5px;
             text-decoration: none;
             text-align: center;
+            cursor: pointer;
         }
 
             .continue-shopping-btn:hover {
@@ -121,11 +121,12 @@
     <main class="container mt-5">
         <div class="cart-container box table-responsive">
             <h1>Cart</h1>
+            <hr>
             <p id="empty-cart-message" class="empty-cart-message" style="display: none;">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="empty-cart-text">Your cart is empty.</span>
             </p>
-            <a href="softwares.html" class="continue-shopping-btn">Continue Shopping</a>
+            <button onclick="location.href='softwares.html'" class="continue-shopping-btn">Continue Shopping</button>
             <table id="cart-table" class="table table-dark table-striped">
                 <thead>
                     <tr>
