@@ -33,15 +33,19 @@ body {
     --bg-color: #0B0C10;
     --text-color: #C5C6C7;
     --box-bg-color: #1F2833;
-    --footer-text-color: #ffffff;
+    --footer-bg-color: #0B0C10; /* Footer background color */
+    --footer-text-color: #ffffff; /* Footer text color */
+    --header-bg-color: #0B0C10; /* Header background color */
+    --header-text-color: #ffffff; /* Header text color */
     --bright-yellow: #FFFF00; /* Bright yellow */
 }
 
 
-/* Navbar */
+
+/* Header */
 header, .navbar {
-    background-color: var(--primary-color); /* Teal green background */
-    color: #ffffff;
+    background-color: var(--header-bg-color); /* Header background color */
+    color: var(--header-text-color); /* Header text color */
     padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
     position: fixed;
@@ -297,7 +301,7 @@ h1, h2, h3 {
 }
 
 
-/* Footer styles */
+
 /* Footer styles */
 .footer {
     background: #1F2833; /* Footer background */
