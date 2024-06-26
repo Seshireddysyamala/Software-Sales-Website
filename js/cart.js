@@ -7,20 +7,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartTableElement = document.getElementById('cart-table');
     const cartTotalContainer = document.getElementById('cart-total-container');
     const emptyCartMessage = document.getElementById('empty-cart-message');
+    const continueShoppingBtn = document.getElementById('continue-shopping-btn');
+    const additionalText = document.getElementById('additional-text');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const renderCartItems = () => {
         cartTable.innerHTML = '';
         if (cart.length === 0) {
             emptyCartMessage.style.display = 'block';
+            additionalText.style.display = 'block';
             cartTableElement.style.display = 'none';
             checkoutButton.style.display = 'none';
             cartTotalContainer.style.display = 'none';
+            continueShoppingBtn.style.display = 'block';
         } else {
             emptyCartMessage.style.display = 'none';
+            additionalText.style.display = 'none';
             cartTableElement.style.display = 'table';
             checkoutButton.style.display = 'inline-block';
             cartTotalContainer.style.display = 'block';
+            continueShoppingBtn.style.display = 'none';
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
@@ -118,6 +124,17 @@ function checkLoginState() {
 function closeModal() {
     document.getElementById('constructionModal').style.display = 'none';
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('menu.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('menu').innerHTML = data;
+            checkLoginState();
+            updateCartCount();
+        })
+        .catch(error => console.error('Error loading menu:', error));
+});
 
 function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];

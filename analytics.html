@@ -151,6 +151,15 @@
                 checkLoginState();
             })
             .catch(error => console.error('Error loading menu:', error));
+
+    function updateCartCount() {
+    const cartCount = document.getElementById('cart-count');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    cartCount.textContent = itemCount;
+}
+
+document.addEventListener('DOMContentLoaded', checkLoginState);
     </script>
 </body>
 </html>
