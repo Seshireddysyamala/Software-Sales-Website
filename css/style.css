@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     font-family: 'Oxanium', sans-serif; /* Set Oxanium as the default font */
     line-height: 1.6;
-    background-color:#0B0C10;
+    background-color:#0B0C10 !important;
     color: #C5C6C7;
     min-height: 100vh;
     padding-right: 2px; /* Adjust padding to avoid scrollbar overlap */
@@ -30,9 +30,9 @@ body {
 :root {
     --primary-color: #45A29E; /* Teal green */
     --palette-blue: #66FCF1; /* Palette blue */
-    --bg-color: #0B0C10;
+    --bg-color: #0B0C10 !important;
     --text-color: #C5C6C7;
-    --box-bg-color: #0B0C10;
+    --box-bg-color: #0B0C10 !important;
     --footer-text-color: #ffffff;
     --bright-yellow: #FFFF00; /* Bright yellow */
 }
