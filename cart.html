@@ -109,6 +109,7 @@
             background-color: #1F2833;
             border: 1px solid #66FCF1;
             border-radius: 5px;
+            overflow-x: auto; /* Ensure horizontal overflow */
         }
 
         .continue-shopping-btn {
@@ -144,6 +145,17 @@
 
         .footer {
             margin-top: 20px; /* Add margin to the top */
+        }
+
+        /* Ensure table is responsive */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            min-width: 600px; /* Ensure minimum width for table */
         }
     </style>
 </head>
