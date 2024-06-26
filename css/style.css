@@ -62,7 +62,10 @@ header, .navbar {
     border-bottom: 0.5px solid #c5c6c7; /* Grey line at the bottom */
 }
 
-
+/* Exclude border-bottom on profile and cart pages */
+body:not(.profile-page):not(.cart-page) .navbar {
+    border-bottom: 0.5px solid #c5c6c7; /* Grey line at the bottom */
+}
 
 .navbar-brand,
 .navbar-brand:hover,
