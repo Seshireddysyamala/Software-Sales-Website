@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartTable = document.getElementById('cart-table-body');
-    const cartCountElements = document.querySelectorAll('#cart-count'); // Updated to match multiple elements
+    const cartCountElements = document.querySelectorAll('#cart-count');
     const checkoutButton = document.getElementById('checkout-button');
     const cartTotalContainer = document.getElementById('cart-total-container');
     const emptyCartMessage = document.getElementById('empty-cart-message');
@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><img src="${item.image}" alt="${item.name}" style="max-width: 50px;"></td>
-                    <td>${item.name}</td>
+                    <td class="product-info">
+                        <img src="${item.image}" alt="${item.name}">
+                        <span>${item.name}</span>
+                    </td>
                     <td>$${item.price.toFixed(2)}</td>
                     <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
                     <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cartCountElements = document.querySelectorAll('#cart-count');
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-        cartCountElements.forEach(el => el.textContent = itemCount); // Updated to handle multiple elements
+        cartCountElements.forEach(el => el.textContent = itemCount);
     };
 
     const calculateTotal = () => {
@@ -148,10 +150,10 @@ function removeItemFromCart(index) {
 }
 
 function updateCartCount() {
-    const cartCountElements = document.querySelectorAll('#cart-count'); // Updated to match multiple elements
+    const cartCountElements = document.querySelectorAll('#cart-count');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCountElements.forEach(el => el.textContent = itemCount); // Updated to handle multiple elements
+    cartCountElements.forEach(el => el.textContent = itemCount);
 }
 
 function renderCartItems() {
@@ -181,8 +183,10 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><img src="${item.image}" alt="${item.name}" style="max-width: 50px;"></td>
-                <td>${item.name}</td>
+                <td class="product-info">
+                    <img src="${item.image}" alt="${item.name}">
+                    <span>${item.name}</span>
+                </td>
                 <td>$${item.price.toFixed(2)}</td>
                 <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
                 <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
