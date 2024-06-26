@@ -53,10 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateCartCount = () => {
         const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
         cartCountElements.forEach(el => el.textContent = itemCount);
-
-        if (itemCount === 0) {
-            showEmptyCartMessage();
-        }
     };
 
     const calculateTotal = () => {
@@ -81,11 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (confirmation) {
                 removeItemFromCart(parseInt(index));
             }
-        }
-    });
-
-    cartTable.addEventListener('click', (event) => {
-        if (event.target.classList.contains('quantity-increase')) {
+        } else if (event.target.classList.contains('quantity-increase')) {
             const index = parseInt(event.target.getAttribute('data-index'), 10);
             cart[index].quantity++;
             updateCart();
