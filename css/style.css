@@ -476,6 +476,27 @@ h1, h2, h3 {
     border-color: #dc3545;
 }
 
+/* Empty Cart Message Styles */
+.empty-cart-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+    .empty-cart-message .empty-cart-icon {
+        font-size: 4rem; /* Adjust the size as needed */
+        color: red; /* Red color for the icon */
+        margin-bottom: 1rem; /* Space between icon and text */
+    }
+
+    .empty-cart-message #empty-cart-message-text {
+        font-size: 1.5rem; /* Adjust the font size as needed */
+        color: #fff; /* Bright white color for the text */
+        font-weight: bold; /* Bold text */
+    }
+
 /* Responsive Cart Section */
 @media (max-width: 768px) {
     .cart-container {
@@ -504,6 +525,7 @@ h1, h2, h3 {
     display: inline-block;
     margin: 0;
 }
+
 
 
 
