@@ -189,3 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCartItems();
     updateCartCount();
 });
+
+// Listen for storage changes and update cart count
+window.addEventListener('storage', () => {
+    updateCartCount();
+});
