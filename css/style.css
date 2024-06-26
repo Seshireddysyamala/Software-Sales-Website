@@ -466,14 +466,8 @@ h1, h2, h3 {
         margin: 1rem auto;
     }
 
-        .cart-container .table {
-            display: block;
-            overflow-x: auto;
-        }
-
-    .table th, .table td {
-        white-space: nowrap;
-        padding: 0.5rem;
+    .table-responsive {
+        margin-bottom: 1rem; /* Add margin below the table */
     }
 
     .text-right .btn-success {
