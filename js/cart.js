@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartTable = document.getElementById('cart-table-body');
-    const cartCountElements = document.querySelectorAll('#cart-count');
+    const cartCountElements = document.querySelectorAll('#cart-count'); // Updated to match multiple elements
     const checkoutButton = document.getElementById('checkout-button');
     const cartTotalContainer = document.getElementById('cart-total-container');
     const emptyCartMessage = document.getElementById('empty-cart-message');
@@ -27,10 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td class="product-info">
-                        <img src="${item.image}" alt="${item.name}">
-                        <span>${item.name}</span>
-                    </td>
+                    <td>${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
                     <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
                     <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
@@ -52,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cartCountElements = document.querySelectorAll('#cart-count');
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-        cartCountElements.forEach(el => el.textContent = itemCount);
+        cartCountElements.forEach(el => el.textContent = itemCount); // Updated to handle multiple elements
     };
 
     const calculateTotal = () => {
@@ -102,18 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     calculateTotal();
 });
 
-function addToCart(name, price, image) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existingItemIndex = cart.findIndex(item => item.name === name);
-    if (existingItemIndex > -1) {
-        cart[existingItemIndex].quantity += 1;
-    } else {
-        cart.push({ name, price, image, quantity: 1 });
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-}
-
 function proceedToCheckout() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -150,10 +135,10 @@ function removeItemFromCart(index) {
 }
 
 function updateCartCount() {
-    const cartCountElements = document.querySelectorAll('#cart-count');
+    const cartCountElements = document.querySelectorAll('#cart-count'); // Updated to match multiple elements
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCountElements.forEach(el => el.textContent = itemCount);
+    cartCountElements.forEach(el => el.textContent = itemCount); // Updated to handle multiple elements
 }
 
 function renderCartItems() {
@@ -183,10 +168,7 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td class="product-info">
-                    <img src="${item.image}" alt="${item.name}">
-                    <span>${item.name}</span>
-                </td>
+                <td>${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
                 <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
                 <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
