@@ -46,12 +46,6 @@
                 .fade-in.active.delay-3 {
                     transition-delay: 1.5s;
                 }
-        .green-message {
-            color: #28a745; /* Bootstrap green color */
-            font-weight: bold;
-            text-align: center; /* Center align the text if needed */
-            margin-top: 20px; /* Add some margin if needed */
-        }
     </style>
 </head>
 <body>
@@ -170,16 +164,43 @@
             })
             .catch(error => console.error('Error loading menu:', error));
 
-
         // Handle form submission
-
         document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
-            var messageElement = document.getElementById('form-message');
-            messageElement.innerText = 'Thank you for contacting us. We will get back to you soon!';
-            messageElement.classList.add('green-message');
-            // You can also add AJAX form submission logic here if needed
+            document.getElementById('form-message').innerText = 'Thank you for your message. We will get back to you shortly.';
+            document.getElementById('form-message').style.color = 'green';
+            document.getElementById('contact-form').reset();
         });
+
+        // Smooth scrolling effect
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        function checkLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('profile-link').style.display = 'block';
+            } else {
+                document.getElementById('login-link').style.display = 'block';
+                document.getElementById('profile-link').style.display = 'none';
+            }
+        }
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = itemCount;
+        }
+
+        document.addEventListener('DOMContentLoaded', checkLoginState);
 
 
         document.addEventListener('DOMContentLoaded', function () {
