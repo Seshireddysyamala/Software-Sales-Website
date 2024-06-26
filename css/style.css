@@ -475,16 +475,9 @@ h1, h2, h3 {
         padding: 0.5rem;
     }
 
-    .text-right {
-        text-align: center;
-        margin-top: 1rem;
+    .text-right .btn-success {
+        width: 100%; /* Full width for mobile */
     }
-
-        .text-right .btn-success {
-            display: block;
-            width: 100%; /* Full width for mobile */
-            margin: 0.5rem 0;
-        }
 }
 
 /* Adjust table cell alignment and wrapping */
