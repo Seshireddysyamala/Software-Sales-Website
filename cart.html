@@ -81,37 +81,15 @@
             align-items: center;
             margin-top: 20px;
         }
-        .empty-cart-message {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-            .empty-cart-message .fa-cart-shopping {
-                font-size: 4rem;
-                color: red;
-                margin-bottom: 1rem;
-            }
-
-            .empty-cart-message p {
-                font-size: 1.5rem;
-                font-weight: bold;
-                color: #fff;
-            }
     </style>
 </head>
 <body class="cart-page">
     <div id="menu"></div>
     <div class="navbar-line"></div>
-    <main class="container">
+    <main class="container mt-5">
         <div class="cart-container box table-responsive">
             <h1>Cart</h1>
-            <div id="empty-cart-container" class="empty-cart-message" style="display: none;">
-                 <i class="fas fa-shopping-cart"></i>
-                <p id="empty-cart-message">Your cart is empty.</p>
-            </div>
+            <p id="empty-cart-message" class="empty-cart-message" style="display: none;">Your cart is empty.</p>
             <table id="cart-table" class="table table-dark table-striped">
                 <thead>
                     <tr>
@@ -217,24 +195,6 @@
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
             cartCountElements.forEach(el => el.textContent = itemCount);
         }
-        document.addEventListener('DOMContentLoaded', function () {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const emptyCartContainer = document.getElementById('empty-cart-container');
-            const cartTableBody = document.getElementById('cart-table-body');
-            const cartTotalContainer = document.getElementById('cart-total-container');
-            const checkoutButton = document.getElementById('checkout-button');
-
-            if (cart.length === 0) {
-                emptyCartContainer.style.display = 'block';
-                cartTotalContainer.style.display = 'none';
-                checkoutButton.style.display = 'none';
-            } else {
-                emptyCartContainer.style.display = 'none';
-                cartTotalContainer.style.display = 'block';
-                checkoutButton.style.display = 'block';
-                // Add code here to populate the cart table with items if needed
-            }
-        });
     </script>
 </body>
 </html>
