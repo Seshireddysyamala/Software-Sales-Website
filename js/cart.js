@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartTable = document.getElementById('cart-table-body');
     const cartCountElements = document.querySelectorAll('#cart-count');
     const checkoutButton = document.getElementById('checkout-button');
-    const errorMessage = document.getElementById('error-message');
-    const cartContainer = document.querySelector('.cart-container');
     const cartTableElement = document.getElementById('cart-table');
     const cartTotalContainer = document.getElementById('cart-total-container');
     const emptyCartMessage = document.getElementById('empty-cart-message');
@@ -30,11 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${item.name}</td>
+                    <td class="product-details"><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
-                    <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                    <td class="quantity-controls">
+                        <button class="quantity-decrease" data-index="${index}">-</button>
+                        <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1">
+                        <button class="quantity-increase" data-index="${index}">+</button>
+                    </td>
                     <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                    <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                    <td><button class="btn btn-danger remove-item" data-index="${index}"><i class="fas fa-trash"></i></button></td>
                 `;
                 cartTable.appendChild(row);
             });
@@ -60,11 +62,25 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     cartTable.addEventListener('click', (event) => {
-        if (event.target.classList.contains('remove-item')) {
-            const index = event.target.getAttribute('data-index');
+        if (event.target.classList.contains('remove-item') || event.target.parentNode.classList.contains('remove-item')) {
+            const index = event.target.closest('button').getAttribute('data-index');
             const confirmation = confirm("Are you sure you want to remove this item from the cart?");
             if (confirmation) {
                 removeItemFromCart(parseInt(index));
+            }
+        }
+    });
+
+    cartTable.addEventListener('click', (event) => {
+        if (event.target.classList.contains('quantity-increase')) {
+            const index = parseInt(event.target.getAttribute('data-index'), 10);
+            cart[index].quantity++;
+            updateCart();
+        } else if (event.target.classList.contains('quantity-decrease')) {
+            const index = parseInt(event.target.getAttribute('data-index'), 10);
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+                updateCart();
             }
         }
     });
@@ -128,9 +144,7 @@ function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
-    renderCartItems();
-    updateCartCount();
-    calculateTotal();
+    updateCart();
 }
 
 function updateCartCount() {
@@ -139,7 +153,6 @@ function updateCartCount() {
     const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
     cartCountElements.forEach(el => el.textContent = itemCount);
 
-    // Show the "Continue Shopping" button and empty cart message if the cart is empty
     if (itemCount === 0) {
         showEmptyCartMessage();
     }
@@ -148,7 +161,6 @@ function updateCartCount() {
 function renderCartItems() {
     const cartTable = document.getElementById('cart-table-body');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartContainer = document.querySelector('.cart-container');
     const cartTableElement = document.getElementById('cart-table');
     const cartTotalContainer = document.getElementById('cart-total-container');
     const emptyCartMessage = document.getElementById('empty-cart-message');
@@ -167,11 +179,15 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${item.name}</td>
+                <td class="product-details"><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
-                <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                <td class="quantity-controls">
+                    <button class="quantity-decrease" data-index="${index}">-</button>
+                    <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1">
+                    <button class="quantity-increase" data-index="${index}">+</button>
+                </td>
                 <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                <td><button class="btn btn-danger remove-item" data-index="${index}"><i class="fas fa-trash"></i></button></td>
             `;
             cartTable.appendChild(row);
         });
