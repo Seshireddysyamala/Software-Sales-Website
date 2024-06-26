@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
+                    <td><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px;"></td>
                     <td>${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
                     <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
@@ -118,17 +119,6 @@ function closeModal() {
     document.getElementById('constructionModal').style.display = 'none';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('menu.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('menu').innerHTML = data;
-            checkLoginState();
-            updateCartCount();
-        })
-        .catch(error => console.error('Error loading menu:', error));
-});
-
 function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
@@ -167,6 +157,7 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
+                <td><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px;"></td>
                 <td>${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
                 <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
