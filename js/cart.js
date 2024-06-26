@@ -53,25 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateCartCount = () => {
         const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
         cartCountElements.forEach(el => el.textContent = itemCount);
-
-        if (itemCount === 0) {
-            showEmptyCartMessage();
-        }
     };
 
     const calculateTotal = () => {
         let total = 0;
         cart.forEach(item => total += item.price * item.quantity);
         document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-    };
-
-    const showEmptyCartMessage = () => {
-        emptyCartMessage.style.display = 'block';
-        additionalText.style.display = 'block';
-        cartTableElement.style.display = 'none';
-        checkoutButton.style.display = 'none';
-        cartTotalContainer.style.display = 'none';
-        continueShoppingBtn.style.display = 'block';
     };
 
     cartTable.addEventListener('click', (event) => {
@@ -81,7 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (confirmation) {
                 removeItemFromCart(parseInt(index));
             }
-        } else if (event.target.classList.contains('quantity-increase')) {
+        }
+    });
+
+    cartTable.addEventListener('click', (event) => {
+        if (event.target.classList.contains('quantity-increase')) {
             const index = parseInt(event.target.getAttribute('data-index'), 10);
             cart[index].quantity++;
             updateCart();
@@ -161,10 +152,6 @@ function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
     cartCountElements.forEach(el => el.textContent = itemCount);
-
-    if (itemCount === 0) {
-        showEmptyCartMessage();
-    }
 }
 
 function renderCartItems() {
