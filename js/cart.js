@@ -61,15 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
     };
 
-    const showEmptyCartMessage = () => {
-        emptyCartMessage.style.display = 'block';
-        additionalText.style.display = 'block';
-        cartTableElement.style.display = 'none';
-        checkoutButton.style.display = 'none';
-        cartTotalContainer.style.display = 'none';
-        continueShoppingBtn.style.display = 'block';
-    };
-
     cartTable.addEventListener('click', (event) => {
         if (event.target.classList.contains('remove-item') || event.target.parentNode.classList.contains('remove-item')) {
             const index = event.target.closest('button').getAttribute('data-index');
@@ -77,7 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (confirmation) {
                 removeItemFromCart(parseInt(index));
             }
-        } else if (event.target.classList.contains('quantity-increase')) {
+        }
+    });
+
+    cartTable.addEventListener('click', (event) => {
+        if (event.target.classList.contains('quantity-increase')) {
             const index = parseInt(event.target.getAttribute('data-index'), 10);
             cart[index].quantity++;
             updateCart();
@@ -149,7 +144,9 @@ function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
-    updateCart();
+    renderCartItems(); // Update the UI immediately after removal
+    updateCartCount(); // Update the cart count immediately
+    calculateTotal(); // Recalculate the total immediately
 }
 
 function updateCartCount() {

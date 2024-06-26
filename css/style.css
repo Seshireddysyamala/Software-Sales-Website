@@ -526,7 +526,7 @@ h1, h2, h3 {
 
     .quantity-controls input[type="number"] {
         text-align: center;
-        width: 50px;
+        width: 60px;
         border: none;
         margin: 0 0.5rem;
     }
@@ -540,6 +540,12 @@ h1, h2, h3 {
 
     .product-details img {
         flex-shrink: 0;
+        margin-right: 10px; /* Add margin to right of image */
+    }
+
+    .product-details span {
+        display: flex;
+        align-items: center;
     }
 
 /* Responsive Cart Section */
@@ -570,9 +576,6 @@ h1, h2, h3 {
     display: inline-block;
     margin: 0;
 }
-
-
-
 
 /* Analytics Section Styles */
 .analytics-box {
