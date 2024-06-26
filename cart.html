@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -74,11 +74,17 @@
             font-size: 1.5em;
             margin-top: 20px;
         }
+
+        .checkout-button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body class="cart-page">
     <div id="menu"></div>
-    <!-- Add this line below the navbar in your HTML -->
     <div class="navbar-line"></div>
     <main class="container mt-5">
         <div class="cart-container box">
@@ -98,8 +104,10 @@
                     <!-- Cart items will be dynamically inserted here -->
                 </tbody>
             </table>
-            <div id="cart-total-container" class="text-right">
+            <div id="cart-total-container">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
+            </div>
+            <div class="checkout-button-container">
                 <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
             </div>
         </div>
