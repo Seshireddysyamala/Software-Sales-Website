@@ -213,6 +213,32 @@
                 border-color: #bd2130; /* Darker red on hover */
             }
 
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .quantity-controls button {
+                background-color: #66FCF1;
+                color: #1F2833;
+                border: none;
+                padding: 0.5rem;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .quantity-controls button:hover {
+                    background-color: #45A29E;
+                }
+
+            .quantity-controls input[type="number"] {
+                text-align: center;
+                width: 50px;
+                border: none;
+                margin: 0 0.5rem;
+            }
+
         /* Responsive Cart Section */
         @media (max-width: 768px) {
             .cart-container {
@@ -259,7 +285,6 @@
                 <thead>
                     <tr>
                         <th>Product</th>
-                        <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Total</th>

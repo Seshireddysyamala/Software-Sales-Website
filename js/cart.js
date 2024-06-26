@@ -30,12 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px;"></td>
-                    <td>${item.name}</td>
+                    <td><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
-                    <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                    <td class="quantity-controls">
+                        <button class="quantity-decrease" data-index="${index}">-</button>
+                        <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1">
+                        <button class="quantity-increase" data-index="${index}">+</button>
+                    </td>
                     <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                    <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                    <td><button class="btn btn-danger remove-item" data-index="${index}"><i class="fas fa-trash"></i></button></td>
                 `;
                 cartTable.appendChild(row);
             });
@@ -70,6 +73,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    cartTable.addEventListener('click', (event) => {
+        if (event.target.classList.contains('quantity-increase')) {
+            const index = parseInt(event.target.getAttribute('data-index'), 10);
+            cart[index].quantity++;
+            updateCart();
+        } else if (event.target.classList.contains('quantity-decrease')) {
+            const index = parseInt(event.target.getAttribute('data-index'), 10);
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+                updateCart();
+            }
+        }
+    });
+
     cartTable.addEventListener('input', (event) => {
         if (event.target.classList.contains('item-quantity')) {
             const index = parseInt(event.target.getAttribute('data-index'), 10);
@@ -91,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error loading menu:', error));
 
+    renderCartItems();
     renderCartItems();
     updateCartCount();
     calculateTotal();
@@ -174,12 +192,15 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px;"></td>
-                <td>${item.name}</td>
+                <td><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
-                <td><input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1"></td>
+                <td class="quantity-controls">
+                    <button class="quantity-decrease" data-index="${index}">-</button>
+                    <input type="number" class="form-control item-quantity" data-index="${index}" value="${item.quantity}" min="1">
+                    <button class="quantity-increase" data-index="${index}">+</button>
+                </td>
                 <td class="item-total">$${(item.price * item.quantity).toFixed(2)}</td>
-                <td><button class="btn btn-danger remove-item" data-index="${index}">Remove</button></td>
+                <td><button class="btn btn-danger remove-item" data-index="${index}"><i class="fas fa-trash"></i></button></td>
             `;
             cartTable.appendChild(row);
         });
