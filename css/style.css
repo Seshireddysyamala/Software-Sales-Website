@@ -298,6 +298,7 @@ h1, h2, h3 {
 
 
 /* Footer styles */
+/* Footer styles */
 .footer {
     background: #1F2833; /* Footer background */
     color: #ffffff; /* Bright white text */
@@ -315,16 +316,17 @@ h1, h2, h3 {
     }
 
     .footer .social-icons a {
-        color: #ffffff;
+        color: #ffffff; /* Default color */
         font-size: 1.5rem;
         margin-right: 10px;
-        transition: color 0.3s;
+        transition: color 0.3s; /* Smooth transition */
         text-decoration: none; /* Ensure no underline */
     }
 
         .footer .social-icons a:hover {
             color: #66FCF1; /* Hover color */
         }
+
 
 
 /* Responsive Navbar */
