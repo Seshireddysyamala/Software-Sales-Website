@@ -97,7 +97,7 @@
         }
 
         .continue-shopping-btn {
-            display: block;
+            display: none;
             margin: 20px auto;
             padding: 10px 20px;
             font-size: 1rem;
@@ -125,7 +125,7 @@
                 <i class="fas fa-shopping-cart"></i>
                 <span class="empty-cart-text">Your cart is empty.</span>
             </p>
-            <a href="softwares.html" class="continue-shopping-btn" style="display: none;">Continue Shopping</a>
+            <a href="softwares.html" class="continue-shopping-btn">Continue Shopping</a>
             <table id="cart-table" class="table table-dark table-striped">
                 <thead>
                     <tr>
@@ -202,8 +202,7 @@
 
             if (cart.length === 0) {
                 // Do nothing if cart is empty
-                document.querySelector('.continue-shopping-btn').style.display = 'block';
-                document.querySelector('#empty-cart-message').style.display = 'block';
+                showEmptyCartMessage();
             } else if (!isLoggedIn) {
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
                 window.location.href = 'login.html';
@@ -232,14 +231,23 @@
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
             cartCountElements.forEach(el => el.textContent = itemCount);
+
+            // Show the "Continue Shopping" button and empty cart message if the cart is empty
+            if (itemCount === 0) {
+                showEmptyCartMessage();
+            }
+        }
+
+        function showEmptyCartMessage() {
+            document.querySelector('.continue-shopping-btn').style.display = 'block';
+            document.querySelector('#empty-cart-message').style.display = 'block';
         }
 
         // Check if cart is empty on page load
         document.addEventListener('DOMContentLoaded', function () {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             if (cart.length === 0) {
-                document.querySelector('.continue-shopping-btn').style.display = 'block';
-                document.querySelector('#empty-cart-message').style.display = 'block';
+                showEmptyCartMessage();
             }
         });
     </script>
