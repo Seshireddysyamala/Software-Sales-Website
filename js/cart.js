@@ -214,3 +214,11 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCartItems();
     updateCartCount();
 });
+function updateCartCount() {
+    const cartCount = document.getElementById('cart-count');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    cartCount.textContent = itemCount;
+}
+
+document.addEventListener('DOMContentLoaded', checkLoginState);
