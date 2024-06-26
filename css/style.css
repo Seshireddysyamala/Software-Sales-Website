@@ -10,9 +10,8 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-y: auto; /* Use browser scrollbar */
-    overflow: hidden; /* Prevent scroll bars */
-}
 
+}
 
 *, *:before, *:after {
     box-sizing: inherit;
