@@ -70,7 +70,7 @@
 
         .empty-cart-message {
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-top: 20px;
         }
 
@@ -88,7 +88,7 @@
 
         .additional-text {
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: #C5C6C7;
             font-family: 'Brush Script MT', cursive; /* Set the font style */
             margin-top: 10px;
@@ -103,12 +103,12 @@
         }
 
         .cart-container {
-            margin-top:25px;
-            margin-bottom: 25px; /* Add margin to the container */
+            margin-top: 10px;
+            margin-bottom: 20px; /* Add margin to the container */
         }
 
         .continue-shopping-btn {
-            display: none;
+            display: none; /* Hide the button by default */
             padding: 10px 20px;
             font-size: 1rem;
             color: #ffffff;
@@ -123,7 +123,7 @@
         }
 
             .continue-shopping-btn:hover {
-                background-color:green;
+                background-color: #66FCF1;
                 color: #0B0C10;
             }
     </style>
@@ -138,8 +138,8 @@
                 <i class="fas fa-shopping-cart"></i>
                 <span class="empty-cart-text">Your cart is empty.</span>
             </p>
-            <p id="additional-text" class="additional-text" style="display: none;">Add something to make me happy :)</p>
-            <button onclick="location.href='softwares.html'" class="continue-shopping-btn">Continue Shopping</button>
+            <p id="additional-text" class="additional-text" style="display: none;">add something to make me happy :)</p>
+            <button onclick="location.href='softwares.html'" class="continue-shopping-btn" id="continue-shopping-btn">Continue Shopping</button>
             <table id="cart-table" class="table table-dark table-striped">
                 <thead>
                     <tr>
@@ -263,6 +263,8 @@
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             if (cart.length === 0) {
                 showEmptyCartMessage();
+            } else {
+                document.getElementById('continue-shopping-btn').style.display = 'none';
             }
         });
     </script>
