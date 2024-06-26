@@ -418,45 +418,54 @@ h1, h2, h3 {
         margin-bottom: 2rem;
     }
 
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
 .table {
     color: var(--text-color);
     width: 100%;
-    table-layout: fixed;
+    table-layout: auto; /* Auto layout for better responsiveness */
 }
 
     .table th, .table td {
         padding: 0.5rem;
-        word-wrap: break-word;
+        text-align: center;
+        vertical-align: middle; /* Vertically center align text */
+        white-space: nowrap; /* Prevent text wrapping */
+        border: 1px solid var(--text-color);
     }
 
-.btn-success {
-    background-color: #45A29E;
-    border-color: #45A29E;
-}
-
-    .btn-success:hover {
-        background-color: #379287; /* Darker teal color on hover */
-        border-color: #379287; /* Darker teal color on hover */
+    .table th {
+        background-color: var(--bg-color);
     }
-
-.btn-danger {
-    background-color: #DC3545;
-    border-color: #DC3545;
-}
 
 .text-right {
     text-align: center;
     margin-top: 2rem;
 }
 
+    .text-right .btn-success {
+        display: block;
+        margin: 0 auto;
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+.btn-success:hover {
+    background-color: #379287; /* Darker teal color on hover */
+    border-color: #379287; /* Darker teal color on hover */
+}
+
+.btn-danger {
+    background-color: #DC3545;
+    border-color: #DC3545;
+}
+
 .btn-logout {
     background-color: #dc3545;
     border-color: #dc3545;
-}
-
-.text-right .btn-success {
-    display: block;
-    margin: 0 auto;
 }
 
 /* Responsive Cart Section */
@@ -474,6 +483,20 @@ h1, h2, h3 {
         width: 100%; /* Full width for mobile */
     }
 }
+
+/* Adjust table cell alignment and wrapping */
+.table th, .table td {
+    vertical-align: middle;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* Fix button alignment */
+.btn-danger {
+    display: inline-block;
+    margin: 0;
+}
+
 
 /* Adjust table cell alignment and wrapping */
 .table th, .table td {
