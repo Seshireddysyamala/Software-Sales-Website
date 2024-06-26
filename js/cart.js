@@ -144,7 +144,9 @@ function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
-    updateCart();
+    renderCartItems();
+    updateCartCount();
+    calculateTotal();
 }
 
 function updateCartCount() {
@@ -157,6 +159,7 @@ function updateCartCount() {
 function renderCartItems() {
     const cartTable = document.getElementById('cart-table-body');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.querySelector('.cart-container');
     const cartTableElement = document.getElementById('cart-table');
     const cartTotalContainer = document.getElementById('cart-total-container');
     const emptyCartMessage = document.getElementById('empty-cart-message');
