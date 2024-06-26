@@ -214,5 +214,4 @@ function calculateTotal() {
 document.addEventListener('DOMContentLoaded', () => {
     renderCartItems();
     updateCartCount();
-    calculateTotal();
 });
