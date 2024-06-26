@@ -44,8 +44,8 @@ body {
 
 /* Header */
 header, .navbar {
-    background-color: var(--header-bg-color); /* Header background color */
-    color: var(--header-text-color); /* Header text color */
+    background-color: #0B0C10 !important; /* Header background color */
+    color: #ffffff; /* Header text color */
     padding: 0.5rem 1rem; /* Adjusted padding for better appearance */
     text-align: center;
     position: fixed;
@@ -304,7 +304,7 @@ h1, h2, h3 {
 
 /* Footer styles */
 .footer {
-    background: #1F2833; /* Footer background */
+    background: #0B0C10 !important; /* Footer background */
     color: #ffffff; /* Bright white text */
     text-align: center;
     padding: 0.5rem 0;
