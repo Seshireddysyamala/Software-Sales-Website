@@ -218,7 +218,7 @@
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
             cartCountElements.forEach(el => el.textContent = itemCount);
         }
-        document.addEventListener('DOMContentLoaded', function () {
+        function updateCartDisplay() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const emptyCartContainer = document.getElementById('empty-cart-container');
             const cartTableBody = document.getElementById('cart-table-body');
@@ -229,13 +229,36 @@
                 emptyCartContainer.style.display = 'block';
                 cartTotalContainer.style.display = 'none';
                 checkoutButton.style.display = 'none';
+                cartTableBody.innerHTML = ''; // Clear cart table body
             } else {
                 emptyCartContainer.style.display = 'none';
                 cartTotalContainer.style.display = 'block';
                 checkoutButton.style.display = 'block';
-                // Add code here to populate the cart table with items if needed
+                // Add code here to populate the cart table with items
+                cartTableBody.innerHTML = ''; // Clear cart table body before populating
+                let total = 0;
+                cart.forEach(item => {
+                    total += item.price * item.quantity;
+                    cartTableBody.innerHTML += `
+                        <tr>
+                            <td>${item.product}</td>
+                            <td>$${item.price.toFixed(2)}</td>
+                            <td>${item.quantity}</td>
+                            <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                            <td><button class="btn btn-danger" onclick="removeFromCart('${item.product}')">Remove</button></td>
+                        </tr>
+                    `;
+                });
+                document.getElementById('cart-total').innerText = `$${total.toFixed(2)}`;
             }
-        });
+        }
+
+        function removeFromCart(product) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.product !== product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
     </script>
 </body>
 </html>
