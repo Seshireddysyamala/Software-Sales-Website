@@ -75,20 +75,22 @@
         }
 
             .empty-cart-message i {
-                font-size: 2rem;
+                font-size: 6rem;
                 display: block;
                 margin-bottom: 10px; /* Add margin to increase gap between icon and text */
-                color: blue; /* Set the color of the cart icon */
+                color: orangered; /* Set the color of the cart icon */
             }
 
         .empty-cart-text {
-            color: red; /* Set the color of the empty cart text */
+            color: white; /* Set the color of the empty cart text */
+            font-weight: bold; /* Make the text bold */
         }
 
         .additional-text {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #C5C6C7;
+            font-family: 'Brush Script MT', cursive; /* Set the font style */
             margin-top: 10px;
             margin-bottom: 20px;
         }
@@ -100,8 +102,8 @@
             margin-top: 20px;
         }
 
-        .cart-container h1 {
-            margin-bottom: 20px; /* Add margin to the heading */
+        .cart-container {
+            margin-bottom: 20px; /* Add margin to the container */
         }
 
         .continue-shopping-btn {
@@ -129,8 +131,8 @@
     <div id="menu"></div>
     <div class="navbar-line"></div>
     <main class="container mt-5">
+        <h1>Cart</h1>
         <div class="cart-container box table-responsive">
-            <h1>Cart</h1>
             <p id="empty-cart-message" class="empty-cart-message" style="display: none;">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="empty-cart-text">Your cart is empty.</span>
