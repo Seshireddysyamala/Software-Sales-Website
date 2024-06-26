@@ -67,15 +67,24 @@
             position: relative;
             text-align: center;
         }
+
+        .empty-cart-message {
+            color: #C5C6C7;
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body class="cart-page">
     <div id="menu"></div>
+    <!-- Add this line below the navbar in your HTML -->
     <div class="navbar-line"></div>
     <main class="container mt-5">
         <div class="cart-container box">
             <h1>Your Cart</h1>
-            <table class="table table-dark table-striped">
+            <p id="empty-cart-message" class="empty-cart-message" style="display: none;">Your cart is empty.</p>
+            <table id="cart-table" class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -89,10 +98,9 @@
                     <!-- Cart items will be dynamically inserted here -->
                 </tbody>
             </table>
-            <div class="text-right cart-total-container">
+            <div id="cart-total-container" class="text-right">
                 <h3>Total: <span id="cart-total">$0.00</span></h3>
                 <button id="checkout-button" class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
-                <p id="error-message" class="error-message" style="display: none;">No items in cart. Please add items before proceeding to checkout.</p>
             </div>
         </div>
     </main>
@@ -121,6 +129,7 @@
         </div>
     </footer>
 
+    <!-- The Modal -->
     <div id="constructionModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -146,22 +155,13 @@
         function proceedToCheckout() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const isLoggedIn = localStorage.getItem('isLoggedIn');
-            const errorMessage = document.getElementById('error-message');
-
-            // Reset the error message display and text
-            errorMessage.style.display = 'none';
-            errorMessage.textContent = '';
 
             if (cart.length === 0) {
-                // Condition 1: No items in cart
-                errorMessage.textContent = 'Your cart is empty.';
-                errorMessage.style.display = 'block';
+                // Do nothing if cart is empty
             } else if (!isLoggedIn) {
-                // Condition 2: User is not logged in
                 localStorage.setItem('redirectAfterLogin', 'cart.html');
                 window.location.href = 'login.html';
             } else {
-                // Condition 3: User is logged in and there are items in the cart
                 document.getElementById('constructionModal').style.display = 'block';
             }
         }
@@ -182,10 +182,10 @@
         }
 
         function updateCartCount() {
-            const cartCount = document.getElementById('cart-count');
+            const cartCountElements = document.querySelectorAll('#cart-count');
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = itemCount;
+            cartCountElements.forEach(el => el.textContent = itemCount);
         }
     </script>
 </body>

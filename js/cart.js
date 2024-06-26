@@ -4,16 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkoutButton = document.getElementById('checkout-button');
     const errorMessage = document.getElementById('error-message');
     const cartContainer = document.querySelector('.cart-container');
-    const cartTotalContainer = document.querySelector('.cart-total-container');
+    const cartTableElement = document.getElementById('cart-table');
+    const cartTotalContainer = document.getElementById('cart-total-container');
+    const emptyCartMessage = document.getElementById('empty-cart-message');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const renderCartItems = () => {
         cartTable.innerHTML = '';
         if (cart.length === 0) {
-            cartContainer.innerHTML = '<p class="text-center">Your cart is empty</p>';
+            emptyCartMessage.style.display = 'block';
+            cartTableElement.style.display = 'none';
             checkoutButton.style.display = 'none';
             cartTotalContainer.style.display = 'none';
         } else {
+            emptyCartMessage.style.display = 'none';
+            cartTableElement.style.display = 'table';
             checkoutButton.style.display = 'inline-block';
             cartTotalContainer.style.display = 'block';
             cart.forEach((item, index) => {
@@ -87,14 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function proceedToCheckout() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const errorMessage = document.getElementById('error-message');
-
-    errorMessage.style.display = 'none';
-    errorMessage.textContent = '';
 
     if (cart.length === 0) {
-        errorMessage.textContent = 'Your cart is empty.';
-        errorMessage.style.display = 'block';
+        // Do nothing if cart is empty
     } else if (!isLoggedIn) {
         localStorage.setItem('redirectAfterLogin', 'cart.html');
         window.location.href = 'login.html';
@@ -149,14 +149,19 @@ function renderCartItems() {
     const cartTable = document.getElementById('cart-table-body');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartContainer = document.querySelector('.cart-container');
-    const cartTotalContainer = document.querySelector('.cart-total-container');
+    const cartTableElement = document.getElementById('cart-table');
+    const cartTotalContainer = document.getElementById('cart-total-container');
+    const emptyCartMessage = document.getElementById('empty-cart-message');
 
     cartTable.innerHTML = '';
     if (cart.length === 0) {
-        cartContainer.innerHTML = '<p class="text-center">Your cart is empty</p>';
+        emptyCartMessage.style.display = 'block';
+        cartTableElement.style.display = 'none';
         document.getElementById('checkout-button').style.display = 'none';
         cartTotalContainer.style.display = 'none';
     } else {
+        emptyCartMessage.style.display = 'none';
+        cartTableElement.style.display = 'table';
         document.getElementById('checkout-button').style.display = 'inline-block';
         cartTotalContainer.style.display = 'block';
         cart.forEach((item, index) => {
