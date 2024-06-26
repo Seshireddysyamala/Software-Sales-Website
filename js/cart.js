@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartTable = document.getElementById('cart-table-body');
     const cartCountElements = document.querySelectorAll('#cart-count');
     const checkoutButton = document.getElementById('checkout-button');
-    const errorMessage = document.getElementById('error-message');
-    const cartContainer = document.querySelector('.cart-container');
     const cartTableElement = document.getElementById('cart-table');
     const cartTotalContainer = document.getElementById('cart-total-container');
     const emptyCartMessage = document.getElementById('empty-cart-message');
@@ -30,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
+                    <td class="product-details"><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
                     <td class="quantity-controls">
                         <button class="quantity-decrease" data-index="${index}">-</button>
@@ -64,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     cartTable.addEventListener('click', (event) => {
-        if (event.target.classList.contains('remove-item')) {
-            const index = event.target.getAttribute('data-index');
+        if (event.target.classList.contains('remove-item') || event.target.parentNode.classList.contains('remove-item')) {
+            const index = event.target.closest('button').getAttribute('data-index');
             const confirmation = confirm("Are you sure you want to remove this item from the cart?");
             if (confirmation) {
                 removeItemFromCart(parseInt(index));
@@ -108,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error loading menu:', error));
 
-    renderCartItems();
     renderCartItems();
     updateCartCount();
     calculateTotal();
@@ -192,7 +189,7 @@ function renderCartItems() {
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
+                <td class="product-details"><img src="${item.imageUrl}" alt="${item.name}" style="max-width: 50px; margin-right: 10px;">${item.name}</td>
                 <td>$${item.price.toFixed(2)}</td>
                 <td class="quantity-controls">
                     <button class="quantity-decrease" data-index="${index}">-</button>
