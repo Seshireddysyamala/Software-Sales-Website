@@ -216,4 +216,3 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCartItems();
     updateCartCount();
 });
-ECHO is on.
