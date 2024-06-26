@@ -2,17 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartTable = document.getElementById('cart-table-body');
     const cartCountElements = document.querySelectorAll('#cart-count');
     const checkoutButton = document.getElementById('checkout-button');
-    const emptyCartMessage = document.getElementById('empty-cart-message');
+    const errorMessage = document.getElementById('error-message');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const renderCartItems = () => {
         cartTable.innerHTML = '';
         if (cart.length === 0) {
-            emptyCartMessage.style.display = 'block';
+            cartTable.innerHTML = '<tr><td colspan="5" class="text-center">Your cart is empty</td></tr>';
             checkoutButton.style.display = 'none';
         } else {
-            emptyCartMessage.style.display = 'none';
-            checkoutButton.style.display = 'block';
+            checkoutButton.style.display = 'inline-block';
             cart.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
@@ -64,17 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('checkout-button').addEventListener('click', function (event) {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-
-        if (cart.length === 0) {
-            // Do nothing if cart is empty
-        } else if (!isLoggedIn) {
-            localStorage.setItem('redirectAfterLogin', 'cart.html');
-            window.location.href = 'login.html';
-        } else {
-            document.getElementById('constructionModal').style.display = 'block';
-        }
+        proceedToCheckout();
     });
 
     fetch('menu.html')
@@ -91,6 +80,25 @@ document.addEventListener('DOMContentLoaded', () => {
     calculateTotal();
 });
 
+function proceedToCheckout() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const errorMessage = document.getElementById('error-message');
+
+    errorMessage.style.display = 'none';
+    errorMessage.textContent = '';
+
+    if (cart.length === 0) {
+        errorMessage.textContent = 'Your cart is empty.';
+        errorMessage.style.display = 'block';
+    } else if (!isLoggedIn) {
+        localStorage.setItem('redirectAfterLogin', 'cart.html');
+        window.location.href = 'login.html';
+    } else {
+        document.getElementById('constructionModal').style.display = 'block';
+    }
+}
+
 function checkLoginState() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (isLoggedIn) {
@@ -102,14 +110,20 @@ function checkLoginState() {
     }
 }
 
-function logout() {
-    localStorage.removeItem('isLoggedIn');
-    window.location.href = 'index.html';
-}
-
 function closeModal() {
     document.getElementById('constructionModal').style.display = 'none';
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('menu.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('menu').innerHTML = data;
+            checkLoginState();
+            updateCartCount();
+        })
+        .catch(error => console.error('Error loading menu:', error));
+});
 
 function removeItemFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -130,16 +144,12 @@ function updateCartCount() {
 function renderCartItems() {
     const cartTable = document.getElementById('cart-table-body');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const emptyCartMessage = document.getElementById('empty-cart-message');
-    const checkoutButton = document.getElementById('checkout-button');
-
     cartTable.innerHTML = '';
     if (cart.length === 0) {
-        emptyCartMessage.style.display = 'block';
-        checkoutButton.style.display = 'none';
+        cartTable.innerHTML = '<tr><td colspan="5" class="text-center">Your cart is empty</td></tr>';
+        document.getElementById('checkout-button').style.display = 'none';
     } else {
-        emptyCartMessage.style.display = 'none';
-        checkoutButton.style.display = 'block';
+        document.getElementById('checkout-button').style.display = 'inline-block';
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
