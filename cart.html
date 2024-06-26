@@ -218,6 +218,10 @@
             const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
             cartCountElements.forEach(el => el.textContent = itemCount);
         }
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartDisplay();
+        });
+
         function updateCartDisplay() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const emptyCartContainer = document.getElementById('empty-cart-container');
@@ -234,7 +238,7 @@
                 emptyCartContainer.style.display = 'none';
                 cartTotalContainer.style.display = 'block';
                 checkoutButton.style.display = 'block';
-                // Add code here to populate the cart table with items
+                // Populate the cart table with items
                 cartTableBody.innerHTML = ''; // Clear cart table body before populating
                 let total = 0;
                 cart.forEach(item => {
@@ -259,6 +263,7 @@
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartDisplay();
         }
+
     </script>
 </body>
 </html>
